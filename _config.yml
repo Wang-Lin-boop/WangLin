@@ -11,9 +11,9 @@ title                    : "Lin Wang (王林)"
 title_separator          : "Ph.D. Student"
 name                     : &name "Lin Wang"
 description              : &description "A fishermen wandering in the beach of medicinal chemistry."
-url                      : https://WangLin.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://wang-lin-boop.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "Wang-Lin-boop/WangLin.github.io"
+repository               : "Wang-Lin-boop/wang-lin-boop.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
