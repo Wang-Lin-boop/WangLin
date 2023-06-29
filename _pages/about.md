@@ -19,7 +19,7 @@ Representative Work
 =====
 * [**PPI-Miner**](https://pubs.acs.org/doi/full/10.1021/acs.jcim.2c01033): a motif-driven PPI identification method.
 * [**CRBN-SubsLib**](https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib):The frist potential substrates database of CRBN, serving the rational design of the molecular glue.
-* Discovery of SARS-CoV-2 entry disruptors by targeting the spike protein. \[[JMC](https://pubs.acs.org/doi/full/10.1021/acs.jmedchem.1c00320)\] \[[APS](https://www.nature.com/articles/s41401-021-00735-z)\]
+* Discovery of **PPI disruptors** by targeting the SARS-CoV-2 spike protein. \[[JMC](https://pubs.acs.org/doi/full/10.1021/acs.jmedchem.1c00320)\] \[[APS](https://www.nature.com/articles/s41401-021-00735-z)\]
 
 News
 =====
