@@ -16,9 +16,9 @@ Education
 
 Academic Posters and Talks
 ======
-  <ul>{% for post in site.talks %}
+{% for post in site.talks %}
     {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
+  {% endfor %}
 
 Service and leadership
 ======
@@ -27,7 +27,7 @@ Service and leadership
 
 Publications
 ======
-  <ul>{% for post in site.publications %}
+{% for post in site.publications %}
     {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+  {% endfor %}
 
