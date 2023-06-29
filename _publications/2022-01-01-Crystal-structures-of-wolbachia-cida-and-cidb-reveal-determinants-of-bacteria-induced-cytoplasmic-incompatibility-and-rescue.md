@@ -1,9 +1,9 @@
 ---
-title: "Crystal structures of wolbachia cida and cidb reveal determinants of bacteria-induced cytoplasmic incompatibility and rescue"
+title: "Crystal Structures of Wolbachia CidA and CidB Reveal Determinants of Bacteria-induced Cytoplasmic Incompatibility and Rescue"
 collection: publications
-permalink: /publication/2022-01-01-Crystal-structures-of-wolbachia-cida-and-cidb-reveal-determinants-of-bacteria-induced-cytoplasmic-incompatibility-and-rescue
+permalink: /publication/2022-01-01-Crystal-Structures-of-Wolbachia-CidA-and-CidB-Reveal-Determinants-of-Bacteria-induced-Cytoplasmic-Incompatibility-and-Rescue
 date: 2022-01-01
-venue: 'Modeling of Biological Complexes:Nature Communications'
-citation: ' Haofeng Wang,  Yunjie Xiao,  Xia Chen,  Mengwen Zhang,  Guangxin Sun,  Feng Wang,  Lin Wang,  Hanxiao Zhang,  Xiaoyu Zhang,  Xin Yang, &quot;Crystal structures of wolbachia cida and cidb reveal determinants of bacteria-induced cytoplasmic incompatibility and rescue.&quot; Modeling of Biological Complexes:Nature Communications, 2022.'
+venue: 'Nature Communications'
+citation: ' Haofeng Wang,  Yunjie Xiao,  Xia Chen,  Mengwen Zhang,  Guangxin Sun,  Feng Wang,  Lin Wang,  Hanxiao Zhang,  Xiaoyu Zhang,  Xin Yang,  Wenling Li,  Yi Wei,  Deqiang Yao,  Bing Zhang,  Jun Li,  Wen Cui,  Fenghua Wang,  Cheng Chen,  Wei Shen,  Dan Su,  Fang Bai,  Jinhai Huang,  Sheng Ye,  Lei Zhang,  Xiaoyun Ji,  Wei Wang,  Zefang Wang,  Mark Hochstrasser,  Haitao Yang, &quot;Crystal Structures of Wolbachia CidA and CidB Reveal Determinants of Bacteria-induced Cytoplasmic Incompatibility and Rescue.&quot; Nature Communications, 2022.'
 ---
-Use [Google Scholar](https://scholar.google.com/scholar?q=Crystal+structures+of+wolbachia+cida+and+cidb+reveal+determinants+of+bacteria+induced+cytoplasmic+incompatibility+and+rescue){:target="_blank"} for full citation
+Use [Google Scholar](https://scholar.google.com/scholar?q=Crystal+Structures+of+Wolbachia+CidA+and+CidB+Reveal+Determinants+of+Bacteria+induced+Cytoplasmic+Incompatibility+and+Rescue){:target="_blank"} for full citation

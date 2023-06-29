@@ -3,7 +3,7 @@ title: "Rapamycin targets STAT3 and impacts c-Myc to suppress tumor growth"
 collection: publications
 permalink: /publication/2022-01-01-Rapamycin-targets-STAT3-and-impacts-c-Myc-to-suppress-tumor-growth
 date: 2022-01-01
-venue: 'Modeling of Biological Complexes:Cell Chemical Biology'
-citation: ' Le Sun,  Yu Yan,  Heng Lv,  Jianlong Li,  Zhiyuan Wang,  Kun Wang,  Lin Wang,  Yunxia Li,  Hong Jiang,  Yaoyang Zhang, &quot;Rapamycin targets STAT3 and impacts c-Myc to suppress tumor growth.&quot; Modeling of Biological Complexes:Cell Chemical Biology, 2022.'
+venue: 'Cell Chemical Biology'
+citation: ' Le Sun,  Yu Yan,  Heng Lv,  Jianlong Li,  Zhiyuan Wang,  Kun Wang,  Lin Wang,  Yunxia Li,  Hong Jiang,  Yaoyang Zhang, &quot;Rapamycin targets STAT3 and impacts c-Myc to suppress tumor growth.&quot; Cell Chemical Biology, 2022.'
 ---
 Use [Google Scholar](https://scholar.google.com/scholar?q=Rapamycin+targets+STAT3+and+impacts+c+Myc+to+suppress+tumor+growth){:target="_blank"} for full citation
