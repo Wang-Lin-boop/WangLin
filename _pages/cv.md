@@ -25,6 +25,12 @@ Service and Leadership
 * The Initiator of Schrödinger Chinese Community.
 * The Developer of [Bio-db](https://wang-lin-boop.github.io/Biodb-Search/) page.
 
+Softwares and Databases
+=====
+* [GetPDB](https://github.com/Wang-Lin-boop/Schrodinger-Script)
+* [PPI-Miner](https://github.com/Wang-Lin-boop/PPI-Miner)
+* [CRBN substrates library](https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib)
+
 Publications
 ======
   <ul>{% for post in site.publications %}
