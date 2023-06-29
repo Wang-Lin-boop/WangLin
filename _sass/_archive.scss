@@ -113,7 +113,7 @@
    ========================================================================== */
 
 .grid__item {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 
   .page__meta {
     margin: 0 0 4px;
@@ -163,7 +163,7 @@
 }
 
 .feature__item {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   font-size: 1.25rem;
 
   @include breakpoint($small) {
