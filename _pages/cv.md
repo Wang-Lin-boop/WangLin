@@ -20,7 +20,7 @@ Academic Posters and Talks
     {% include archive-single-talk-cv.html %}
   {% endfor %}</ul>
 
-Service and leadership
+Service and Leadership
 ======
 * The Initiator of Schrödinger Chinese Community.
 * The Developer of [Bio-db](https://wang-lin-boop.github.io/Biodb-Search/) page.
