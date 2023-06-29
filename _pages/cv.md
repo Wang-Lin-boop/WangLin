@@ -43,5 +43,5 @@ Teaching
   
 Service and leadership
 ======
-* Chinese Community of Schrödinger
-* [Bio-db page](https://wang-lin-boop.github.io/Biodb-Search/)
+* The initiator of Schrödinger Chinese Community.
+* The Developers of [Bio-db](https://wang-lin-boop.github.io/Biodb-Search/) page.
