@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "CN"
-title                    : "Lin Wang (王林)"
+title                    : "Lin Wang"
 title_separator          : "Ph.D. Student"
 name                     : &name "Lin Wang"
 description              : &description "A fishermen wandering in the beach of medicinal chemistry."
@@ -80,7 +80,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Lin Wang"
+  name             : "Lin Wang (王林)"
   avatar           : "profile.png"
   bio              : "A fishermen wandering in the beach of medicinal chemistry."
   location         : "Shanghai, China"
