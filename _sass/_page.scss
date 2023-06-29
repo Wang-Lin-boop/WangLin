@@ -109,15 +109,15 @@
 
 .page__hero {
   position: relative;
-  margin-bottom: 2em;
+  margin-bottom: 0.5em;
   @include clearfix;
   animation: intro 0.3s both;
   animation-delay: 0.25s;
 
   &--overlay {
     position: relative;
-    margin-bottom: 2em;
-    padding: 3em 0;
+    margin-bottom: 0.5em;
+    padding: 1em 0;
     @include clearfix;
     background-size: cover;
     background-repeat: no-repeat;
@@ -143,7 +143,7 @@
     .page__lead,
     .btn {
       color: #fff;
-      text-shadow: 1px 1px 4px rgba(#000, 0.5);
+      text-shadow: 1px 1px 2px rgba(#000, 0.5);
     }
 
     .page__lead {
