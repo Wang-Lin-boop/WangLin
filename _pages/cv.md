@@ -9,6 +9,12 @@ redirect_from:
 
 {% include base_path %}
 
+Representative Work
+=====
+* **PPI-Miner**: a motif-driven PPI identification method. \[[JCIM](https://pubs.acs.org/doi/full/10.1021/acs.jcim.2c01033)\]
+* The frist potential substrates database of CRBN, serving the rational design of the molecular glue. \[[Online Database](https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib)\]
+* Discovery of **PPI disruptors** by targeting the SARS-CoV-2 spike protein. \[[JMC](https://pubs.acs.org/doi/full/10.1021/acs.jmedchem.1c00320)\] \[[APS](https://www.nature.com/articles/s41401-021-00735-z)\]
+
 Education
 ======
 * B.S. in college of life science, North East Agricultural University (NEAU), 2019
