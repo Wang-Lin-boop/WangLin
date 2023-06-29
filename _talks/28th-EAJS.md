@@ -3,7 +3,7 @@ title: "Discovery of SARS-CoV-2 entry disruptors by targeting the spike protein"
 collection: talks
 type: "Talk"
 permalink: /talks/28th-EAJS
-venue: "28th EAJS"
+venue: "28th East Asia Joint Symposium on Biomedical Research"
 date: 2022-10-28
 location: "Shanghai, China"
 ---
