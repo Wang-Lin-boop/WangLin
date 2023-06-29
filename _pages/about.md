@@ -29,5 +29,5 @@ News
 3. 08/2021, we found an allosteric drug binding pocket on Spike protein and designed allosteric inhibitors to prohibiting the conformational change of the Spike protein. This work was published on [Journal of Medicinal Chemistry](https://pubs.acs.org/doi/full/10.1021/acs.jmedchem.1c00320).
 4. 08/2021, we identified five potential small molecular anti-virus blockers via targeting SARS-CoV-2 spike protein and published this study on [Acta Pharmacologica Sinica](https://www.nature.com/articles/s41401-021-00735-z).
 5. 05/2021, I wrote a series of automated scripts for cross-docking, virtual screening, and molecular dynamics simulations using the Schrödinger package, and stored the source code on [GitHub](https://github.com/Wang-Lin-boop/Schrodinger-Script).
-6. 05/2020, I build a [user-friendly biomedical database-integration website](https://wang-lin-boop.github.io/Biodb-Search/) for accelerating literature research for drug development researchers.
-7. 12/2019, I developed a automated script for downloading the single-chain protein structures from PDB, named [GetPDB](https://github.com/Wang-Lin-boop/GetPDB).
+6. 05/2020, I build an [user-friendly biomedical database-integration website](https://wang-lin-boop.github.io/Biodb-Search/) for accelerating literature research for drug development researchers.
+7. 12/2019, I developed an automated script for downloading the single-chain protein structures from PDB, named [GetPDB](https://github.com/Wang-Lin-boop/GetPDB).
