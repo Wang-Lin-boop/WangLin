@@ -22,8 +22,8 @@ Academic Posters and Talks
 
 Service and leadership
 ======
-* The initiator of Schrödinger Chinese Community.
-* The Developers of [Bio-db](https://wang-lin-boop.github.io/Biodb-Search/) page.
+* The Initiator of Schrödinger Chinese Community.
+* The Developer of [Bio-db](https://wang-lin-boop.github.io/Biodb-Search/) page.
 
 Publications
 ======
