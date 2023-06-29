@@ -11,16 +11,16 @@ redirect_from:
 Brief Introduction
 =====
 
-I'm [Lin Wang \(王林\)](https://scholar.google.com.hk/citations?user=lFYS_EQAAAAJ&hl=zh-CN), a Ph.D. student of ShanghaiTech University, supervised by [Fang Bai \(白芳\)](https://scholar.google.com.hk/citations?user=FZ3zkfcAAAAJ&hl=zh-CN). I received my B.S. degree at college of life science of North East Agricultural University \(NEAU\) in 2019.    
+I'm [**Lin Wang** \(王林\)](https://scholar.google.com.hk/citations?user=lFYS_EQAAAAJ&hl=zh-CN), a Ph.D. student of ShanghaiTech University, supervised by [Fang Bai \(白芳\)](https://scholar.google.com.hk/citations?user=FZ3zkfcAAAAJ&hl=zh-CN). I received my B.S. degree at college of life science of North East Agricultural University \(NEAU\) in 2019.    
     
-My research interests center around the **rational design** of small moleculal drugs and artificial proteins for therapeutic purposes, with a particular focus on developing the molecular modulators of Protein-Proetin Interaction \(PPI\). Additionally, I am dedicated to advancing computational methods for molecular design in order to find new avenues for breakthroughs in drug development.   
+My research interests center around the rational design of small moleculal drugs and artificial proteins for therapeutic purposes, with a particular focus on developing the molecular modulators of Protein-Proetin Interaction \(PPI\). Additionally, I am dedicated to advancing computational methods for molecular design in order to find new avenues for breakthroughs in drug development.   
 
 Research Interests
 =====
-* AI for Drug Discovery and Protein Design
+* PPI Identification and Modulation
 * Drug Target Identification and Lead Compound Drug Design
 * Rational Design of Artificial Epitope Vaccine and Enzyme
-* Protein–Protein Interactions Identification and Modulation
+* AI for Drug Discovery and Protein Design
    
 News
 =====
