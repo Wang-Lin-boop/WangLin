@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Brief introduction
+Brief Introduction
 =====
 
 I'm [Lin Wang \(王林\)](https://scholar.google.com.hk/citations?user=lFYS_EQAAAAJ&hl=zh-CN), a Ph.D. student of ShanghaiTech University, supervised by [Fang Bai \(白芳\)](https://scholar.google.com.hk/citations?user=FZ3zkfcAAAAJ&hl=zh-CN). I received my B.S. degree at college of life science of North East Agricultural University \(NEAU\) in 2019.    
