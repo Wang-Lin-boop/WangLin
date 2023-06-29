@@ -15,7 +15,7 @@ I'm [**Lin Wang** \(王林\)](https://scholar.google.com.hk/citations?user=lFYS_
     
 My research interests center around the **rational design of small moleculal drugs and artificial proteins for therapeutic purposes**, with a particular focus on developing the molecular modulators of Protein-Proetin Interaction \(PPI\). Additionally, I am dedicated to advancing computational methods for molecular design in order to find new avenues for breakthroughs in drug development.   
 
-Representative Work
+Representative Works
 =====
 * **PPI-Miner**: a motif-driven PPI identification method. \[[**JCIM**](https://pubs.acs.org/doi/full/10.1021/acs.jcim.2c01033)\]
 * The frist potential substrates database of CRBN, serving the rational design of the **molecular glue** degraders. \[[**Online Database**](https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib)\]
