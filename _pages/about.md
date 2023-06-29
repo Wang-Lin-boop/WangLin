@@ -12,10 +12,10 @@ I'm [Lin Wang \(王林\)](https://scholar.google.com.hk/citations?user=lFYS_EQAA
 
 Research Interests
 ======
-1. AI for Drug Discovery and Protein Design   
+1. AI for Drug Discovery and Protein Design
 2. Drug Target Identification and Lead Compound Drug Design
-3. Rational Design of Artificial Epitope Vaccine and Enzyme 
-4. Protein–Protein Interactions Identification and Modulation  
+3. Rational Design of Artificial Epitope Vaccine and Enzyme
+4. Protein–Protein Interactions Identification and Modulation
 
 News
 =======
