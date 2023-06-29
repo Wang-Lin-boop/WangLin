@@ -15,13 +15,12 @@ I'm [**Lin Wang** \(王林\)](https://scholar.google.com.hk/citations?user=lFYS_
     
 My research interests center around the rational design of small moleculal drugs and artificial proteins for therapeutic purposes, with a particular focus on developing the molecular modulators of Protein-Proetin Interaction \(PPI\). Additionally, I am dedicated to advancing computational methods for molecular design in order to find new avenues for breakthroughs in drug development.   
 
-Research Interests
+Representative Work
 =====
-* PPI Identification and Modulation
-* Drug Target Identification and Lead Compound Drug Design
-* Rational Design of Artificial Epitope Vaccine and Enzyme
-* AI for Drug Discovery and Protein Design
-   
+* [**PPI-Miner**](https://pubs.acs.org/doi/full/10.1021/acs.jcim.2c01033): a motif-driven PPI identification method.
+* [**CRBN-SubsLib**](https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib):The frist potential substrates database of CRBN, serving the rational design of the molecular glue.
+* Discovery of SARS-CoV-2 entry disruptors by targeting the spike protein. \[[JMC](https://pubs.acs.org/doi/full/10.1021/acs.jmedchem.1c00320)\] \[[APS](https://www.nature.com/articles/s41401-021-00735-z)\]
+
 News
 =====
 1. 12/2022, we have upgraded the original plmd script and renamed it to [**AutoMD**](https://github.com/Wang-Lin-boop/AutoMD), which supports more force fields and provides the ability to customize the trajectory analysis pipeline.
