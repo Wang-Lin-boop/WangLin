@@ -93,19 +93,22 @@
 
 .list__item {
   @include breakpoint($medium) {
+    margin-bottom: 0;
     padding-right: $right-sidebar-width-narrow;
   }
 
   @include breakpoint($large) {
+    margin-bottom: 0;
     padding-right: $right-sidebar-width;
   }
 
   @include breakpoint($x-large) {
+    margin-bottom: 0;
     padding-right: $right-sidebar-width-wide;
   }
 
   .page__meta {
-    margin: 0 0 4px;
+    margin: 0 0 2px;
   }
 }
 
@@ -118,7 +121,7 @@
   margin-bottom: 1em;
 
   .page__meta {
-    margin: 0 0 4px;
+    margin: 0 0 2px;
   }
 
   .archive__item-title {
