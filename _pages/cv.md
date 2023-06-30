@@ -33,9 +33,9 @@ Service and Leadership
 
 Softwares and Databases
 =====
-* [GetPDB](https://github.com/Wang-Lin-boop/Schrodinger-Script)
-* [PPI-Miner](https://github.com/Wang-Lin-boop/PPI-Miner)
-* [CRBN substrates library](https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib)
+* [GetPDB](https://github.com/Wang-Lin-boop/Schrodinger-Script), automated script for downloading the single-chain protein structures for cross docking or motif mining.
+* [PPI-Miner](https://github.com/Wang-Lin-boop/PPI-Miner), a motif driven PPI mining method.
+* [CRBN substrates library](https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib), serving the rational design of the molecular glue.
 
 Publications
 ======

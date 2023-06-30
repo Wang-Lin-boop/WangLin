@@ -30,4 +30,4 @@ News
 5. 08/2021, we identified five potential small molecular anti-virus blockers via targeting SARS-CoV-2 spike protein and published this study on [Acta Pharmacologica Sinica](https://www.nature.com/articles/s41401-021-00735-z).
 6. 05/2021, I released a series of automated scripts for cross-docking \(**XDock**\), virtual screening \(**GVSrun**\), and molecular dynamics simulations \(plmd\) using the Schrödinger package, and stored the source code on [GitHub](https://github.com/Wang-Lin-boop/Schrodinger-Script).
 7. 05/2020, I build an [user-friendly biomedical database-integration website](https://wang-lin-boop.github.io/Biodb-Search/) for accelerating literature research for drug development researchers.
-8. 12/2019, I developed an automated script for downloading the single-chain protein structures from PDB, named [**GetPDB**](https://github.com/Wang-Lin-boop/GetPDB).
+8. 12/2019, I developed an automated script for downloading the single-chain protein structures by Uniprot ID, named [**GetPDB**](https://github.com/Wang-Lin-boop/GetPDB).
