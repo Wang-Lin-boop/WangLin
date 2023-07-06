@@ -15,3 +15,6 @@ Fig. 1 The identification of potential substrates for the CRBN. A) The PPI-Miner
 
 _In analyzing the complex structures of CRBN and its substrates, we determined that the interaction between CRBN and its substrates is mediated by a structural motif. To this end, we developed a computational method called PPI-Miner that enables rapid and accurate identification of protein-protein interactions based on these structural motifs. By utilizing this method, we identified several potential substrates of CRBN and created a high-quality target database. Among them, multiple proteins confirmed as molecular glue targets in recent years (as shown in Fig. 1). In addition, PPI-Miner can be used for discovering other motif-mediated protein-protein interactions, as well as searching for protein scaffolds for designing mini-protein binders._   
 
+![墙报-王林-Motif-Dock](https://github.com/Wang-Lin-boop/WangLin/assets/58931275/b5be9f2b-6293-4949-970f-6a116b479a77)
+
+
