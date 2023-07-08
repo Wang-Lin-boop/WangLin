@@ -23,7 +23,7 @@ Representative Works
 
 News
 =====
-1. 01/2023, we developed a highly sensitive model \([**DeepSA**](https://github.com/Wang-Lin-boop/DeepSA/tree/main)\) for assessing the synthetic accessibility of samll molecules, this work was done jointly by Shihang Wang \(王世航\) and me.
+1. 01/2023, we developed a highly sensitive model \([**DeepSA**](https://github.com/Wang-Lin-boop/DeepSA/tree/main)\) for assessing the synthetic accessibility of samll molecules, this work was done jointly by Shihang Wang \([王世航](https://shihang-wang-58.github.io/Shihang-Wang/)\) and me.
 2. 12/2022, we have upgraded the original plmd script and renamed it to [**AutoMD**](https://github.com/Wang-Lin-boop/AutoMD), which supports more force fields and provides the ability to customize the trajectory analysis pipeline.
 3. 11/2022, we developed a motif driven PPI mining method, named **PPI-Miner**. This methodology paper was published on [JCIM](https://pubs.acs.org/doi/full/10.1021/acs.jcim.2c01033), and source code was stored in [GitHub](https://github.com/Wang-Lin-boop/PPI-Miner).
 4. CRBN is the most popular target for molecular glue and PROTAC protein degraders. In 08/2022, we released a **[database](https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib) of potential substrates for CRBN**, which covers all human proteins that contain the β-hairpin loop and complementary surface with CRBN.
