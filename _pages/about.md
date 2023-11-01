@@ -17,14 +17,14 @@ My research interests center around the **rational design of small moleculal dru
 
 Representative Works
 =====
-* **PPI-Miner**: a motif-driven PPI identification method. \[[_Journal of Chemical Information and Modeling_](https://pubs.acs.org/doi/full/10.1021/acs.jcim.2c01033)\]
-* The frist potential substrates database of CRBN, serving the rational design of the **molecular glue** degraders. \[[**Online Database**](https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib)\]
+* **PPI-Miner**: a motif-driven PPI identification method, that can be applied to discovering novel PPIs, the rational design of molecular glues, and protein vaccines. \[[_Journal of Chemical Information and Modeling_](https://pubs.acs.org/doi/full/10.1021/acs.jcim.2c01033)\]
+* Using the PPI-Miner, we developed the first potential substrates database of CRBN, serving the rational design of **molecular glue** degraders. \[[**Online Database**](https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib)\]
 * Discovery of **PPI disruptors** by targeting the SARS-CoV-2 spike protein. \[[_Journal of Medicinal Chemistry_](https://pubs.acs.org/doi/full/10.1021/acs.jmedchem.1c00320)\] \[[_Acta Pharmacologica Sinica_](https://www.nature.com/articles/s41401-021-00735-z)\]
 
 News
 =====
 1. 10/2023, DeepSA was published on [_Journal of Cheminformatics_](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-023-00771-3), you can try it on our [DeepSA webserver](https://bailab.siais.shanghaitech.edu.cn/deepsa). 
-2. 01/2023, we developed a highly sensitive model \([**DeepSA**](https://github.com/Wang-Lin-boop/DeepSA/tree/main)\) for assessing the synthetic accessibility of samll molecules, this work was done jointly by Shihang Wang \([王世航](https://shihang-wang-58.github.io/Shihang-Wang/)\) and me.
+2. 01/2023, we developed a highly sensitive model \([**DeepSA**](https://github.com/Wang-Lin-boop/DeepSA/tree/main)\) for assessing the synthetic accessibility of small molecules, this work was done jointly by Shihang Wang \([王世航](https://shihang-wang-58.github.io/Shihang-Wang/)\) and me.
 3. 12/2022, we have upgraded the original plmd script and renamed it to [**AutoMD**](https://github.com/Wang-Lin-boop/AutoMD), which supports more force fields and provides the ability to customize the trajectory analysis pipeline.
 4. 11/2022, we developed a motif driven PPI mining method, named **PPI-Miner**. This methodology paper was published on [_Journal of Chemical Information and Modeling_](https://pubs.acs.org/doi/full/10.1021/acs.jcim.2c01033), and source code was stored in [GitHub](https://github.com/Wang-Lin-boop/PPI-Miner).
 5. CRBN is the most popular target for molecular glue and PROTAC protein degraders. In 08/2022, we released a **[database](https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib) of potential substrates for CRBN**, which covers all human proteins that contain the β-hairpin loop and complementary surface with CRBN.
