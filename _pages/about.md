@@ -19,7 +19,7 @@ Representative Works
 =====
 * **PPI-Miner**: a motif-driven PPI identification method, that can be applied to discovering novel PPIs, the rational design of molecular glues, and protein vaccines. \[[_Journal of Chemical Information and Modeling_](https://pubs.acs.org/doi/full/10.1021/acs.jcim.2c01033)\]
 * Using the PPI-Miner, we developed the first potential substrates database of CRBN, serving the rational design of **molecular glue** degraders. \[[**Online Database**](https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib)\]
-* Discovery of **PPI disruptors** by targeting the SARS-CoV-2 spike protein. \[[_Journal of Medicinal Chemistry_](https://pubs.acs.org/doi/full/10.1021/acs.jmedchem.1c00320) | [_Acta Pharmacologica Sinica_](https://www.nature.com/articles/s41401-021-00735-z)\]
+* Discovery of **PPI disruptors** by targeting the SARS-CoV-2 spike protein. \[[_Journal of Medicinal Chemistry_](https://pubs.acs.org/doi/full/10.1021/acs.jmedchem.1c00320) \| [_Acta Pharmacologica Sinica_](https://www.nature.com/articles/s41401-021-00735-z)\]
 
 News
 =====
