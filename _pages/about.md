@@ -23,7 +23,7 @@ Representative Works
 
 News
 =====
-1. 12/2023, we have introduced the GeminiMol, which incorporates conformational space information into molecular representation learning, refer to [GitHub](https://github.com/Wang-Lin-boop/GeminiMol) and [BioRxiv]().
+1. 12/2023, we have introduced the GeminiMol, which incorporates conformational space information into molecular representation learning, refer to [GitHub](https://github.com/Wang-Lin-boop/GeminiMol) and [BioRxiv](https://doi.org/10.1101/2023.12.14.571629).
 2. 10/2023, DeepSA was published on [_Journal of Cheminformatics_](https://jcheminf.biomedcentral.com/articles/10.1186/s13321-023-00771-3), you can try it on our [DeepSA webserver](https://bailab.siais.shanghaitech.edu.cn/deepsa). 
 3. 01/2023, we developed a highly sensitive model \([**DeepSA**](https://github.com/Wang-Lin-boop/DeepSA/tree/main)\) for assessing the synthetic accessibility of small molecules, this work was done jointly by Shihang Wang \([王世航](https://shihang-wang-58.github.io/Shihang-Wang/)\) and me.
 4. 12/2022, we have upgraded the original plmd script and renamed it to [**AutoMD**](https://github.com/Wang-Lin-boop/AutoMD), which supports more force fields and provides the ability to customize the trajectory analysis pipeline.
