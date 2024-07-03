@@ -12,7 +12,7 @@ redirect_from:
 Education
 ======
 * B.S. in college of life science, North East Agricultural University (NEAU), 2019
-* Ph.D in Shanghai Institute for Advanced Immunochemical Studies (SIAIS), ShanghaiTech University, 2024 (expected)
+* Ph.D in Shanghai Institute for Advanced Immunochemical Studies (SIAIS), ShanghaiTech University, 2024
 
 Representative Work
 =====
