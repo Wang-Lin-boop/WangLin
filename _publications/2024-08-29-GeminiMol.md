@@ -4,6 +4,6 @@ collection: publications
 permalink: /publication/2024-08-29-GeminiMol
 date: 2024-08-29
 venue: 'Advanced Science'
-citation: ' Wang, Lin and Wang, Shihang and Yang, Hao and Li, Shiwei and Wang, Xinyu and Zhou, Yongqi and Tian, Siyuan and Liu, Lu and Bai, Fang, &quot;Conformational Space Profiling Enhances Generic Molecular Representation for AI-Powered Ligand-Based Drug Discovery.&quot; bioRxiv, 2024.'
+citation: ' Lin Wang, Shihang Wang, Hao Yang, Shiwei Li, Xinyu Wang, Yongqi Zhou, Siyuan Tian, Lu Liu, and Fang Bai, &quot;Conformational Space Profiling Enhances Generic Molecular Representation for AI-Powered Ligand-Based Drug Discovery.&quot; Advanced Science, 2024.'
 ---
 Access this paper in [Advanced Science](https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/advs.202403998){:target="_blank"}
