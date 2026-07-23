@@ -58,6 +58,8 @@ Three owner-supplied PNG files were copied without generative editing into `imag
 - `ouroboros-representation-engine.png` as the representation-foundation visual signature;
 - `ouroboros-pharmacology-navigation.png` for pharmacological hypotheses, hit discovery, and hit-to-lead optimization.
 
+The original alpha-enabled lineage figure remains preserved. The website uses `geminimol-ouroboros-lineage-white.png`, a deterministic 1964 x 929 RGB derivative made by compositing only the source alpha channel onto `#FFFFFF`. Pixel validation confirms that no fully opaque scientific-content pixel changed and that every fully transparent source pixel became pure white; no generative redraw was used.
+
 The former numerical evidence strip and the `Current boundary` note were removed. The replacement remains compact: dense comparison rows, a four-step process, concise application routes, responsive figures, and full-resolution links for scientific inspection. All figures use translated alternative text and preserve their original molecular structures.
 
 ## Community record and multilingual revision
