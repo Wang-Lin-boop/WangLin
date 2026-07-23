@@ -38,9 +38,9 @@ The visual system is intentionally typographic:
 
 Motion is limited to navigation and hover feedback. Reduced-motion preferences are respected.
 
-## Ouroboros-centered compact revision
+## Ouroboros research profile and compact revision
 
-The July 2026 revision makes Ouroboros the organizing center of the homepage. Its technical dossier is grounded in the peer-reviewed Advanced Science article (`10.1002/advs.202513556`), the associated preprint (`10.1101/2025.03.18.643899`), and the official `Wang-Lin-boop/Ouroboros` repository.
+The July 2026 revision gives Ouroboros a detailed technical profile within the broader research program. The account is grounded in the peer-reviewed Advanced Science article (`10.1002/advs.202513556`), the associated preprint (`10.1101/2025.03.18.643899`), and the official `Wang-Lin-boop/Ouroboros` repository.
 
 The dossier records the paper's architecture and selected evidence without introducing illustrative molecular structures:
 

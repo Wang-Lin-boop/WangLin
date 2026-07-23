@@ -76,9 +76,9 @@
     <main id="main-content">
       <section class="hero page-shell" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="section-tag">Flagship research · Molecular AI</p>
-          <h1 id="hero-title">Chemical space,<br><span>made navigable.</span></h1>
-          <p class="hero-statement">I develop chemically informed AI systems that encode molecular conformation, navigate property landscapes, and decode design hypotheses into testable structures—centered on the Ouroboros framework.</p>
+          <p class="section-tag">Molecular representation · Drug discovery</p>
+          <h1 id="hero-title">Molecular structure<br><span>and conformation.</span></h1>
+          <p class="hero-statement">We develop computational methods for molecular representation, property prediction, and structure generation. Ouroboros is one recent effort within a broader program that also studies protein structure, molecular interactions, and cellular phenotype.</p>
 
           <nav class="hero-actions" aria-label="Primary links">
             <a class="text-button" href="https://doi.org/10.1002/advs.202513556" target="_blank" rel="noreferrer">Read Ouroboros <span aria-hidden="true">↗</span></a>
@@ -104,7 +104,7 @@
             </div>
             <div>
               <dt>Research</dt>
-              <dd>Molecular representation · chemical evolution</dd>
+              <dd>Molecular representation · drug discovery</dd>
             </div>
             <div>
               <dt>Contact</dt>
@@ -117,24 +117,24 @@
       <section class="research-scale" aria-labelledby="scale-title">
         <div class="page-shell">
           <div class="scale-heading">
-            <p class="metadata-label">Ouroboros research logic</p>
-            <h2 id="scale-title">One encoding space connects prediction and generation.</h2>
+            <p class="metadata-label">Ouroboros · Model overview</p>
+            <h2 id="scale-title">A shared encoding supports molecular representation, property guidance, and structure generation.</h2>
           </div>
           <ol class="scale-sequence">
             <li>
               <span class="scale-index">01 · Encode</span>
-              <h3>Chemical meaning</h3>
-              <p>Map molecular graphs to 1D vectors regularized by conformational-space and pharmacophore similarity.</p>
+              <h3>Molecular representation</h3>
+              <p>A GNN maps molecular graphs to 1D vectors shaped by molecular fingerprint, conformational-space, and pharmacophore similarity.</p>
             </li>
             <li>
               <span class="scale-index">02 · Navigate</span>
-              <h3>Directed evolution</h3>
-              <p>Use property decoders as differentiable objectives and optimize molecular encodings directly.</p>
+              <h3>Property guidance</h3>
+              <p>Independent property decoders provide objectives for updating molecular encodings.</p>
             </li>
             <li>
               <span class="scale-index">03 · Decode</span>
-              <h3>Testable structures</h3>
-              <p>Reconstruct SMILES with an independent Transformer decoder, then prioritize structures for docking and assay.</p>
+              <h3>Structure generation</h3>
+              <p>An independent Transformer decodes modified vectors to SMILES for subsequent prioritization and evaluation.</p>
             </li>
           </ol>
         </div>
@@ -143,12 +143,12 @@
       <section id="research" class="section page-shell ouroboros-dossier" aria-labelledby="research-title">
         <header class="dossier-header">
           <div class="dossier-kicker">
-            <p class="section-tag">Flagship research</p>
+            <p class="section-tag">Selected research</p>
             <p class="dossier-citation">Advanced Science · 2026</p>
           </div>
           <div class="dossier-title">
             <h2 id="research-title">Ouroboros</h2>
-            <p class="dossier-deck">A unified molecular foundation model that closes a persistent gap in molecular AI: representation models learn chemical meaning, while generators often operate in a separate space. Ouroboros reconnects them through a shared encoding that can be predicted from, optimized, and decoded.</p>
+            <p class="dossier-deck">Ouroboros explores a shared encoding space for molecular representation and generation. The model combines similarity-informed representation learning, task-specific property decoders, and an autoregressive SMILES decoder to support prediction and several forms of guided molecular generation.</p>
             <nav class="dossier-links" aria-label="Ouroboros resources">
               <a href="https://doi.org/10.1002/advs.202513556" target="_blank" rel="noreferrer">Peer-reviewed paper ↗</a>
               <a href="https://doi.org/10.1101/2025.03.18.643899" target="_blank" rel="noreferrer">Preprint ↗</a>
@@ -160,18 +160,18 @@
         <div class="dossier-architecture" aria-label="Ouroboros architecture">
           <article>
             <p class="research-question">01 · Encode</p>
-            <h3>Compress chemical space</h3>
-            <p>A global-attention GNN maps each molecular graph to a 2048-dimensional vector. Similarity learning organizes that space using molecular fingerprints, conformational space, and pharmacophore information.</p>
+            <h3>Represent molecular similarity</h3>
+            <p>A global-attention GNN maps each molecular graph to a 2048-dimensional vector. The training objective draws on molecular fingerprints, conformational space, and pharmacophore information.</p>
           </article>
           <article>
             <p class="research-question">02 · Navigate</p>
-            <h3>Turn prediction into direction</h3>
-            <p>Independent property decoders map encodings to task-specific objectives. Their gradients update vectors directly, making property models navigators for directed molecular evolution.</p>
+            <h3>Guide changes in the encoding</h3>
+            <p>Independent property decoders map encodings to task-specific objectives. Gradients from these decoders are used to update the vectors during property-guided generation.</p>
           </article>
           <article>
             <p class="research-question">03 · Decode</p>
-            <h3>Return to valid structures</h3>
-            <p>An autoregressive Transformer reconstructs SMILES from the optimized vector. Decoupled training lets the encoder learn chemically meaningful structure without being constrained by generation.</p>
+            <h3>Decode candidate structures</h3>
+            <p>An autoregressive Transformer decodes an input vector to SMILES. Training the encoder and decoder separately allows the representation objective to be specified independently of generation.</p>
           </article>
         </div>
 
@@ -196,36 +196,36 @@
 
         <div class="evolution-grid">
           <div class="evolution-heading">
-            <p class="metadata-label">What navigation enables</p>
-            <p>Three operations turn the encoding from a descriptor into a design space.</p>
+            <p class="metadata-label">Operations evaluated</p>
+            <p>The study examines three ways of modifying molecular encodings.</p>
           </div>
           <article>
             <h3>Exploration</h3>
-            <p>Perturb a starting encoding to sample nearby, structurally diverse analogs.</p>
+            <p>Small perturbations to a starting encoding generate nearby analogs with varying structures.</p>
           </article>
           <article>
             <h3>Migration</h3>
-            <p>Optimize solubility, permeability, or learned objectives while preserving useful similarity.</p>
+            <p>Property objectives guide changes in the encoding while similarity to the starting molecule can be monitored.</p>
           </article>
           <article>
             <h3>Fusion</h3>
-            <p>Navigate toward multiple reference sets to propose polypharmacology candidates.</p>
+            <p>Optimization toward multiple reference sets is used to study candidates with multi-target potential.</p>
           </article>
         </div>
 
         <aside class="dossier-boundary" aria-label="Current research boundary">
           <p class="metadata-label">Current boundary</p>
-          <p>Direct drug–target affinity prediction is not yet part of the framework; target-specific candidates still require docking, binding-pose analysis, and experimental validation. This is the next interface between molecular and protein representation.</p>
+          <p>The current framework does not directly model drug–target affinity. Target-specific proposals therefore remain hypotheses that require docking, binding-pose analysis, and experimental validation. Connecting molecular and protein representations is an area for further work.</p>
         </aside>
       </section>
 
       <section id="work" class="section section-tinted" aria-labelledby="work-title">
         <div class="page-shell">
           <div class="section-intro">
-            <p class="section-tag">Research ecosystem</p>
+            <p class="section-tag">Related research</p>
             <div>
-              <h2 id="work-title">Ouroboros at the center.</h2>
-              <p>The flagship framework is surrounded by methods for conformational representation, phenotypic evidence, protein context, and practical molecular design.</p>
+              <h2 id="work-title">Related questions in molecular discovery.</h2>
+              <p>These projects address molecular representation, phenotype-based screening, protein structure and interactions, and synthetic accessibility. Together they provide context for the development of Ouroboros.</p>
             </div>
           </div>
 
@@ -233,13 +233,13 @@
             <article class="project-row project-row-featured">
               <div class="project-key">
                 <p class="project-year">2026</p>
-                <p class="project-kind">Core framework</p>
+                <p class="project-kind">Representation &amp; generation</p>
               </div>
               <div class="project-main">
                 <h3>Ouroboros</h3>
-                <p>Directed chemical evolution through a navigable molecular encoding space.</p>
+                <p>Property-guided molecular generation in a learned encoding space.</p>
               </div>
-              <p class="project-detail">A unified representation for molecular graphs, property prediction, and structure generation.</p>
+              <p class="project-detail">A shared representation for molecular graphs, property prediction, and SMILES generation.</p>
               <div class="project-links">
                 <a href="https://doi.org/10.1002/advs.202513556" target="_blank" rel="noreferrer">Paper ↗</a>
                 <a href="https://github.com/Wang-Lin-boop/Ouroboros" target="_blank" rel="noreferrer">Code ↗</a>
@@ -249,13 +249,13 @@
             <article class="project-row">
               <div class="project-key">
                 <p class="project-year">2024</p>
-                <p class="project-kind">Representation precursor</p>
+                <p class="project-kind">Molecular representation</p>
               </div>
               <div class="project-main">
                 <h3>GeminiMol</h3>
                 <p>Conformational-space profiling for general molecular representation.</p>
               </div>
-              <p class="project-detail">Conformational- and pharmacophore-aware similarity learning that established the representation ideas developed further in Ouroboros.</p>
+              <p class="project-detail">Hybrid contrastive learning informed by conformational and pharmacophore similarity across distinct molecular scaffolds.</p>
               <div class="project-links">
                 <a href="https://doi.org/10.1002/advs.202403998" target="_blank" rel="noreferrer">Paper ↗</a>
                 <a href="https://github.com/Wang-Lin-boop/GeminiMol" target="_blank" rel="noreferrer">Code ↗</a>
@@ -265,11 +265,11 @@
             <article class="project-row">
               <div class="project-key">
                 <p class="project-year">2025</p>
-                <p class="project-kind">Phenotype interface</p>
+                <p class="project-kind">Multimodal phenotype</p>
               </div>
               <div class="project-main">
                 <h3>PhenoModel</h3>
-                <p>Molecular structure meets cellular morphology.</p>
+                <p>Aligning molecular graphs with cellular morphology.</p>
               </div>
               <p class="project-detail">A foundation model aligning molecular graphs with cell images for phenotypic virtual screening.</p>
               <div class="project-links">
@@ -281,11 +281,11 @@
             <article class="project-row">
               <div class="project-key">
                 <p class="project-year">2026</p>
-                <p class="project-kind">Protein landscape</p>
+                <p class="project-kind">Protein conformations</p>
               </div>
               <div class="project-main">
                 <h3>ProteinConformers</h3>
-                <p>Beyond one static protein structure.</p>
+                <p>Evaluating simulated protein conformational landscapes.</p>
               </div>
               <p class="project-detail">A benchmark for the diversity and plausibility of simulated protein conformational landscapes.</p>
               <div class="project-links">
@@ -297,11 +297,11 @@
             <article class="project-row">
               <div class="project-key">
                 <p class="project-year">2022</p>
-                <p class="project-kind">Interaction context</p>
+                <p class="project-kind">Protein interactions</p>
               </div>
               <div class="project-main">
                 <h3>PPI-Miner</h3>
-                <p>Mining interaction through structural and sequence motifs.</p>
+                <p>Combining structural and sequence motifs for protein-interaction analysis.</p>
               </div>
               <p class="project-detail">A co-driven computational method for PPI discovery, interaction modeling, and molecular-glue research.</p>
               <div class="project-links">
@@ -313,13 +313,13 @@
             <article class="project-row">
               <div class="project-key">
                 <p class="project-year">2023</p>
-                <p class="project-kind">Developability gate</p>
+                <p class="project-kind">Synthetic accessibility</p>
               </div>
               <div class="project-main">
                 <h3>DeepSA</h3>
-                <p>Make synthesizability part of the design loop.</p>
+                <p>Predicting synthetic accessibility for molecular design.</p>
               </div>
-              <p class="project-detail">A deep-learning predictor that flags hard-to-synthesize compounds early in generation workflows.</p>
+              <p class="project-detail">A deep-learning model for identifying compounds likely to be difficult to synthesize.</p>
               <div class="project-links">
                 <a href="https://doi.org/10.1186/s13321-023-00771-3" target="_blank" rel="noreferrer">Paper ↗</a>
                 <a href="https://github.com/Wang-Lin-boop/DeepSA" target="_blank" rel="noreferrer">Code ↗</a>
@@ -333,8 +333,8 @@
         <div class="section-intro">
           <p class="section-tag">Recent publications</p>
           <div>
-            <h2 id="recent-title">Latest work and collaborations.</h2>
-            <p>The complete record contains <span data-publication-count>33</span> publications and book chapters from 2020–2026.</p>
+            <h2 id="recent-title">Selected recent publications.</h2>
+            <p>The full record contains <span data-publication-count>33</span> publications and book chapters from 2020–2026.</p>
           </div>
         </div>
 
@@ -349,8 +349,8 @@
           <div class="section-intro">
             <p class="section-tag">Trajectory</p>
             <div>
-              <h2 id="trajectory-title">Training across biology, structure, and AI.</h2>
-              <p>The research program developed from life-science foundations through structural modeling to multimodal and generative molecular AI.</p>
+              <h2 id="trajectory-title">Training and current research.</h2>
+              <p>Research training has progressed from life science and structural modeling to molecular, protein, and multimodal machine learning.</p>
             </div>
           </div>
 
@@ -377,7 +377,7 @@
                 <h3>Postdoctoral Researcher</h3>
                 <p>Institute of Systems Medicine, CAMS</p>
               </div>
-              <p>Foundation models for chemical space, protein landscapes, phenotype, and translational discovery.</p>
+              <p>Molecular and protein foundation models, phenotype-based learning, and translational drug-discovery applications.</p>
             </li>
           </ol>
         </div>
@@ -386,8 +386,8 @@
       <section id="contact" class="contact-section page-shell" aria-labelledby="contact-title">
         <p class="section-tag">Contact</p>
         <div>
-          <h2 id="contact-title">Open to research conversations across disciplines.</h2>
-          <p>I am interested in collaborations where molecular modeling, machine learning, and experimental drug discovery can inform one another.</p>
+          <h2 id="contact-title">Research interests and collaboration.</h2>
+          <p>We welcome discussions with researchers working across molecular modeling, machine learning, and experimental drug discovery.</p>
           <a class="contact-email" href="mailto:Wanglin1102@outlook.com">Wanglin1102@outlook.com <span aria-hidden="true">→</span></a>
         </div>
         <nav class="contact-links" aria-label="Profile links">
