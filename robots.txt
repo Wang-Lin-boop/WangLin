@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wang-lin-boop.github.io/WangLin/sitemap.xml

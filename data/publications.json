@@ -1,0 +1,884 @@
+[
+  {
+    "id": "liu2026integrating",
+    "type": "journal article",
+    "title": "Integrating chemical priors and physical laws to mitigate hallucinations in structure-based drug design",
+    "authors": [
+      "Zhongyu Liu",
+      "Yadong Liu",
+      "Yihang Zhou",
+      "Zhiyuan Liu",
+      "Yuhang Yang",
+      "Zhiwen Wang",
+      "Tianyi Zang",
+      "Lin Wang",
+      "Yang Zhang"
+    ],
+    "venue": "Communications Chemistry",
+    "year": 2026,
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "topics": [
+      "structure",
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Integrating+chemical+priors+and+physical+laws+to+mitigate+hallucinations+in+structure-based+drug+design%22"
+  },
+  {
+    "id": "wang2026learned",
+    "type": "journal article",
+    "title": "Learned Conformational Space and Pharmacophore Into Molecular Foundational Model",
+    "authors": [
+      "Lin Wang",
+      "Yifan Wu",
+      "Hao Luo",
+      "Minglong Liang",
+      "Yihang Zhou",
+      "Cheng Chen",
+      "Chris Liu",
+      "Jun Zhang",
+      "Yang Zhang"
+    ],
+    "venue": "Advanced Science",
+    "year": 2026,
+    "volume": "",
+    "issue": "",
+    "pages": "e13556",
+    "topics": [
+      "structure"
+    ],
+    "doi": "10.1002/advs.202513556",
+    "url": "https://doi.org/10.1002/advs.202513556"
+  },
+  {
+    "id": "lu2026molecular",
+    "type": "journal article",
+    "title": "Molecular glue degraders of HuR suppress BRAF-mutant colorectal cancer",
+    "authors": [
+      "Xiaocui Lu",
+      "Xiuyun Wang",
+      "Zheng Yang",
+      "Xusheng Wang",
+      "Lin Wang",
+      "Chunhui Xu",
+      "I Lo",
+      "Chenlu Geng",
+      "Yisheng Pu",
+      "Keyu Zhang",
+      "others"
+    ],
+    "venue": "Nature",
+    "year": 2026,
+    "volume": "",
+    "issue": "",
+    "pages": "1–10",
+    "topics": [
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Molecular+glue+degraders+of+HuR+suppress+BRAF-mutant+colorectal+cancer%22"
+  },
+  {
+    "id": "zhou2026proteinconformers",
+    "type": "journal article",
+    "title": "ProteinConformers: Benchmark Dataset for Simulating Protein Conformational Landscape Diversity and Plausibility",
+    "authors": [
+      "Yihang Zhou",
+      "Chen Wei",
+      "Minghao Sun",
+      "Jin Song",
+      "Yang Li",
+      "Lin Wang",
+      "Yang Zhang"
+    ],
+    "venue": "Advances in Neural Information Processing Systems",
+    "year": 2026,
+    "volume": "38",
+    "issue": "",
+    "pages": "",
+    "topics": [
+      "ai",
+      "structure"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22ProteinConformers%3A+Benchmark+Dataset+for+Simulating+Protein+Conformational+Landscape+Diversity+and+Plausibility%22"
+  },
+  {
+    "id": "wang2026small",
+    "type": "book chapter",
+    "title": "Small Molecule Conformation Prediction",
+    "authors": [
+      "Lin Wang",
+      "Fang Bai"
+    ],
+    "venue": "Artificial Intelligence for Drug Design",
+    "year": 2026,
+    "volume": "",
+    "issue": "",
+    "pages": "527–546",
+    "topics": [
+      "ai"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Small+Molecule+Conformation+Prediction%22"
+  },
+  {
+    "id": "zhang2025deeppsa",
+    "type": "journal article",
+    "title": "DeepPSA: A Geometric Deep Learning Model for PROTAC Synthetic Accessibility Prediction",
+    "authors": [
+      "Ran Zhang",
+      "Shihang Wang",
+      "Lin Wang",
+      "Siyuan Tian",
+      "Yilin Tang",
+      "Fang Bai"
+    ],
+    "venue": "Journal of Chemical Information and Modeling",
+    "year": 2025,
+    "volume": "65",
+    "issue": "13",
+    "pages": "6861–6873",
+    "topics": [
+      "ai"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22DeepPSA%3A+A+Geometric+Deep+Learning+Model+for+PROTAC+Synthetic+Accessibility+Prediction%22"
+  },
+  {
+    "id": "wang2025discovery",
+    "type": "journal article",
+    "title": "Discovery of novel GluN1/GluN3A NMDA receptor inhibitors using a deep learning-based method",
+    "authors": [
+      "Shi-hang Wang",
+      "Yue Zeng",
+      "Hao Yang",
+      "Si-yuan Tian",
+      "Yong-qi Zhou",
+      "Lin Wang",
+      "Xue-qin Chen",
+      "Hai-ying Wang",
+      "Zhao-bing Gao",
+      "Fang Bai"
+    ],
+    "venue": "Acta Pharmacologica Sinica",
+    "year": 2025,
+    "volume": "46",
+    "issue": "11",
+    "pages": "3108–3115",
+    "topics": [
+      "ai",
+      "structure",
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Discovery+of+novel+GluN1%2FGluN3A+NMDA+receptor+inhibitors+using+a+deep+learning-based+method%22"
+  },
+  {
+    "id": "li2025mai",
+    "type": "journal article",
+    "title": "MAI-TargetFisher: A proteome-wide drug target prediction method synergetically enhanced by artificial intelligence and physical modeling",
+    "authors": [
+      "Shi-wei Li",
+      "Peng-xuan Ren",
+      "Lin Wang",
+      "Qi-lei Han",
+      "Feng-lei Li",
+      "Hong-lin Li",
+      "Fang Bai"
+    ],
+    "venue": "Acta Pharmacologica Sinica",
+    "year": 2025,
+    "volume": "46",
+    "issue": "5",
+    "pages": "1462–1475",
+    "topics": [
+      "ai",
+      "structure",
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22MAI-TargetFisher%3A+A+proteome-wide+drug+target+prediction+method+synergetically+enhanced+by+artificial+intelligence+and+physical+modeling%22"
+  },
+  {
+    "id": "li2025nadph",
+    "type": "journal article",
+    "title": "NADPH-Independent Fluorescent Probe for Live-Cell Imaging of Heme Oxygenase-1",
+    "authors": [
+      "Liang Li",
+      "Xuanyi Lu",
+      "Qiyuan He",
+      "Chao Shu",
+      "Edward RH Walter",
+      "Lin Wang",
+      "Nicholas J Long",
+      "Lijun Jiang"
+    ],
+    "venue": "ACS sensors",
+    "year": 2025,
+    "volume": "10",
+    "issue": "1",
+    "pages": "499–506",
+    "topics": [
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22NADPH-Independent+Fluorescent+Probe+for+Live-Cell+Imaging+of+Heme+Oxygenase-1%22"
+  },
+  {
+    "id": "wang2025phenomodel",
+    "type": "journal article",
+    "title": "PhenoModel: A multimodal phenotypic drug design foundation model for discovering novel potential inhibitors of multiple cancer cells",
+    "authors": [
+      "Shihang Wang",
+      "Qilei Han",
+      "Weichen Qin",
+      "Lin Wang",
+      "Junhong Yuan",
+      "Fengyu Cai",
+      "Yiqun Zhao",
+      "Pengxuan Ren",
+      "Yunze Zhang",
+      "Yilin Tang",
+      "others"
+    ],
+    "venue": "Acta Pharmaceutica Sinica B",
+    "year": 2025,
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "topics": [
+      "ai",
+      "discovery"
+    ],
+    "doi": "10.1016/j.apsb.2025.09.036",
+    "url": "https://doi.org/10.1016/j.apsb.2025.09.036"
+  },
+  {
+    "id": "wang2025recent",
+    "type": "journal article",
+    "title": "Recent advances in molecular representation methods and their applications in scaffold hopping",
+    "authors": [
+      "Shihang Wang",
+      "Ran Zhang",
+      "Xiangcheng Li",
+      "Fengyu Cai",
+      "Xinyue Ma",
+      "Yilin Tang",
+      "Chao Xu",
+      "Lin Wang",
+      "Pengxuan Ren",
+      "Lu Liu",
+      "others"
+    ],
+    "venue": "Npj Drug Discovery",
+    "year": 2025,
+    "volume": "2",
+    "issue": "1",
+    "pages": "14",
+    "topics": [
+      "ai"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Recent+advances+in+molecular+representation+methods+and+their+applications+in+scaffold+hopping%22"
+  },
+  {
+    "id": "wang2024conformational",
+    "type": "journal article",
+    "title": "Conformational space profiling enhances generic molecular representation for AI-powered ligand-based drug discovery",
+    "authors": [
+      "Lin Wang",
+      "Shihang Wang",
+      "Hao Yang",
+      "Shiwei Li",
+      "Xinyu Wang",
+      "Yongqi Zhou",
+      "Siyuan Tian",
+      "Lu Liu",
+      "Fang Bai"
+    ],
+    "venue": "Advanced Science",
+    "year": 2024,
+    "volume": "11",
+    "issue": "40",
+    "pages": "2403998",
+    "topics": [
+      "ai",
+      "structure",
+      "discovery"
+    ],
+    "doi": "10.1002/advs.202403998",
+    "url": "https://doi.org/10.1002/advs.202403998"
+  },
+  {
+    "id": "fu2024salvianolic",
+    "type": "journal article",
+    "title": "Salvianolic acid B attenuates liver fibrosis by targeting Ecm1 and inhibiting hepatocyte ferroptosis",
+    "authors": [
+      "Yadong Fu",
+      "Xiaoxi Zhou",
+      "Lin Wang",
+      "Weiguo Fan",
+      "Siqi Gao",
+      "Danyan Zhang",
+      "Zhiyang Ling",
+      "Yaguang Zhang",
+      "Liyan Ma",
+      "Fang Bai",
+      "others"
+    ],
+    "venue": "Redox biology",
+    "year": 2024,
+    "volume": "69",
+    "issue": "",
+    "pages": "103029",
+    "topics": [
+      "structure",
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Salvianolic+acid+B+attenuates+liver+fibrosis+by+targeting+Ecm1+and+inhibiting+hepatocyte+ferroptosis%22"
+  },
+  {
+    "id": "liang2023new",
+    "type": "journal article",
+    "title": "A new variant of the colistin resistance gene MCR-1 with co-resistance to β-lactam antibiotics reveals a potential novel antimicrobial peptide",
+    "authors": [
+      "Lujie Liang",
+      "Lan-Lan Zhong",
+      "Lin Wang",
+      "Dianrong Zhou",
+      "Yaxin Li",
+      "Jiachen Li",
+      "Yong Chen",
+      "Wanfei Liang",
+      "Wenjing Wei",
+      "Chenchen Zhang",
+      "others"
+    ],
+    "venue": "PLoS Biology",
+    "year": 2023,
+    "volume": "21",
+    "issue": "12",
+    "pages": "e3002433",
+    "topics": [
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22A+new+variant+of+the+colistin+resistance+gene+MCR-1+with+co-resistance+to+%CE%B2-lactam+antibiotics+reveals+a+potential+novel+antimicrobial+peptide%22"
+  },
+  {
+    "id": "wang2023deepsa",
+    "type": "journal article",
+    "title": "DeepSA: a deep-learning driven predictor of compound synthesis accessibility",
+    "authors": [
+      "Shihang Wang",
+      "Lin Wang",
+      "Fenglei Li",
+      "Fang Bai"
+    ],
+    "venue": "Journal of Cheminformatics",
+    "year": 2023,
+    "volume": "15",
+    "issue": "1",
+    "pages": "103",
+    "topics": [
+      "ai"
+    ],
+    "doi": "10.1186/s13321-023-00771-3",
+    "url": "https://doi.org/10.1186/s13321-023-00771-3"
+  },
+  {
+    "id": "han2023discovery",
+    "type": "journal article",
+    "title": "Discovery, evaluation and mechanism study of WDR5-targeted small molecular inhibitors for neuroblastoma",
+    "authors": [
+      "Qi-lei Han",
+      "Xiang-lei Zhang",
+      "Peng-xuan Ren",
+      "Liang-he Mei",
+      "Wei-hong Lin",
+      "Lin Wang",
+      "Yu Cao",
+      "Kai Li",
+      "Fang Bai"
+    ],
+    "venue": "Acta Pharmacologica Sinica",
+    "year": 2023,
+    "volume": "44",
+    "issue": "4",
+    "pages": "877–887",
+    "topics": [
+      "structure",
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Discovery%2C+evaluation+and+mechanism+study+of+WDR5-targeted+small+molecular+inhibitors+for+neuroblastoma%22"
+  },
+  {
+    "id": "mei2023discovery",
+    "type": "journal article",
+    "title": "Discovery, structural optimization, and anti-tumor bioactivity evaluations of betulinic acid derivatives as a new type of RORγ antagonists",
+    "authors": [
+      "Lianghe Mei",
+      "Lansong Xu",
+      "Sanan Wu",
+      "Yafang Wang",
+      "Chao Xu",
+      "Lin Wang",
+      "Xingyu Zhang",
+      "Chengcheng Yu",
+      "Hualiang Jiang",
+      "Xianglei Zhang",
+      "others"
+    ],
+    "venue": "European Journal of Medicinal Chemistry",
+    "year": 2023,
+    "volume": "257",
+    "issue": "",
+    "pages": "115472",
+    "topics": [
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Discovery%2C+structural+optimization%2C+and+anti-tumor+bioactivity+evaluations+of+betulinic+acid+derivatives+as+a+new+type+of+ROR%CE%B3+antagonists%22"
+  },
+  {
+    "id": "zhu2023propofol",
+    "type": "journal article",
+    "title": "Propofol exerts anti-anhedonia effects via inhibiting the dopamine transporter",
+    "authors": [
+      "Xiao-Na Zhu",
+      "Jie Li",
+      "Gao-Lin Qiu",
+      "Lin Wang",
+      "Chen Lu",
+      "Yi-Ge Guo",
+      "Ke-Xin Yang",
+      "Fang Cai",
+      "Tao Xu",
+      "Ti-Fei Yuan",
+      "others"
+    ],
+    "venue": "Neuron",
+    "year": 2023,
+    "volume": "111",
+    "issue": "10",
+    "pages": "1626–1636",
+    "topics": [
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Propofol+exerts+anti-anhedonia+effects+via+inhibiting+the+dopamine+transporter%22"
+  },
+  {
+    "id": "li2023synthesis",
+    "type": "journal article",
+    "title": "Synthesis of maleimide-braced peptide macrocycles and their potential anti-SARS-CoV-2 mechanisms",
+    "authors": [
+      "Jian Li",
+      "Jina Sun",
+      "Xianglei Zhang",
+      "Ruxue Zhang",
+      "Qian Wang",
+      "Lin Wang",
+      "Leike Zhang",
+      "Xiong Xie",
+      "Chunpu Li",
+      "Yu Zhou",
+      "others"
+    ],
+    "venue": "Chemical Communications",
+    "year": 2023,
+    "volume": "59",
+    "issue": "7",
+    "pages": "868–871",
+    "topics": [
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Synthesis+of+maleimide-braced+peptide+macrocycles+and+their+potential+anti-SARS-CoV-2+mechanisms%22"
+  },
+  {
+    "id": "ren2022multi",
+    "type": "journal article",
+    "title": "A multi-targeting drug design strategy for identifying potent anti-SARS-CoV-2 inhibitors",
+    "authors": [
+      "Peng-xuan Ren",
+      "Wei-juan Shang",
+      "Wan-chao Yin",
+      "Huan Ge",
+      "Lin Wang",
+      "Xiang-lei Zhang",
+      "Bing-qian Li",
+      "Hong-lin Li",
+      "Ye-chun Xu",
+      "Eric H Xu",
+      "others"
+    ],
+    "venue": "Acta Pharmacologica Sinica",
+    "year": 2022,
+    "volume": "43",
+    "issue": "2",
+    "pages": "483–493",
+    "topics": [
+      "structure",
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22A+multi-targeting+drug+design+strategy+for+identifying+potent+anti-SARS-CoV-2+inhibitors%22"
+  },
+  {
+    "id": "wang2022crystal",
+    "type": "journal article",
+    "title": "Crystal structures of Wolbachia CidA and CidB reveal determinants of bacteria-induced cytoplasmic incompatibility and rescue",
+    "authors": [
+      "Haofeng Wang",
+      "Yunjie Xiao",
+      "Xia Chen",
+      "Mengwen Zhang",
+      "Guangxin Sun",
+      "Feng Wang",
+      "Lin Wang",
+      "Hanxiao Zhang",
+      "Xiaoyu Zhang",
+      "Xin Yang",
+      "others"
+    ],
+    "venue": "Nature Communications",
+    "year": 2022,
+    "volume": "13",
+    "issue": "1",
+    "pages": "1608",
+    "topics": [
+      "structure"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Crystal+structures+of+Wolbachia+CidA+and+CidB+reveal+determinants+of+bacteria-induced+cytoplasmic+incompatibility+and+rescue%22"
+  },
+  {
+    "id": "wang2022discovery",
+    "type": "journal article",
+    "title": "Discovery of potential small molecular SARS-CoV-2 entry blockers targeting the spike protein",
+    "authors": [
+      "Lin Wang",
+      "Yan Wu",
+      "Sheng Yao",
+      "Huan Ge",
+      "Ya Zhu",
+      "Kun Chen",
+      "Wen-zhang Chen",
+      "Yi Zhang",
+      "Wei Zhu",
+      "Hong-yang Wang",
+      "others"
+    ],
+    "venue": "Acta Pharmacologica Sinica",
+    "year": 2022,
+    "volume": "43",
+    "issue": "4",
+    "pages": "788–796",
+    "topics": [
+      "structure",
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Discovery+of+potential+small+molecular+SARS-CoV-2+entry+blockers+targeting+the+spike+protein%22"
+  },
+  {
+    "id": "liu2022pilsl",
+    "type": "journal article",
+    "title": "PiLSL: pairwise interaction learning-based graph neural network for synthetic lethality prediction in human cancers",
+    "authors": [
+      "Xin Liu",
+      "Jiale Yu",
+      "Siyu Tao",
+      "Beiyuan Yang",
+      "Shike Wang",
+      "Lin Wang",
+      "Fang Bai",
+      "Jie Zheng"
+    ],
+    "venue": "Bioinformatics",
+    "year": 2022,
+    "volume": "38",
+    "issue": "Supplement_2",
+    "pages": "ii106–ii112",
+    "topics": [
+      "ai",
+      "structure",
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22PiLSL%3A+pairwise+interaction+learning-based+graph+neural+network+for+synthetic+lethality+prediction+in+human+cancers%22"
+  },
+  {
+    "id": "wang2022ppi",
+    "type": "journal article",
+    "title": "PPI-Miner: a structure and sequence motif co-driven protein–protein interaction mining and modeling computational method",
+    "authors": [
+      "Lin Wang",
+      "Feng-lei Li",
+      "Xin-yue Ma",
+      "Yong Cang",
+      "Fang Bai"
+    ],
+    "venue": "Journal of Chemical Information and Modeling",
+    "year": 2022,
+    "volume": "62",
+    "issue": "23",
+    "pages": "6160–6171",
+    "topics": [
+      "ai",
+      "structure"
+    ],
+    "doi": "10.1021/acs.jcim.2c01033",
+    "url": "https://doi.org/10.1021/acs.jcim.2c01033"
+  },
+  {
+    "id": "sun2022rapamycin",
+    "type": "journal article",
+    "title": "Rapamycin targets STAT3 and impacts c-Myc to suppress tumor growth",
+    "authors": [
+      "Le Sun",
+      "Yu Yan",
+      "Heng Lv",
+      "Jianlong Li",
+      "Zhiyuan Wang",
+      "Kun Wang",
+      "Lin Wang",
+      "Yunxia Li",
+      "Hong Jiang",
+      "Yaoyang Zhang"
+    ],
+    "venue": "Cell chemical biology",
+    "year": 2022,
+    "volume": "29",
+    "issue": "3",
+    "pages": "373–385",
+    "topics": [
+      "structure",
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Rapamycin+targets+STAT3+and+impacts+c-Myc+to+suppress+tumor+growth%22"
+  },
+  {
+    "id": "li2022recent",
+    "type": "journal article",
+    "title": "Recent advances in predicting protein–protein interactions with the aid of artificial intelligence algorithms",
+    "authors": [
+      "Shiwei Li",
+      "Sanan Wu",
+      "Lin Wang",
+      "Fenglei Li",
+      "Hualiang Jiang",
+      "Fang Bai"
+    ],
+    "venue": "Current Opinion in Structural Biology",
+    "year": 2022,
+    "volume": "73",
+    "issue": "",
+    "pages": "102344",
+    "topics": [
+      "ai",
+      "structure"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Recent+advances+in+predicting+protein%E2%80%93protein+interactions+with+the+aid+of+artificial+intelligence+algorithms%22"
+  },
+  {
+    "id": "hou2022target",
+    "type": "journal article",
+    "title": "Target-based virtual screening and LC/MS-guided isolation procedure for identifying phloroglucinol-terpenoid inhibitors of SARS-CoV-2",
+    "authors": [
+      "Bo Hou",
+      "Yu-Min Zhang",
+      "Han-Yi Liao",
+      "Li-Feng Fu",
+      "De-Dong Li",
+      "Xin Zhao",
+      "Jian-Xun Qi",
+      "Wei Yang",
+      "Geng-Fu Xiao",
+      "Lian Yang",
+      "others"
+    ],
+    "venue": "Journal of natural products",
+    "year": 2022,
+    "volume": "85",
+    "issue": "2",
+    "pages": "327–336",
+    "topics": [
+      "structure",
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Target-based+virtual+screening+and+LC%2FMS-guided+isolation+procedure+for+identifying+phloroglucinol-terpenoid+inhibitors+of+SARS-CoV-2%22"
+  },
+  {
+    "id": "wang2021ckb",
+    "type": "journal article",
+    "title": "CKB inhibits epithelial-mesenchymal transition and prostate cancer progression by sequestering and inhibiting AKT activation",
+    "authors": [
+      "Zheng Wang",
+      "Mohit Hulsurkar",
+      "Lijuan Zhuo",
+      "Jinbang Xu",
+      "Han Yang",
+      "Samira Naderinezhad",
+      "Lin Wang",
+      "Guoliang Zhang",
+      "Nanping Ai",
+      "Linna Li",
+      "others"
+    ],
+    "venue": "Neoplasia",
+    "year": 2021,
+    "volume": "23",
+    "issue": "11",
+    "pages": "1147–1165",
+    "topics": [
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22CKB+inhibits+epithelial-mesenchymal+transition+and+prostate+cancer+progression+by+sequestering+and+inhibiting+AKT+activation%22"
+  },
+  {
+    "id": "li2021identification",
+    "type": "journal article",
+    "title": "Identification of potential binding sites of sialic acids on the RBD domain of SARS-CoV-2 spike protein",
+    "authors": [
+      "Bingqian Li",
+      "Lin Wang",
+      "Huan Ge",
+      "Xianglei Zhang",
+      "Penxuan Ren",
+      "Yu Guo",
+      "Wuyan Chen",
+      "Jie Li",
+      "Wei Zhu",
+      "Wenzhang Chen",
+      "others"
+    ],
+    "venue": "Frontiers in Chemistry",
+    "year": 2021,
+    "volume": "9",
+    "issue": "",
+    "pages": "659764",
+    "topics": [
+      "structure"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Identification+of+potential+binding+sites+of+sialic+acids+on+the+RBD+domain+of+SARS-CoV-2+spike+protein%22"
+  },
+  {
+    "id": "wang2021probing",
+    "type": "journal article",
+    "title": "Probing the allosteric inhibition mechanism of a spike protein using molecular dynamics simulations and active compound identifications",
+    "authors": [
+      "Qian Wang",
+      "Lin Wang",
+      "Yumin Zhang",
+      "XiangLei Zhang",
+      "Leike Zhang",
+      "Weijuan Shang",
+      "Fang Bai"
+    ],
+    "venue": "Journal of Medicinal Chemistry",
+    "year": 2021,
+    "volume": "65",
+    "issue": "4",
+    "pages": "2827–2835",
+    "topics": [
+      "structure"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Probing+the+allosteric+inhibition+mechanism+of+a+spike+protein+using+molecular+dynamics+simulations+and+active+compound+identifications%22"
+  },
+  {
+    "id": "yang2020antimicrobial",
+    "type": "journal article",
+    "title": "Antimicrobial resistance in clinical Ureaplasma spp. and Mycoplasma hominis and structural mechanisms underlying quinolone resistance",
+    "authors": [
+      "Ting Yang",
+      "Lianlian Pan",
+      "Ningning Wu",
+      "Lin Wang",
+      "Zhen Liu",
+      "Yingying Kong",
+      "Zhi Ruan",
+      "Xinyou Xie",
+      "Jun Zhang"
+    ],
+    "venue": "Antimicrobial Agents and Chemotherapy",
+    "year": 2020,
+    "volume": "64",
+    "issue": "6",
+    "pages": "10–1128",
+    "topics": [
+      "discovery"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22Antimicrobial+resistance+in+clinical+Ureaplasma+spp.+and+Mycoplasma+hominis+and+structural+mechanisms+underlying+quinolone+resistance%22"
+  },
+  {
+    "id": "jin2020structure",
+    "type": "journal article",
+    "title": "Structure of Mpro from SARS-CoV-2 and discovery of its inhibitors",
+    "authors": [
+      "Zhenming Jin",
+      "Xiaoyu Du",
+      "Yechun Xu",
+      "Yongqiang Deng",
+      "Meiqin Liu",
+      "Yao Zhao",
+      "Bing Zhang",
+      "Xiaofeng Li",
+      "Leike Zhang",
+      "Chao Peng",
+      "others"
+    ],
+    "venue": "Nature",
+    "year": 2020,
+    "volume": "582",
+    "issue": "7811",
+    "pages": "289–293",
+    "topics": [
+      "structure",
+      "discovery"
+    ],
+    "doi": "10.1038/s41586-020-2223-y",
+    "url": "https://doi.org/10.1038/s41586-020-2223-y"
+  },
+  {
+    "id": "wang2020structural",
+    "type": "journal article",
+    "title": "The structural study of mutation-induced inactivation of human muscarinic receptor M4",
+    "authors": [
+      "Jingjing Wang",
+      "Meng Wu",
+      "Lijie Wu",
+      "Yueming Xu",
+      "Fei Li",
+      "Yiran Wu",
+      "Petr Popov",
+      "Lin Wang",
+      "Fang Bai",
+      "Suwen Zhao",
+      "others"
+    ],
+    "venue": "IUCrJ",
+    "year": 2020,
+    "volume": "7",
+    "issue": "2",
+    "pages": "294–305",
+    "topics": [
+      "structure"
+    ],
+    "doi": null,
+    "url": "https://scholar.google.com/scholar?q=%22The+structural+study+of+mutation-induced+inactivation+of+human+muscarinic+receptor+M4%22"
+  }
+]

@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+.playwright-cli/
+output/
+*.log
