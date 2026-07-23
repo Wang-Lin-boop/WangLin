@@ -20,7 +20,7 @@
     <link rel="manifest" href="./site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=STIX+Two+Text:opsz,wght@10..72,400;10..72,500;10..72,600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Noto+Naskh+Arabic:wght@400;500;600&amp;family=Noto+Sans+Arabic:wght@400;500;600&amp;family=STIX+Two+Text:opsz,wght@10..72,400;10..72,500;10..72,600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/site.css">
 
     <script type="application/ld+json">
@@ -48,7 +48,7 @@
       }
     </script>
   </head>
-  <body>
+  <body data-page="home">
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <header class="site-header" data-site-header>
@@ -65,10 +65,21 @@
 
         <nav id="primary-navigation" class="primary-nav" aria-label="Primary navigation" data-primary-nav>
           <a href="#research">Research</a>
-          <a href="#work">Selected work</a>
+          <a href="#work">Projects</a>
+          <a href="#community">Community</a>
+          <a href="#news">News</a>
           <a href="./publications.html">Publications</a>
-          <a href="#trajectory">Trajectory</a>
-          <a class="nav-contact" href="mailto:Wanglin1102@outlook.com">Email</a>
+          <label class="language-control">
+            <span class="sr-only">Language</span>
+            <select data-language-select aria-label="Language">
+              <option value="en">English</option>
+              <option value="zh">中文</option>
+              <option value="ar">العربية</option>
+              <option value="fr">Français</option>
+              <option value="ru">Русский</option>
+              <option value="es">Español</option>
+            </select>
+          </label>
         </nav>
       </div>
     </header>
@@ -77,7 +88,7 @@
       <section class="hero page-shell" aria-labelledby="hero-title">
         <div class="hero-copy">
           <p class="section-tag">Molecular representation · Drug discovery</p>
-          <h1 id="hero-title">Molecular structure<br><span>and conformation.</span></h1>
+          <h1 id="hero-title">Walking through<br><span>chemical space.</span></h1>
           <p class="hero-statement">We develop computational methods for molecular representation, property prediction, and structure generation. Ouroboros is one recent effort within a broader program that also studies protein structure, molecular interactions, and cellular phenotype.</p>
 
           <nav class="hero-actions" aria-label="Primary links">
@@ -224,7 +235,7 @@
           <div class="section-intro">
             <p class="section-tag">Related research</p>
             <div>
-              <h2 id="work-title">Related questions in molecular discovery.</h2>
+              <h2 id="work-title">AI engines for drug discovery.</h2>
               <p>These projects address molecular representation, phenotype-based screening, protein structure and interactions, and synthetic accessibility. Together they provide context for the development of Ouroboros.</p>
             </div>
           </div>
@@ -329,11 +340,49 @@
         </div>
       </section>
 
-      <section class="section page-shell" aria-labelledby="recent-title">
+      <section id="community" class="section page-shell community-section" aria-labelledby="community-title">
+        <div class="section-intro">
+          <p class="section-tag" data-i18n="home.community.tag">Community work</p>
+          <div>
+            <h2 id="community-title" data-i18n="home.community.title">Open tools for everyday research.</h2>
+            <p data-i18n="home.community.intro">Alongside published studies, we maintain practical tools that support database searching, molecular simulation, and reproducible computer-aided drug-design workflows.</p>
+          </div>
+        </div>
+
+        <div class="community-grid">
+          <article>
+            <p class="community-index" data-i18n="home.community.biodb.type">01 · Database navigation</p>
+            <h3>Biodb-Search</h3>
+            <p data-i18n="home.community.biodb.description">A browser-based navigator that sends one query to multiple biomedical databases, designed to make routine literature and data lookup more direct.</p>
+            <nav aria-label="Biodb-Search resources" data-i18n-aria="home.community.biodb.aria">
+              <a href="https://wang-lin-boop.github.io/Biodb-Search/" target="_blank" rel="noreferrer" data-i18n-html="common.openSite">Open site <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/Wang-Lin-boop/Biodb-Search" target="_blank" rel="noreferrer" data-i18n-html="common.repository">Repository <span aria-hidden="true">↗</span></a>
+            </nav>
+          </article>
+          <article>
+            <p class="community-index" data-i18n="home.community.automd.type">02 · Molecular dynamics</p>
+            <h3>AutoMD / AutoTRJ</h3>
+            <p data-i18n="home.community.automd.description">Automation for Desmond system setup and molecular-dynamics simulation, paired with a configurable pipeline for trajectory processing and analysis.</p>
+            <nav aria-label="AutoMD resources" data-i18n-aria="home.community.automd.aria">
+              <a href="https://github.com/Wang-Lin-boop/AutoMD" target="_blank" rel="noreferrer" data-i18n-html="common.repository">Repository <span aria-hidden="true">↗</span></a>
+            </nav>
+          </article>
+          <article>
+            <p class="community-index" data-i18n="home.community.cadd.type">03 · CADD workflows</p>
+            <h3>CADD-Scripts</h3>
+            <p data-i18n="home.community.cadd.description">Shell utilities for virtual screening, cross-docking, and protein modeling with Schrödinger and Rosetta, shared to support reproducible computational workflows.</p>
+            <nav aria-label="CADD-Scripts resources" data-i18n-aria="home.community.cadd.aria">
+              <a href="https://github.com/Wang-Lin-boop/CADD-Scripts" target="_blank" rel="noreferrer" data-i18n-html="common.repository">Repository <span aria-hidden="true">↗</span></a>
+            </nav>
+          </article>
+        </div>
+      </section>
+
+      <section id="publications" class="section page-shell" aria-labelledby="recent-title">
         <div class="section-intro">
           <p class="section-tag">Recent publications</p>
           <div>
-            <h2 id="recent-title">Selected recent publications.</h2>
+            <h2 id="recent-title">Recent publications</h2>
             <p>The full record contains <span data-publication-count>33</span> publications and book chapters from 2020–2026.</p>
           </div>
         </div>
@@ -342,6 +391,85 @@
           <p class="loading-note">Loading publication record…</p>
         </div>
         <p class="section-action"><a class="text-button" href="./publications.html">View all publications <span aria-hidden="true">→</span></a></p>
+      </section>
+
+      <section id="news" class="section section-tinted news-section" aria-labelledby="news-title">
+        <div class="page-shell">
+          <div class="section-intro">
+            <p class="section-tag" data-i18n="home.news.tag">Research log</p>
+            <div>
+              <h2 id="news-title" data-i18n="home.news.title">News</h2>
+              <p data-i18n="home.news.intro">An archive of research releases, competition results, community tools, and publication milestones from the earlier site.</p>
+            </div>
+          </div>
+
+          <ol class="news-list">
+            <li>
+              <time datetime="2026">2026</time>
+              <p data-i18n-html="home.news.2026_ouroboros">The Ouroboros study, <em>Learned Conformational Space and Pharmacophore Into Molecular Foundational Model</em>, was published in <a href="https://doi.org/10.1002/advs.202513556" target="_blank" rel="noreferrer"><em>Advanced Science</em></a>.</p>
+            </li>
+            <li>
+              <time datetime="2025">2025</time>
+              <p data-i18n-html="home.news.2025_phenomodel">The PhenoModel study on multimodal phenotypic drug design was published in <a href="https://doi.org/10.1016/j.apsb.2025.09.036" target="_blank" rel="noreferrer"><em>Acta Pharmaceutica Sinica B</em></a>.</p>
+            </li>
+            <li>
+              <time datetime="2024-11">11 / 2024</time>
+              <p data-i18n-html="home.news.2024_11">We introduced <a href="https://github.com/Shihang-Wang-58/PhenoScreen" target="_blank" rel="noreferrer">PhenoScreen</a>, a dual-space contrastive learning framework combining conformational-space and molecular-image similarities for virtual screening.</p>
+            </li>
+            <li>
+              <time datetime="2024-09">09 / 2024</time>
+              <p data-i18n-html="home.news.2024_09">Using GeminiMol, we identified an inhibitor of GluN1/GluN3A (IC<sub>50</sub> = 0.98 μM); the work received first prize in the <a href="https://competition.huaweicloud.com/information/1000042002/html13" target="_blank" rel="noreferrer">2023 Shanghai International Computational Biology Innovation Competition</a>.</p>
+            </li>
+            <li>
+              <time datetime="2024-08">08 / 2024</time>
+              <p data-i18n-html="home.news.2024_08">The GeminiMol paper was published in <a href="https://onlinelibrary.wiley.com/doi/10.1002/advs.202403998" target="_blank" rel="noreferrer"><em>Advanced Science</em></a>.</p>
+            </li>
+            <li>
+              <time datetime="2023-12">12 / 2023</time>
+              <p data-i18n-html="home.news.2023_12">We introduced GeminiMol, which incorporates conformational-space information into molecular representation learning; see the <a href="https://github.com/Wang-Lin-boop/GeminiMol" target="_blank" rel="noreferrer">code</a> and <a href="https://doi.org/10.1101/2023.12.14.571629" target="_blank" rel="noreferrer">bioRxiv preprint</a>.</p>
+            </li>
+            <li>
+              <time datetime="2023-10">10 / 2023</time>
+              <p data-i18n-html="home.news.2023_10">DeepSA was published in the <a href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-023-00771-3" target="_blank" rel="noreferrer"><em>Journal of Cheminformatics</em></a>; the <a href="https://bailab.siais.shanghaitech.edu.cn/deepsa" target="_blank" rel="noreferrer">DeepSA web server</a> is also available.</p>
+            </li>
+            <li>
+              <time datetime="2023-01">01 / 2023</time>
+              <p data-i18n-html="home.news.2023_01">Together with <a href="https://shihang-wang-58.github.io/Shihang-Wang/" target="_blank" rel="noreferrer">Shihang Wang</a>, we developed <a href="https://github.com/Wang-Lin-boop/DeepSA/tree/main" target="_blank" rel="noreferrer">DeepSA</a>, a sensitive model for assessing the synthetic accessibility of small molecules.</p>
+            </li>
+            <li>
+              <time datetime="2022-12">12 / 2022</time>
+              <p data-i18n-html="home.news.2022_12">We expanded the original plmd script and renamed it <a href="https://github.com/Wang-Lin-boop/AutoMD" target="_blank" rel="noreferrer">AutoMD</a>, adding support for more force fields and customizable trajectory-analysis pipelines.</p>
+            </li>
+            <li>
+              <time datetime="2022-11">11 / 2022</time>
+              <p data-i18n-html="home.news.2022_11">We developed the motif-driven PPI-Miner method. The study appeared in the <a href="https://pubs.acs.org/doi/full/10.1021/acs.jcim.2c01033" target="_blank" rel="noreferrer"><em>Journal of Chemical Information and Modeling</em></a>, with <a href="https://github.com/Wang-Lin-boop/PPI-Miner" target="_blank" rel="noreferrer">source code on GitHub</a>.</p>
+            </li>
+            <li>
+              <time datetime="2022-08">08 / 2022</time>
+              <p data-i18n-html="home.news.2022_08">We released a <a href="https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib" target="_blank" rel="noreferrer">database of potential CRBN substrates</a>, covering human proteins with a β-hairpin loop and a surface complementary to CRBN.</p>
+            </li>
+            <li>
+              <time datetime="2021-08">08 / 2021</time>
+              <p data-i18n-html="home.news.2021_08a">We identified an allosteric pocket on the SARS-CoV-2 spike protein and designed inhibitors intended to restrict its conformational change; the study was published in the <a href="https://pubs.acs.org/doi/full/10.1021/acs.jmedchem.1c00320" target="_blank" rel="noreferrer"><em>Journal of Medicinal Chemistry</em></a>.</p>
+            </li>
+            <li>
+              <time datetime="2021-08">08 / 2021</time>
+              <p data-i18n-html="home.news.2021_08b">We reported five candidate small-molecule antiviral blockers targeting the SARS-CoV-2 spike protein in <a href="https://www.nature.com/articles/s41401-021-00735-z" target="_blank" rel="noreferrer"><em>Acta Pharmacologica Sinica</em></a>.</p>
+            </li>
+            <li>
+              <time datetime="2021-05">05 / 2021</time>
+              <p data-i18n-html="home.news.2021_05">We released automated Schrödinger workflows for cross-docking (XDock), virtual screening (GVSrun), and molecular-dynamics simulation (plmd), with the <a href="https://github.com/Wang-Lin-boop/Schrodinger-Script" target="_blank" rel="noreferrer">source code on GitHub</a>.</p>
+            </li>
+            <li>
+              <time datetime="2020-05">05 / 2020</time>
+              <p data-i18n-html="home.news.2020_05">We released <a href="https://wang-lin-boop.github.io/Biodb-Search/" target="_blank" rel="noreferrer">Biodb-Search</a>, a user-friendly biomedical database navigator intended to make literature research more efficient.</p>
+            </li>
+            <li>
+              <time datetime="2019-12">12 / 2019</time>
+              <p data-i18n-html="home.news.2019_12">We released <a href="https://github.com/Wang-Lin-boop/GetPDB" target="_blank" rel="noreferrer">GetPDB</a>, an automated script for downloading single-chain protein structures by UniProt ID.</p>
+            </li>
+          </ol>
+        </div>
       </section>
 
       <section id="trajectory" class="section section-tinted" aria-labelledby="trajectory-title">
@@ -407,6 +535,7 @@
       </div>
     </footer>
 
+    <script src="./assets/i18n.js" defer></script>
     <script src="./assets/site.js" defer></script>
   </body>
 </html>

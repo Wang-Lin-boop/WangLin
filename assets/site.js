@@ -1,14 +1,17 @@
 (() => {
   "use strict";
 
-  const TOPIC_LABELS = {
-    ai: "Molecular AI",
-    structure: "Structure & PPI",
-    discovery: "Drug discovery"
+  const i18n = window.SiteI18n;
+  const t = (key, variables = {}) => i18n?.t(key, variables) ?? key;
+
+  const TOPIC_KEYS = {
+    ai: "topics.ai",
+    structure: "topics.structure",
+    discovery: "topics.discovery"
   };
 
   const publicationLists = [...document.querySelectorAll("[data-publication-list]")];
-  const publicationCountNodes = [...document.querySelectorAll("[data-publication-count]")];
+  const publicationCountNodes = () => [...document.querySelectorAll("[data-publication-count]")];
   const filterButtons = [...document.querySelectorAll("[data-publication-filter]")];
   const searchInput = document.querySelector("[data-publication-search]");
   const statusNode = document.querySelector("[data-publication-status]");
@@ -32,8 +35,8 @@
       .toLowerCase();
 
   const topicLabel = (topics = []) => {
-    const labels = topics.map((topic) => TOPIC_LABELS[topic]).filter(Boolean);
-    return labels.length ? labels.join(" · ") : "Research article";
+    const labels = topics.map((topic) => TOPIC_KEYS[topic]).filter(Boolean).map((key) => t(key));
+    return labels.length ? labels.join(" · ") : t("topics.article");
   };
 
   const formatAuthors = (authors = [], compact = false) => {
@@ -47,7 +50,7 @@
 
     const names = visibleAuthors.map((author) => {
       const normalizedAuthor = normalizeText(author);
-      if (normalizedAuthor === "others") return "<em>et al.</em>";
+      if (normalizedAuthor === "others") return `<em>${escapeHtml(t("publications.etAl"))}</em>`;
 
       const safeName = escapeHtml(author);
       return normalizedAuthor === "lin wang"
@@ -56,7 +59,7 @@
     });
 
     if (hasOmittedAuthors) {
-      names.push("et al.");
+      names.push(escapeHtml(t("publications.etAl")));
     }
 
     return names.join(", ");
@@ -90,7 +93,7 @@
     yearNavigation.innerHTML = groups
       .map(
         ([year, items], index) =>
-          `<a href="#year-${escapeHtml(year)}"${index === 0 ? ' aria-current="true"' : ""}>${escapeHtml(year)} <span aria-label="${items.length} publications">(${items.length})</span></a>`
+          `<a href="#year-${escapeHtml(year)}"${index === 0 ? ' aria-current="true"' : ""}>${escapeHtml(year)} <span aria-label="${escapeHtml(t("publications.countAria", { count: items.length }))}">(${items.length})</span></a>`
       )
       .join("");
 
@@ -125,8 +128,7 @@
 
   const renderFullList = (container, items) => {
     if (!items.length) {
-      container.innerHTML =
-        '<p class="empty-state">No publications match this search. Try a broader term or another research area.</p>';
+      container.innerHTML = `<p class="empty-state">${escapeHtml(t("publications.empty"))}</p>`;
       buildYearNavigation([]);
       return;
     }
@@ -145,7 +147,7 @@
           <section class="publication-year" id="year-${escapeHtml(year)}" data-publication-year="${escapeHtml(year)}" aria-labelledby="year-${escapeHtml(year)}-heading">
             <header class="publication-year-heading">
               <h2 id="year-${escapeHtml(year)}-heading">${escapeHtml(year)}</h2>
-              <p>${yearItems.length} ${yearItems.length === 1 ? "work" : "works"}</p>
+              <p>${escapeHtml(t(yearItems.length === 1 ? "publications.workCountOne" : "publications.workCount", { count: yearItems.length }))}</p>
             </header>
             ${yearItems.map((item) => publicationMarkup(item)).join("")}
           </section>
@@ -196,21 +198,19 @@
     });
 
     if (statusNode) {
-      const noun = filtered.length === 1 ? "work" : "works";
-      statusNode.textContent = `Showing ${filtered.length} of ${publications.length} ${noun}`;
+      statusNode.textContent = t(filtered.length === 1 ? "publications.statusOne" : "publications.status", { shown: filtered.length, total: publications.length });
     }
   };
 
   const showPublicationError = () => {
     publicationLists.forEach((container) => {
-      container.innerHTML =
-        '<p class="empty-state">The publication list could not be loaded. View the <a href="./data/publications.bib">BibTeX record</a> instead.</p>';
+      container.innerHTML = `<p class="empty-state">${t("publications.error")}</p>`;
     });
-    if (statusNode) statusNode.textContent = "Publication data unavailable";
+    if (statusNode) statusNode.textContent = t("publications.unavailable");
   };
 
   const initializePublications = async () => {
-    if (!publicationLists.length && !publicationCountNodes.length) return;
+    if (!publicationLists.length && !publicationCountNodes().length) return;
 
     try {
       const response = await fetch("./data/publications.json");
@@ -223,7 +223,7 @@
         return yearDifference || String(a.title).localeCompare(String(b.title));
       });
 
-      publicationCountNodes.forEach((node) => {
+      publicationCountNodes().forEach((node) => {
         node.textContent = String(publications.length);
       });
       renderPublications();
@@ -277,6 +277,15 @@
 
   document.querySelectorAll("[data-current-year]").forEach((node) => {
     node.textContent = String(new Date().getFullYear());
+  });
+
+  document.addEventListener("site:languagechange", () => {
+    if (publications.length) {
+      publicationCountNodes().forEach((node) => {
+        node.textContent = String(publications.length);
+      });
+      renderPublications();
+    }
   });
 
   initializePublications();
