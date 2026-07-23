@@ -33,10 +33,24 @@ The visual system is intentionally typographic:
 - STIX Two Text for the scholarly display voice, IBM Plex Sans for reading, and IBM Plex Mono for metadata;
 - a real profile portrait as the only photographic asset;
 - no generated molecules, scientific diagrams, decorative gradients, or speculative structure graphics;
-- a research-scale sequence that encodes an actual progression from molecule to protein to cell;
+- an Ouroboros research sequence that encodes the real workflow from molecular encoding through gradient-guided navigation to structural decoding;
 - a publication-year rail that makes the chronology of the research record visible and navigable.
 
 Motion is limited to navigation and hover feedback. Reduced-motion preferences are respected.
+
+## Ouroboros-centered compact revision
+
+The July 2026 revision makes Ouroboros the organizing center of the homepage. Its technical dossier is grounded in the peer-reviewed Advanced Science article (`10.1002/advs.202513556`), the associated preprint (`10.1101/2025.03.18.643899`), and the official `Wang-Lin-boop/Ouroboros` repository.
+
+The dossier records the paper's architecture and selected evidence without introducing illustrative molecular structures:
+
+- a global-attention GNN produces a 2048-dimensional molecular encoding;
+- molecular fingerprints, conformational space, and pharmacophore similarity organize that encoding;
+- property decoders guide exploration, migration, and fusion before an autoregressive Transformer decodes SMILES;
+- the evidence strip reports the study's pre-training scale, DUD-E/LIT-PCBA benchmark scale, screened library size, and experimentally confirmed multi-target hits;
+- a boundary note states that target-specific candidates still require docking, pose analysis, and experimental validation.
+
+The layout was compressed into an academic-dossier reading rhythm: a 64 px header, a non-viewport-filling hero, tighter section spacing, compact project and publication rows, and responsive two-column evidence cells. The portrait now uses its natural aspect ratio with `object-fit: contain`, preventing facial or shoulder cropping. At 1440 px, the expanded homepage is approximately 39% shorter than the earlier loose layout despite the added research detail.
 
 ## Deployment model
 
