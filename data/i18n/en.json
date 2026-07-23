@@ -21,7 +21,7 @@
   "home.meta.description": "Lin Wang studies molecular representation, conformational landscapes, protein modeling, and AI-assisted drug discovery.",
   "home.hero.tag": "Molecular representation · Drug discovery",
   "home.hero.title": "Walking through<br><span>chemical space.</span>",
-  "home.hero.statement": "We develop computational methods for molecular representation, property prediction, and structure generation. Ouroboros is one recent effort within a broader program that also studies protein structure, molecular interactions, and cellular phenotype.",
+  "home.hero.statement": "We develop computational methods for molecular representation, property prediction, and structure generation. Ouroboros is one recent effort within a broader program that also studies protein–ligand interactions and cellular phenotype modeling.",
   "home.hero.actionsAria": "Primary research links",
   "home.hero.paper": "Read Ouroboros <span aria-hidden=\"true\">↗</span>",
   "home.hero.position": "Position",
