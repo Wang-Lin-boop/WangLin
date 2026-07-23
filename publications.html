@@ -20,10 +20,10 @@
     <link rel="manifest" href="./site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=STIX+Two+Text:opsz,wght@10..72,400;10..72,500;10..72,600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Noto+Naskh+Arabic:wght@400;500;600&amp;family=Noto+Sans+Arabic:wght@400;500;600&amp;family=STIX+Two+Text:opsz,wght@10..72,400;10..72,500;10..72,600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/site.css">
   </head>
-  <body>
+  <body data-page="publications">
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <header class="site-header" data-site-header>
@@ -40,10 +40,21 @@
 
         <nav id="primary-navigation" class="primary-nav" aria-label="Primary navigation" data-primary-nav>
           <a href="./index.html#research">Research</a>
-          <a href="./index.html#work">Selected work</a>
+          <a href="./index.html#work">Projects</a>
+          <a href="./index.html#community">Community</a>
+          <a href="./index.html#news">News</a>
           <a href="./publications.html" aria-current="page">Publications</a>
-          <a href="./index.html#trajectory">Trajectory</a>
-          <a class="nav-contact" href="mailto:Wanglin1102@outlook.com">Email</a>
+          <label class="language-control">
+            <span class="sr-only">Language</span>
+            <select data-language-select aria-label="Language">
+              <option value="en">English</option>
+              <option value="zh">中文</option>
+              <option value="ar">العربية</option>
+              <option value="fr">Français</option>
+              <option value="ru">Русский</option>
+              <option value="es">Español</option>
+            </select>
+          </label>
         </nav>
       </div>
     </header>
@@ -103,6 +114,7 @@
       </div>
     </footer>
 
+    <script src="./assets/i18n.js" defer></script>
     <script src="./assets/site.js" defer></script>
   </body>
 </html>

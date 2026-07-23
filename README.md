@@ -6,13 +6,15 @@ The site is a lightweight, dependency-free academic portfolio informed by the in
 
 ## Site structure
 
-- `index.html`: biography, research program, selected projects, trajectory, and contact details
+- `index.html`: biography, research program, projects, community tools, news, trajectory, and contact details
 - `publications.html`: searchable and filterable full publication record
+- `data/i18n/`: Arabic, Chinese, English, French, Russian, and Spanish interface copy
 - `data/publications.bib`: canonical publication source
 - `data/publications.json`: browser-ready publication data
 - `scripts/parse_publications.py`: dependency-free BibTeX conversion script
 - `assets/site.css`: visual system and responsive layout
-- `assets/site.js`: navigation and publication browser
+- `assets/i18n.js`: language selection, persistence, translated copy, and RTL support
+- `assets/site.js`: responsive navigation and multilingual publication browser
 - `.github/workflows/pages.yml`: GitHub Pages deployment
 
 The only photographic asset is the real profile portrait in `images/profile.png`. The design intentionally avoids generated molecular imagery and decorative scientific diagrams.
