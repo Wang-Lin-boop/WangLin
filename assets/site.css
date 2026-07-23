@@ -1468,6 +1468,7 @@ body {
   display: block;
   width: 100%;
   height: auto;
+  background-color: var(--paper);
   object-fit: contain;
 }
 
@@ -1519,6 +1520,7 @@ body {
   width: min(100%, 126px);
   height: auto;
   margin: 0 auto 7px;
+  background-color: var(--paper);
 }
 
 .engine-mark figcaption {
