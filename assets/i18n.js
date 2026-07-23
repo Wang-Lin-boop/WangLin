@@ -82,11 +82,29 @@
     [".dossier-architecture article:nth-child(3) .research-question", "home.scale.decodeIndex"],
     [".dossier-architecture article:nth-child(3) h3", "home.dossier.decodeTitle"],
     [".dossier-architecture article:nth-child(3) p:last-child", "home.dossier.decodeText"],
-    [".evidence-strip", "home.evidence.aria", "aria-label"],
-    [".evidence-strip div:nth-child(1) dd", "home.evidence.encoder"],
-    [".evidence-strip div:nth-child(2) dd", "home.evidence.benchmarks"],
-    [".evidence-strip div:nth-child(3) dd", "home.evidence.screened"],
-    [".evidence-strip div:nth-child(4) dd", "home.evidence.hits"],
+    [".lineage-copy > .metadata-label", "home.lineage.tag"],
+    ["#lineage-title", "home.lineage.title"],
+    [".lineage-intro", "home.lineage.intro"],
+    [".lineage-comparison article:nth-child(1) h4", "home.lineage.geminiTitle"],
+    [".lineage-comparison article:nth-child(1) > p:nth-of-type(2)", "home.lineage.geminiText"],
+    [".lineage-comparison article:nth-child(1) .lineage-validation", "home.lineage.geminiValidation", "html"],
+    [".lineage-comparison article:nth-child(2) h4", "home.lineage.ouroborosTitle"],
+    [".lineage-comparison article:nth-child(2) > p:nth-of-type(2)", "home.lineage.ouroborosText"],
+    [".lineage-comparison article:nth-child(2) .lineage-validation", "home.lineage.ouroborosValidation", "html"],
+    [".lineage-figure figcaption", "home.lineage.caption"],
+    [".engine-mark figcaption", "home.engine.figureCaption"],
+    [".engine-copy .metadata-label", "home.engine.tag"],
+    ["#engine-title", "home.engine.title"],
+    [".engine-copy > p:last-child", "home.engine.intro"],
+    [".engine-flow", "home.engine.flowAria", "aria-label"],
+    [".engine-flow li:nth-child(1) h4", "home.engine.hypothesisTitle"],
+    [".engine-flow li:nth-child(1) p", "home.engine.hypothesisText"],
+    [".engine-flow li:nth-child(2) h4", "home.engine.objectiveTitle"],
+    [".engine-flow li:nth-child(2) p", "home.engine.objectiveText"],
+    [".engine-flow li:nth-child(3) h4", "home.engine.navigationTitle"],
+    [".engine-flow li:nth-child(3) p", "home.engine.navigationText"],
+    [".engine-flow li:nth-child(4) h4", "home.engine.reconstructionTitle"],
+    [".engine-flow li:nth-child(4) p", "home.engine.reconstructionText"],
     [".evolution-heading .metadata-label", "home.operations.tag"],
     [".evolution-heading p:last-child", "home.operations.intro"],
     [".evolution-grid article:nth-of-type(1) h3", "home.operations.explorationTitle"],
@@ -95,9 +113,7 @@
     [".evolution-grid article:nth-of-type(2) p", "home.operations.migrationText"],
     [".evolution-grid article:nth-of-type(3) h3", "home.operations.fusionTitle"],
     [".evolution-grid article:nth-of-type(3) p", "home.operations.fusionText"],
-    [".dossier-boundary", "home.boundary.aria", "aria-label"],
-    [".dossier-boundary .metadata-label", "home.boundary.tag"],
-    [".dossier-boundary p:last-child", "home.boundary.text"],
+    [".application-figure figcaption", "home.engine.applicationCaption"],
     ["#work .section-tag", "home.projects.tag"],
     ["#work-title", "home.projects.title"],
     ["#work .section-intro > div > p", "home.projects.intro"],
@@ -191,6 +207,7 @@
     document.querySelectorAll("[data-i18n]").forEach((node) => setNodeValue(node, node.dataset.i18n));
     document.querySelectorAll("[data-i18n-html]").forEach((node) => setNodeValue(node, node.dataset.i18nHtml, "html"));
     document.querySelectorAll("[data-i18n-aria]").forEach((node) => setNodeValue(node, node.dataset.i18nAria, "aria-label"));
+    document.querySelectorAll("[data-i18n-alt]").forEach((node) => setNodeValue(node, node.dataset.i18nAlt, "alt"));
   };
 
   const applyMetadata = (page) => {

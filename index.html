@@ -159,7 +159,7 @@
           </div>
           <div class="dossier-title">
             <h2 id="research-title">Ouroboros</h2>
-            <p class="dossier-deck">Ouroboros explores a shared encoding space for molecular representation and generation. The model combines similarity-informed representation learning, task-specific property decoders, and an autoregressive SMILES decoder to support prediction and several forms of guided molecular generation.</p>
+            <p class="dossier-deck">Ouroboros examines how a molecular representation foundation can be extended into a generation engine. A similarity-matrix objective organizes an encoding space informed by molecular fingerprints, conformational space, and pharmacophores; task-specific property decoders and an autoregressive SMILES decoder then support prediction, search, and iterative optimization.</p>
             <nav class="dossier-links" aria-label="Ouroboros resources">
               <a href="https://doi.org/10.1002/advs.202513556" target="_blank" rel="noreferrer">Peer-reviewed paper ↗</a>
               <a href="https://doi.org/10.1101/2025.03.18.643899" target="_blank" rel="noreferrer">Preprint ↗</a>
@@ -168,66 +168,141 @@
           </div>
         </header>
 
-        <div class="dossier-architecture" aria-label="Ouroboros architecture">
+        <section class="lineage-module" aria-labelledby="lineage-title">
+          <div class="lineage-copy">
+            <p class="metadata-label">Method lineage</p>
+            <h3 id="lineage-title">From pairwise similarity to similarity matrices.</h3>
+            <p class="lineage-intro">GeminiMol and Ouroboros both use conformational-space and pharmacophore similarity as chemical priors. The later model changes how those relationships supervise the representation space.</p>
+
+            <div class="lineage-comparison">
+              <article>
+                <p class="lineage-model">GeminiMol</p>
+                <h4>Pairwise-similarity contrastive learning</h4>
+                <p>GeminiMol learns from paired molecules, bringing encodings closer when their conformational and pharmacophore profiles are similar.</p>
+                <p class="lineage-validation"><span>Validated in</span> similarity search and screening.</p>
+              </article>
+              <article>
+                <p class="lineage-model">Ouroboros</p>
+                <h4>Matrix-similarity contrastive learning</h4>
+                <p>Ouroboros supervises batches with full molecular similarity matrices, allowing multiple relative relationships to organize the encoding space together.</p>
+                <p class="lineage-validation"><span>Validated in</span> prediction, guided generation, and molecular discovery.</p>
+              </article>
+            </div>
+          </div>
+
+          <figure class="research-figure lineage-figure">
+            <a href="./images/research/geminimol-ouroboros-lineage.png" target="_blank" rel="noreferrer">
+              <img
+                src="./images/research/geminimol-ouroboros-lineage.png"
+                width="1964"
+                height="929"
+                loading="lazy"
+                decoding="async"
+                alt="Composite research figure comparing GeminiMol pairwise-similarity contrastive learning with Ouroboros matrix-similarity learning and representative molecular-screening studies."
+                data-i18n-alt="home.lineage.figureAlt"
+              >
+            </a>
+            <figcaption>Method lineage and representative validation settings. Open the full-resolution figure ↗</figcaption>
+          </figure>
+        </section>
+
+        <div class="dossier-architecture" role="group" aria-label="Ouroboros architecture">
           <article>
             <p class="research-question">01 · Encode</p>
             <h3>Represent molecular similarity</h3>
-            <p>A global-attention GNN maps each molecular graph to a 2048-dimensional vector. The training objective draws on molecular fingerprints, conformational space, and pharmacophore information.</p>
+            <p>A global-attention GNN maps each molecular graph to a 2048-dimensional vector. Training against molecular similarity matrices integrates fingerprint, conformational-space, and pharmacophore relationships.</p>
           </article>
           <article>
             <p class="research-question">02 · Navigate</p>
             <h3>Guide changes in the encoding</h3>
-            <p>Independent property decoders map encodings to task-specific objectives. Gradients from these decoders are used to update the vectors during property-guided generation.</p>
+            <p>Relevant property decoders translate encodings into task-specific predictions and provide objectives for navigating the representation space.</p>
           </article>
           <article>
             <p class="research-question">03 · Decode</p>
             <h3>Decode candidate structures</h3>
-            <p>An autoregressive Transformer decodes an input vector to SMILES. Training the encoder and decoder separately allows the representation objective to be specified independently of generation.</p>
+            <p>An autoregressive Transformer reconstructs SMILES from input or revised encodings, yielding candidate structures for subsequent prioritization and evaluation.</p>
           </article>
         </div>
 
-        <dl class="evidence-strip" aria-label="Selected evidence from the Ouroboros study">
-          <div>
-            <dt>&lt;150k</dt>
-            <dd>Molecules used for similarity-based encoder pre-training</dd>
-          </div>
-          <div>
-            <dt>4.27M</dt>
-            <dd>Molecules across DUD-E and LIT-PCBA benchmarks</dd>
-          </div>
-          <div>
-            <dt>48.2M</dt>
-            <dd>Compound diversity subset screened in the multi-target study</dd>
-          </div>
-          <div>
-            <dt>3</dt>
-            <dd>Multi-target hits confirmed by enzymatic assays</dd>
-          </div>
-        </dl>
+        <section class="engine-module" aria-labelledby="engine-title">
+          <div class="engine-overview">
+            <figure class="engine-mark">
+              <img
+                src="./images/research/ouroboros-representation-engine.png"
+                width="392"
+                height="397"
+                loading="lazy"
+                decoding="async"
+                alt="Ouroboros symbol showing a molecular graph enclosed by a serpent beside an ordered molecular representation vector."
+                data-i18n-alt="home.engine.figureAlt"
+              >
+              <figcaption>The visual mark summarizes a molecular graph mapped to an ordered representation vector.</figcaption>
+            </figure>
 
-        <div class="evolution-grid">
-          <div class="evolution-heading">
-            <p class="metadata-label">Operations evaluated</p>
-            <p>The study examines three ways of modifying molecular encodings.</p>
+            <div class="engine-copy">
+              <p class="metadata-label">Representation foundation → generation engine</p>
+              <h3 id="engine-title">Pharmacological hypotheses become objectives for navigating molecular encodings.</h3>
+              <p>A pharmacological hypothesis defines what the system should optimize. A relevant property decoder turns the representation into a prediction for that objective; its signal guides movement through encoding space, and the SMILES decoder reconstructs revised encodings as candidate structures.</p>
+            </div>
           </div>
-          <article>
-            <h3>Exploration</h3>
-            <p>Small perturbations to a starting encoding generate nearby analogs with varying structures.</p>
-          </article>
-          <article>
-            <h3>Migration</h3>
-            <p>Property objectives guide changes in the encoding while similarity to the starting molecule can be monitored.</p>
-          </article>
-          <article>
-            <h3>Fusion</h3>
-            <p>Optimization toward multiple reference sets is used to study candidates with multi-target potential.</p>
-          </article>
-        </div>
 
-        <aside class="dossier-boundary" aria-label="Current research boundary">
-          <p class="metadata-label">Current boundary</p>
-          <p>The current framework does not directly model drug–target affinity. Target-specific proposals therefore remain hypotheses that require docking, binding-pose analysis, and experimental validation. Connecting molecular and protein representations is an area for further work.</p>
-        </aside>
+          <ol class="engine-flow" aria-label="From pharmacological hypothesis to molecular structure">
+            <li>
+              <span class="flow-index">01</span>
+              <h4>Pharmacological hypothesis</h4>
+              <p>A desired profile, reference molecule, phenotype, or target combination.</p>
+            </li>
+            <li>
+              <span class="flow-index">02</span>
+              <h4>Predictive objective</h4>
+              <p>A property decoder or similarity target expresses the task in the representation space.</p>
+            </li>
+            <li>
+              <span class="flow-index">03</span>
+              <h4>Encoding-space navigation</h4>
+              <p>Search or iterative updates move molecular vectors toward the objective.</p>
+            </li>
+            <li>
+              <span class="flow-index">04</span>
+              <h4>Structure reconstruction</h4>
+              <p>The generative decoder returns candidate SMILES for subsequent evaluation.</p>
+            </li>
+          </ol>
+
+          <div class="evolution-grid">
+            <div class="evolution-heading">
+              <p class="metadata-label">Application routes</p>
+              <p>After a hypothesis defines an objective, the same foundation can support complementary search strategies.</p>
+            </div>
+            <article>
+              <h3>Chemical-space search</h3>
+              <p>For virtual screening or de novo exploration, the objective ranks or guides candidate encodings across a broader chemical space.</p>
+            </article>
+            <article>
+              <h3>Hit-to-lead optimization</h3>
+              <p>Starting from a known hit, its encoding is iteratively updated toward the objective while proximity to the starting molecule can be monitored.</p>
+            </article>
+            <article>
+              <h3>Multi-reference navigation</h3>
+              <p>Several reference sets or objectives can be combined to examine candidates consistent with a multi-target hypothesis.</p>
+            </article>
+          </div>
+
+          <figure class="research-figure application-figure">
+            <a href="./images/research/ouroboros-pharmacology-navigation.png" target="_blank" rel="noreferrer">
+              <img
+                src="./images/research/ouroboros-pharmacology-navigation.png"
+                width="1760"
+                height="799"
+                loading="lazy"
+                decoding="async"
+                alt="Ouroboros application framework connecting pharmacological hypotheses with hit discovery and hit-to-lead optimization in molecular representation space."
+                data-i18n-alt="home.engine.applicationAlt"
+              >
+            </a>
+            <figcaption>Application landscape: pharmacological hypotheses define objectives for chemical-space search or iterative optimization from a known hit. Open the full-resolution figure ↗</figcaption>
+          </figure>
+        </section>
       </section>
 
       <section id="work" class="section section-tinted" aria-labelledby="work-title">
@@ -405,11 +480,11 @@
 
           <ol class="news-list">
             <li>
-              <time datetime="2026">2026</time>
+              <time datetime="2026-01">01 / 2026</time>
               <p data-i18n-html="home.news.2026_ouroboros">The Ouroboros study, <em>Learned Conformational Space and Pharmacophore Into Molecular Foundational Model</em>, was published in <a href="https://doi.org/10.1002/advs.202513556" target="_blank" rel="noreferrer"><em>Advanced Science</em></a>.</p>
             </li>
             <li>
-              <time datetime="2025">2025</time>
+              <time datetime="2025-09">09 / 2025</time>
               <p data-i18n-html="home.news.2025_phenomodel">The PhenoModel study on multimodal phenotypic drug design was published in <a href="https://doi.org/10.1016/j.apsb.2025.09.036" target="_blank" rel="noreferrer"><em>Acta Pharmaceutica Sinica B</em></a>.</p>
             </li>
             <li>
