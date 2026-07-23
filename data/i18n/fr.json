@@ -21,7 +21,7 @@
   "home.meta.description": "Lin Wang étudie la représentation moléculaire, les paysages conformationnels, la modélisation des protéines et la découverte de médicaments assistée par IA.",
   "home.hero.tag": "Représentation moléculaire · Découverte de médicaments",
   "home.hero.title": "Parcourir<br><span>l’espace chimique.</span>",
-  "home.hero.statement": "Nous développons des méthodes de calcul pour la représentation moléculaire, la prédiction de propriétés et la génération de structures. Ouroboros constitue un travail récent au sein d’un programme plus large consacré aussi aux structures protéiques, aux interactions moléculaires et aux phénotypes cellulaires.",
+  "home.hero.statement": "Nous développons des méthodes de calcul pour la représentation moléculaire, la prédiction de propriétés et la génération de structures. Ouroboros constitue un travail récent au sein d’un programme plus large consacré aussi aux interactions protéine–ligand et à la modélisation des phénotypes cellulaires.",
   "home.hero.actionsAria": "Principaux liens de recherche",
   "home.hero.paper": "Lire Ouroboros <span aria-hidden=\"true\">↗</span>",
   "home.hero.position": "Fonction",
