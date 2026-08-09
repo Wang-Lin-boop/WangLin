@@ -177,6 +177,46 @@
     "url": "https://scholar.google.com/scholar?q=%22Discovery+of+novel+GluN1%2FGluN3A+NMDA+receptor+inhibitors+using+a+deep+learning-based+method%22"
   },
   {
+    "id": "liang2025mcr3",
+    "type": "journal article",
+    "title": "Fitness costs of mobilised colistin resistance gene 3 (mcr-3): systematic review, epidemiological study, and functional analysis",
+    "authors": [
+      "Lujie Liang",
+      "Yaxin Li",
+      "Lin Wang",
+      "Wenli Wang",
+      "Yihao Zhang",
+      "Hui Zhao",
+      "Yaxuan Wang",
+      "Lingxuan Lyu",
+      "Jiachen Li",
+      "Dianrong Zhou",
+      "Zhe Hu",
+      "Lizhen Luo",
+      "Guanxiu Wang",
+      "Jia Wan",
+      "Lin Xu",
+      "Meisong Li",
+      "Min Dai",
+      "Meiting Yang",
+      "Shun Xiong",
+      "Lan-Lan Zhong",
+      "Fang Bai",
+      "Siyuan Feng",
+      "Guo-Bao Tian"
+    ],
+    "venue": "EBioMedicine",
+    "year": 2025,
+    "volume": "120",
+    "issue": "",
+    "pages": "105923",
+    "topics": [
+      "discovery"
+    ],
+    "doi": "10.1016/j.ebiom.2025.105923",
+    "url": "https://doi.org/10.1016/j.ebiom.2025.105923"
+  },
+  {
     "id": "li2025mai",
     "type": "journal article",
     "title": "MAI-TargetFisher: A proteome-wide drug target prediction method synergetically enhanced by artificial intelligence and physical modeling",
