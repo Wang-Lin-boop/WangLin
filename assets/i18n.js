@@ -46,6 +46,7 @@
     [".hero-actions a:nth-child(1)", "home.hero.paper", "html"],
     [".hero-actions a:nth-child(2)", "common.code", "html"],
     [".hero-actions a:nth-child(3)", "common.scholar", "html"],
+    [".hero-actions a:nth-child(4)", "home.hero.cv"],
     [".current-role .metadata-label", "home.hero.position"],
     [".current-role p:last-child", "home.hero.role", "html"],
     [".profile-panel", "home.profile.aria", "aria-label"],
