@@ -19,6 +19,7 @@ KNOWN_DOIS = {
     "wang2022ppi": "10.1021/acs.jcim.2c01033",
     "wang2023deepsa": "10.1186/s13321-023-00771-3",
     "wang2024conformational": "10.1002/advs.202403998",
+    "liang2025mcr3": "10.1016/j.ebiom.2025.105923",
     "wang2025phenomodel": "10.1016/j.apsb.2025.09.036",
     "wang2026learned": "10.1002/advs.202513556",
 }
