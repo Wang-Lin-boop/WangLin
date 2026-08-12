@@ -12,6 +12,7 @@ The site is a lightweight, dependency-free academic portfolio informed by the in
 - `data/publications.bib`: canonical publication source
 - `data/publications.json`: browser-ready publication data
 - `scripts/parse_publications.py`: dependency-free BibTeX conversion script
+- `scripts/build_cv.py`: reproducible CV builder using the website publication data
 - `assets/site.css`: visual system and responsive layout
 - `assets/i18n.js`: language selection, persistence, translated copy, and RTL support
 - `assets/site.js`: responsive navigation and multilingual publication browser
@@ -21,7 +22,7 @@ The only photographic asset is the real profile portrait in `images/profile.png`
 
 ## Update publications
 
-1. Add or correct entries in `data/publications.bib`.
+1. Add or correct entries in `data/publications.bib`, then assign each new entry one primary category in `PUBLICATION_CATEGORIES` in `scripts/parse_publications.py`: `structural_bioinformatics`, `ppi_modeling`, `protein_ligand_modeling`, or `drug_discovery`.
 2. Regenerate the JSON:
 
    ```bash
@@ -34,7 +35,31 @@ The only photographic asset is the real profile portrait in `images/profile.png`
    python -m http.server 8000
    ```
 
-4. Open `http://localhost:8000/` and verify the homepage and publication filters.
+4. Open `http://localhost:8000/` and verify the homepage and all four mutually exclusive publication filters.
+
+The publication and translation requests use the asset version shared by `index.html`, `publications.html`, `assets/site.js`, and `assets/i18n.js`. Increment that version together when category data or translated labels change so GitHub Pages and browser caches cannot mix old JSON with new controls.
+
+## Update the CV
+
+1. Edit the profile, research-focus, experience, or selected-project copy in `scripts/build_cv.py`.
+2. Replace the three selected-research figures in `images/research/cv-ouroboros.png`, `images/research/cv-geminimol-screening.png`, and `images/research/cv-ppi-miner-crbn.png` when the project summaries change. The builder crops transparent margins without altering the scientific content.
+3. Keep publication metadata in `data/publications.bib`, then regenerate `data/publications.json` as described above.
+4. Rebuild the PDF:
+
+   ```bash
+   python -m pip install reportlab pillow
+   python scripts/build_cv.py
+   ```
+
+5. Review all three pages of `assets/Lin_Wang_CV.pdf` before publishing. Page 1 is the research overview; the complete publication record starts on page 2. The builder preserves the website publication data and the contribution marks recorded in the script.
+
+Contribution marks are maintained in `AUTHOR_MARKS` in `scripts/build_cv.py` and, for website highlighting, in `SELF_CONTRIBUTION_MARKS` in `assets/site.js`. Keep these maps synchronized. The website and CV render `Lin Wang` in bold black only for first-author, co-first-author (`#`), or co-corresponding-author (`*`) publications; ordinary co-authorship remains at normal weight and uses the standard author color. The three CV research columns run chronologically from left to right: PPI-Miner (2022), GeminiMol (2024), and Ouroboros (2026).
+
+## Update the profile summary
+
+The English homepage has two copies of the Summary: the no-JavaScript fallback in `index.html` and `home.hero.statement` in `data/i18n/en.json`. Keep both identical, and update the same key in the other five translation files. The CV copy is defined separately in `scripts/build_cv.py`; rebuild the PDF after every Summary change.
+
+The current Summary treats AI-driven drug discovery, interaction modeling, phenotype-based design, and polypharmacology as the broad research program. Molecular-glue work remains in the PPI-Miner project context rather than appearing as a separate program-level direction.
 
 ## Deployment
 

@@ -19,7 +19,7 @@ It must remain readable on mobile devices, usable with a keyboard, searchable wi
 
 ## Content and data
 
-The biography, education, identifiers, contact information, and project links were transferred from the former repository. The canonical publication source is `data/publications.bib`, supplied for this redesign. It currently contains 33 works from 2020 through 2026. The dependency-free script in `scripts/parse_publications.py` converts that file into `data/publications.json` for the browser.
+The biography, education, identifiers, contact information, and project links were transferred from the former repository. The canonical publication source is `data/publications.bib`, supplied for this redesign. It currently contains 34 works from 2020 through 2026. The dependency-free script in `scripts/parse_publications.py` converts that file into `data/publications.json` for the browser.
 
 Direct DOI links are used where they were verified in the supplied metadata. Entries without a verified DOI open an exact-title Google Scholar search rather than relying on guessed identifiers.
 
@@ -34,7 +34,7 @@ The visual system is intentionally typographic:
 - a real profile portrait presented at its natural aspect ratio;
 - original research figures supplied by the site owner, used only where they clarify a scientific relationship or workflow;
 - no generated, redrawn, or speculative molecular structures;
-- an Ouroboros research sequence that connects molecular encoding, hypothesis-defined objectives, encoding-space navigation, and structural reconstruction;
+- an Ouroboros research sequence that connects molecular encoding, a specified computational objective, encoding-space navigation, and candidate-structure reconstruction;
 - a publication-year rail that makes the chronology of the research record visible and navigable.
 
 Motion is limited to navigation and hover feedback. Reduced-motion preferences are respected.
@@ -50,7 +50,7 @@ The dossier now explains the methodological relationship between GeminiMol and O
 - Ouroboros uses full molecular similarity matrices to organize several relative relationships in the encoding space at once;
 - the two representation spaces are described alongside the screening, prediction, guided-generation, and discovery settings in which they were evaluated.
 
-The representation-to-generation account follows a pharmacological hypothesis through four stages: hypothesis definition, a predictive objective supplied by a relevant property decoder or similarity target, navigation in molecular encoding space, and reconstruction of a revised encoding as SMILES. The application routes distinguish broader chemical-space search from iterative optimization beginning with a known hit, while retaining a multi-reference route for multi-target hypotheses.
+The representation-to-generation account follows four stages: definition of a molecular design question, formulation of a computational objective using a relevant property decoder or similarity function, navigation in molecular encoding space, and reconstruction of a revised encoding as candidate SMILES. These are presented as search settings evaluated in the study, not as experimentally validated capabilities. The account distinguishes broader chemical-space search from iterative optimization beginning with a known hit, while retaining a multi-reference setting for multi-target hypotheses.
 
 Three owner-supplied PNG files were copied without generative editing into `images/research/`:
 
@@ -74,7 +74,29 @@ The News section restores all 14 dated entries from the former homepage, coverin
 
 The interface supports all six official United Nations languages: Arabic, Chinese, English, French, Russian, and Spanish. English remains the no-JavaScript fallback. The browser loads a flat dictionary from `data/i18n/<language>.json`; `assets/i18n.js` applies the copy, stores the selected language in `localStorage`, and accepts shareable `?lang=` URLs. Arabic sets `dir="rtl"` and uses an Arabic type stack. Bibliographic titles, authors, journals, and DOI metadata remain in their source language, while filters, status messages, research-topic labels, figure captions, alternative text, and accessibility text are translated.
 
-Multilingual QA checks both pages in all six languages, confirms 33 publication entries, verifies the three Community records and 16 News entries, and tests desktop and 390 px mobile layouts for horizontal overflow. The July 2026 figure revision additionally checks all three research images after lazy loading, the two newest machine-readable News dates, the absence of the removed evidence and boundary blocks, single-column mobile reflow, Arabic RTL rendering, translated alternative text, and browser console errors.
+Multilingual QA checks both pages in all six languages, confirms 34 publication entries, verifies the three Community records and 16 News entries, and tests desktop and 390 px mobile layouts for horizontal overflow. The July 2026 figure revision additionally checks all three research images after lazy loading, the two newest machine-readable News dates, the absence of the removed evidence and boundary blocks, single-column mobile reflow, Arabic RTL rendering, translated alternative text, and browser console errors.
+
+## Copy and attribution review
+
+The August 2026 copy review revised the homepage, publication introduction, and CV to make contribution boundaries explicit and reduce the risk of overstating computational results:
+
+- first-person wording presents Lin Wang's research program and future directions, while project descriptions identify the scientific contribution without repeatedly emphasizing authorship position;
+- model benchmarks and case studies are described as settings in which methods were evaluated, rather than as generally validated capabilities;
+- generated structures and CRBN substrate-library entries are identified as computational candidates requiring downstream validation;
+- News entries use the research project, paper, or released tool as the subject when individual attribution is not established by the record;
+- publication titles, author order, contribution marks, DOI metadata, and reported experimental values remain unchanged.
+
+The publication renderer now uses contribution-aware name emphasis. `Lin Wang` is rendered with the explicit Arial Bold font in pure black only when listed first or marked as co-first (`#`) or co-corresponding (`*`); ordinary co-authorship is not emphasized and retains the standard author color. The CV source of contribution marks is `AUTHOR_MARKS` in `scripts/build_cv.py`, and the website mirrors Lin Wang's relevant roles in `SELF_CONTRIBUTION_MARKS` in `assets/site.js`. The GeminiMol application paper uses the six equal-contribution authors recorded by PubMed (PMID `40355656`).
+
+The publication browser uses four mutually exclusive primary categories: structural bioinformatics & cheminformatics, protein-protein interaction modeling, protein-ligand modeling, and drug discovery. Categories are assigned explicitly by publication ID in `PUBLICATION_CATEGORIES` in `scripts/parse_publications.py`; title-keyword inference was removed because it produced overlapping and scientifically ambiguous labels. The parser requires a category for every new BibTeX entry before regenerating the JSON record.
+
+The category revision also versions `site.js`, `i18n.js`, `publications.json`, and translation requests with the same release token and disables response reuse for JSON fetches. This prevents a cached pre-category JSON file from being combined with the new filter IDs, which otherwise makes every selected category appear empty. The renderer additionally rejects publication records whose categories are unknown to the loaded site script.
+
+The CV is generated reproducibly by `scripts/build_cv.py`. Its opening profile, research focus, experience, and selected-project sections follow the same attribution and evidence boundaries as the website, while the complete 34-work publication record remains sourced from `data/publications.json`.
+
+The later August 2026 CV layout revision makes the Summary first-person and presents Ouroboros as the latest work within the broader research program. The Summary is identical in the English homepage and CV; molecular-glue discovery is retained as a PPI-Miner application rather than listed as a separate program-level direction. Page 1 now ends with three parallel Selected Research columns ordered chronologically from left to right: PPI-Miner (2022), GeminiMol (2024), and Ouroboros (2026). Each column combines an owner-supplied summary figure with a concise method description, explicit technical or scientific highlights, and resource links. The latest `images/research/cv-ouroboros.png` emphasizes conformational-space and pharmacophore similarity; the other figures are `images/research/cv-geminimol-screening.png` and `images/research/cv-ppi-miner-crbn.png`. The builder crops only transparent outer margins and preserves the underlying pixels. Publications start on page 2, with a deliberate continuation inside the 2023 group to keep the two publication pages balanced and avoid a sparsely filled final page.
+
+The subsequent evidence-based revision separates method descriptions from highlights. GeminiMol is described as a pairwise contrastive graph-encoding framework trained against conformational-space and pharmacophore similarities; its highlights report the scaffold-distinct GM-10 discovered by screening 18 million compounds and validated by whole-cell patch clamp, plus the 2023 competition award. PPI-Miner is described as a motif-driven workflow in which backbone-structure similarity is the primary search signal and sequence similarity provides complementary evidence. Its highlights emphasize retrieval of sequence-divergent proteins with conserved motif geometry and the published proteome-wide CRBN result (1,739 predicted candidates, 16 of which had been reported experimentally before the study). Ouroboros retains similarity-matrix learning and property-guided generation as its two concise highlights, without repeating SMILES reconstruction in the latter.
 
 ## Deployment model
 
@@ -83,7 +105,10 @@ The GitHub Actions workflow constructs a `_site` artifact from an explicit allow
 ## Maintenance checklist
 
 - Keep the current role and institutional affiliation in `index.html` accurate.
+- Keep the English Summary in `index.html`, `data/i18n/en.json`, and `scripts/build_cv.py` identical; synchronize its meaning across the other translation files.
 - Update `data/publications.bib`, then regenerate `data/publications.json`.
+- Rebuild `assets/Lin_Wang_CV.pdf` with `python scripts/build_cv.py` after changing profile text or publication data.
+- Keep the three `images/research/cv-*.png` summary figures synchronized with the Selected Research descriptions.
 - Add verified DOI values to `KNOWN_DOIS` in the parser when available.
 - Keep all six translation files on an identical key set and translate new figure captions, alternative text, and accessibility labels.
 - Verify desktop and mobile layouts after substantial copy or style changes.

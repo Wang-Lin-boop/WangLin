@@ -5,9 +5,23 @@
   const t = (key, variables = {}) => i18n?.t(key, variables) ?? key;
 
   const TOPIC_KEYS = {
-    ai: "topics.ai",
-    structure: "topics.structure",
-    discovery: "topics.discovery"
+    structural_bioinformatics: "topics.structuralBioinformatics",
+    ppi_modeling: "topics.ppiModeling",
+    protein_ligand_modeling: "topics.proteinLigandModeling",
+    drug_discovery: "topics.drugDiscovery"
+  };
+  const PUBLICATION_DATA_URL = "./data/publications.json?v=20260812-6";
+
+  const SELF_CONTRIBUTION_MARKS = {
+    liu2026integrating: "*",
+    wang2025discovery: "#",
+    liang2025mcr3: "#",
+    li2025nadph: "*",
+    wang2025phenomodel: "#",
+    liang2023new: "#",
+    wang2023deepsa: "#",
+    wang2022discovery: "#",
+    wang2021probing: "#"
   };
 
   const publicationLists = [...document.querySelectorAll("[data-publication-list]")];
@@ -39,7 +53,8 @@
     return labels.length ? labels.join(" · ") : t("topics.article");
   };
 
-  const formatAuthors = (authors = [], compact = false) => {
+  const formatAuthors = (publication, compact = false) => {
+    const authors = publication.authors || [];
     let visibleAuthors = authors;
     let hasOmittedAuthors = false;
 
@@ -48,12 +63,14 @@
       hasOmittedAuthors = true;
     }
 
-    const names = visibleAuthors.map((author) => {
+    const names = visibleAuthors.map((author, index) => {
       const normalizedAuthor = normalizeText(author);
       if (normalizedAuthor === "others") return `<em>${escapeHtml(t("publications.etAl"))}</em>`;
 
       const safeName = escapeHtml(author);
-      return normalizedAuthor === "lin wang"
+      const contributionMark = SELF_CONTRIBUTION_MARKS[publication.id] || "";
+      const highlightsContribution = index === 0 || contributionMark.includes("#") || contributionMark.includes("*");
+      return normalizedAuthor === "lin wang" && highlightsContribution
         ? `<strong class="self-author">${safeName}</strong>`
         : safeName;
     });
@@ -79,7 +96,7 @@
         <p class="publication-item-year">${year}</p>
         <div>
           <h3><a href="${url}" target="_blank" rel="noreferrer">${title}</a></h3>
-          <p class="publication-authors">${formatAuthors(publication.authors, compact)}</p>
+          <p class="publication-authors">${formatAuthors(publication, compact)}</p>
           <p class="publication-venue">${venue}${volume}${issue}${pages}</p>
         </div>
         <p class="publication-topic">${escapeHtml(topicLabel(publication.topics))}</p>
@@ -213,10 +230,13 @@
     if (!publicationLists.length && !publicationCountNodes().length) return;
 
     try {
-      const response = await fetch("./data/publications.json");
+      const response = await fetch(PUBLICATION_DATA_URL, { cache: "no-store" });
       if (!response.ok) throw new Error(`Publication request failed: ${response.status}`);
       const data = await response.json();
       if (!Array.isArray(data)) throw new TypeError("Publication data is not an array");
+      if (data.some((publication) => !(publication.topics || []).some((topic) => TOPIC_KEYS[topic]))) {
+        throw new TypeError("Publication categories do not match this site version");
+      }
 
       publications = [...data].sort((a, b) => {
         const yearDifference = Number(b.year) - Number(a.year);

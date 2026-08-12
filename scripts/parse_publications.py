@@ -25,6 +25,46 @@ KNOWN_DOIS = {
 }
 
 
+# Each publication has one primary research category so filters remain
+# mutually exclusive and do not depend on ambiguous title keywords.
+PUBLICATION_CATEGORIES = {
+    "liu2026integrating": "protein_ligand_modeling",
+    "wang2026learned": "structural_bioinformatics",
+    "lu2026molecular": "drug_discovery",
+    "zhou2026proteinconformers": "structural_bioinformatics",
+    "wang2026small": "structural_bioinformatics",
+    "zhang2025deeppsa": "drug_discovery",
+    "wang2025discovery": "drug_discovery",
+    "liang2025mcr3": "drug_discovery",
+    "li2025mai": "protein_ligand_modeling",
+    "li2025nadph": "drug_discovery",
+    "wang2025phenomodel": "drug_discovery",
+    "wang2025recent": "drug_discovery",
+    "wang2024conformational": "structural_bioinformatics",
+    "fu2024salvianolic": "drug_discovery",
+    "liang2023new": "drug_discovery",
+    "wang2023deepsa": "drug_discovery",
+    "han2023discovery": "drug_discovery",
+    "mei2023discovery": "drug_discovery",
+    "zhu2023propofol": "drug_discovery",
+    "li2023synthesis": "drug_discovery",
+    "ren2022multi": "drug_discovery",
+    "wang2022crystal": "structural_bioinformatics",
+    "wang2022discovery": "drug_discovery",
+    "liu2022pilsl": "drug_discovery",
+    "wang2022ppi": "ppi_modeling",
+    "sun2022rapamycin": "drug_discovery",
+    "li2022recent": "ppi_modeling",
+    "hou2022target": "drug_discovery",
+    "wang2021ckb": "drug_discovery",
+    "li2021identification": "protein_ligand_modeling",
+    "wang2021probing": "protein_ligand_modeling",
+    "yang2020antimicrobial": "protein_ligand_modeling",
+    "jin2020structure": "drug_discovery",
+    "wang2020structural": "structural_bioinformatics",
+}
+
+
 def balanced_segment(text: str, start: int, opener: str = "{", closer: str = "}") -> tuple[str, int]:
     depth = 0
     escaped = False
@@ -89,31 +129,6 @@ def format_author(name: str) -> str:
     return f"{given} {family}".strip()
 
 
-def classify(title: str) -> list[str]:
-    lower = title.lower()
-    topics: list[str] = []
-    ai_terms = (
-        "artificial intelligence", "deep", "learning", "prediction", "predicting",
-        "representation", "foundation model", "phenotypic", "proteinconformers",
-        "computational method", "molecular design",
-    )
-    structure_terms = (
-        "structure", "conformational", "protein", "binding site", "molecular dynamics",
-        "interaction", "pharmacophore", "receptor", "target",
-    )
-    discovery_terms = (
-        "drug", "inhibitor", "cancer", "tumor", "fibrosis", "resistance", "probe",
-        "anti-", "antimicrobial", "discovery", "therapeutic", "ferroptosis",
-    )
-    if any(term in lower for term in ai_terms):
-        topics.append("ai")
-    if any(term in lower for term in structure_terms):
-        topics.append("structure")
-    if any(term in lower for term in discovery_terms):
-        topics.append("discovery")
-    return topics or ["discovery"]
-
-
 def main() -> None:
     if len(sys.argv) != 3:
         raise SystemExit("Usage: parse_publications.py INPUT.bib OUTPUT.json")
@@ -122,6 +137,8 @@ def main() -> None:
     destination = Path(sys.argv[2])
     records = []
     for entry_type, key, fields in parse_entries(source.read_text(encoding="utf-8")):
+        if key not in PUBLICATION_CATEGORIES:
+            raise ValueError(f"Add a primary publication category for {key!r}")
         title = clean_tex(fields.get("title", ""))
         authors = [format_author(name) for name in fields.get("author", "").split(" and ")]
         year = int(fields.get("year", "0"))
@@ -139,7 +156,7 @@ def main() -> None:
                 "volume": clean_tex(fields.get("volume", "")),
                 "issue": clean_tex(fields.get("number", "")),
                 "pages": clean_tex(fields.get("pages", "")),
-                "topics": classify(title),
+                "topics": [PUBLICATION_CATEGORIES[key]],
                 "doi": doi,
                 "url": f"https://doi.org/{doi}" if doi else f"https://scholar.google.com/scholar?q={query}",
             }

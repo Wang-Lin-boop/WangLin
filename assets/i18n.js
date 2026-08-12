@@ -2,13 +2,15 @@
   "use strict";
 
   const SUPPORTED_LANGUAGES = ["en", "zh", "ar", "fr", "ru", "es"];
+  const ASSET_VERSION = "20260812-6";
   const RTL_LANGUAGES = new Set(["ar"]);
   const STORAGE_KEY = "lin-wang-site-language";
 
   const DYNAMIC_FALLBACKS = {
-    "topics.ai": "Molecular AI",
-    "topics.structure": "Structure & PPI",
-    "topics.discovery": "Drug discovery",
+    "topics.structuralBioinformatics": "Structural bioinformatics & cheminformatics",
+    "topics.ppiModeling": "Protein-protein interaction modeling",
+    "topics.proteinLigandModeling": "Protein-ligand modeling",
+    "topics.drugDiscovery": "Drug discovery",
     "topics.article": "Research article",
     "publications.loading": "Loading publication record…",
     "publications.empty": "No publications match this search. Try a broader term or another research area.",
@@ -158,9 +160,10 @@
     ["#publication-browser-title", "record.browserTitle"],
     [".publication-controls", "record.filtersAria", "aria-label"],
     ["[data-publication-filter='all']", "record.all"],
-    ["[data-publication-filter='ai']", "record.ai"],
-    ["[data-publication-filter='structure']", "record.structure"],
-    ["[data-publication-filter='discovery']", "record.discovery"],
+    ["[data-publication-filter='structural_bioinformatics']", "record.structuralBioinformatics"],
+    ["[data-publication-filter='ppi_modeling']", "record.ppiModeling"],
+    ["[data-publication-filter='protein_ligand_modeling']", "record.proteinLigandModeling"],
+    ["[data-publication-filter='drug_discovery']", "record.drugDiscovery"],
     [".publication-search .sr-only", "record.search"],
     ["[data-publication-search]", "record.searchPlaceholder", "placeholder"],
     ["[data-publication-status]", "publications.loading"],
@@ -233,7 +236,9 @@
 
   const loadMessages = async (language) => {
     if (messageCache.has(language)) return messageCache.get(language);
-    const response = await fetch(`./data/i18n/${language}.json`);
+    const response = await fetch(`./data/i18n/${language}.json?v=${ASSET_VERSION}`, {
+      cache: "no-store"
+    });
     if (!response.ok) throw new Error(`Translation request failed: ${response.status}`);
     const data = await response.json();
     messageCache.set(language, data);

@@ -20,8 +20,7 @@
     "issue": "",
     "pages": "",
     "topics": [
-      "structure",
-      "discovery"
+      "protein_ligand_modeling"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Integrating+chemical+priors+and+physical+laws+to+mitigate+hallucinations+in+structure-based+drug+design%22"
@@ -47,7 +46,7 @@
     "issue": "",
     "pages": "e13556",
     "topics": [
-      "structure"
+      "structural_bioinformatics"
     ],
     "doi": "10.1002/advs.202513556",
     "url": "https://doi.org/10.1002/advs.202513556"
@@ -75,7 +74,7 @@
     "issue": "",
     "pages": "1–10",
     "topics": [
-      "discovery"
+      "drug_discovery"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Molecular+glue+degraders+of+HuR+suppress+BRAF-mutant+colorectal+cancer%22"
@@ -99,8 +98,7 @@
     "issue": "",
     "pages": "",
     "topics": [
-      "ai",
-      "structure"
+      "structural_bioinformatics"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22ProteinConformers%3A+Benchmark+Dataset+for+Simulating+Protein+Conformational+Landscape+Diversity+and+Plausibility%22"
@@ -119,7 +117,7 @@
     "issue": "",
     "pages": "527–546",
     "topics": [
-      "ai"
+      "structural_bioinformatics"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Small+Molecule+Conformation+Prediction%22"
@@ -142,7 +140,7 @@
     "issue": "13",
     "pages": "6861–6873",
     "topics": [
-      "ai"
+      "drug_discovery"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22DeepPSA%3A+A+Geometric+Deep+Learning+Model+for+PROTAC+Synthetic+Accessibility+Prediction%22"
@@ -169,9 +167,7 @@
     "issue": "11",
     "pages": "3108–3115",
     "topics": [
-      "ai",
-      "structure",
-      "discovery"
+      "drug_discovery"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Discovery+of+novel+GluN1%2FGluN3A+NMDA+receptor+inhibitors+using+a+deep+learning-based+method%22"
@@ -211,7 +207,7 @@
     "issue": "",
     "pages": "105923",
     "topics": [
-      "discovery"
+      "drug_discovery"
     ],
     "doi": "10.1016/j.ebiom.2025.105923",
     "url": "https://doi.org/10.1016/j.ebiom.2025.105923"
@@ -235,9 +231,7 @@
     "issue": "5",
     "pages": "1462–1475",
     "topics": [
-      "ai",
-      "structure",
-      "discovery"
+      "protein_ligand_modeling"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22MAI-TargetFisher%3A+A+proteome-wide+drug+target+prediction+method+synergetically+enhanced+by+artificial+intelligence+and+physical+modeling%22"
@@ -262,7 +256,7 @@
     "issue": "1",
     "pages": "499–506",
     "topics": [
-      "discovery"
+      "drug_discovery"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22NADPH-Independent+Fluorescent+Probe+for+Live-Cell+Imaging+of+Heme+Oxygenase-1%22"
@@ -290,8 +284,7 @@
     "issue": "",
     "pages": "",
     "topics": [
-      "ai",
-      "discovery"
+      "drug_discovery"
     ],
     "doi": "10.1016/j.apsb.2025.09.036",
     "url": "https://doi.org/10.1016/j.apsb.2025.09.036"
@@ -319,7 +312,7 @@
     "issue": "1",
     "pages": "14",
     "topics": [
-      "ai"
+      "drug_discovery"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Recent+advances+in+molecular+representation+methods+and+their+applications+in+scaffold+hopping%22"
@@ -345,9 +338,7 @@
     "issue": "40",
     "pages": "2403998",
     "topics": [
-      "ai",
-      "structure",
-      "discovery"
+      "structural_bioinformatics"
     ],
     "doi": "10.1002/advs.202403998",
     "url": "https://doi.org/10.1002/advs.202403998"
@@ -375,8 +366,7 @@
     "issue": "",
     "pages": "103029",
     "topics": [
-      "structure",
-      "discovery"
+      "drug_discovery"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Salvianolic+acid+B+attenuates+liver+fibrosis+by+targeting+Ecm1+and+inhibiting+hepatocyte+ferroptosis%22"
@@ -404,7 +394,7 @@
     "issue": "12",
     "pages": "e3002433",
     "topics": [
-      "discovery"
+      "drug_discovery"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22A+new+variant+of+the+colistin+resistance+gene+MCR-1+with+co-resistance+to+%CE%B2-lactam+antibiotics+reveals+a+potential+novel+antimicrobial+peptide%22"
@@ -425,7 +415,7 @@
     "issue": "1",
     "pages": "103",
     "topics": [
-      "ai"
+      "drug_discovery"
     ],
     "doi": "10.1186/s13321-023-00771-3",
     "url": "https://doi.org/10.1186/s13321-023-00771-3"
@@ -451,8 +441,7 @@
     "issue": "4",
     "pages": "877–887",
     "topics": [
-      "structure",
-      "discovery"
+      "drug_discovery"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Discovery%2C+evaluation+and+mechanism+study+of+WDR5-targeted+small+molecular+inhibitors+for+neuroblastoma%22"
@@ -480,7 +469,7 @@
     "issue": "",
     "pages": "115472",
     "topics": [
-      "discovery"
+      "drug_discovery"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Discovery%2C+structural+optimization%2C+and+anti-tumor+bioactivity+evaluations+of+betulinic+acid+derivatives+as+a+new+type+of+ROR%CE%B3+antagonists%22"
@@ -508,7 +497,7 @@
     "issue": "10",
     "pages": "1626–1636",
     "topics": [
-      "discovery"
+      "drug_discovery"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Propofol+exerts+anti-anhedonia+effects+via+inhibiting+the+dopamine+transporter%22"
@@ -536,7 +525,7 @@
     "issue": "7",
     "pages": "868–871",
     "topics": [
-      "discovery"
+      "drug_discovery"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Synthesis+of+maleimide-braced+peptide+macrocycles+and+their+potential+anti-SARS-CoV-2+mechanisms%22"
@@ -564,8 +553,7 @@
     "issue": "2",
     "pages": "483–493",
     "topics": [
-      "structure",
-      "discovery"
+      "drug_discovery"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22A+multi-targeting+drug+design+strategy+for+identifying+potent+anti-SARS-CoV-2+inhibitors%22"
@@ -593,7 +581,7 @@
     "issue": "1",
     "pages": "1608",
     "topics": [
-      "structure"
+      "structural_bioinformatics"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Crystal+structures+of+Wolbachia+CidA+and+CidB+reveal+determinants+of+bacteria-induced+cytoplasmic+incompatibility+and+rescue%22"
@@ -621,8 +609,7 @@
     "issue": "4",
     "pages": "788–796",
     "topics": [
-      "structure",
-      "discovery"
+      "drug_discovery"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Discovery+of+potential+small+molecular+SARS-CoV-2+entry+blockers+targeting+the+spike+protein%22"
@@ -647,9 +634,7 @@
     "issue": "Supplement_2",
     "pages": "ii106–ii112",
     "topics": [
-      "ai",
-      "structure",
-      "discovery"
+      "drug_discovery"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22PiLSL%3A+pairwise+interaction+learning-based+graph+neural+network+for+synthetic+lethality+prediction+in+human+cancers%22"
@@ -671,8 +656,7 @@
     "issue": "23",
     "pages": "6160–6171",
     "topics": [
-      "ai",
-      "structure"
+      "ppi_modeling"
     ],
     "doi": "10.1021/acs.jcim.2c01033",
     "url": "https://doi.org/10.1021/acs.jcim.2c01033"
@@ -699,8 +683,7 @@
     "issue": "3",
     "pages": "373–385",
     "topics": [
-      "structure",
-      "discovery"
+      "drug_discovery"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Rapamycin+targets+STAT3+and+impacts+c-Myc+to+suppress+tumor+growth%22"
@@ -723,8 +706,7 @@
     "issue": "",
     "pages": "102344",
     "topics": [
-      "ai",
-      "structure"
+      "ppi_modeling"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Recent+advances+in+predicting+protein%E2%80%93protein+interactions+with+the+aid+of+artificial+intelligence+algorithms%22"
@@ -752,8 +734,7 @@
     "issue": "2",
     "pages": "327–336",
     "topics": [
-      "structure",
-      "discovery"
+      "drug_discovery"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Target-based+virtual+screening+and+LC%2FMS-guided+isolation+procedure+for+identifying+phloroglucinol-terpenoid+inhibitors+of+SARS-CoV-2%22"
@@ -781,7 +762,7 @@
     "issue": "11",
     "pages": "1147–1165",
     "topics": [
-      "discovery"
+      "drug_discovery"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22CKB+inhibits+epithelial-mesenchymal+transition+and+prostate+cancer+progression+by+sequestering+and+inhibiting+AKT+activation%22"
@@ -809,7 +790,7 @@
     "issue": "",
     "pages": "659764",
     "topics": [
-      "structure"
+      "protein_ligand_modeling"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Identification+of+potential+binding+sites+of+sialic+acids+on+the+RBD+domain+of+SARS-CoV-2+spike+protein%22"
@@ -833,7 +814,7 @@
     "issue": "4",
     "pages": "2827–2835",
     "topics": [
-      "structure"
+      "protein_ligand_modeling"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Probing+the+allosteric+inhibition+mechanism+of+a+spike+protein+using+molecular+dynamics+simulations+and+active+compound+identifications%22"
@@ -859,7 +840,7 @@
     "issue": "6",
     "pages": "10–1128",
     "topics": [
-      "discovery"
+      "protein_ligand_modeling"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22Antimicrobial+resistance+in+clinical+Ureaplasma+spp.+and+Mycoplasma+hominis+and+structural+mechanisms+underlying+quinolone+resistance%22"
@@ -887,8 +868,7 @@
     "issue": "7811",
     "pages": "289–293",
     "topics": [
-      "structure",
-      "discovery"
+      "drug_discovery"
     ],
     "doi": "10.1038/s41586-020-2223-y",
     "url": "https://doi.org/10.1038/s41586-020-2223-y"
@@ -916,7 +896,7 @@
     "issue": "2",
     "pages": "294–305",
     "topics": [
-      "structure"
+      "structural_bioinformatics"
     ],
     "doi": null,
     "url": "https://scholar.google.com/scholar?q=%22The+structural+study+of+mutation-induced+inactivation+of+human+muscarinic+receptor+M4%22"

@@ -257,7 +257,7 @@ h3 {
 
 .hero::after {
   position: absolute;
-  right: -38px;
+  right: -28px;
   bottom: 26px;
   color: var(--muted);
   font-family: var(--mono);
@@ -462,7 +462,7 @@ h3 {
 .scale-heading h2 {
   margin-bottom: 0;
   font-family: var(--serif);
-  font-size: clamp(25px, 2.7vw, 36px);
+  font-size: clamp(21px, 2.2vw, 29px);
   font-weight: 400;
   line-height: 1.25;
 }
@@ -696,7 +696,7 @@ h3 {
 
 .publication-item {
   display: grid;
-  grid-template-columns: 92px minmax(0, 1fr) 154px;
+  grid-template-columns: 92px minmax(0, 1fr) 210px;
   gap: 30px;
   padding: 27px 0 29px;
   border-bottom: 1px solid var(--line);
@@ -741,8 +741,8 @@ h3 {
 }
 
 .self-author {
-  color: var(--ink);
-  font-weight: 600;
+  color: #000000;
+  font-weight: 700;
 }
 
 .publication-venue {
@@ -935,6 +935,7 @@ h3 {
 
 .publication-controls {
   display: flex;
+  flex-wrap: wrap;
   gap: 30px;
   align-items: center;
   justify-content: space-between;
@@ -944,6 +945,7 @@ h3 {
 
 .filter-group {
   display: flex;
+  flex: 1 1 700px;
   flex-wrap: wrap;
   gap: 7px;
 }
@@ -972,7 +974,7 @@ h3 {
   display: flex;
   gap: 9px;
   align-items: center;
-  width: min(360px, 100%);
+  width: min(320px, 100%);
   border-bottom: 1px solid var(--line-strong);
   color: var(--muted);
 }
@@ -1221,7 +1223,7 @@ body {
 }
 
 .scale-heading h2 {
-  font-size: clamp(23px, 2.35vw, 30px);
+  font-size: clamp(20px, 1.95vw, 26px);
 }
 
 .scale-sequence li {
@@ -1698,7 +1700,7 @@ body {
 }
 
 .publication-item {
-  grid-template-columns: 76px minmax(0, 1fr) 132px;
+  grid-template-columns: 76px minmax(0, 1fr) 190px;
   gap: 24px;
   padding: 18px 0 20px;
 }
@@ -2115,7 +2117,7 @@ body {
   }
 
   .scale-heading h2 {
-    font-size: 29px;
+    font-size: 25px;
   }
 
   .section-intro h2,
@@ -2602,7 +2604,7 @@ body {
   }
 
   .scale-heading h2 {
-    font-size: 25px;
+    font-size: 22px;
   }
 
   .section,
@@ -3120,6 +3122,15 @@ html[data-language="es"] .hero h1 {
 }
 
 @media (max-width: 560px) {
+  .trajectory-list li,
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+
+  .trajectory-list li > p:last-child {
+    grid-column: 1;
+  }
+
   .news-list li {
     grid-template-columns: 1fr;
     gap: 4px;
