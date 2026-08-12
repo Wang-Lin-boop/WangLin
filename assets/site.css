@@ -3141,6 +3141,71 @@ html[data-language="es"] .hero h1 {
   }
 }
 
+/* Keep the homepage opening compact so the profile and following section stay visible. */
+body[data-page="home"] .hero .section-tag {
+  font-size: 10px;
+}
+
+body[data-page="home"] .hero h1 {
+  margin-bottom: 20px;
+  font-size: 78px;
+  line-height: 0.93;
+}
+
+body[data-page="home"] .hero-statement {
+  max-width: 700px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  line-height: 1.42;
+}
+
+html[data-language="ru"] body[data-page="home"] .hero h1 {
+  font-size: 62px;
+}
+
+html[data-language="ar"] body[data-page="home"] .hero h1,
+html[data-language="fr"] body[data-page="home"] .hero h1,
+html[data-language="es"] body[data-page="home"] .hero h1 {
+  font-size: 72px;
+}
+
+@media (max-width: 820px) {
+  body[data-page="home"] .hero h1 {
+    font-size: 60px;
+  }
+
+  body[data-page="home"] .hero-statement {
+    font-size: 18px;
+  }
+
+  html[data-language="ru"] body[data-page="home"] .hero h1,
+  html[data-language="ar"] body[data-page="home"] .hero h1,
+  html[data-language="fr"] body[data-page="home"] .hero h1,
+  html[data-language="es"] body[data-page="home"] .hero h1 {
+    font-size: 54px;
+  }
+}
+
+@media (max-width: 560px) {
+  body[data-page="home"] .hero h1 {
+    margin-bottom: 16px;
+    font-size: 52px;
+  }
+
+  body[data-page="home"] .hero-statement {
+    margin-bottom: 16px;
+    font-size: 16px;
+    line-height: 1.48;
+  }
+
+  html[data-language="ru"] body[data-page="home"] .hero h1,
+  html[data-language="ar"] body[data-page="home"] .hero h1,
+  html[data-language="fr"] body[data-page="home"] .hero h1,
+  html[data-language="es"] body[data-page="home"] .hero h1 {
+    font-size: 48px;
+  }
+}
+
 @media print {
   .language-control {
     display: none !important;
