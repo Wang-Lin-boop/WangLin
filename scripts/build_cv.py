@@ -491,10 +491,10 @@ def selected_research_table(style_map: dict[str, ParagraphStyle]) -> Table:
             OUROBOROS_IMAGE,
             "2026 | Representation &amp; generation",
             "Ouroboros",
-            "A molecular foundation model that regularizes graph encodings with fingerprint, conformational-space, and pharmacophore similarity matrices. Its unified latent space supports molecular property prediction, similarity-based screening, targeted polypharmacology, and directed molecular optimization.",
+            "Ouroboros connects molecular prediction and design within one chemically organized representation space. By preserving fingerprint, conformational-space, and pharmacophore relationships, it supports property prediction, similarity-based screening, targeted polypharmacology, and directed molecular optimization.",
             [
-                "Full similarity-matrix learning integrates conformational-space and pharmacophore similarities into a shared molecular representation",
-                "A shared representation connects molecular property prediction with property-guided generation",
+                "A shared chemical space closes the gap between predictive modeling and molecular generation, allowing property objectives to guide candidate design",
+                "Conformational and pharmacophore organization supports scaffold-level exploration and multi-target design beyond fingerprint similarity alone",
             ],
             [
                 ("Paper", "https://doi.org/10.1002/advs.202513556"),
@@ -506,7 +506,7 @@ def selected_research_table(style_map: dict[str, ParagraphStyle]) -> Table:
             GEMINIMOL_IMAGE,
             "2024 | Molecular representation",
             "GeminiMol",
-            "A pairwise contrastive framework that trains a graph encoder to predict conformational-space and pharmacophore similarities. The learned encoding transfers to molecular-property and cellular-activity prediction, virtual screening, target identification, and scaffold hopping.",
+            "GeminiMol addresses a central limitation of ligand-based discovery: functionally similar molecules can appear unrelated in two-dimensional structure. Learning from conformational-space and pharmacophore relationships supports cross-scaffold prediction, virtual screening, target identification, and scaffold hopping.",
             [
                 "Screening 18 million compounds identified the scaffold-distinct GM-10, validated by whole-cell patch clamp against GluN1/GluN3A (IC<sub>50</sub> = 0.98 &#177; 0.13 &#956;M)",
                 "First prize in the 2023 Shanghai International Computational Biology Innovation Competition",
@@ -525,15 +525,16 @@ def selected_research_table(style_map: dict[str, ParagraphStyle]) -> Table:
             PPI_MINER_IMAGE,
             "2022 | PPI and molecule glue",
             "PPI-Miner",
-            "A motif-driven workflow that searches the proteome primarily by backbone-structure similarity, with sequence similarity as complementary evidence. Matched motifs are aligned to transfer a binding mode, then assembled and optimized as candidate protein-protein complexes.",
+            "PPI-Miner addresses a central limitation of sequence-motif searches: proteins can preserve receptor-recognition geometry even when their sequences diverge. It expands interaction-partner discovery across unrelated protein families and supports proteome-scale hypothesis generation for molecular-glue systems. The CRBN case produced a filtered G30 library of 1,739 candidates, 16 previously reported.",
             [
-                "Retrieves sequence-divergent proteins whose motifs preserve the query's backbone geometry, including beta-hairpins",
-                "Proteome-wide CRBN mining predicted 1,739 candidate substrates; 16 had been reported experimentally before this study",
+                "Geometry-aware search recovered CRBN-compatible G-loops across unrelated protein families that sequence homology would miss",
+                "At least 12 additional candidates in the released library were later supported by compound-dependent CRBN-recruitment assays, with signal lost upon mutation of the predicted G-loop glycine",
             ],
             [
                 ("Paper", "https://doi.org/10.1021/acs.jcim.2c01033"),
                 ("Code", "https://github.com/Wang-Lin-boop/PPI-Miner"),
                 ("CRBN library", "https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib"),
+                ("Science", "https://doi.org/10.1126/science.adt6736"),
             ],
             style_map,
         ),

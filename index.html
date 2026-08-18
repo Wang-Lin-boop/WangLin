@@ -129,24 +129,24 @@
       <section class="research-scale" aria-labelledby="scale-title">
         <div class="page-shell">
           <div class="scale-heading">
-            <p class="metadata-label">Ouroboros · Model overview</p>
-            <h2 id="scale-title">Ouroboros combines a shared molecular encoding with task-specific prediction and SMILES-decoding modules.</h2>
+            <p class="metadata-label">Ouroboros · Research scope</p>
+            <h2 id="scale-title">Ouroboros connects chemically informed molecular representations to both prediction and candidate design.</h2>
           </div>
           <ol class="scale-sequence">
             <li>
-              <span class="scale-index">01 · Encode</span>
-              <h3>Molecular representation</h3>
-              <p>A GNN encodes molecular graphs as 2048-dimensional vectors; training uses fingerprint, conformational-space, and pharmacophore similarity matrices.</p>
+              <span class="scale-index">01 · Recognize</span>
+              <h3>Chemically meaningful similarity</h3>
+              <p>Conformational-space and pharmacophore relationships keep functionally relevant molecules connected even when their 2D scaffolds differ.</p>
             </li>
             <li>
-              <span class="scale-index">02 · Navigate</span>
-              <h3>Property guidance</h3>
-              <p>Task-specific property decoders score molecular encodings and define objectives used during latent-space search.</p>
+              <span class="scale-index">02 · Generalize</span>
+              <h3>Reusable prediction</h3>
+              <p>The same molecular space supports property and cellular-activity prediction, similarity search, and target-oriented screening.</p>
             </li>
             <li>
-              <span class="scale-index">03 · Decode</span>
-              <h3>Structure generation</h3>
-              <p>An autoregressive Transformer reconstructs candidate SMILES from input or modified encodings; the candidates require downstream evaluation.</p>
+              <span class="scale-index">03 · Design</span>
+              <h3>Property-guided exploration</h3>
+              <p>Prediction objectives can guide candidate design for directed optimization and targeted polypharmacology.</p>
             </li>
           </ol>
         </div>
@@ -160,7 +160,7 @@
           </div>
           <div class="dossier-title">
             <h2 id="research-title">Ouroboros</h2>
-            <p class="dossier-deck">Ouroboros investigates whether chemically informed molecular representations can be reused for both prediction and generation. Its similarity-matrix objective integrates molecular fingerprints, conformational space, and pharmacophore relationships. Separate property decoders and an autoregressive SMILES decoder are used for the tasks evaluated in the study.</p>
+            <p class="dossier-deck">Ouroboros addresses a persistent divide in AI-driven drug discovery: representations optimized for prediction are rarely reusable for molecular design. By organizing chemical space with fingerprint, conformational-space, and pharmacophore relationships, it supports property prediction, virtual screening, and property-guided generation within one representation. This creates a common basis for hit discovery, lead optimization, and multi-target design.</p>
             <nav class="dossier-links" aria-label="Ouroboros resources">
               <a href="https://doi.org/10.1002/advs.202513556" target="_blank" rel="noreferrer">Peer-reviewed paper ↗</a>
               <a href="https://doi.org/10.1101/2025.03.18.643899" target="_blank" rel="noreferrer">Preprint ↗</a>
@@ -171,22 +171,22 @@
 
         <section class="lineage-module" aria-labelledby="lineage-title">
           <div class="lineage-copy">
-            <p class="metadata-label">Method lineage</p>
-            <h3 id="lineage-title">From pairwise similarity to similarity matrices.</h3>
-                <p class="lineage-intro">GeminiMol and Ouroboros both incorporate conformational-space and pharmacophore similarity. GeminiMol learns pairwise relationships, whereas Ouroboros extends supervision to full similarity matrices within each batch.</p>
+            <p class="metadata-label">Research progression</p>
+            <h3 id="lineage-title">From recognizing cross-scaffold similarity to designing within it.</h3>
+                <p class="lineage-intro">GeminiMol showed that conformational-space and pharmacophore relationships can reveal functionally related molecules across scaffold boundaries. Ouroboros extends this concept into a shared chemical space that connects prediction with candidate design.</p>
 
             <div class="lineage-comparison">
               <article>
                 <p class="lineage-model">GeminiMol</p>
-                <h4>Pairwise-similarity contrastive learning</h4>
-                <p>GeminiMol learns from paired molecules, bringing encodings closer when their conformational and pharmacophore profiles are similar.</p>
-                    <p class="lineage-validation"><span>Evaluated in</span> similarity search and ligand-based virtual screening.</p>
+                <h4>Functional similarity across scaffolds</h4>
+                <p>GeminiMol prioritizes molecules with related 3D and pharmacophore profiles even when their 2D structures are dissimilar.</p>
+                    <p class="lineage-validation"><span>Outcome</span> cross-scaffold screening and the experimentally validated GluN1/GluN3A inhibitor GM-10.</p>
               </article>
               <article>
                 <p class="lineage-model">Ouroboros</p>
-                <h4>Matrix-similarity contrastive learning</h4>
-                <p>Ouroboros supervises batches with full molecular similarity matrices, allowing multiple relative relationships to organize the encoding space together.</p>
-                    <p class="lineage-validation"><span>Evaluated in</span> property prediction, guided generation, and molecular-discovery case studies.</p>
+                <h4>Prediction and design in one chemical space</h4>
+                <p>Ouroboros organizes several molecular relationships together so prediction and generative exploration share a chemically meaningful space.</p>
+                    <p class="lineage-validation"><span>Scope</span> property prediction, directed optimization, and targeted polypharmacology.</p>
               </article>
             </div>
           </div>
@@ -199,29 +199,29 @@
                 height="929"
                 loading="lazy"
                 decoding="async"
-                alt="Composite research figure comparing GeminiMol pairwise-similarity contrastive learning with Ouroboros matrix-similarity learning and representative molecular-screening studies."
+                alt="Composite research figure showing the progression from GeminiMol cross-scaffold similarity search to Ouroboros prediction and molecular design."
                 data-i18n-alt="home.lineage.figureAlt"
               >
             </a>
-            <figcaption>Method lineage and representative validation settings. Open the full-resolution figure ↗</figcaption>
+            <figcaption>Research progression and representative discovery settings. Open the full-resolution figure ↗</figcaption>
           </figure>
         </section>
 
-        <div class="dossier-architecture" role="group" aria-label="Ouroboros architecture">
+        <div class="dossier-architecture" role="group" aria-label="Ouroboros scientific capabilities">
           <article>
-            <p class="research-question">01 · Encode</p>
-            <h3>Represent molecular similarity</h3>
-            <p>A global-attention GNN maps each molecular graph to a 2048-dimensional vector. Training against molecular similarity matrices integrates fingerprint, conformational-space, and pharmacophore relationships.</p>
+            <p class="research-question">01 · Similarity</p>
+            <h3>Recognize similarity beyond 2D scaffolds</h3>
+            <p>Conformational-space and pharmacophore relationships preserve functionally relevant neighborhoods across structurally distinct molecules.</p>
           </article>
           <article>
-            <p class="research-question">02 · Navigate</p>
-            <h3>Guide changes in the encoding</h3>
-            <p>Relevant property decoders translate encodings into task-specific predictions and provide objectives for navigating the representation space.</p>
+            <p class="research-question">02 · Prediction</p>
+            <h3>Transfer chemical knowledge across tasks</h3>
+            <p>A shared representation supports property prediction, similarity-based screening, and target-oriented prioritization across discovery settings.</p>
           </article>
           <article>
-            <p class="research-question">03 · Decode</p>
-            <h3>Decode candidate structures</h3>
-            <p>An autoregressive Transformer reconstructs SMILES from input or revised encodings, yielding candidate structures for subsequent prioritization and evaluation.</p>
+            <p class="research-question">03 · Design</p>
+            <h3>Connect prediction with molecular design</h3>
+            <p>Property objectives guide the proposal of candidates for directed optimization and targeted polypharmacology.</p>
           </article>
         </div>
 
@@ -241,51 +241,51 @@
             </figure>
 
             <div class="engine-copy">
-                  <p class="metadata-label">Representation model → computational generation workflow</p>
-                  <h3 id="engine-title">A specified molecular objective can guide search in the learned encoding space.</h3>
-                  <p>The workflow begins with a measurable objective, such as a predicted property or similarity to a reference molecule. A selected decoder or similarity function scores encodings during search. The SMILES decoder then converts revised encodings into candidate structures that require further computational filtering and experimental assessment.</p>
+                  <p class="metadata-label">Scientific capability</p>
+                  <h3 id="engine-title">A shared chemical space turns molecular relationships into testable design hypotheses.</h3>
+                  <p>By preserving fingerprint, conformational-space, and pharmacophore relationships, Ouroboros supports cross-scaffold search, transferable property models, hit optimization, and multi-target design in a common representation. Proposed molecules remain candidates for computational and experimental evaluation.</p>
             </div>
           </div>
 
-          <ol class="engine-flow" aria-label="From a molecular design objective to candidate SMILES">
+          <ol class="engine-flow" aria-label="Scientific capabilities supported by Ouroboros">
             <li>
               <span class="flow-index">01</span>
-              <h4>Design question</h4>
-              <p>A desired profile, reference molecule, phenotype, or target combination defines the search context.</p>
+              <h4>Cross-scaffold similarity</h4>
+              <p>Functionally relevant neighborhoods can remain visible even when molecules share little two-dimensional structural similarity.</p>
             </li>
             <li>
               <span class="flow-index">02</span>
-              <h4>Computational objective</h4>
-              <p>A property decoder or similarity function supplies the score used during search.</p>
+              <h4>Property prediction</h4>
+              <p>One representation supports diverse molecular-property and cellular-activity objectives.</p>
             </li>
             <li>
               <span class="flow-index">03</span>
-              <h4>Encoding-space navigation</h4>
-              <p>Search or iterative updates move molecular vectors toward a selected computational objective.</p>
+              <h4>Directed optimization</h4>
+              <p>Candidate design can pursue selected property profiles while retaining relevant features of a starting molecule.</p>
             </li>
             <li>
               <span class="flow-index">04</span>
-              <h4>Structure reconstruction</h4>
-              <p>The decoder returns candidate SMILES for downstream computational and experimental assessment.</p>
+              <h4>Polypharmacology hypotheses</h4>
+              <p>Multiple references or objectives can define candidates intended to balance several target profiles.</p>
             </li>
           </ol>
 
           <div class="evolution-grid">
             <div class="evolution-heading">
-              <p class="metadata-label">Evaluated search settings</p>
-                  <p>Within the study's formulation, a selected objective can be used in several complementary search settings.</p>
+              <p class="metadata-label">Discovery settings</p>
+                  <p>The shared representation supports complementary scientific problems across early drug discovery.</p>
             </div>
             <article>
-              <h3>Chemical-space search</h3>
-                    <p>For virtual screening or exploratory generation, predicted scores rank or guide candidates sampled from chemical space.</p>
+              <h3>Cross-scaffold screening</h3>
+                    <p>Prioritize molecules whose conformational and pharmacophore relationships suggest shared function despite low 2D similarity.</p>
             </article>
             <article>
               <h3>Hit-to-lead optimization</h3>
-                    <p>Starting from a known hit, the method iteratively updates its encoding while tracking similarity to the starting structure and selected predicted properties.</p>
+                    <p>Explore property improvements while retaining chemically meaningful relationships to a starting hit.</p>
             </article>
             <article>
-              <h3>Multi-reference navigation</h3>
-                    <p>Several reference sets or objectives can be combined to propose candidates for a multi-target hypothesis; these remain computational proposals pending validation.</p>
+              <h3>Multi-target design</h3>
+                    <p>Propose candidates intended to balance several target or phenotype objectives for targeted polypharmacology.</p>
             </article>
           </div>
 
@@ -297,11 +297,11 @@
                 height="799"
                 loading="lazy"
                 decoding="async"
-                alt="Ouroboros workflow connecting molecular design objectives with hit discovery and hit-to-lead optimization in representation space."
+                alt="Ouroboros research figure connecting chemically informed molecular representations with cross-scaffold screening, hit discovery, and hit-to-lead optimization."
                 data-i18n-alt="home.engine.applicationAlt"
               >
             </a>
-            <figcaption>Evaluated search settings: exploration of chemical space and iterative optimization from a known hit. Open the full-resolution figure ↗</figcaption>
+            <figcaption>Applications evaluated in the study: chemical-space exploration and optimization from a known hit. Open the full-resolution figure ↗</figcaption>
           </figure>
         </section>
       </section>
@@ -324,9 +324,9 @@
               </div>
               <div class="project-main">
                 <h3>Ouroboros</h3>
-                <p>Property-guided molecular generation in a learned encoding space.</p>
+                <p>Connecting molecular prediction with property-guided design.</p>
               </div>
-              <p class="project-detail">A molecular representation and generation framework combining similarity-matrix training, property decoders, and SMILES reconstruction.</p>
+              <p class="project-detail">Ouroboros addresses the divide between predicting molecular properties and designing new candidates. A shared, chemically organized representation preserves conformational-space and pharmacophore relationships while supporting similarity-based screening, directed molecular optimization, and polypharmacology design.</p>
               <div class="project-links">
                 <a href="https://doi.org/10.1002/advs.202513556" target="_blank" rel="noreferrer">Paper ↗</a>
                 <a href="https://github.com/Wang-Lin-boop/Ouroboros" target="_blank" rel="noreferrer">Code ↗</a>
@@ -340,9 +340,9 @@
               </div>
               <div class="project-main">
                 <h3>GeminiMol</h3>
-                <p>Conformational-space profiling for general molecular representation.</p>
+                <p>Finding functional similarity beyond shared 2D scaffolds.</p>
               </div>
-              <p class="project-detail">A representation-learning method incorporating conformational-space and pharmacophore similarity across molecular scaffolds.</p>
+              <p class="project-detail">GeminiMol addresses the problem that functionally similar molecules can appear unrelated in two-dimensional structure. It supports cross-scaffold property prediction, virtual screening, target identification, and scaffold hopping; screening 18 million compounds led to GM-10, an experimentally validated GluN1/GluN3A inhibitor.</p>
               <div class="project-links">
                 <a href="https://doi.org/10.1002/advs.202403998" target="_blank" rel="noreferrer">Paper ↗</a>
                 <a href="https://github.com/Wang-Lin-boop/GeminiMol" target="_blank" rel="noreferrer">Code ↗</a>
@@ -384,16 +384,17 @@
             <article class="project-row">
               <div class="project-key">
                 <p class="project-year">2022</p>
-                <p class="project-kind">Protein interactions</p>
+                <p class="project-kind">PPI and molecule glue</p>
               </div>
               <div class="project-main">
                 <h3>PPI-Miner</h3>
-                <p>Combining structural and sequence motifs for protein-interaction analysis.</p>
+                <p>Finding receptor-compatible backbone motifs beyond sequence similarity.</p>
               </div>
-              <p class="project-detail">A structure- and sequence-motif method for mining and modeling protein-protein interactions, evaluated in a CRBN substrate case study.</p>
+              <p class="project-detail">PPI-Miner reveals interaction partners that sequence-motif searches can miss because unrelated proteins may preserve the local backbone geometry required for receptor recognition. In the CRBN case, it produced 1,739 candidates and recovered 16 previously reported cases; at least 12 additional candidates in the released library later received compound-dependent recruitment support.</p>
               <div class="project-links">
                 <a href="https://doi.org/10.1021/acs.jcim.2c01033" target="_blank" rel="noreferrer">Paper ↗</a>
                 <a href="https://github.com/Wang-Lin-boop/PPI-Miner" target="_blank" rel="noreferrer">Code ↗</a>
+                <a href="https://doi.org/10.1126/science.adt6736" target="_blank" rel="noreferrer">Science ↗</a>
               </div>
             </article>
 
@@ -518,11 +519,11 @@
             </li>
             <li>
               <time datetime="2022-11">11 / 2022</time>
-              <p data-i18n-html="home.news.2022_11">The PPI-Miner study introduced a motif-driven method for protein-protein interaction mining and modeling. The paper appeared in the <a href="https://pubs.acs.org/doi/full/10.1021/acs.jcim.2c01033" target="_blank" rel="noreferrer"><em>Journal of Chemical Information and Modeling</em></a>, with <a href="https://github.com/Wang-Lin-boop/PPI-Miner" target="_blank" rel="noreferrer">source code on GitHub</a>.</p>
+              <p data-i18n-html="home.news.2022_11">The PPI-Miner study showed how conserved backbone motifs can reveal protein-interaction candidates even when their sequences diverge. The paper appeared in the <a href="https://pubs.acs.org/doi/full/10.1021/acs.jcim.2c01033" target="_blank" rel="noreferrer"><em>Journal of Chemical Information and Modeling</em></a>, with <a href="https://github.com/Wang-Lin-boop/PPI-Miner" target="_blank" rel="noreferrer">source code on GitHub</a>.</p>
             </li>
             <li>
               <time datetime="2022-08">08 / 2022</time>
-              <p data-i18n-html="home.news.2022_08">A <a href="https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib" target="_blank" rel="noreferrer">computational library of potential CRBN substrates</a> was released. Its entries are predicted candidates selected using β-hairpin and surface-complementarity criteria, not experimentally confirmed substrates.</p>
+              <p data-i18n-html="home.news.2022_08">A retrospective cross-reference of the released <a href="https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib" target="_blank" rel="noreferrer">CRBN candidate database</a> found at least 12 candidates beyond the paper's original set of 16 that were later supported by compound-dependent CRBN-recruitment assays; mutating the predicted G-loop glycine abolished the recruitment signal (<a href="https://doi.org/10.1126/science.adt6736" target="_blank" rel="noreferrer"><em>Science</em>, 2025</a>).</p>
             </li>
             <li>
               <time datetime="2021-08">08 / 2021</time>
