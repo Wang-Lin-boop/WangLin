@@ -1,5 +1,41 @@
 [
   {
+    "id": "wang2026cocobind",
+    "type": "journal article",
+    "title": "CoCoBind: Consistency-Contrastive Multitask Learning for RNA–Ligand Interaction and Binding Site Prediction",
+    "authors": [
+      "Shihang Wang",
+      "Lin Wang",
+      "Wei Zhao",
+      "Yuanlin He",
+      "Zhecheng Zhou",
+      "Jing Li",
+      "Yuxuan Jiang",
+      "Yuquan Li",
+      "Shaolong Lin",
+      "Silong Zhai",
+      "Daohong Gong",
+      "Yike Shen",
+      "Lingzhi Hu",
+      "Mutian He",
+      "Kai Xu",
+      "Lin Huang",
+      "Huanxiang Liu",
+      "Yang Zhang",
+      "Xiaojun Yao"
+    ],
+    "venue": "Journal of Medicinal Chemistry",
+    "year": 2026,
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "topics": [
+      "structural_bioinformatics"
+    ],
+    "doi": "10.1021/acs.jmedchem.6c00902",
+    "url": "https://doi.org/10.1021/acs.jmedchem.6c00902"
+  },
+  {
     "id": "liu2026integrating",
     "type": "journal article",
     "title": "Integrating chemical priors and physical laws to mitigate hallucinations in structure-based drug design",

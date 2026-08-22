@@ -22,12 +22,14 @@ KNOWN_DOIS = {
     "liang2025mcr3": "10.1016/j.ebiom.2025.105923",
     "wang2025phenomodel": "10.1016/j.apsb.2025.09.036",
     "wang2026learned": "10.1002/advs.202513556",
+    "wang2026cocobind": "10.1021/acs.jmedchem.6c00902",
 }
 
 
 # Each publication has one primary research category so filters remain
 # mutually exclusive and do not depend on ambiguous title keywords.
 PUBLICATION_CATEGORIES = {
+    "wang2026cocobind": "structural_bioinformatics",
     "liu2026integrating": "protein_ligand_modeling",
     "wang2026learned": "structural_bioinformatics",
     "lu2026molecular": "drug_discovery",

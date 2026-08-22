@@ -53,6 +53,14 @@ RULE = colors.HexColor("#CCD8E1")
 # Contribution marks are kept from the previous CV. Publication order and
 # author order still come from data/publications.json.
 AUTHOR_MARKS = {
+    "wang2026cocobind": {
+        "Shihang Wang": "#",
+        "Lin Wang": "#*",
+        "Lin Huang": "*",
+        "Huanxiang Liu": "*",
+        "Yang Zhang": "*",
+        "Xiaojun Yao": "*",
+    },
     "liu2026integrating": {
         "Yadong Liu": "*",
         "Tianyi Zang": "*",
