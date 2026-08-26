@@ -53,6 +53,13 @@ RULE = colors.HexColor("#CCD8E1")
 # Contribution marks are kept from the previous CV. Publication order and
 # author order still come from data/publications.json.
 AUTHOR_MARKS = {
+    "zhou2026proteinconformers": {
+        "Yihang Zhou": "#",
+        "Chen Wei": "#",
+        "Yang Li": "*",
+        "Lin Wang": "*",
+        "Yang Zhang": "*",
+    },
     "wang2026cocobind": {
         "Shihang Wang": "#",
         "Lin Wang": "#*",
@@ -211,16 +218,6 @@ def styles() -> dict[str, ParagraphStyle]:
             textColor=BLUE,
             spaceBefore=2.2 * mm,
             spaceAfter=1.2 * mm,
-        ),
-        "funding_section": ParagraphStyle(
-            "FundingSection",
-            parent=sample["Normal"],
-            fontName="Arial-Bold",
-            fontSize=12.4,
-            leading=13,
-            textColor=BLUE,
-            spaceBefore=0.6 * mm,
-            spaceAfter=0.2 * mm,
         ),
         "bullet": ParagraphStyle(
             "Bullet",
@@ -557,7 +554,7 @@ def selected_research_table(style_map: dict[str, ParagraphStyle]) -> Table:
             PPI_MINER_IMAGE,
             "2022 | PPI and molecule glue",
             "PPI-Miner",
-            "PPI-Miner addresses a central limitation of sequence-motif searches: proteins can preserve receptor-recognition geometry even when their sequences diverge. It expands interaction-partner discovery across unrelated protein families and supports proteome-scale hypothesis generation for molecular-glue systems. The CRBN case produced a filtered G30 library of 1,739 candidates, 16 previously reported.",
+            "PPI-Miner searches receptor-compatible backbone motifs across sequence-divergent proteins, expanding interaction-partner discovery beyond sequence homology. Applied to CRBN, it produced a filtered G30 library of 1,739 candidate substrates.",
             [
                 "Geometry-aware search recovered CRBN-compatible G-loops across unrelated protein families that sequence homology would miss",
                 "At least 12 additional candidates in the released library were later supported by compound-dependent CRBN-recruitment assays, with signal lost upon mutation of the predicted G-loop glycine",
@@ -571,7 +568,7 @@ def selected_research_table(style_map: dict[str, ParagraphStyle]) -> Table:
         ),
     ]
     columns_chronological = list(reversed(columns_newest_first))
-    table = Table([columns_chronological], colWidths=[57 * mm] * 3, rowHeights=[118 * mm])
+    table = Table([columns_chronological], colWidths=[57 * mm] * 3, rowHeights=[115 * mm])
     table.setStyle(
         TableStyle(
             [
@@ -744,7 +741,7 @@ def build() -> None:
             None,
             style_map,
         ),
-        *section_heading("Funding", style_map["funding_section"]),
+        *section_heading("Funding", style_map["section"]),
         Paragraph(
             "National Natural Science Foundation of China, Young Scientists Fund (Category C), Grant No. T2600798",
             style_map["funding"],
@@ -755,6 +752,7 @@ def build() -> None:
             style_map["funding"],
             bulletText="•",
         ),
+        Spacer(1, 1.2 * mm),
         *section_heading("Selected Research", style_map["section"]),
         selected_research_table(style_map),
         PageBreak(),

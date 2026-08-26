@@ -10,9 +10,10 @@
     protein_ligand_modeling: "topics.proteinLigandModeling",
     drug_discovery: "topics.drugDiscovery"
   };
-  const PUBLICATION_DATA_URL = "./data/publications.json?v=20260822-1";
+  const PUBLICATION_DATA_URL = "./data/publications.json?v=20260826-1";
 
   const SELF_CONTRIBUTION_MARKS = {
+    zhou2026proteinconformers: "*",
     wang2026cocobind: "#*",
     liu2026integrating: "*",
     wang2025discovery: "#",

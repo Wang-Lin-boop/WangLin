@@ -88,6 +88,8 @@ The August 2026 copy review revised the homepage, publication introduction, and 
 
 The publication renderer now uses contribution-aware name emphasis. `Lin Wang` is rendered with the explicit Arial Bold font in pure black only when listed first or marked as co-first (`#`) or co-corresponding (`*`); ordinary co-authorship is not emphasized and retains the standard author color. The CV source of contribution marks is `AUTHOR_MARKS` in `scripts/build_cv.py`, and the website mirrors Lin Wang's relevant roles in `SELF_CONTRIBUTION_MARKS` in `assets/site.js`. The GeminiMol application paper uses the six equal-contribution authors recorded by PubMed (PMID `40355656`).
 
+ProteinConformers records Yihang Zhou and Chen Wei as co-first authors, and Yang Li, Lin Wang, and Yang Zhang as co-corresponding authors.
+
 The publication browser uses four mutually exclusive primary categories: structural bioinformatics & cheminformatics, protein-protein interaction modeling, protein-ligand modeling, and drug discovery. Categories are assigned explicitly by publication ID in `PUBLICATION_CATEGORIES` in `scripts/parse_publications.py`; title-keyword inference was removed because it produced overlapping and scientifically ambiguous labels. The parser requires a category for every new BibTeX entry before regenerating the JSON record.
 
 The category revision also versions `site.js`, `i18n.js`, `publications.json`, and translation requests with the same release token and disables response reuse for JSON fetches. This prevents a cached pre-category JSON file from being combined with the new filter IDs, which otherwise makes every selected category appear empty. The renderer additionally rejects publication records whose categories are unknown to the loaded site script.
