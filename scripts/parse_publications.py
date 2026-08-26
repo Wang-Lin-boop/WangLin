@@ -16,6 +16,7 @@ from pathlib import Path
 
 KNOWN_DOIS = {
     "jin2020structure": "10.1038/s41586-020-2223-y",
+    "liu2026integrating": "10.1038/s42004-026-02115-2",
     "wang2022ppi": "10.1021/acs.jcim.2c01033",
     "wang2023deepsa": "10.1186/s13321-023-00771-3",
     "wang2024conformational": "10.1002/advs.202403998",

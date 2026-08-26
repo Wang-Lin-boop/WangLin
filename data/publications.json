@@ -58,8 +58,8 @@
     "topics": [
       "protein_ligand_modeling"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Integrating+chemical+priors+and+physical+laws+to+mitigate+hallucinations+in+structure-based+drug+design%22"
+    "doi": "10.1038/s42004-026-02115-2",
+    "url": "https://doi.org/10.1038/s42004-026-02115-2"
   },
   {
     "id": "wang2026learned",
