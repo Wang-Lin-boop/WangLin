@@ -2,7 +2,7 @@
   "use strict";
 
   const SUPPORTED_LANGUAGES = ["en", "zh", "ar", "fr", "ru", "es"];
-  const ASSET_VERSION = "20260826-1";
+  const ASSET_VERSION = "20260906-1";
   const RTL_LANGUAGES = new Set(["ar"]);
   const STORAGE_KEY = "lin-wang-site-language";
 
