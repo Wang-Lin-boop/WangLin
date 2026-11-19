@@ -3264,23 +3264,6 @@ body[data-page="home"] .hero-statement {
   display: block;
 }
 
-/* Header CV button. */
-.primary-nav .nav-contact {
-  color: var(--paper);
-  border: 1px solid var(--ink);
-  background: var(--ink);
-}
-
-.primary-nav .nav-contact::after {
-  display: none;
-}
-
-.primary-nav .nav-contact:hover {
-  color: var(--paper);
-  border-color: var(--cobalt);
-  background: var(--cobalt);
-}
-
 /* Research program band. */
 .program-band .page-shell {
   grid-template-columns: minmax(220px, 0.62fr) minmax(0, 1.8fr);
@@ -3745,5 +3728,585 @@ html[dir="rtl"] .news-archive[open] summary::before {
   .figure-lightbox,
   .role-toggle {
     display: none !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   2026-11 visual refresh: softer academic palette, chemical-space hero texture,
+   card-based projects/tools/background, aligned section intros, refined badges.
+   --------------------------------------------------------------------------- */
+
+:root {
+  --paper: #fcfdff;
+  --paper-tint: #f2f6fa;
+  --surface: #ffffff;
+  --ink: #152230;
+  --ink-soft: #334656;
+  --muted: #5b6b79;
+  --line: #dce5ee;
+  --line-strong: #c3d1de;
+  --cobalt: #19588c;
+  --cobalt-dark: #124169;
+  --cobalt-soft: rgba(25, 88, 140, 0.08);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgba(15, 29, 46, 0.04), 0 6px 18px -10px rgba(15, 29, 46, 0.08);
+  --shadow-md: 0 2px 6px rgba(15, 29, 46, 0.05), 0 14px 32px -14px rgba(18, 52, 86, 0.12);
+  --shadow-hover: 0 6px 16px rgba(15, 29, 46, 0.06), 0 18px 38px -14px rgba(25, 88, 140, 0.16);
+}
+
+body[data-page="home"] {
+  overflow-x: clip;
+}
+
+/* Frosted academic header & refined language selector. */
+.site-header {
+  background: rgba(252, 253, 255, 0.86);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(195, 209, 222, 0.72);
+}
+
+.language-control select {
+  padding: 6px 11px;
+  padding-inline-end: 26px;
+  border-radius: var(--radius-sm);
+  border-color: var(--line-strong);
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(15, 29, 46, 0.03);
+  transition: border-color 160ms ease, box-shadow 160ms ease, color 160ms ease;
+}
+
+.language-control select:hover,
+.language-control select:focus-visible {
+  box-shadow: 0 0 0 3px rgba(25, 88, 140, 0.1);
+}
+
+/* Hero atmosphere: subtle chemical-space molecular lattice + soft radial glow. */
+body[data-page="home"] .hero {
+  isolation: isolate;
+  padding-top: clamp(46px, 6vw, 76px);
+  padding-bottom: clamp(54px, 7vw, 88px);
+}
+
+body[data-page="home"] .hero::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(ellipse 62% 68% at 76% 34%, rgba(25, 88, 140, 0.075), transparent 72%),
+    radial-gradient(ellipse 46% 50% at 14% 88%, rgba(25, 88, 140, 0.04), transparent 68%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='208' viewBox='0 0 240 208'%3E%3Cg fill='none' stroke='%2319588c' stroke-width='0.9' stroke-opacity='0.085'%3E%3Cpolygon points='64,28 92,44 92,76 64,92 36,76 36,44'/%3E%3Cpolygon points='120,60 148,76 148,108 120,124 92,108 92,76'/%3E%3Cline x1='92' y1='44' x2='116' y2='30'/%3E%3Cline x1='148' y1='76' x2='178' y2='60'/%3E%3Cline x1='178' y1='60' x2='206' y2='76'/%3E%3Cline x1='120' y1='124' x2='120' y2='156'/%3E%3Cline x1='120' y1='156' x2='148' y2='172'/%3E%3Cline x1='36' y1='76' x2='12' y2='90'/%3E%3Cpath d='M178,60 A36,36 0 0,1 198,112' stroke-dasharray='3 4' stroke-opacity='0.07'/%3E%3Cpath d='M64,92 A44,44 0 0,0 96,144' stroke-dasharray='3 4' stroke-opacity='0.065'/%3E%3Ccircle cx='116' cy='30' r='3.4' stroke-opacity='0.12'/%3E%3Ccircle cx='178' cy='60' r='4.2' stroke-opacity='0.11'/%3E%3Ccircle cx='148' cy='172' r='3.2' stroke-opacity='0.1'/%3E%3C/g%3E%3Cg fill='%2319588c' fill-opacity='0.1'%3E%3Ccircle cx='64' cy='28' r='1.8'/%3E%3Ccircle cx='92' cy='76' r='2.1'/%3E%3Ccircle cx='148' cy='108' r='1.8'/%3E%3Ccircle cx='206' cy='76' r='2'/%3E%3Ccircle cx='120' cy='156' r='1.8'/%3E%3Ccircle cx='198' cy='112' r='1.7'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100% 100%, 100% 100%, 240px 208px;
+}
+
+/* Buttons and action links. */
+.text-button {
+  gap: 12px;
+  padding: 11px 18px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(180deg, #1e639b 0%, var(--cobalt) 100%);
+  box-shadow: 0 2px 8px rgba(25, 88, 140, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.text-button:hover {
+  background: linear-gradient(180deg, var(--cobalt) 0%, var(--cobalt-dark) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(25, 88, 140, 0.28);
+}
+
+.current-role {
+  border-top-color: var(--line-strong);
+}
+
+/* Profile portrait card. */
+.profile-panel {
+  padding: 14px 16px 6px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.profile-panel img {
+  border-radius: 11px;
+  border: 1px solid rgba(21, 34, 48, 0.08);
+  filter: saturate(0.92) contrast(1.02);
+}
+
+.profile-panel figcaption {
+  padding: 11px 2px 12px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.profile-details div {
+  padding: 10px 2px;
+  border-bottom-color: var(--line);
+}
+
+.profile-details div:last-child {
+  border-bottom: 0;
+}
+
+/* Research program band: rich deep-slate gradient + subtle glass pillar cards. */
+.research-scale.program-band {
+  background: linear-gradient(135deg, #122131 0%, #172e45 55%, #1c3954 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(15, 29, 46, 0.25);
+}
+
+.program-band .page-shell {
+  align-items: center;
+  gap: clamp(32px, 4.5vw, 56px);
+}
+
+.program-lines {
+  gap: 16px;
+}
+
+.program-lines li,
+.program-lines li:not(:last-child),
+html[dir="rtl"] .program-lines li,
+html[dir="rtl"] .program-lines li:not(:last-child) {
+  margin: 0;
+  padding: 20px 20px 18px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: var(--radius-md);
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.program-lines li:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(159, 194, 222, 0.32);
+  transform: translateY(-2px);
+}
+
+.program-lines .scale-index {
+  color: #8eb8dc;
+}
+
+.program-works {
+  margin-top: auto !important;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Fix section intro vertical alignment & breathe whitespace cleanly. */
+.section {
+  padding-top: clamp(68px, 8vw, 104px);
+  padding-bottom: clamp(68px, 8vw, 104px);
+}
+
+.section-intro {
+  margin-bottom: clamp(36px, 4.8vw, 54px);
+}
+
+.section-intro > div {
+  align-items: start;
+}
+
+.section-intro > div > p {
+  padding-top: 4px;
+}
+
+/* Featured Ouroboros dossier refinements: figure frames & capability cards. */
+.dossier-header {
+  border-bottom-color: var(--line-strong);
+}
+
+.dossier-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: var(--paper-tint);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.dossier-links a:hover {
+  color: var(--cobalt-dark);
+  border-color: var(--cobalt);
+  background: var(--cobalt-soft);
+}
+
+.lineage-module {
+  padding: 24px 26px;
+  background: var(--paper-tint);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+
+.lineage-comparison {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+  border-top: 0;
+}
+
+.lineage-comparison article,
+.lineage-comparison article + article {
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.research-figure a[data-lightbox] {
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.research-figure a[data-lightbox]:hover {
+  border-color: var(--cobalt);
+  box-shadow: var(--shadow-md);
+}
+
+.dossier-architecture {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.dossier-architecture article,
+.dossier-architecture article:not(:last-child),
+html[dir="rtl"] .dossier-architecture article,
+html[dir="rtl"] .dossier-architecture article:not(:last-child) {
+  margin: 0;
+  padding: 20px 22px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Selected projects: tactile academic cards + pill authorship badges. */
+.project-list {
+  border-top: 0;
+}
+
+.project-group {
+  margin: 28px 0 14px;
+  padding: 0 2px 9px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.project-group:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.project-row {
+  padding: 22px 26px;
+  margin-bottom: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.project-row:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-hover);
+}
+
+.project-row-featured {
+  border-top: 1px solid var(--line);
+  border-inline-start: 4px solid var(--cobalt);
+  background: linear-gradient(90deg, rgba(25, 88, 140, 0.028) 0%, var(--surface) 28%);
+}
+
+html[dir="rtl"] .project-row-featured {
+  background: linear-gradient(270deg, rgba(25, 88, 140, 0.028) 0%, var(--surface) 28%);
+}
+
+.project-role {
+  margin-top: 10px !important;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(25, 88, 140, 0.22);
+  background: var(--cobalt-soft);
+  color: var(--cobalt-dark);
+  font-weight: 500;
+}
+
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 6px;
+  color: var(--cobalt-dark);
+  background: var(--paper-tint);
+  text-decoration: none;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.project-links a:hover {
+  color: var(--paper);
+  background: var(--cobalt);
+}
+
+/* Publications: cleaner dividers, pill filter buttons & rounded search box. */
+.publication-list-compact {
+  border-top: 1px solid var(--line-strong);
+}
+
+.publication-item {
+  border-bottom-color: var(--line);
+  transition: background-color 150ms ease;
+}
+
+.filter-button {
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--surface);
+  transition: all 150ms ease;
+}
+
+.filter-button.is-active {
+  border-color: var(--cobalt);
+  background: var(--cobalt);
+  box-shadow: 0 2px 6px rgba(25, 88, 140, 0.2);
+}
+
+.publication-search {
+  padding: 0 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.publication-search:focus-within {
+  box-shadow: 0 0 0 3px rgba(25, 88, 140, 0.1);
+}
+
+.publication-year {
+  border-top-color: var(--line-strong);
+}
+
+/* Open tools: balanced 3-column card grid (eliminating trailing empty border cell). */
+.community-grid.community-grid-wrap {
+  gap: 18px;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.community-grid.community-grid-wrap article,
+.community-grid.community-grid-wrap article:not(:last-child),
+.community-grid.community-grid-wrap article:nth-child(3n + 1),
+.community-grid.community-grid-wrap article:nth-child(3n),
+.community-grid.community-grid-wrap article:last-child {
+  min-height: 206px;
+  margin: 0;
+  padding: 22px 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.community-grid.community-grid-wrap article:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-hover);
+}
+
+.community-grid nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 6px;
+  color: var(--cobalt-dark);
+  background: var(--paper-tint);
+  text-decoration: none;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.community-grid nav a:hover {
+  color: var(--paper);
+  background: var(--cobalt);
+}
+
+/* News, Trajectory & Honors cards + advisor typography. */
+.news-list {
+  border-top-color: var(--line-strong);
+}
+
+.news-list li {
+  border-bottom-color: var(--line);
+}
+
+.news-archive {
+  border-bottom-color: var(--line);
+}
+
+.trajectory-list {
+  padding: 4px 26px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.trajectory-list li {
+  padding: 22px 0;
+  border-bottom-color: var(--line);
+}
+
+.trajectory-list li:last-child {
+  border-bottom: 0;
+}
+
+.trajectory-advisor {
+  margin-top: 5px !important;
+  color: var(--muted) !important;
+  font-size: 12.5px !important;
+  line-height: 1.45 !important;
+}
+
+.honors-block {
+  margin-top: 28px;
+}
+
+.honors-list {
+  padding: 4px 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.honors-list li {
+  padding: 13px 0;
+  border-bottom-color: var(--line);
+}
+
+.honors-list li:last-child {
+  border-bottom: 0;
+}
+
+.honors-kind {
+  display: inline-block;
+  justify-self: start;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--cobalt-soft);
+  color: var(--cobalt-dark);
+  font-size: 10px;
+}
+
+/* Lightbox & footer polish. */
+.figure-lightbox {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.figure-lightbox-close {
+  border-radius: var(--radius-sm);
+}
+
+.site-footer {
+  background: linear-gradient(135deg, #122131 0%, #172e45 100%);
+}
+
+/* Responsive adjustments for the card layout. */
+@media (max-width: 900px) {
+  .dossier-architecture {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 820px) {
+  .lineage-module {
+    padding: 18px;
+  }
+
+  .lineage-figure {
+    padding-inline-start: 0;
+  }
+
+  .project-row {
+    padding: 18px 20px;
+  }
+
+  .community-grid.community-grid-wrap {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .community-grid.community-grid-wrap article,
+  .community-grid.community-grid-wrap article:not(:last-child),
+  .community-grid.community-grid-wrap article:last-child {
+    min-height: 0;
+    padding: 18px 20px;
+  }
+
+  .trajectory-list,
+  .honors-list {
+    padding: 4px 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  .profile-panel {
+    padding: 12px 14px 4px;
+  }
+
+  .profile-panel figure {
+    border-bottom-color: var(--line-strong);
+  }
+
+  .project-row,
+  .community-grid.community-grid-wrap article,
+  .community-grid.community-grid-wrap article:not(:last-child),
+  .community-grid.community-grid-wrap article:last-child {
+    padding: 16px;
+  }
+
+  .trajectory-list,
+  .honors-list {
+    padding: 2px 15px;
+  }
+}
+
+/* Micro-polish: single-line email in profile card & full-width mobile portrait. */
+.profile-details div {
+  grid-template-columns: 62px minmax(0, 1fr);
+  gap: 8px;
+}
+
+.profile-details dd a {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .profile-panel img {
+    width: 100%;
+    max-width: none;
   }
 }

@@ -6,3 +6,10 @@ desktop.ini
 .playwright-cli/
 output/
 *.log
+
+# Local private CV data and full Chinese CV build
+cv/private/
+
+# Python bytecode
+__pycache__/
+*.py[cod]

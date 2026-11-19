@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the website CV from the publication data used by the site."""
+"""Build the academic English CV (cv/Lin_Wang_CV_English.pdf) from data/publications.json."""
 
 from __future__ import annotations
 
@@ -10,11 +10,11 @@ from pathlib import Path
 
 from PIL import Image as PILImage, ImageDraw
 from reportlab.lib import colors
-from reportlab.lib.enums import TA_LEFT
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
 from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
     HRFlowable,
@@ -35,7 +35,7 @@ PROFILE_IMAGE = ROOT / "images" / "profile.png"
 OUROBOROS_IMAGE = ROOT / "images" / "research" / "cv-ouroboros.png"
 GEMINIMOL_IMAGE = ROOT / "images" / "research" / "cv-geminimol-screening.png"
 PPI_MINER_IMAGE = ROOT / "images" / "research" / "cv-ppi-miner-crbn.png"
-OUTPUT = ROOT / "assets" / "Lin_Wang_CV.pdf"
+OUTPUT = ROOT / "cv" / "Lin_Wang_CV_English.pdf"
 
 WEBSITE = "https://wang-lin-boop.github.io/WangLin/"
 GITHUB = "https://github.com/Wang-Lin-boop"
@@ -118,16 +118,160 @@ AUTHOR_MARKS = {
 }
 
 
-def register_fonts() -> None:
-    font_dir = Path("C:/Windows/Fonts")
-    pdfmetrics.registerFont(TTFont("Arial", font_dir / "arial.ttf"))
-    pdfmetrics.registerFont(TTFont("Arial-Bold", font_dir / "arialbd.ttf"))
-    pdfmetrics.registerFont(TTFont("Arial-Italic", font_dir / "ariali.ttf"))
-    pdfmetrics.registerFont(TTFont("MicrosoftYaHei", font_dir / "msyh.ttc"))
+def _first_existing(candidates: list[Path]) -> Path:
+    for candidate in candidates:
+        if candidate.is_file():
+            return candidate
+    raise FileNotFoundError(f"None of the candidate font files exist: {candidates}")
 
 
-def circular_profile() -> io.BytesIO:
-    with PILImage.open(PROFILE_IMAGE).convert("RGB") as source:
+def _build_noto_cjk_ttf(ttc_path: Path, index: int, out_ttf: Path) -> bool:
+    if out_ttf.is_file() and out_ttf.stat().st_size > 50_000:
+        return True
+    try:
+        from fontTools.pens.cu2quPen import Cu2QuPen
+        from fontTools.pens.ttGlyphPen import TTGlyphPen
+        from fontTools.subset import Options, Subsetter
+        from fontTools.ttLib import TTCollection, newTable
+    except Exception:
+        return False
+
+    gb_chars = []
+    for lead in range(0xB0, 0xF8):
+        for trail in range(0xA1, 0xFF):
+            try:
+                gb_chars.append(bytes([lead, trail]).decode("gb2312"))
+            except UnicodeDecodeError:
+                pass
+    extra = (
+        "".join(chr(c) for c in range(32, 127))
+        + "μ±–—•·×÷αβγδεκλνπρστφχψωΔΩ（）《》〈〉【】「」『』，。；：、？！“”‘’…—～｜"
+    )
+    charset = "".join(gb_chars) + extra
+
+    font = TTCollection(str(ttc_path)).fonts[index]
+    options = Options()
+    options.desubroutinize = True
+    options.drop_tables += ["VORG", "vhea", "vmtx", "BASE", "GPOS", "GSUB", "GDEF"]
+    subsetter = Subsetter(options=options)
+    subsetter.populate(text=charset)
+    subsetter.subset(font)
+
+    glyph_order = font.getGlyphOrder()
+    glyph_set = font.getGlyphSet()
+    glyf = newTable("glyf")
+    glyf.glyphs = {}
+    glyf.glyphOrder = glyph_order
+    for glyph_name in glyph_order:
+        pen = TTGlyphPen(glyph_set)
+        cpen = Cu2QuPen(pen, max_err=1.0, reverse_direction=True)
+        glyph_set[glyph_name].draw(cpen)
+        glyf.glyphs[glyph_name] = pen.glyph()
+
+    del font["CFF "]
+    font.sfntVersion = "\x00\x01\x00\x00"
+    font["loca"] = newTable("loca")
+    font["glyf"] = glyf
+    maxp = newTable("maxp")
+    maxp.tableVersion = 0x00010000
+    maxp.maxZones = 1
+    maxp.maxTwilightPoints = 0
+    maxp.maxStorage = 0
+    maxp.maxFunctionDefs = 0
+    maxp.maxInstructionDefs = 0
+    maxp.maxStackElements = 0
+    maxp.maxSizeOfInstructions = 0
+    maxp.maxComponentElements = 0
+    font["maxp"] = maxp
+    font["post"].formatType = 3.0
+    out_ttf.parent.mkdir(parents=True, exist_ok=True)
+    font.save(str(out_ttf))
+    return True
+
+
+def register_fonts() -> tuple[str, str]:
+    """Register Latin and Chinese Regular/Bold fonts across Windows, macOS, and Linux."""
+    regular = _first_existing(
+        [
+            Path("C:/Windows/Fonts/arial.ttf"),
+            Path("/System/Library/Fonts/Supplemental/Arial.ttf"),
+            Path("/Library/Fonts/Arial.ttf"),
+            Path("/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf"),
+            Path("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"),
+        ]
+    )
+    bold = _first_existing(
+        [
+            Path("C:/Windows/Fonts/arialbd.ttf"),
+            Path("/System/Library/Fonts/Supplemental/Arial Bold.ttf"),
+            Path("/Library/Fonts/Arial Bold.ttf"),
+            Path("/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf"),
+            Path("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"),
+        ]
+    )
+    italic = _first_existing(
+        [
+            Path("C:/Windows/Fonts/ariali.ttf"),
+            Path("/System/Library/Fonts/Supplemental/Arial Italic.ttf"),
+            Path("/Library/Fonts/Arial Italic.ttf"),
+            Path("/usr/share/fonts/truetype/liberation/LiberationSans-Italic.ttf"),
+            Path("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"),
+        ]
+    )
+    pdfmetrics.registerFont(TTFont("Arial", str(regular)))
+    pdfmetrics.registerFont(TTFont("Arial-Bold", str(bold)))
+    pdfmetrics.registerFont(TTFont("Arial-Italic", str(italic)))
+    pdfmetrics.registerFontFamily(
+        "Arial",
+        normal="Arial",
+        bold="Arial-Bold",
+        italic="Arial-Italic",
+        boldItalic="Arial-Bold",
+    )
+
+    win_reg = Path("C:/Windows/Fonts/msyh.ttc")
+    win_bd = Path("C:/Windows/Fonts/msyhbd.ttc")
+    if win_reg.is_file():
+        pdfmetrics.registerFont(TTFont("MicrosoftYaHei", str(win_reg)))
+        bd_path = win_bd if win_bd.is_file() else win_reg
+        pdfmetrics.registerFont(TTFont("MicrosoftYaHei-Bold", str(bd_path)))
+        pdfmetrics.registerFontFamily(
+            "MicrosoftYaHei",
+            normal="MicrosoftYaHei",
+            bold="MicrosoftYaHei-Bold",
+            italic="MicrosoftYaHei",
+            boldItalic="MicrosoftYaHei-Bold",
+        )
+        return "MicrosoftYaHei", "MicrosoftYaHei-Bold"
+
+    noto_reg = Path("/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc")
+    noto_bd = Path("/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc")
+    cache_dir = Path("/tmp/cv_fonts")
+    reg_ttf = cache_dir / "NotoSansCJKsc-Regular.ttf"
+    bd_ttf = cache_dir / "NotoSansCJKsc-Bold.ttf"
+    if (
+        noto_reg.is_file()
+        and noto_bd.is_file()
+        and _build_noto_cjk_ttf(noto_reg, 2, reg_ttf)
+        and _build_noto_cjk_ttf(noto_bd, 2, bd_ttf)
+    ):
+        pdfmetrics.registerFont(TTFont("MicrosoftYaHei", str(reg_ttf)))
+        pdfmetrics.registerFont(TTFont("MicrosoftYaHei-Bold", str(bd_ttf)))
+        pdfmetrics.registerFontFamily(
+            "MicrosoftYaHei",
+            normal="MicrosoftYaHei",
+            bold="MicrosoftYaHei-Bold",
+            italic="MicrosoftYaHei",
+            boldItalic="MicrosoftYaHei-Bold",
+        )
+        return "MicrosoftYaHei", "MicrosoftYaHei-Bold"
+
+    pdfmetrics.registerFont(UnicodeCIDFont("STSong-Light"))
+    return "STSong-Light", "STSong-Light"
+
+
+def circular_profile(path: Path = PROFILE_IMAGE) -> io.BytesIO:
+    with PILImage.open(path).convert("RGB") as source:
         side = min(source.size)
         left = (source.width - side) // 2
         top = (source.height - side) // 2
@@ -163,7 +307,7 @@ def link(label: str, url: str) -> str:
     return f'<link href="{html.escape(url, quote=True)}" color="#145E96">{html.escape(label)}</link>'
 
 
-def styles() -> dict[str, ParagraphStyle]:
+def styles(cjk_font: str) -> dict[str, ParagraphStyle]:
     sample = getSampleStyleSheet()
     return {
         "name": ParagraphStyle(
@@ -178,7 +322,7 @@ def styles() -> dict[str, ParagraphStyle]:
         "chinese_name": ParagraphStyle(
             "ChineseName",
             parent=sample["Normal"],
-            fontName="MicrosoftYaHei",
+            fontName=cjk_font,
             fontSize=11,
             leading=14,
             textColor=MUTED,
@@ -190,7 +334,7 @@ def styles() -> dict[str, ParagraphStyle]:
             fontSize=10.1,
             leading=12,
             textColor=BODY,
-            spaceAfter=2.5 * mm,
+            spaceAfter=2.2 * mm,
         ),
         "contact": ParagraphStyle(
             "Contact",
@@ -204,78 +348,78 @@ def styles() -> dict[str, ParagraphStyle]:
             "Summary",
             parent=sample["Normal"],
             fontName="Arial",
-            fontSize=8.6,
-            leading=11.5,
+            fontSize=8.5,
+            leading=11.4,
             textColor=INK,
-            spaceAfter=3 * mm,
+            spaceAfter=2.2 * mm,
         ),
         "section": ParagraphStyle(
             "Section",
             parent=sample["Normal"],
             fontName="Arial-Bold",
-            fontSize=12.4,
-            leading=14,
+            fontSize=11.8,
+            leading=13.5,
             textColor=BLUE,
-            spaceBefore=2.2 * mm,
-            spaceAfter=1.2 * mm,
+            spaceBefore=1.6 * mm,
+            spaceAfter=1.0 * mm,
         ),
         "bullet": ParagraphStyle(
             "Bullet",
             parent=sample["Normal"],
             fontName="Arial",
-            fontSize=8.25,
-            leading=10.5,
-            leftIndent=4 * mm,
-            firstLineIndent=-3 * mm,
+            fontSize=8.0,
+            leading=10.4,
+            leftIndent=3.8 * mm,
+            firstLineIndent=-2.8 * mm,
             bulletIndent=0,
             textColor=INK,
-            spaceAfter=0.5 * mm,
+            spaceAfter=0.75 * mm,
         ),
         "funding": ParagraphStyle(
             "Funding",
             parent=sample["Normal"],
             fontName="Arial",
             fontSize=7.65,
-            leading=9,
+            leading=9.4,
             leftIndent=4 * mm,
             firstLineIndent=-3 * mm,
             bulletIndent=0,
             textColor=INK,
-            spaceAfter=0.15 * mm,
+            spaceAfter=0.25 * mm,
         ),
         "date": ParagraphStyle(
             "Date",
             parent=sample["Normal"],
             fontName="Arial-Bold",
-            fontSize=8.2,
-            leading=10,
+            fontSize=7.8,
+            leading=9.6,
             textColor=BLUE,
         ),
         "entry_title": ParagraphStyle(
             "EntryTitle",
             parent=sample["Normal"],
             fontName="Arial-Bold",
-            fontSize=8.7,
-            leading=10.3,
+            fontSize=8.3,
+            leading=9.8,
             textColor=INK,
-            spaceAfter=0.6 * mm,
+            spaceAfter=0.35 * mm,
         ),
         "entry_body": ParagraphStyle(
             "EntryBody",
             parent=sample["Normal"],
             fontName="Arial",
-            fontSize=8.05,
-            leading=10.2,
+            fontSize=7.55,
+            leading=9.3,
             textColor=BODY,
-            spaceAfter=0.8 * mm,
+            spaceAfter=0.2 * mm,
         ),
-        "entry_links": ParagraphStyle(
-            "EntryLinks",
+        "entry_advisor": ParagraphStyle(
+            "EntryAdvisor",
             parent=sample["Normal"],
             fontName="Arial",
-            fontSize=7.7,
-            leading=9.5,
-            textColor=BLUE,
+            fontSize=7.35,
+            leading=9.0,
+            textColor=MUTED,
         ),
         "research_meta": ParagraphStyle(
             "ResearchMeta",
@@ -284,25 +428,25 @@ def styles() -> dict[str, ParagraphStyle]:
             fontSize=7.1,
             leading=8.5,
             textColor=BLUE,
-            spaceAfter=1.1 * mm,
+            spaceAfter=1.0 * mm,
         ),
         "research_title": ParagraphStyle(
             "ResearchTitle",
             parent=sample["Normal"],
             fontName="Arial-Bold",
-            fontSize=10.4,
-            leading=12,
+            fontSize=10.3,
+            leading=11.8,
             textColor=INK,
-            spaceAfter=1.3 * mm,
+            spaceAfter=1.2 * mm,
         ),
         "research_body": ParagraphStyle(
             "ResearchBody",
             parent=sample["Normal"],
             fontName="Arial",
-            fontSize=7.35,
-            leading=9,
+            fontSize=7.3,
+            leading=8.9,
             textColor=BODY,
-            spaceAfter=1.4 * mm,
+            spaceAfter=1.3 * mm,
         ),
         "research_label": ParagraphStyle(
             "ResearchLabel",
@@ -311,28 +455,28 @@ def styles() -> dict[str, ParagraphStyle]:
             fontSize=7.1,
             leading=8.5,
             textColor=INK,
-            spaceAfter=0.6 * mm,
+            spaceAfter=0.55 * mm,
         ),
         "research_bullet": ParagraphStyle(
             "ResearchBullet",
             parent=sample["Normal"],
             fontName="Arial",
-            fontSize=7.1,
-            leading=8.6,
+            fontSize=7.05,
+            leading=8.5,
             leftIndent=3.2 * mm,
             firstLineIndent=-2.4 * mm,
             bulletIndent=0,
             textColor=BODY,
-            spaceAfter=0.7 * mm,
+            spaceAfter=0.65 * mm,
         ),
         "research_links": ParagraphStyle(
             "ResearchLinks",
             parent=sample["Normal"],
             fontName="Arial",
             fontSize=7,
-            leading=8.8,
+            leading=8.7,
             textColor=BLUE,
-            spaceBefore=1 * mm,
+            spaceBefore=0.9 * mm,
         ),
         "pub_heading": ParagraphStyle(
             "PublicationHeading",
@@ -366,17 +510,17 @@ def styles() -> dict[str, ParagraphStyle]:
             "PublicationTitle",
             parent=sample["Normal"],
             fontName="Arial-Bold",
-            fontSize=8.5,
+            fontSize=8.45,
             leading=9.6,
             textColor=INK,
-            spaceAfter=0.15 * mm,
+            spaceAfter=0.5 * mm,
         ),
         "pub_authors": ParagraphStyle(
             "PublicationAuthors",
             parent=sample["Normal"],
             fontName="Arial",
-            fontSize=7.5,
-            leading=8.6,
+            fontSize=7.45,
+            leading=8.8,
             leftIndent=3 * mm,
             textColor=BODY,
             spaceAfter=0.15 * mm,
@@ -385,24 +529,24 @@ def styles() -> dict[str, ParagraphStyle]:
             "PublicationVenue",
             parent=sample["Normal"],
             fontName="Arial",
-            fontSize=7.35,
-            leading=8.45,
+            fontSize=7.3,
+            leading=8.4,
             leftIndent=3 * mm,
             textColor=BODY,
-            spaceAfter=0.9 * mm,
+            spaceAfter=0.85 * mm,
         ),
     }
 
 
-def section_heading(text: str, style: ParagraphStyle) -> list:
+def section_heading(text: str, style: ParagraphStyle, width: str = "100%") -> list:
     heading = Paragraph(text, style)
     heading.keepWithNext = 1
-    rule = HRFlowable(width="100%", thickness=0.7, color=RULE, spaceAfter=1.6 * mm)
+    rule = HRFlowable(width=width, thickness=0.7, color=RULE, spaceAfter=1.4 * mm)
     rule.keepWithNext = 1
     return [heading, rule]
 
 
-def year_heading(year: int, style_map: dict[str, ParagraphStyle]) -> list:
+def year_heading(year: int | str, style_map: dict[str, ParagraphStyle]) -> list:
     heading = Paragraph(str(year), style_map["year"])
     heading.keepWithNext = 1
     rule = HRFlowable(width="100%", thickness=0.55, color=RULE, spaceAfter=1 * mm)
@@ -410,66 +554,104 @@ def year_heading(year: int, style_map: dict[str, ParagraphStyle]) -> list:
     return [heading, rule]
 
 
-def dated_entry(
+def compact_edu_entry(
     year: str,
     title: str,
-    body: str | None,
+    org: str | None,
+    advisor: str | None,
     style_map: dict[str, ParagraphStyle],
-):
+    is_last: bool = False,
+) -> Table:
     content = [Paragraph(title, style_map["entry_title"])]
-    if body:
-        content.append(Paragraph(body, style_map["entry_body"]))
+    if org:
+        content.append(Paragraph(org, style_map["entry_body"]))
+    if advisor:
+        content.append(Paragraph(advisor, style_map["entry_advisor"]))
     table = Table(
         [[Paragraph(year, style_map["date"]), content]],
-        colWidths=[20 * mm, 151 * mm],
+        colWidths=[16.5 * mm, 74.5 * mm],
         hAlign="LEFT",
     )
-    table.setStyle(
-        TableStyle(
-            [
-                ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                ("LEFTPADDING", (0, 0), (-1, -1), 0),
-                ("RIGHTPADDING", (0, 0), (-1, -1), 0),
-                ("TOPPADDING", (0, 0), (-1, -1), 1.2 * mm),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 1.2 * mm),
-                ("LINEBELOW", (0, 0), (-1, -1), 0.45, RULE),
-            ]
-        )
-    )
-    return table
-
-
-def project_entry(
-    year: str,
-    title: str,
-    description: str,
-    links: list[tuple[str, str]],
-    style_map: dict[str, ParagraphStyle],
-):
-    link_markup = " - ".join(link(label, url) for label, url in links)
-    content = [
-        Paragraph(title, style_map["entry_title"]),
-        Paragraph(description, style_map["entry_body"]),
-        Paragraph(link_markup, style_map["entry_links"]),
+    rules = [
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 0),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 0),
+        ("TOPPADDING", (0, 0), (-1, -1), 1.0 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 1.0 * mm),
     ]
-    table = Table(
-        [[Paragraph(year, style_map["date"]), content]],
-        colWidths=[20 * mm, 151 * mm],
-        hAlign="LEFT",
-    )
-    table.setStyle(
+    if not is_last:
+        rules.append(("LINEBELOW", (0, 0), (-1, -1), 0.4, RULE))
+    table.setStyle(TableStyle(rules))
+    return table
+
+
+def focus_and_education_band(style_map: dict[str, ParagraphStyle]) -> Table:
+    left_col = [
+        *section_heading("Research Focus", style_map["section"]),
+        Paragraph(
+            "Molecular representation and generation foundation models for medicinal chemistry",
+            style_map["bullet"],
+            bulletText="•",
+        ),
+        Paragraph(
+            "Conformational-space- and pharmacophore-aware molecular representations",
+            style_map["bullet"],
+            bulletText="•",
+        ),
+        Paragraph(
+            "Protein–ligand, protein–protein, and RNA–ligand interaction modeling",
+            style_map["bullet"],
+            bulletText="•",
+        ),
+        Paragraph(
+            "Phenotype-based and polypharmacology drug design",
+            style_map["bullet"],
+            bulletText="•",
+        ),
+        Paragraph(
+            "Cyclic-peptide conformational space search and molecular design",
+            style_map["bullet"],
+            bulletText="•",
+        ),
+    ]
+    right_col = [
+        *section_heading("Education and Experience", style_map["section"]),
+        compact_edu_entry(
+            "Current",
+            "Postdoctoral Researcher",
+            "Institute of Systems Medicine, CAMS, Suzhou, China",
+            "Supervisor: Prof. Yang Zhang (National Univ. of Singapore)",
+            style_map,
+        ),
+        compact_edu_entry(
+            "2019–2024",
+            "Ph.D. in Computer-Aided Drug Design",
+            "School of Life Science and Technology, ShanghaiTech Univ.",
+            "Advisor: Prof. Fang Bai (SIAIS)",
+            style_map,
+        ),
+        compact_edu_entry(
+            "2019",
+            "B.S. in Biology",
+            "Northeast Agricultural University",
+            None,
+            style_map,
+            is_last=True,
+        ),
+    ]
+    band = Table([[left_col, "", right_col]], colWidths=[74 * mm, 6 * mm, 91 * mm], hAlign="LEFT")
+    band.setStyle(
         TableStyle(
             [
                 ("VALIGN", (0, 0), (-1, -1), "TOP"),
                 ("LEFTPADDING", (0, 0), (-1, -1), 0),
                 ("RIGHTPADDING", (0, 0), (-1, -1), 0),
-                ("TOPPADDING", (0, 0), (-1, -1), 1.2 * mm),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 1.2 * mm),
-                ("LINEBELOW", (0, 0), (-1, -1), 0.45, RULE),
+                ("TOPPADDING", (0, 0), (-1, -1), 0),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
             ]
         )
     )
-    return table
+    return band
 
 
 def research_column(
@@ -481,8 +663,8 @@ def research_column(
     links: list[tuple[str, str]],
     style_map: dict[str, ParagraphStyle],
 ) -> list:
-    image = research_image(image_path, max_width=48 * mm, max_height=41 * mm)
-    image_frame = Table([[image]], colWidths=[51 * mm], rowHeights=[43 * mm])
+    image = research_image(image_path, max_width=48 * mm, max_height=40 * mm)
+    image_frame = Table([[image]], colWidths=[51 * mm], rowHeights=[42 * mm])
     image_frame.setStyle(
         TableStyle(
             [
@@ -498,7 +680,7 @@ def research_column(
     link_markup = " | ".join(link(label, url) for label, url in links)
     content = [
         image_frame,
-        Spacer(1, 2 * mm),
+        Spacer(1, 1.8 * mm),
         Paragraph(meta, style_map["research_meta"]),
         Paragraph(title, style_map["research_title"]),
         Paragraph(description, style_map["research_body"]),
@@ -538,7 +720,7 @@ def selected_research_table(style_map: dict[str, ParagraphStyle]) -> Table:
             "GeminiMol addresses a central limitation of ligand-based discovery: functionally similar molecules can appear unrelated in two-dimensional structure. Learning from conformational-space and pharmacophore relationships supports cross-scaffold prediction, virtual screening, target identification, and scaffold hopping.",
             [
                 "Screening 18 million compounds identified the scaffold-distinct GM-10, validated by whole-cell patch clamp against GluN1/GluN3A (IC<sub>50</sub> = 0.98 &#177; 0.13 &#956;M)",
-                "First prize in the 2023 Shanghai International Computational Biology Innovation Competition",
+                "First prize, inaugural Shanghai International Computational Biology Innovation Competition (2023 edition, 2024 award)",
             ],
             [
                 ("Advanced Science", "https://doi.org/10.1002/advs.202403998"),
@@ -568,7 +750,7 @@ def selected_research_table(style_map: dict[str, ParagraphStyle]) -> Table:
         ),
     ]
     columns_chronological = list(reversed(columns_newest_first))
-    table = Table([columns_chronological], colWidths=[57 * mm] * 3, rowHeights=[115 * mm])
+    table = Table([columns_chronological], colWidths=[57 * mm] * 3)
     table.setStyle(
         TableStyle(
             [
@@ -595,7 +777,7 @@ def format_authors(publication: dict) -> str:
         name = html.escape(author)
         marker = marks.get(author, "")
         if marker:
-            name += f"<super>{html.escape(marker)}</super>"
+            name += f'<super rise="2" size="5.2">{html.escape(marker)}</super>'
         if author == "Lin Wang" and (index == 0 or "#" in marker or "*" in marker):
             name = f'<font name="Arial-Bold" color="#000000">{name}</font>'
         formatted.append(name)
@@ -644,8 +826,9 @@ def footer(canvas, document) -> None:
 
 
 def build() -> None:
-    register_fonts()
-    style_map = styles()
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    cjk_font, _ = register_fonts()
+    style_map = styles(cjk_font)
     publications = json.loads(PUBLICATIONS.read_text(encoding="utf-8"))
 
     document = SimpleDocTemplate(
@@ -694,8 +877,8 @@ def build() -> None:
         ),
     ]
     portrait_buffer = circular_profile()
-    portrait = Image(portrait_buffer, width=27 * mm, height=27 * mm)
-    header = Table([[identity, portrait]], colWidths=[144 * mm, 27 * mm], hAlign="LEFT")
+    portrait = Image(portrait_buffer, width=26 * mm, height=26 * mm)
+    header = Table([[identity, portrait]], colWidths=[145 * mm, 26 * mm], hAlign="LEFT")
     header.setStyle(
         TableStyle(
             [
@@ -708,40 +891,18 @@ def build() -> None:
         )
     )
 
+    # Summary must stay synced with index.html (.hero-statement) and data/i18n/en.json (home.hero.statement).
     story = [
         header,
-        Spacer(1, 3 * mm),
+        Spacer(1, 2.5 * mm),
         HRFlowable(width="100%", thickness=1.2, color=BLUE, spaceAfter=1.8 * mm),
         Paragraph(
             "I develop machine-learning methods that bring chemical knowledge — conformations, pharmacophores, and molecular interactions — into molecular representation and drug design. My work spans small-molecule discovery and protein–ligand, protein–protein, and RNA–ligand interaction modeling, with emerging directions in phenotype-based and multi-target drug design.",
             style_map["summary"],
         ),
-        *section_heading("Research Focus", style_map["section"]),
-        Paragraph("Molecular representation and generation foundation models for medicinal chemistry", style_map["bullet"], bulletText="•"),
-        Paragraph("Conformational-space- and pharmacophore-aware molecular representations", style_map["bullet"], bulletText="•"),
-        Paragraph("Protein-ligand and protein-protein interaction modeling", style_map["bullet"], bulletText="•"),
-        Paragraph("Phenotype-based and polypharmacology drug design", style_map["bullet"], bulletText="•"),
-        Spacer(1, 1 * mm),
-        *section_heading("Education and Experience", style_map["section"]),
-        dated_entry(
-            "Current",
-            "Postdoctoral Researcher",
-            "Institute of Systems Medicine, Chinese Academy of Medical Sciences, Suzhou, China.",
-            style_map,
-        ),
-        dated_entry(
-            "2019-2024",
-            "Ph.D., ShanghaiTech University",
-            None,
-            style_map,
-        ),
-        dated_entry(
-            "2019",
-            "B.S. in Life Science, Northeast Agricultural University",
-            None,
-            style_map,
-        ),
-        *section_heading("Funding", style_map["section"]),
+        focus_and_education_band(style_map),
+        Spacer(1, 0.8 * mm),
+        *section_heading("Funding and Honors", style_map["section"]),
         Paragraph(
             "National Natural Science Foundation of China, Young Scientists Fund (Category C), Grant No. T2600798",
             style_map["funding"],
@@ -752,7 +913,12 @@ def build() -> None:
             style_map["funding"],
             bulletText="•",
         ),
-        Spacer(1, 1.2 * mm),
+        Paragraph(
+            "First prize, inaugural Shanghai International Computational Biology Innovation Competition (2023 edition, GeminiMol team), 2024",
+            style_map["funding"],
+            bulletText="•",
+        ),
+        Spacer(1, 1.0 * mm),
         *section_heading("Selected Research", style_map["section"]),
         selected_research_table(style_map),
         PageBreak(),
@@ -768,10 +934,6 @@ def build() -> None:
 
     previous_year = None
     for publication in publications:
-        if publication["id"] == "mei2023discovery":
-            story.append(PageBreak())
-            story.extend(year_heading("2023 (continued)", style_map))
-            previous_year = publication["year"]
         if publication["year"] != previous_year:
             story.append(
                 KeepTogether(

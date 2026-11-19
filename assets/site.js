@@ -10,7 +10,15 @@
     protein_ligand_modeling: "topics.proteinLigandModeling",
     drug_discovery: "topics.drugDiscovery"
   };
-  const PUBLICATION_DATA_URL = "./data/publications.json?v=20261118-1";
+  const PUBLICATION_DATA_URL = "./data/publications.json?v=20261118-2";
+  const FEATURED_PUBLICATION_IDS = [
+    "wang2026learned",
+    "wang2026cocobind",
+    "liu2026integrating",
+    "wang2024conformational",
+    "wang2023deepsa",
+    "wang2022ppi",
+  ];
 
   const SELF_CONTRIBUTION_MARKS = {
     zhou2026proteinconformers: "*",
@@ -192,7 +200,12 @@
 
   const renderCompactList = (container, items) => {
     const limit = Number.parseInt(container.dataset.publicationLimit || "6", 10);
-    const source = container.dataset.publicationMode === "selected" ? items.filter(isKeyPublication) : items;
+    // The homepage shows a curated set of featured papers; the full record lives on publications.html.
+    const byId = new Map(items.map((item) => [item.id, item]));
+    const source =
+      container.dataset.publicationMode === "selected"
+        ? FEATURED_PUBLICATION_IDS.map((id) => byId.get(id)).filter(Boolean)
+        : items;
     container.innerHTML = source
       .slice(0, Number.isFinite(limit) ? limit : 6)
       .map((item) => publicationMarkup(item, true))

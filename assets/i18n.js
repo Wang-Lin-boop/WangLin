@@ -2,7 +2,7 @@
   "use strict";
 
   const SUPPORTED_LANGUAGES = ["en", "zh", "ar", "fr", "ru", "es"];
-  const ASSET_VERSION = "20261118-1";
+  const ASSET_VERSION = "20261118-2";
   const RTL_LANGUAGES = new Set(["ar"]);
   const STORAGE_KEY = "lin-wang-site-language";
 
@@ -48,7 +48,7 @@
     ["#hero-title", "home.hero.title", "html"],
     [".hero-statement", "home.hero.statement"],
     [".hero-actions", "home.hero.actionsAria", "aria-label"],
-    [".hero-actions a:nth-child(1)", "home.hero.cv", "html"],
+    [".hero-actions a:nth-child(1)", "home.hero.pubs", "html"],
     [".hero-actions a:nth-child(2)", "common.scholar", "html"],
     [".hero-actions a:nth-child(3)", "common.github", "html"],
     [".hero-actions a:nth-child(4)", "common.orcid", "html"],
