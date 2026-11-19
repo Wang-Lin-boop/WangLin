@@ -112,8 +112,8 @@
     "topics": [
       "drug_discovery"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Molecular+glue+degraders+of+HuR+suppress+BRAF-mutant+colorectal+cancer%22"
+    "doi": "10.1038/s41586-026-10613-5",
+    "url": "https://doi.org/10.1038/s41586-026-10613-5"
   },
   {
     "id": "zhou2026proteinconformers",
@@ -136,8 +136,8 @@
     "topics": [
       "structural_bioinformatics"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22ProteinConformers%3A+Benchmark+Dataset+for+Simulating+Protein+Conformational+Landscape+Diversity+and+Plausibility%22"
+    "doi": "10.52202/085713-2746",
+    "url": "https://doi.org/10.52202/085713-2746"
   },
   {
     "id": "wang2026small",
@@ -155,8 +155,8 @@
     "topics": [
       "structural_bioinformatics"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Small+Molecule+Conformation+Prediction%22"
+    "doi": "10.1007/978-981-95-2525-6_33",
+    "url": "https://doi.org/10.1007/978-981-95-2525-6_33"
   },
   {
     "id": "zhang2025deeppsa",
@@ -178,8 +178,8 @@
     "topics": [
       "drug_discovery"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22DeepPSA%3A+A+Geometric+Deep+Learning+Model+for+PROTAC+Synthetic+Accessibility+Prediction%22"
+    "doi": "10.1021/acs.jcim.5c00366",
+    "url": "https://doi.org/10.1021/acs.jcim.5c00366"
   },
   {
     "id": "wang2025discovery",
@@ -205,8 +205,8 @@
     "topics": [
       "drug_discovery"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Discovery+of+novel+GluN1%2FGluN3A+NMDA+receptor+inhibitors+using+a+deep+learning-based+method%22"
+    "doi": "10.1038/s41401-025-01571-1",
+    "url": "https://doi.org/10.1038/s41401-025-01571-1"
   },
   {
     "id": "liang2025mcr3",
@@ -269,8 +269,8 @@
     "topics": [
       "protein_ligand_modeling"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22MAI-TargetFisher%3A+A+proteome-wide+drug+target+prediction+method+synergetically+enhanced+by+artificial+intelligence+and+physical+modeling%22"
+    "doi": "10.1038/s41401-024-01444-z",
+    "url": "https://doi.org/10.1038/s41401-024-01444-z"
   },
   {
     "id": "li2025nadph",
@@ -294,8 +294,8 @@
     "topics": [
       "drug_discovery"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22NADPH-Independent+Fluorescent+Probe+for+Live-Cell+Imaging+of+Heme+Oxygenase-1%22"
+    "doi": "10.1021/acssensors.4c02978",
+    "url": "https://doi.org/10.1021/acssensors.4c02978"
   },
   {
     "id": "wang2025phenomodel",
@@ -350,8 +350,8 @@
     "topics": [
       "drug_discovery"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Recent+advances+in+molecular+representation+methods+and+their+applications+in+scaffold+hopping%22"
+    "doi": "10.1038/s44386-025-00017-2",
+    "url": "https://doi.org/10.1038/s44386-025-00017-2"
   },
   {
     "id": "wang2024conformational",
@@ -404,8 +404,8 @@
     "topics": [
       "drug_discovery"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Salvianolic+acid+B+attenuates+liver+fibrosis+by+targeting+Ecm1+and+inhibiting+hepatocyte+ferroptosis%22"
+    "doi": "10.1016/j.redox.2024.103029",
+    "url": "https://doi.org/10.1016/j.redox.2024.103029"
   },
   {
     "id": "liang2023new",
@@ -432,8 +432,8 @@
     "topics": [
       "drug_discovery"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22A+new+variant+of+the+colistin+resistance+gene+MCR-1+with+co-resistance+to+%CE%B2-lactam+antibiotics+reveals+a+potential+novel+antimicrobial+peptide%22"
+    "doi": "10.1371/journal.pbio.3002433",
+    "url": "https://doi.org/10.1371/journal.pbio.3002433"
   },
   {
     "id": "wang2023deepsa",
@@ -479,8 +479,8 @@
     "topics": [
       "drug_discovery"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Discovery%2C+evaluation+and+mechanism+study+of+WDR5-targeted+small+molecular+inhibitors+for+neuroblastoma%22"
+    "doi": "10.1038/s41401-022-00999-z",
+    "url": "https://doi.org/10.1038/s41401-022-00999-z"
   },
   {
     "id": "mei2023discovery",
@@ -507,8 +507,8 @@
     "topics": [
       "drug_discovery"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Discovery%2C+structural+optimization%2C+and+anti-tumor+bioactivity+evaluations+of+betulinic+acid+derivatives+as+a+new+type+of+ROR%CE%B3+antagonists%22"
+    "doi": "10.1016/j.ejmech.2023.115472",
+    "url": "https://doi.org/10.1016/j.ejmech.2023.115472"
   },
   {
     "id": "zhu2023propofol",
@@ -535,8 +535,8 @@
     "topics": [
       "drug_discovery"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Propofol+exerts+anti-anhedonia+effects+via+inhibiting+the+dopamine+transporter%22"
+    "doi": "10.1016/j.neuron.2023.02.017",
+    "url": "https://doi.org/10.1016/j.neuron.2023.02.017"
   },
   {
     "id": "li2023synthesis",
@@ -563,8 +563,8 @@
     "topics": [
       "drug_discovery"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Synthesis+of+maleimide-braced+peptide+macrocycles+and+their+potential+anti-SARS-CoV-2+mechanisms%22"
+    "doi": "10.1039/d2cc06371a",
+    "url": "https://doi.org/10.1039/d2cc06371a"
   },
   {
     "id": "ren2022multi",
@@ -591,8 +591,8 @@
     "topics": [
       "drug_discovery"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22A+multi-targeting+drug+design+strategy+for+identifying+potent+anti-SARS-CoV-2+inhibitors%22"
+    "doi": "10.1038/s41401-021-00668-7",
+    "url": "https://doi.org/10.1038/s41401-021-00668-7"
   },
   {
     "id": "wang2022crystal",
@@ -619,8 +619,8 @@
     "topics": [
       "structural_bioinformatics"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Crystal+structures+of+Wolbachia+CidA+and+CidB+reveal+determinants+of+bacteria-induced+cytoplasmic+incompatibility+and+rescue%22"
+    "doi": "10.1038/s41467-022-29273-w",
+    "url": "https://doi.org/10.1038/s41467-022-29273-w"
   },
   {
     "id": "wang2022discovery",
@@ -647,8 +647,8 @@
     "topics": [
       "drug_discovery"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Discovery+of+potential+small+molecular+SARS-CoV-2+entry+blockers+targeting+the+spike+protein%22"
+    "doi": "10.1038/s41401-021-00735-z",
+    "url": "https://doi.org/10.1038/s41401-021-00735-z"
   },
   {
     "id": "liu2022pilsl",
@@ -672,8 +672,8 @@
     "topics": [
       "drug_discovery"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22PiLSL%3A+pairwise+interaction+learning-based+graph+neural+network+for+synthetic+lethality+prediction+in+human+cancers%22"
+    "doi": "10.1093/bioinformatics/btac476",
+    "url": "https://doi.org/10.1093/bioinformatics/btac476"
   },
   {
     "id": "wang2022ppi",
@@ -721,8 +721,8 @@
     "topics": [
       "drug_discovery"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Rapamycin+targets+STAT3+and+impacts+c-Myc+to+suppress+tumor+growth%22"
+    "doi": "10.1016/j.chembiol.2021.10.006",
+    "url": "https://doi.org/10.1016/j.chembiol.2021.10.006"
   },
   {
     "id": "li2022recent",
@@ -744,8 +744,8 @@
     "topics": [
       "ppi_modeling"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Recent+advances+in+predicting+protein%E2%80%93protein+interactions+with+the+aid+of+artificial+intelligence+algorithms%22"
+    "doi": "10.1016/j.sbi.2022.102344",
+    "url": "https://doi.org/10.1016/j.sbi.2022.102344"
   },
   {
     "id": "hou2022target",
@@ -772,8 +772,8 @@
     "topics": [
       "drug_discovery"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Target-based+virtual+screening+and+LC%2FMS-guided+isolation+procedure+for+identifying+phloroglucinol-terpenoid+inhibitors+of+SARS-CoV-2%22"
+    "doi": "10.1021/acs.jnatprod.1c00805",
+    "url": "https://doi.org/10.1021/acs.jnatprod.1c00805"
   },
   {
     "id": "wang2021ckb",
@@ -800,8 +800,8 @@
     "topics": [
       "drug_discovery"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22CKB+inhibits+epithelial-mesenchymal+transition+and+prostate+cancer+progression+by+sequestering+and+inhibiting+AKT+activation%22"
+    "doi": "10.1016/j.neo.2021.09.005",
+    "url": "https://doi.org/10.1016/j.neo.2021.09.005"
   },
   {
     "id": "li2021identification",
@@ -828,8 +828,8 @@
     "topics": [
       "protein_ligand_modeling"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Identification+of+potential+binding+sites+of+sialic+acids+on+the+RBD+domain+of+SARS-CoV-2+spike+protein%22"
+    "doi": "10.3389/fchem.2021.659764",
+    "url": "https://doi.org/10.3389/fchem.2021.659764"
   },
   {
     "id": "wang2021probing",
@@ -852,8 +852,8 @@
     "topics": [
       "protein_ligand_modeling"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Probing+the+allosteric+inhibition+mechanism+of+a+spike+protein+using+molecular+dynamics+simulations+and+active+compound+identifications%22"
+    "doi": "10.1021/acs.jmedchem.1c00320",
+    "url": "https://doi.org/10.1021/acs.jmedchem.1c00320"
   },
   {
     "id": "yang2020antimicrobial",
@@ -878,8 +878,8 @@
     "topics": [
       "protein_ligand_modeling"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22Antimicrobial+resistance+in+clinical+Ureaplasma+spp.+and+Mycoplasma+hominis+and+structural+mechanisms+underlying+quinolone+resistance%22"
+    "doi": "10.1128/aac.02560-19",
+    "url": "https://doi.org/10.1128/aac.02560-19"
   },
   {
     "id": "jin2020structure",
@@ -934,7 +934,7 @@
     "topics": [
       "structural_bioinformatics"
     ],
-    "doi": null,
-    "url": "https://scholar.google.com/scholar?q=%22The+structural+study+of+mutation-induced+inactivation+of+human+muscarinic+receptor+M4%22"
+    "doi": "10.1107/s2052252520000597",
+    "url": "https://doi.org/10.1107/s2052252520000597"
   }
 ]

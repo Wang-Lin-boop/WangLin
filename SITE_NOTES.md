@@ -114,9 +114,19 @@ A conservative retrospective audit uses motif-concordant, compound-dependent CRB
 
 Public-facing research copy should foreground the scientific limitation addressed, the discovery scope enabled, and experimentally grounded outcomes. Implementation sequences such as alignment, filtering, decoding, and refinement belong in papers or technical documentation unless they are necessary to understand a scientific claim. The homepage project cards and Ouroboros feature panels therefore frame Ouroboros around connecting prediction and design, GeminiMol around cross-scaffold functional similarity and GM-10, and PPI-Miner around backbone-motif discovery beyond sequence similarity and subsequent CRBN-recruitment evidence.
 
+## November 2026 structure and accessibility revision
+
+- The dark band below the hero is now the research program: three lines (molecules, interactions, phenotypes), each linking to its projects. The former scale band, engine overview, engine flow, and evolution grid were consolidated into the Ouroboros dossier, which keeps the lineage module, the three capability cards, and the application figure.
+- Projects are grouped by research line and each row states the authorship role on the primary paper (first, co-first, co-first and co-corresponding, or co-corresponding). CoCoBind was added as an RNA–ligand project.
+- The homepage shows six key publications (first, co-first, or co-corresponding author) with a contribution legend; `publications.html` adds a role filter and the same legend. All 35 records now carry a DOI verified by exact-title Crossref lookup.
+- Open tools now include the DeepSA web server and the CRBN-SubsLib candidate database. News shows six recent items and folds the 13 earlier entries into a `<details>` archive; the CRBN cross-reference item is dated to the 2025 *Science* publication that it cites.
+- The background section lists verified funding and honors: NSFC Young Scientists Fund (Category C, T2600798), the Fundamental Research Funds for the Central Universities at Peking Union Medical College (3332025054), and the 2023 competition first prize for GeminiMol.
+- Accessibility and display fixes: `--muted` darkened to `#5a6873` for WCAG AA contrast on tinted backgrounds, small uppercase labels raised to at least 11 px, the year rail keeps counts inline, the profile figure no longer inherits the browser's 40 px figure indent, and the mobile portrait renders above its caption.
+- Performance: WebP derivatives for the portrait and research figures, Arabic web fonts loaded only when Arabic is selected, and a native `<dialog>` lightbox for research figures with the PNG link kept as the no-JavaScript fallback.
+
 ## Deployment model
 
-The GitHub Actions workflow constructs a `_site` artifact from an explicit allowlist of public files and deploys it through GitHub Pages. There are no package installations, build frameworks, or runtime services. The workflow requests Pages enablement for a newly created repository.
+The GitHub Actions workflow constructs a `_site` artifact from an explicit allowlist of public files and deploys it through GitHub Pages. There are no package installations, build frameworks, or runtime services. A single `sed` step stamps the commit SHA into every `?v=` query and `ASSET_VERSION` in the deployed copy. The workflow requests Pages enablement for a newly created repository.
 
 ## Maintenance checklist
 

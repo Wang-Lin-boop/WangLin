@@ -3,7 +3,7 @@
   --paper-tint: #f5f8fa;
   --ink: #17232d;
   --ink-soft: #344552;
-  --muted: #687782;
+  --muted: #5a6873;
   --line: #d6dfe5;
   --line-strong: #aebbc4;
   --cobalt: #1d5b8f;
@@ -1027,7 +1027,7 @@ h3 {
 
 .year-rail a {
   display: inline-grid;
-  grid-template-columns: 37px 1fr;
+  grid-template-columns: 37px auto auto;
   gap: 9px;
   align-items: center;
   padding: 4px 0;
@@ -1141,7 +1141,7 @@ body {
 }
 
 .hero::after {
-  content: "encode / navigate / decode";
+  content: "molecules / interactions / phenotypes";
 }
 
 .section-tag {
@@ -3208,6 +3208,542 @@ html[data-language="es"] body[data-page="home"] .hero h1 {
 
 @media print {
   .language-control {
+    display: none !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   2026-11 revision: program band, project groups, authorship roles, open tools,
+   news archive, honors, figure lightbox, accessibility and mobile fixes.
+   --------------------------------------------------------------------------- */
+
+/* Readable minimum sizes for small uppercase labels and captions. */
+.project-kind,
+.publication-topic,
+.research-figure figcaption,
+.community-index {
+  font-size: 11px;
+}
+
+.publication-topic {
+  line-height: 1.45;
+}
+
+/* Hero: explicit name line above the tagline. */
+.hero-name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  margin: 0 0 14px;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(24px, 2.4vw, 30px);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.hero-name span[lang="zh"] {
+  color: var(--ink-soft);
+  font-family: "Noto Serif SC", "Songti SC", var(--serif);
+  font-size: 0.82em;
+  font-weight: 500;
+}
+
+body[data-page="home"] .hero-statement {
+  max-width: 660px;
+  font-size: 19px;
+}
+
+/* Profile portrait: remove UA figure indent so the photo aligns with the details list. */
+.profile-panel figure {
+  margin: 0;
+}
+
+.profile-panel picture {
+  display: block;
+}
+
+/* Header CV button. */
+.primary-nav .nav-contact {
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  background: var(--ink);
+}
+
+.primary-nav .nav-contact::after {
+  display: none;
+}
+
+.primary-nav .nav-contact:hover {
+  color: var(--paper);
+  border-color: var(--cobalt);
+  background: var(--cobalt);
+}
+
+/* Research program band. */
+.program-band .page-shell {
+  grid-template-columns: minmax(220px, 0.62fr) minmax(0, 1.8fr);
+}
+
+.program-lines li {
+  display: flex;
+  flex-direction: column;
+}
+
+.program-lines li:not(:last-child)::after {
+  display: none;
+}
+
+.program-works {
+  margin-top: auto !important;
+  padding-top: 14px;
+  color: #9fb4c2 !important;
+  font-family: var(--mono);
+  font-size: 11px !important;
+  letter-spacing: 0.04em;
+}
+
+.program-works a {
+  color: var(--paper);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+  text-underline-offset: 3px;
+}
+
+.program-works a:hover {
+  text-decoration-color: var(--paper);
+}
+
+/* Ouroboros dossier: small symbol under the kicker. */
+.dossier-mark {
+  display: block;
+  margin-top: 20px;
+}
+
+.dossier-mark img {
+  display: block;
+  width: 100%;
+  max-width: 132px;
+  height: auto;
+}
+
+.research-figure a[data-lightbox] {
+  display: block;
+  cursor: zoom-in;
+}
+
+/* Project groups and authorship badges. */
+.project-group {
+  margin: 0;
+  padding: 22px 0 8px;
+  color: var(--cobalt);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ink);
+}
+
+.project-group:first-child {
+  padding-top: 14px;
+}
+
+.project-role {
+  display: inline-block;
+  margin-top: 10px !important;
+  padding: 3px 7px;
+  color: var(--cobalt-dark);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  border: 1px solid color-mix(in srgb, var(--cobalt) 45%, transparent);
+  background: var(--paper);
+}
+
+/* Publications: legend, author marks, role filter. */
+.publication-legend {
+  margin: -6px 0 18px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.publication-legend strong {
+  color: var(--ink);
+}
+
+.publication-legend b {
+  color: var(--cobalt);
+  font-family: var(--mono);
+}
+
+.author-mark {
+  margin-inline-start: 1px;
+  color: var(--cobalt);
+  font-family: var(--mono);
+  font-size: 0.72em;
+  font-weight: 600;
+}
+
+.publication-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 24px;
+  margin: 12px 0 14px;
+}
+
+.publication-meta-row .publication-status {
+  margin: 0;
+}
+
+.publication-browser .publication-legend {
+  margin: 0 0 26px;
+}
+
+.role-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-soft);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.role-toggle input {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: var(--cobalt);
+}
+
+/* Utility sections get smaller headings than research sections. */
+#community .section-intro h2,
+#news .section-intro h2,
+#trajectory .section-intro h2 {
+  font-size: clamp(30px, 3.2vw, 40px);
+}
+
+/* Open tools: wrapping three-column grid with stable borders. */
+.community-grid-wrap {
+  gap: 0;
+}
+
+.community-grid-wrap article,
+.community-grid-wrap article:not(:last-child) {
+  min-height: 210px;
+  margin: 0;
+  padding: 21px clamp(18px, 2.2vw, 28px) 22px;
+  border-inline-end: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.community-grid-wrap article:nth-child(3n + 1) {
+  padding-inline-start: 0;
+}
+
+.community-grid-wrap article:nth-child(3n) {
+  padding-inline-end: 0;
+  border-inline-end: 0;
+}
+
+.community-grid-wrap article:nth-last-child(-n + 2):nth-child(3n + 2),
+.community-grid-wrap article:nth-last-child(-n + 3):nth-child(3n + 1),
+.community-grid-wrap article:last-child {
+  border-bottom: 0;
+}
+
+.community-grid-wrap article:last-child {
+  border-inline-end: 0;
+}
+
+/* News archive. */
+.news-archive {
+  margin-top: 0;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.news-archive summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 0;
+  color: var(--cobalt);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  list-style: none;
+}
+
+.news-archive summary::-webkit-details-marker {
+  display: none;
+}
+
+.news-archive summary::before {
+  width: 8px;
+  height: 8px;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  content: "";
+  transform: rotate(-45deg);
+  transition: transform 160ms ease;
+}
+
+.news-archive[open] summary::before {
+  transform: rotate(45deg);
+}
+
+.news-archive summary:hover {
+  color: var(--cobalt-dark);
+}
+
+.news-count {
+  color: var(--muted);
+}
+
+.news-archive .news-list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.news-archive .news-list li:last-child {
+  border-bottom: 0;
+}
+
+/* Funding & honors. */
+.honors-block {
+  display: grid;
+  grid-template-columns: minmax(125px, 0.42fr) minmax(0, 1.58fr);
+  gap: clamp(34px, 5vw, 64px);
+  margin-top: 40px;
+}
+
+.honors-block > .metadata-label {
+  margin: 0;
+  padding-top: 14px;
+  color: var(--muted);
+}
+
+.honors-list {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--ink);
+  list-style: none;
+}
+
+.honors-list li {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.honors-list p {
+  margin: 0;
+}
+
+.honors-kind,
+.honors-id {
+  color: var(--cobalt);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.honors-id {
+  color: var(--muted);
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.honors-list li > p:nth-child(2) {
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Figure lightbox. */
+.figure-lightbox {
+  width: min(1400px, calc(100vw - 32px));
+  max-width: none;
+  max-height: calc(100vh - 32px);
+  padding: 0;
+  border: 0;
+  background: var(--paper);
+  box-shadow: 0 24px 80px rgba(10, 20, 30, 0.35);
+}
+
+.figure-lightbox::backdrop {
+  background: rgba(15, 25, 34, 0.78);
+}
+
+.figure-lightbox-bar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.figure-lightbox-full {
+  color: var(--cobalt);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.figure-lightbox-close {
+  width: 34px;
+  height: 34px;
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1;
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+  cursor: pointer;
+}
+
+.figure-lightbox-close:hover {
+  color: var(--paper);
+  border-color: var(--ink);
+  background: var(--ink);
+}
+
+.figure-lightbox img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* RTL adjustments for the new modules. */
+html[dir="rtl"] .program-works,
+html[dir="rtl"] .project-role {
+  unicode-bidi: isolate;
+}
+
+html[dir="rtl"] .news-archive summary::before {
+  transform: rotate(135deg);
+}
+
+html[dir="rtl"] .news-archive[open] summary::before {
+  transform: rotate(45deg);
+}
+
+@media (max-width: 1080px) {
+  .program-band .page-shell {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 820px) {
+  .program-lines {
+    grid-template-columns: 1fr;
+  }
+
+  .program-lines li,
+  .program-lines li:not(:last-child) {
+    margin: 0;
+    padding: 0 0 20px;
+    border-right: 0;
+    border-left: 0;
+  }
+
+  .program-lines li:not(:last-child) {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #40515d;
+  }
+
+  html[dir="rtl"] .program-lines li:not(:last-child) {
+    border-bottom: 1px solid #40515d;
+  }
+
+  .community-grid-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .community-grid-wrap article,
+  .community-grid-wrap article:not(:last-child) {
+    min-height: 0;
+    padding: 18px 0 19px;
+    border-inline-end: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .community-grid-wrap article:last-child {
+    border-bottom: 0;
+  }
+
+  .honors-block {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .honors-block > .metadata-label {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .profile-panel figure {
+    display: block;
+  }
+
+  .profile-panel picture {
+    display: block;
+  }
+
+  .profile-panel img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .profile-panel figcaption {
+    border-bottom: 0;
+  }
+
+  .honors-list li {
+    grid-template-columns: 1fr auto;
+    gap: 4px 12px;
+  }
+
+  .honors-list li > p:nth-child(2) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .publication-meta-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .figure-lightbox {
+    width: calc(100vw - 16px);
+    max-height: calc(100vh - 16px);
+  }
+}
+
+@media print {
+  .news-archive > .news-list {
+    display: block;
+  }
+
+  .figure-lightbox,
+  .role-toggle {
     display: none !important;
   }
 }

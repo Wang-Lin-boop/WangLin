@@ -31,6 +31,15 @@ jobs:
           cp index.html publications.html 404.html robots.txt sitemap.xml site.webmanifest .nojekyll _site/
           cp -R assets data images _site/
 
+      - name: Stamp asset versions with the commit SHA
+        # Source files keep a manual ?v=YYYYMMDD-N value for local previews;
+        # the deployed copy uses one shared commit-based version for CSS, JS, and JSON.
+        run: |
+          version="${GITHUB_SHA::8}"
+          sed -i -E "s/\?v=[0-9]{8}-[0-9]+/?v=${version}/g" _site/index.html _site/publications.html _site/404.html _site/assets/site.js
+          sed -i -E "s/(ASSET_VERSION = \")[^\"]+\"/\1${version}\"/" _site/assets/i18n.js
+          grep -q "ASSET_VERSION = \"${version}\"" _site/assets/i18n.js
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:

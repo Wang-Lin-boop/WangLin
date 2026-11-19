@@ -2,7 +2,7 @@
   "use strict";
 
   const SUPPORTED_LANGUAGES = ["en", "zh", "ar", "fr", "ru", "es"];
-  const ASSET_VERSION = "20260906-1";
+  const ASSET_VERSION = "20261118-1";
   const RTL_LANGUAGES = new Set(["ar"]);
   const STORAGE_KEY = "lin-wang-site-language";
 
@@ -21,7 +21,9 @@
     "publications.workCount": "{count} works",
     "publications.workCountOne": "{count} work",
     "publications.countAria": "{count} publications",
-    "publications.etAl": "et al."
+    "publications.etAl": "et al.",
+    "common.closeFigure": "Close figure",
+    "common.openFull": "Open full resolution ↗"
   };
 
   const COMMON_BINDINGS = [
@@ -34,6 +36,7 @@
     [".primary-nav a[href$='#community']", "nav.community"],
     [".primary-nav a[href$='#news']", "nav.news"],
     [".primary-nav a[href$='publications.html']", "nav.publications"],
+    [".primary-nav a[href$='#contact']", "nav.contact"],
     [".language-control .sr-only", "common.language"],
     ["[data-language-select]", "common.language", "aria-label"],
     [".site-footer p:nth-child(2)", "common.footerTag"],
@@ -45,10 +48,10 @@
     ["#hero-title", "home.hero.title", "html"],
     [".hero-statement", "home.hero.statement"],
     [".hero-actions", "home.hero.actionsAria", "aria-label"],
-    [".hero-actions a:nth-child(1)", "home.hero.paper", "html"],
-    [".hero-actions a:nth-child(2)", "common.code", "html"],
-    [".hero-actions a:nth-child(3)", "common.scholar", "html"],
-    [".hero-actions a:nth-child(4)", "home.hero.cv"],
+    [".hero-actions a:nth-child(1)", "home.hero.cv", "html"],
+    [".hero-actions a:nth-child(2)", "common.scholar", "html"],
+    [".hero-actions a:nth-child(3)", "common.github", "html"],
+    [".hero-actions a:nth-child(4)", "common.orcid", "html"],
     [".current-role .metadata-label", "home.hero.position"],
     [".current-role p:last-child", "home.hero.role", "html"],
     [".profile-panel", "home.profile.aria", "aria-label"],
@@ -58,17 +61,6 @@
     [".profile-details div:nth-child(2) dt", "home.profile.researchLabel"],
     [".profile-details div:nth-child(2) dd", "home.profile.researchValue"],
     [".profile-details div:nth-child(3) dt", "home.profile.contactLabel"],
-    [".scale-heading .metadata-label", "home.scale.tag"],
-    ["#scale-title", "home.scale.title"],
-    [".scale-sequence li:nth-child(1) .scale-index", "home.scale.encodeIndex"],
-    [".scale-sequence li:nth-child(1) h3", "home.scale.encodeTitle"],
-    [".scale-sequence li:nth-child(1) p:last-child", "home.scale.encodeText"],
-    [".scale-sequence li:nth-child(2) .scale-index", "home.scale.navigateIndex"],
-    [".scale-sequence li:nth-child(2) h3", "home.scale.navigateTitle"],
-    [".scale-sequence li:nth-child(2) p:last-child", "home.scale.navigateText"],
-    [".scale-sequence li:nth-child(3) .scale-index", "home.scale.decodeIndex"],
-    [".scale-sequence li:nth-child(3) h3", "home.scale.decodeTitle"],
-    [".scale-sequence li:nth-child(3) p:last-child", "home.scale.decodeText"],
     [".dossier-kicker .section-tag", "home.dossier.tag"],
     [".dossier-deck", "home.dossier.deck"],
     [".dossier-links", "home.dossier.linksAria", "aria-label"],
@@ -95,33 +87,10 @@
     [".lineage-comparison article:nth-child(2) > p:nth-of-type(2)", "home.lineage.ouroborosText"],
     [".lineage-comparison article:nth-child(2) .lineage-validation", "home.lineage.ouroborosValidation", "html"],
     [".lineage-figure figcaption", "home.lineage.caption"],
-    [".engine-mark figcaption", "home.engine.figureCaption"],
-    [".engine-copy .metadata-label", "home.engine.tag"],
-    ["#engine-title", "home.engine.title"],
-    [".engine-copy > p:last-child", "home.engine.intro"],
-    [".engine-flow", "home.engine.flowAria", "aria-label"],
-    [".engine-flow li:nth-child(1) h4", "home.engine.hypothesisTitle"],
-    [".engine-flow li:nth-child(1) p", "home.engine.hypothesisText"],
-    [".engine-flow li:nth-child(2) h4", "home.engine.objectiveTitle"],
-    [".engine-flow li:nth-child(2) p", "home.engine.objectiveText"],
-    [".engine-flow li:nth-child(3) h4", "home.engine.navigationTitle"],
-    [".engine-flow li:nth-child(3) p", "home.engine.navigationText"],
-    [".engine-flow li:nth-child(4) h4", "home.engine.reconstructionTitle"],
-    [".engine-flow li:nth-child(4) p", "home.engine.reconstructionText"],
-    [".evolution-heading .metadata-label", "home.operations.tag"],
-    [".evolution-heading p:last-child", "home.operations.intro"],
-    [".evolution-grid article:nth-of-type(1) h3", "home.operations.explorationTitle"],
-    [".evolution-grid article:nth-of-type(1) p", "home.operations.explorationText"],
-    [".evolution-grid article:nth-of-type(2) h3", "home.operations.migrationTitle"],
-    [".evolution-grid article:nth-of-type(2) p", "home.operations.migrationText"],
-    [".evolution-grid article:nth-of-type(3) h3", "home.operations.fusionTitle"],
-    [".evolution-grid article:nth-of-type(3) p", "home.operations.fusionText"],
     [".application-figure figcaption", "home.engine.applicationCaption"],
     ["#work .section-tag", "home.projects.tag"],
     ["#work-title", "home.projects.title"],
     ["#work .section-intro > div > p", "home.projects.intro"],
-    ["#work .project-links a:first-child", "common.paper", "html"],
-    ["#work .project-links a:nth-child(2)", "common.code", "html"],
     ["#publications .section-tag", "home.recent.tag"],
     ["#recent-title", "home.recent.title"],
     ["#publications .section-intro > div > p", "home.recent.intro", "html"],
@@ -142,15 +111,6 @@
     [".contact-links", "home.contact.linksAria", "aria-label"]
   ];
 
-  const PROJECT_NAMES = ["ouroboros", "geminimol", "phenomodel", "proteinconformers", "ppiminer", "deepsa"];
-  PROJECT_NAMES.forEach((project, index) => {
-    const number = index + 1;
-    HOME_BINDINGS.push(
-      [`#work .project-row:nth-child(${number}) .project-kind`, `home.projects.${project}.kind`],
-      [`#work .project-row:nth-child(${number}) .project-main p`, `home.projects.${project}.tagline`],
-      [`#work .project-row:nth-child(${number}) .project-detail`, `home.projects.${project}.detail`]
-    );
-  });
 
   const PUBLICATION_BINDINGS = [
     [".page-heading .section-tag", "record.tag"],
@@ -172,6 +132,19 @@
     [".year-rail .metadata-label", "record.jump"],
     ["[data-year-navigation]", "record.jumpAria", "aria-label"]
   ];
+
+  const ARABIC_FONT_URL =
+    "https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;600&display=swap";
+
+  // Arabic faces are only requested when Arabic is selected, so other languages skip two font families.
+  const loadArabicFonts = () => {
+    if (document.querySelector("link[data-arabic-fonts]")) return;
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = ARABIC_FONT_URL;
+    link.dataset.arabicFonts = "";
+    document.head.appendChild(link);
+  };
 
   let currentLanguage = "en";
   let messages = { ...DYNAMIC_FALLBACKS };
@@ -261,6 +234,7 @@
     document.documentElement.lang = normalized === "zh" ? "zh-CN" : normalized;
     document.documentElement.dir = RTL_LANGUAGES.has(normalized) ? "rtl" : "ltr";
     document.documentElement.dataset.language = normalized;
+    if (RTL_LANGUAGES.has(normalized)) loadArabicFonts();
 
     if (options.persist !== false) {
       try {

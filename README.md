@@ -6,7 +6,7 @@ The site is a lightweight, dependency-free academic portfolio informed by the in
 
 ## Site structure
 
-- `index.html`: biography, research program, projects, community tools, news, trajectory, and contact details
+- `index.html`: biography, research program, featured Ouroboros research, grouped projects with authorship roles, selected publications, open tools, news (recent items plus a collapsible archive), background with funding and honors, and contact details
 - `publications.html`: searchable and filterable full publication record
 - `data/i18n/`: Arabic, Chinese, English, French, Russian, and Spanish interface copy
 - `data/publications.bib`: canonical publication source
@@ -19,6 +19,8 @@ The site is a lightweight, dependency-free academic portfolio informed by the in
 - `.github/workflows/pages.yml`: GitHub Pages deployment
 
 The only photographic asset is the real profile portrait in `images/profile.png`. The design intentionally avoids generated molecular imagery and decorative scientific diagrams.
+
+The pages serve WebP derivatives through `<picture>` (`images/profile.webp`, `images/research/*-1400.webp`, `ouroboros-representation-engine.webp`) and keep the original PNG files as fallbacks, lightbox targets, and CV inputs. Regenerate a WebP derivative whenever its source PNG changes. `images/og-card.png` (1200 x 630) is the social-preview card referenced by the Open Graph and Twitter meta tags.
 
 ## Update publications
 
@@ -37,7 +39,9 @@ The only photographic asset is the real profile portrait in `images/profile.png`
 
 4. Open `http://localhost:8000/` and verify the homepage and all four mutually exclusive publication filters.
 
-The publication and translation requests use the asset version shared by `index.html`, `publications.html`, `assets/site.js`, and `assets/i18n.js`. Increment that version together when category data or translated labels change so GitHub Pages and browser caches cannot mix old JSON with new controls.
+The publication and translation requests use the asset version shared by `index.html`, `publications.html`, `assets/site.js`, and `assets/i18n.js`. For local previews, increment that `YYYYMMDD-N` version together when category data or translated labels change. On deployment, the Pages workflow replaces every copy with the first eight characters of the commit SHA, so GitHub Pages and browser caches cannot mix old JSON with new controls even if a manual bump is forgotten.
+
+The homepage publication list (`data-publication-mode="selected"`) shows only first-author, co-first-author (`#`), and co-corresponding-author (`*`) papers. The full record offers the same filter through the role checkbox. In compact author lists, `Lin Wang` always stays visible even when the name falls beyond the truncation point.
 
 ## Update the CV
 
@@ -57,9 +61,9 @@ Contribution marks are maintained in `AUTHOR_MARKS` in `scripts/build_cv.py` and
 
 ## Update the profile summary
 
-The English homepage has two copies of the Summary: the no-JavaScript fallback in `index.html` and `home.hero.statement` in `data/i18n/en.json`. Keep both identical, and update the same key in the other five translation files. The CV copy is defined separately in `scripts/build_cv.py`; rebuild the PDF after every Summary change.
+The English homepage has two copies of the Summary: the no-JavaScript fallback in `index.html` and `home.hero.statement` in `data/i18n/en.json`. Keep both identical, and update the same key in the other five translation files. The CV copy is defined separately in `scripts/build_cv.py` and should match the English Summary word for word; rebuild the PDF after every Summary change.
 
-The current Summary treats AI-driven drug discovery, interaction modeling, phenotype-based design, and polypharmacology as the broad research program. Molecular-glue work remains in the PPI-Miner project context rather than appearing as a separate program-level direction.
+The current Summary describes machine-learning methods that bring chemical knowledge (conformations, pharmacophores, and molecular interactions) into molecular representation and drug design, spanning small-molecule discovery, protein–ligand, protein–protein, and RNA–ligand interaction modeling, and phenotype-based and multi-target design. The homepage research band organizes the same program into three lines: molecules, interactions, and phenotypes. Molecular-glue work remains in the PPI-Miner project context rather than appearing as a separate program-level direction.
 
 ## Deployment
 

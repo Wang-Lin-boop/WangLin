@@ -713,7 +713,7 @@ def build() -> None:
         Spacer(1, 3 * mm),
         HRFlowable(width="100%", thickness=1.2, color=BLUE, spaceAfter=1.8 * mm),
         Paragraph(
-            "I develop computational methods that integrate chemical priors into molecular representation learning and generative drug design. My research spans AI-driven drug discovery and protein–ligand and protein–protein interaction modeling, with emerging directions in phenotype-based and polypharmacology drug design. My latest work, Ouroboros, advances this broader program through a molecular foundation model that learns chemically informed representations from conformational-space and pharmacophore similarities for molecular property prediction and generation.",
+            "I develop machine-learning methods that bring chemical knowledge — conformations, pharmacophores, and molecular interactions — into molecular representation and drug design. My work spans small-molecule discovery and protein–ligand, protein–protein, and RNA–ligand interaction modeling, with emerging directions in phenotype-based and multi-target drug design.",
             style_map["summary"],
         ),
         *section_heading("Research Focus", style_map["section"]),

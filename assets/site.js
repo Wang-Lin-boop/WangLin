@@ -10,7 +10,7 @@
     protein_ligand_modeling: "topics.proteinLigandModeling",
     drug_discovery: "topics.drugDiscovery"
   };
-  const PUBLICATION_DATA_URL = "./data/publications.json?v=20260826-1";
+  const PUBLICATION_DATA_URL = "./data/publications.json?v=20261118-1";
 
   const SELF_CONTRIBUTION_MARKS = {
     zhou2026proteinconformers: "*",
@@ -30,6 +30,7 @@
   const publicationCountNodes = () => [...document.querySelectorAll("[data-publication-count]")];
   const filterButtons = [...document.querySelectorAll("[data-publication-filter]")];
   const searchInput = document.querySelector("[data-publication-search]");
+  const roleToggle = document.querySelector("[data-publication-role]");
   const statusNode = document.querySelector("[data-publication-status]");
   const yearNavigation = document.querySelector("[data-year-navigation]");
   let publications = [];
@@ -55,29 +56,41 @@
     return labels.length ? labels.join(" · ") : t("topics.article");
   };
 
+  const isSelf = (author) => normalizeText(author) === "lin wang";
+
+  // Key papers: first author, co-first author (#), or co-corresponding author (*).
+  const isKeyPublication = (publication) => {
+    const mark = SELF_CONTRIBUTION_MARKS[publication.id] || "";
+    return isSelf((publication.authors || [])[0]) || mark.includes("#") || mark.includes("*");
+  };
+
   const formatAuthors = (publication, compact = false) => {
     const authors = publication.authors || [];
-    let visibleAuthors = authors;
+    const contributionMark = SELF_CONTRIBUTION_MARKS[publication.id] || "";
+    const selfIndex = authors.findIndex(isSelf);
+    let visibleIndexes = authors.map((_, index) => index);
     let hasOmittedAuthors = false;
 
     if (compact && authors.length > 7) {
-      visibleAuthors = authors.slice(0, 6);
       hasOmittedAuthors = true;
+      // Always keep Lin Wang visible, even when the name falls beyond the truncation point.
+      visibleIndexes = selfIndex >= 6 ? [0, 1, 2, 3, 4, "gap", selfIndex] : [0, 1, 2, 3, 4, 5];
     }
 
-    const names = visibleAuthors.map((author, index) => {
-      const normalizedAuthor = normalizeText(author);
-      if (normalizedAuthor === "others") return `<em>${escapeHtml(t("publications.etAl"))}</em>`;
+    const names = visibleIndexes.map((index) => {
+      if (index === "gap") return "…";
+      const author = authors[index];
+      if (normalizeText(author) === "others") return `<em>${escapeHtml(t("publications.etAl"))}</em>`;
 
       const safeName = escapeHtml(author);
-      const contributionMark = SELF_CONTRIBUTION_MARKS[publication.id] || "";
-      const highlightsContribution = index === 0 || contributionMark.includes("#") || contributionMark.includes("*");
-      return normalizedAuthor === "lin wang" && highlightsContribution
-        ? `<strong class="self-author">${safeName}</strong>`
+      if (!isSelf(author)) return safeName;
+      const marks = contributionMark ? `<sup class="author-mark">${escapeHtml(contributionMark)}</sup>` : "";
+      return index === 0 || contributionMark
+        ? `<strong class="self-author">${safeName}</strong>${marks}`
         : safeName;
     });
 
-    if (hasOmittedAuthors) {
+    if (hasOmittedAuthors && visibleIndexes[visibleIndexes.length - 1] !== authors.length - 1) {
       names.push(escapeHtml(t("publications.etAl")));
     }
 
@@ -179,7 +192,8 @@
 
   const renderCompactList = (container, items) => {
     const limit = Number.parseInt(container.dataset.publicationLimit || "6", 10);
-    container.innerHTML = items
+    const source = container.dataset.publicationMode === "selected" ? items.filter(isKeyPublication) : items;
+    container.innerHTML = source
       .slice(0, Number.isFinite(limit) ? limit : 6)
       .map((item) => publicationMarkup(item, true))
       .join("");
@@ -201,7 +215,8 @@
         ].join(" ")
       );
       const matchesSearch = !query || haystack.includes(query);
-      return matchesTopic && matchesSearch;
+      const matchesRole = !roleToggle?.checked || isKeyPublication(publication);
+      return matchesTopic && matchesSearch && matchesRole;
     });
   };
 
@@ -268,6 +283,7 @@
   });
 
   searchInput?.addEventListener("input", renderPublications);
+  roleToggle?.addEventListener("change", renderPublications);
 
   const navToggle = document.querySelector("[data-nav-toggle]");
   const primaryNav = document.querySelector("[data-primary-nav]");
@@ -309,6 +325,44 @@
       renderPublications();
     }
   });
+
+  // Research figures open in a native <dialog>; the original PNG link remains the no-JS fallback.
+  const lightboxLinks = [...document.querySelectorAll("[data-lightbox]")];
+  if (lightboxLinks.length && typeof HTMLDialogElement === "function") {
+    const dialog = document.createElement("dialog");
+    dialog.className = "figure-lightbox";
+    dialog.innerHTML = `
+      <div class="figure-lightbox-bar">
+        <a class="figure-lightbox-full" target="_blank" rel="noreferrer"></a>
+        <button class="figure-lightbox-close" type="button"></button>
+      </div>
+      <img alt="">
+    `;
+    document.body.appendChild(dialog);
+    const image = dialog.querySelector("img");
+    const fullLink = dialog.querySelector(".figure-lightbox-full");
+    const closeButton = dialog.querySelector(".figure-lightbox-close");
+
+    closeButton.addEventListener("click", () => dialog.close());
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+
+    lightboxLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey) return;
+        event.preventDefault();
+        const source = link.querySelector("img");
+        image.src = link.href;
+        image.alt = source?.alt || "";
+        fullLink.href = link.href;
+        fullLink.textContent = t("common.openFull");
+        closeButton.textContent = "×";
+        closeButton.setAttribute("aria-label", t("common.closeFigure"));
+        dialog.showModal();
+      });
+    });
+  }
 
   initializePublications();
 })();
