@@ -72,7 +72,7 @@ ORIGINAL_ALGO_WORKS: list[tuple[str, str]] = [
     ("wang2026cocobind", "共同一作、共同通讯，中科院1区，IF=7.6"),
     ("liu2026integrating", "共同通讯，中科院1区，IF=7.1"),
     ("zhou2026proteinconformers", "共同通讯，会议论文"),
-    ("wang2025phenomodel", "共同一作，IF=16.9"),
+    ("wang2025phenomodel", "共同一作，中科院1区，IF=16.9"),
     ("wang2023deepsa", "共同一作，中科院2区，IF=10.0"),
 ]
 
@@ -384,14 +384,14 @@ def zh_focus_and_edu_band(style_map: dict[str, ParagraphStyle]) -> Table:
         zh_edu_entry(
             "目前",
             "博士后研究员",
-            "中国医学科学院系统医学研究所，中国苏州。",
+            "中国医学科学院系统医学研究所，中国苏州",
             "博士后导师：新加坡国立大学 张阳教授",
             style_map,
         ),
         zh_edu_entry(
             "2019-2024",
             "博士（计算机辅助药物设计）",
-            "上海科技大学生命科学学院",
+            "上海科技大学生命科学与技术学院",
             "博士导师：免疫化学研究所 白芳教授",
             style_map,
         ),
@@ -488,7 +488,7 @@ def zh_selected_research_table(style_map: dict[str, ParagraphStyle], cjk_bold: s
             "GeminiMol",
             "GeminiMol 突破基于配体的药物发现中的关键局限：功能相似的分子可能在二维结构上差异显著。通过学习构象空间与药效团关系，支持跨骨架预测、虚拟筛选、靶标识别和骨架跃迁。",
             [
-                "筛选 1,800 万个化合物发现新骨架 GM-10，<br/>全细胞膜片钳证实其抑制 GluN1/GluN3A (IC<sub>50</sub> = 0.98 &#177; 0.13 &#956;M)。",
+                "筛选 1,800 万化合物发现新骨架 GM-10，<br/>全细胞膜片钳证实其抑制 GluN1/GluN3A<br/>(IC<sub>50</sub> = 0.98 &#177; 0.13 &#956;M)。",
                 award_line,
             ],
             [

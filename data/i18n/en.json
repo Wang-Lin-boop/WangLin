@@ -167,7 +167,7 @@
   "home.program.title": "Bringing chemical knowledge into models of molecules, interactions, and phenotypes.",
   "home.program.moleculesIndex": "01 · Molecules",
   "home.program.moleculesTitle": "Representation & design",
-  "home.program.moleculesText": "Chemically informed representations that recognize functional similarity across scaffolds and connect property prediction with molecular design.",
+  "home.program.moleculesText": "Chemically informed representations that recognize functional similarity across scaffolds and connect property prediction with small-molecule and emerging cyclic-peptide design.",
   "home.program.interactionsIndex": "02 · Interactions",
   "home.program.interactionsTitle": "Structure & recognition",
   "home.program.interactionsText": "Structure- and learning-based models of protein–protein, protein–ligand, and RNA–ligand recognition, from receptor-compatible interface motifs to nucleotide-level binding sites.",

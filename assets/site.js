@@ -10,7 +10,7 @@
     protein_ligand_modeling: "topics.proteinLigandModeling",
     drug_discovery: "topics.drugDiscovery"
   };
-  const PUBLICATION_DATA_URL = "./data/publications.json?v=20261118-2";
+  const PUBLICATION_DATA_URL = "./data/publications.json?v=20261118-3";
   const FEATURED_PUBLICATION_IDS = [
     "wang2026learned",
     "wang2026cocobind",

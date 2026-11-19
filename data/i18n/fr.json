@@ -167,7 +167,7 @@
   "home.program.title": "Intégrer la connaissance chimique aux modèles des molécules, des interactions et des phénotypes.",
   "home.program.moleculesIndex": "01 · Molécules",
   "home.program.moleculesTitle": "Représentation et conception",
-  "home.program.moleculesText": "Des représentations informées par la chimie qui reconnaissent la similarité fonctionnelle au-delà des squelettes et relient prédiction des propriétés et conception moléculaire.",
+  "home.program.moleculesText": "Des représentations informées par la chimie qui reconnaissent la similarité fonctionnelle au-delà des squelettes et relient la prédiction des propriétés à la conception de petites molécules et, en émergence, de peptides cycliques.",
   "home.program.interactionsIndex": "02 · Interactions",
   "home.program.interactionsTitle": "Structure et reconnaissance",
   "home.program.interactionsText": "Modèles structuraux et d’apprentissage de la reconnaissance protéine–protéine, protéine–ligand et ARN–ligand, des motifs d’interface compatibles avec le récepteur aux sites de liaison à l’échelle du nucléotide.",
