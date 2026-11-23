@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" data-language="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="description" content="Lin Wang develops computational methods for chemically informed molecular representation, structural modeling, and drug discovery.">
+    <meta name="theme-color" content="#fdfefe">
+    <meta name="description" content="Lin Wang (王林) — Postdoctoral Researcher in Computational Biology & AI for Drug Discovery, developing molecular representation foundation models and biomolecular interaction methods.">
     <meta name="author" content="Lin Wang">
     <link rel="canonical" href="https://wang-lin-boop.github.io/WangLin/">
 
     <meta property="og:type" content="profile">
-    <meta property="og:title" content="Lin Wang — AI for Molecular Discovery">
-    <meta property="og:description" content="Computational research in chemically informed molecular representation, structural modeling, and drug discovery.">
+    <meta property="og:title" content="Lin Wang (王林) — Computational Biology &amp; AI for Drug Discovery">
+    <meta property="og:description" content="Computational biology and machine-learning methods for conformational-space molecular representation, biomolecular interaction modeling, and drug discovery.">
     <meta property="og:url" content="https://wang-lin-boop.github.io/WangLin/">
     <meta property="og:image" content="https://wang-lin-boop.github.io/WangLin/images/og-card.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
 
-    <title>Lin Wang — AI for Molecular Discovery</title>
+    <title>Lin Wang (王林) — Computational Biology &amp; AI for Drug Discovery</title>
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
     <link rel="manifest" href="./site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=STIX+Two+Text:opsz,wght@10..72,400;10..72,500;10..72,600&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/site.css?v=20261118-3">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Noto+Serif+SC:wght@500;600&amp;family=STIX+Two+Text:ital,opsz,wght@0,10..72,400..600;1,10..72,400..500&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/site.css?v=20261122-3">
 
     <script type="application/ld+json">
       {
@@ -51,30 +51,28 @@
     </script>
   </head>
   <body data-page="home">
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content" data-i18n="nav.skip">Skip to content</a>
 
     <header class="site-header" data-site-header>
       <div class="nav-shell">
         <a class="wordmark" href="./index.html" aria-label="Lin Wang, home">
-          <span>Lin Wang</span>
-          <span lang="zh">王林</span>
+          <span class="wordmark-en">Lin Wang</span>
+          <span class="wordmark-zh" lang="zh">王林</span>
         </a>
 
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>
-          <span>Menu</span>
-          <i aria-hidden="true"></i>
-        </button>
+        <nav id="primary-navigation" class="primary-nav" aria-label="Primary navigation" data-i18n-aria="nav.aria" data-primary-nav>
+          <a href="#research" data-i18n="nav.research">Research</a>
+          <a href="#work" data-i18n="nav.projects">Projects</a>
+          <a href="./publications.html" data-i18n="nav.publications">Publications</a>
+          <a href="#community" data-i18n="nav.tools">Tools</a>
+          <a href="#background" data-i18n="nav.background">Background</a>
+          <a href="#contact" data-i18n="nav.contact">Contact</a>
+        </nav>
 
-        <nav id="primary-navigation" class="primary-nav" aria-label="Primary navigation" data-primary-nav>
-          <a href="#research">Research</a>
-          <a href="#work">Projects</a>
-          <a href="./publications.html">Publications</a>
-          <a href="#community">Tools</a>
-          <a href="#news">News</a>
-          <a href="#contact">Contact</a>
+        <div class="header-actions">
           <label class="language-control">
-            <span class="sr-only">Language</span>
-            <select data-language-select aria-label="Language">
+            <span class="sr-only" data-i18n="nav.language">Language</span>
+            <select data-language-select aria-label="Language" data-i18n-aria="nav.language">
               <option value="en">English</option>
               <option value="zh">中文</option>
               <option value="ar">العربية</option>
@@ -83,548 +81,853 @@
               <option value="es">Español</option>
             </select>
           </label>
-        </nav>
+
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>
+            <span data-i18n="nav.menu">Menu</span>
+            <span class="nav-toggle-bars" aria-hidden="true"></span>
+          </button>
+        </div>
       </div>
     </header>
 
     <main id="main-content">
-      <section class="hero page-shell" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="hero-name"><span>Lin Wang</span> <span lang="zh">王林</span></p>
-          <p class="section-tag">Molecular representation · Drug discovery</p>
-          <h1 id="hero-title">Walking through<br><span>chemical space.</span></h1>
-          <p class="hero-statement">I develop machine-learning methods that bring chemical knowledge — conformations, pharmacophores, and molecular interactions — into molecular representation and drug design. My work spans small-molecule discovery and protein–ligand, protein–protein, and RNA–ligand interaction modeling, with emerging directions in phenotype-based and multi-target drug design.</p>
-
-          <nav class="hero-actions" aria-label="Primary links">
-            <a class="text-button" href="./publications.html">Publications <span aria-hidden="true">→</span></a>
-            <a class="quiet-link" href="https://scholar.google.com/citations?user=lFYS_EQAAAAJ" target="_blank" rel="noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
-            <a class="quiet-link" href="https://github.com/Wang-Lin-boop" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-            <a class="quiet-link" href="https://orcid.org/0000-0003-2482-7638" target="_blank" rel="noreferrer">ORCID <span aria-hidden="true">↗</span></a>
-          </nav>
-
-          <div class="current-role">
-            <p class="metadata-label">Position</p>
-            <p><strong>Postdoctoral Researcher</strong><br>Institute of Systems Medicine<br>Chinese Academy of Medical Sciences</p>
-          </div>
-        </div>
-
-        <aside class="profile-panel" aria-label="Profile">
-          <figure>
-            <picture>
-              <source srcset="./images/profile.webp" type="image/webp">
-              <img src="./images/profile.png" width="1076" height="1092" alt="Portrait of Lin Wang">
-            </picture>
-            <figcaption>Lin Wang · 王林</figcaption>
-          </figure>
-          <dl class="profile-details">
-            <div>
-              <dt>Based in</dt>
-              <dd>Suzhou, China</dd>
-            </div>
-            <div>
-              <dt>Research</dt>
-              <dd>Molecular representation · drug discovery</dd>
-            </div>
-            <div>
-              <dt>Contact</dt>
-              <dd><a href="mailto:Wanglin1102@outlook.com">Wanglin1102@outlook.com</a></dd>
-            </div>
-          </dl>
-        </aside>
-      </section>
-
-      <section id="research" class="research-scale program-band" aria-labelledby="program-title">
+      <!-- 1. Compact Identity Hero + Balanced Portrait + Inline Scholarly Snapshot -->
+      <section class="hero-band" aria-labelledby="hero-title">
         <div class="page-shell">
-          <div class="scale-heading">
-            <p class="metadata-label" data-i18n="home.program.tag">Research program</p>
-            <h2 id="program-title" data-i18n="home.program.title">Bringing chemical knowledge into models of molecules, interactions, and phenotypes.</h2>
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <p class="hero-kicker" data-i18n="home.hero.kicker">Postdoctoral Researcher · Computational Biology &amp; AI for Drug Discovery</p>
+              <h1 id="hero-title" class="hero-identity" data-i18n-html="home.hero.titleHtml">Lin Wang <span class="hero-name-alt" lang="zh">王林</span></h1>
+              <p class="hero-statement" data-i18n="home.hero.statement">I develop machine-learning methods that bring chemical knowledge — conformations, pharmacophores, and molecular interactions — into molecular representation and drug design. My work spans small-molecule discovery and protein–ligand, protein–protein, and RNA–ligand interaction modeling, with emerging directions in phenotype-based and multi-target drug design.</p>
+              <p class="hero-affiliation" data-i18n-html="home.hero.affiliationHtml"><strong>Postdoctoral Researcher</strong>, Institute of Systems Medicine, Chinese Academy of Medical Sciences (Suzhou) · Supervised by Prof. Yang Zhang (NUS) · Ph.D., ShanghaiTech University (Prof. Fang Bai)</p>
+
+              <nav class="hero-actions" aria-label="Primary links">
+                <a class="primary-cta" href="./publications.html">
+                  <span data-i18n="home.hero.ctaPublications">Publications (35)</span>
+                  <span class="arrow" aria-hidden="true">→</span>
+                </a>
+                <a class="quiet-link" href="https://scholar.google.com/citations?user=lFYS_EQAAAAJ" target="_blank" rel="noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
+                <a class="quiet-link" href="https://github.com/Wang-Lin-boop" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+                <a class="quiet-link" href="https://orcid.org/0000-0003-2482-7638" target="_blank" rel="noreferrer">ORCID <span aria-hidden="true">↗</span></a>
+                <button class="copy-button" type="button" data-copy-email="Wanglin1102@outlook.com" data-i18n="common.copyEmail">Copy email</button>
+              </nav>
+            </div>
+
+            <aside class="profile-card" aria-label="Researcher profile">
+              <figure class="profile-photo-wrap">
+                <picture>
+                  <source srcset="./images/profile.webp" type="image/webp">
+                  <img src="./images/profile.png" width="720" height="731" alt="Portrait of Lin Wang" data-i18n-alt="home.hero.portraitAlt">
+                </picture>
+              </figure>
+              <dl class="profile-meta">
+                <div class="profile-meta-row">
+                  <dt data-i18n="home.hero.profilePositionLabel">Role</dt>
+                  <dd data-i18n="home.hero.profilePositionValue">Postdoc, CAMS / ISM</dd>
+                </div>
+                <div class="profile-meta-row">
+                  <dt data-i18n="home.hero.profileLocationLabel">Base</dt>
+                  <dd data-i18n="home.hero.profileLocationValue">Suzhou, China</dd>
+                </div>
+                <div class="profile-meta-row">
+                  <dt data-i18n="home.hero.profileEmailLabel">Email</dt>
+                  <dd><a href="mailto:Wanglin1102@outlook.com">Wanglin1102@outlook.com</a></dd>
+                </div>
+              </dl>
+            </aside>
           </div>
-          <ol class="scale-sequence program-lines">
-            <li>
-              <span class="scale-index" data-i18n="home.program.moleculesIndex">01 · Molecules</span>
-              <h3 data-i18n="home.program.moleculesTitle">Representation &amp; design</h3>
-              <p data-i18n="home.program.moleculesText">Chemically informed representations that recognize functional similarity across scaffolds and connect property prediction with small-molecule and emerging cyclic-peptide design.</p>
-              <p class="program-works"><a href="#research-featured">Ouroboros</a> · <a href="#project-geminimol">GeminiMol</a> · <a href="#project-deepsa">DeepSA</a></p>
-            </li>
-            <li>
-              <span class="scale-index" data-i18n="home.program.interactionsIndex">02 · Interactions</span>
-              <h3 data-i18n="home.program.interactionsTitle">Structure &amp; recognition</h3>
-              <p data-i18n="home.program.interactionsText">Structure- and learning-based models of protein–protein, protein–ligand, and RNA–ligand recognition, from receptor-compatible interface motifs to nucleotide-level binding sites.</p>
-              <p class="program-works"><a href="#project-ppiminer">PPI-Miner</a> · <a href="#project-cocobind">CoCoBind</a></p>
-            </li>
-            <li>
-              <span class="scale-index" data-i18n="home.program.phenotypesIndex">03 · Phenotypes</span>
-              <h3 data-i18n="home.program.phenotypesTitle">Phenotype &amp; polypharmacology</h3>
-              <p data-i18n="home.program.phenotypesText">Multi-target drug design within a shared chemical space and phenotype-based compound prioritization, developed as an emerging direction of the program.</p>
-              <p class="program-works"><a href="#research-featured">Ouroboros</a> · <span data-i18n="home.program.emerging">emerging direction</span></p>
-            </li>
-          </ol>
+
+          <div class="snapshot-strip" aria-label="Scholarly highlights">
+            <div class="snapshot-item">
+              <p class="snapshot-value" data-i18n="home.hero.statPapersValue">35</p>
+              <p class="snapshot-label" data-i18n="home.hero.statPapersLabel">Peer-reviewed publications</p>
+              <p class="snapshot-note" data-i18n="home.hero.statPapersNote">15 first, co-first, or co-corresponding (2020–2026)</p>
+            </div>
+            <div class="snapshot-item">
+              <p class="snapshot-value" data-i18n="home.hero.statModelsValue">2</p>
+              <p class="snapshot-label" data-i18n="home.hero.statModelsLabel">Original molecular AI models</p>
+              <p class="snapshot-note" data-i18n="home.hero.statModelsNote">GeminiMol &amp; Ouroboros (Advanced Science 2024, 2026)</p>
+            </div>
+            <div class="snapshot-item">
+              <p class="snapshot-value" data-i18n="home.hero.statProteomeValue">1,739</p>
+              <p class="snapshot-label" data-i18n="home.hero.statProteomeLabel">CRBN degron candidates</p>
+              <p class="snapshot-note" data-i18n="home.hero.statProteomeNote">≥12 prospective hits validated in Science (2025)</p>
+            </div>
+            <div class="snapshot-item">
+              <p class="snapshot-value" data-i18n="home.hero.statAwardValue">1 / 142</p>
+              <p class="snapshot-label" data-i18n="home.hero.statAwardLabel">1st Place · Shanghai CompBio</p>
+              <p class="snapshot-note" data-i18n="home.hero.statAwardNote">GeminiMol team · GluN1/GluN3A NAM GM-10 (Acta Pharmacol. Sin. 2025)</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="research-featured" class="section page-shell ouroboros-dossier" aria-labelledby="research-title">
-        <header class="dossier-header">
-          <div class="dossier-kicker">
-            <p class="section-tag">Featured research</p>
-            <p class="dossier-citation">Advanced Science · 2026</p>
-            <picture class="dossier-mark">
-              <source srcset="./images/research/ouroboros-representation-engine.webp" type="image/webp">
-              <img
-                src="./images/research/ouroboros-representation-engine.png"
-                width="392"
-                height="397"
-                loading="lazy"
-                decoding="async"
-                alt="Ouroboros symbol showing a molecular graph enclosed by a serpent beside an ordered molecular representation vector."
-                data-i18n-alt="home.engine.figureAlt"
-              >
-            </picture>
-          </div>
-          <div class="dossier-title">
-            <h2 id="research-title">Ouroboros</h2>
-            <p class="dossier-deck">Ouroboros addresses a persistent divide in AI-driven drug discovery: representations optimized for prediction are rarely reusable for molecular design. By organizing chemical space with fingerprint, conformational-space, and pharmacophore relationships, it supports property prediction, virtual screening, and property-guided generation within one representation. This creates a common basis for hit discovery, lead optimization, and multi-target design.</p>
-            <nav class="dossier-links" aria-label="Ouroboros resources">
-              <a href="https://doi.org/10.1002/advs.202513556" target="_blank" rel="noreferrer">Peer-reviewed paper ↗</a>
-              <a href="https://doi.org/10.1101/2025.03.18.643899" target="_blank" rel="noreferrer">Preprint ↗</a>
-              <a href="https://github.com/Wang-Lin-boop/Ouroboros" target="_blank" rel="noreferrer">Code &amp; models ↗</a>
-            </nav>
-          </div>
-        </header>
+      <!-- 2. Coley/Zitnik-Inspired Overview Split: Research Program (Left) + Latest News Sidebar (Right) -->
+      <section id="research" class="overview-band" aria-labelledby="program-title">
+        <div class="page-shell">
+          <div class="overview-split">
+            <div class="overview-main">
+              <div class="overview-col-head">
+                <h2 id="program-title" data-i18n="home.program.title">Research Program</h2>
+                <p class="overview-eyebrow" data-i18n="home.program.eyebrow">3 Scales · 5 Core Directions</p>
+              </div>
+              <p class="program-lead" data-i18n="home.program.lead">Integrating 3D conformational ensembles, pharmacophore geometry, biomolecular interfaces, and cellular phenotypes into generalizable AI models for medicinal chemistry.</p>
 
-        <section class="lineage-module" aria-labelledby="lineage-title">
-          <div class="lineage-copy">
-            <p class="metadata-label">Research progression</p>
-            <h3 id="lineage-title">From recognizing cross-scaffold similarity to designing within it.</h3>
-            <p class="lineage-intro">GeminiMol showed that conformational-space and pharmacophore relationships can reveal functionally related molecules across scaffold boundaries. Ouroboros extends this concept into a shared chemical space that connects prediction with candidate design.</p>
-
-            <div class="lineage-comparison">
-              <article>
-                <p class="lineage-model">GeminiMol</p>
-                <h4>Functional similarity across scaffolds</h4>
-                <p>GeminiMol prioritizes molecules with related 3D and pharmacophore profiles even when their 2D structures are dissimilar.</p>
-                <p class="lineage-validation"><span>Outcome</span> cross-scaffold screening and the experimentally validated GluN1/GluN3A inhibitor GM-10.</p>
-              </article>
-              <article>
-                <p class="lineage-model">Ouroboros</p>
-                <h4>Prediction and design in one chemical space</h4>
-                <p>Ouroboros organizes several molecular relationships together so prediction and generative exploration share a chemically meaningful space.</p>
-                <p class="lineage-validation"><span>Scope</span> property prediction, directed optimization, and targeted polypharmacology.</p>
-              </article>
+              <ol class="program-stack">
+                <li class="program-pillar">
+                  <span class="pillar-index" data-i18n="home.program.moleculesIndex">01 · Molecules</span>
+                  <div class="program-pillar-body">
+                    <h3 data-i18n="home.program.moleculesTitle">Representation, generation &amp; cyclic peptides</h3>
+                    <p data-i18n="home.program.moleculesText">Chemically grounded foundation models capturing conformational space, pharmacophores, and synthetic accessibility across small molecules and emerging cyclic peptides.</p>
+                    <p class="pillar-links"><a href="#featured">Ouroboros</a> · <a href="#project-geminimol">GeminiMol</a> · <a href="#method-deepsa">DeepSA / DeepPSA</a></p>
+                  </div>
+                </li>
+                <li class="program-pillar">
+                  <span class="pillar-index" data-i18n="home.program.interactionsIndex">02 · Interactions</span>
+                  <div class="program-pillar-body">
+                    <h3 data-i18n="home.program.interactionsTitle">Protein–protein, protein–ligand &amp; RNA recognition</h3>
+                    <p data-i18n="home.program.interactionsText">Structure- and motif-driven modeling of molecular-glue recruitment interfaces, chemical priors in SBDD, protein conformational ensembles, and nucleotide-level RNA pockets.</p>
+                    <p class="pillar-links"><a href="#project-ppiminer">PPI-Miner</a> · <a href="#project-cocobind">CoCoBind</a> · <a href="#method-sbdd">SBDD Priors</a> · <a href="#method-proteinconformers">ProteinConformers</a></p>
+                  </div>
+                </li>
+                <li class="program-pillar">
+                  <span class="pillar-index" data-i18n="home.program.phenotypesIndex">03 · Phenotypes</span>
+                  <div class="program-pillar-body">
+                    <h3 data-i18n="home.program.phenotypesTitle">Phenotype-based &amp; multi-target polypharmacology</h3>
+                    <p data-i18n="home.program.phenotypesText">Multi-conformational similarity navigation and multimodal phenotypic representations connecting chemical structure directly to cellular response and dual-target lead discovery.</p>
+                    <p class="pillar-links"><a href="#project-geminimol">GeminiMol</a> · <a href="#project-gm10">GM-10</a> · <a href="#method-phenomodel">PhenoModel</a></p>
+                  </div>
+                </li>
+              </ol>
             </div>
-          </div>
 
-          <figure class="research-figure lineage-figure">
-            <a href="./images/research/geminimol-ouroboros-lineage-white.png" target="_blank" rel="noreferrer" data-lightbox>
+            <aside id="news" class="news-sidebar" aria-labelledby="news-title">
+              <div class="overview-col-head">
+                <h2 id="news-title" data-i18n="home.news.title">Latest News</h2>
+                <p class="overview-eyebrow" data-i18n="home.news.eyebrow">2024 – 2026</p>
+              </div>
+              <ul class="news-list">
+                <li>
+                  <time datetime="2026">2026</time>
+                  <p data-i18n-html="home.news.n2026grant">Awarded <strong>NSFC Young Scientists Fund (Category C)</strong> (Grant No. T2600798).</p>
+                </li>
+                <li>
+                  <time datetime="2026-06">2026.06</time>
+                  <p data-i18n-html="home.news.n2026a"><a href="https://doi.org/10.1002/advs.202513556" target="_blank" rel="noreferrer">Ouroboros</a> published in <em>Advanced Science</em>, decoupling conformational representation, property projection, and SMILES reconstruction.</p>
+                </li>
+                <li>
+                  <time datetime="2026-04">2026.04</time>
+                  <p data-i18n-html="home.news.n2026b"><a href="https://doi.org/10.1021/acs.jmedchem.6c00902" target="_blank" rel="noreferrer">CoCoBind</a> published in <em>Journal of Medicinal Chemistry</em> for RNA–ligand interaction and nucleotide binding-site prediction.</p>
+                </li>
+                <li>
+                  <time datetime="2026-03">2026.03</time>
+                  <p data-i18n-html="home.news.n2026c">Co-corresponding study on <a href="https://doi.org/10.1038/s42004-026-02115-2" target="_blank" rel="noreferrer">chemical priors in SBDD</a> published in <em>Communications Chemistry</em>.</p>
+                </li>
+                <li>
+                  <time datetime="2026-01">2026.01</time>
+                  <p data-i18n-html="home.news.n2026d"><a href="https://doi.org/10.52202/085713-2746" target="_blank" rel="noreferrer">ProteinConformers</a> published in <em>NeurIPS 2025</em> for evaluating generative models across protein conformational landscapes.</p>
+                </li>
+              </ul>
+
+              <details class="news-archive">
+                <summary>
+                  <span data-i18n="home.news.archiveToggle">Earlier milestones</span>
+                  <span class="news-count">(7)</span>
+                </summary>
+                <ul class="news-list">
+                  <li>
+                    <time datetime="2025">2025</time>
+                    <p data-i18n-html="home.news.n2025a">Awarded <strong>PUMC Fundamental Research Funds for the Central Universities</strong> (Grant No. 3332025054).</p>
+                  </li>
+                  <li>
+                    <time datetime="2025-07">2025.07</time>
+                    <p data-i18n-html="home.news.n2025b">Scaffold-hopping discovery of GluN1/GluN3A NAM <strong>GM-10</strong> (0.98 μM) via GeminiMol published in <em>Acta Pharmacol. Sin.</em></p>
+                  </li>
+                  <li>
+                    <time datetime="2025-05">2025.05</time>
+                    <p data-i18n-html="home.news.n2025c"><a href="https://doi.org/10.1016/j.apsb.2025.09.036" target="_blank" rel="noreferrer">PhenoModel</a> published in <em>Acta Pharmaceutica Sinica B</em> for multimodal phenotypic drug discovery.</p>
+                  </li>
+                  <li>
+                    <time datetime="2024-09">2024.09</time>
+                    <p data-i18n-html="home.news.n2024a"><a href="https://doi.org/10.1002/advs.202403998" target="_blank" rel="noreferrer">GeminiMol</a> published in <em>Advanced Science</em>, introducing conformational-space similarity pretraining.</p>
+                  </li>
+                  <li>
+                    <time datetime="2024-05">2024.05</time>
+                    <p data-i18n-html="home.news.n2024b">GeminiMol team won <strong>1st Prize (1 / 142 teams)</strong> in the inaugural Shanghai International Computational Biology Innovation Competition.</p>
+                  </li>
+                  <li>
+                    <time datetime="2023-10">2023.10</time>
+                    <p data-i18n-html="home.news.n2023a"><a href="https://doi.org/10.1186/s13321-023-00771-3" target="_blank" rel="noreferrer">DeepSA</a> published in <em>Journal of Cheminformatics</em> for deep synthetic accessibility assessment.</p>
+                  </li>
+                  <li>
+                    <time datetime="2022-11">2022.11</time>
+                    <p data-i18n-html="home.news.n2022a"><a href="https://doi.org/10.1021/acs.jcim.2c01033" target="_blank" rel="noreferrer">PPI-Miner</a> published in <em>JCIM</em> for structure- and motif-driven protein–protein interaction and molecular-glue mining.</p>
+                  </li>
+                </ul>
+              </details>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Featured Research Line: GeminiMol -> Ouroboros (Decoupling 2 Core Innovations + End-to-End Paradigm) -->
+      <section id="featured" class="section" aria-labelledby="monograph-title">
+        <div class="page-shell">
+          <div class="monograph-header">
+            <figure class="monograph-emblem">
               <picture>
-                <source srcset="./images/research/geminimol-ouroboros-lineage-1400.webp" type="image/webp">
-                <img
-                  src="./images/research/geminimol-ouroboros-lineage-white.png"
-                  width="1964"
-                  height="929"
-                  loading="lazy"
-                  decoding="async"
-                  alt="Composite research figure showing the progression from GeminiMol cross-scaffold similarity search to Ouroboros prediction and molecular design."
-                  data-i18n-alt="home.lineage.figureAlt"
-                >
+                <source srcset="./images/research/ouroboros-representation-engine.webp" type="image/webp">
+                <img src="./images/research/ouroboros-representation-engine.png" width="392" height="397" alt="Ouroboros molecular representation engine emblem" data-i18n-alt="home.monograph.emblemAlt">
               </picture>
+            </figure>
+
+            <div class="monograph-head-copy">
+              <p class="monograph-meta" data-i18n-html="home.monograph.meta"><strong>Featured Research Line</strong> · GeminiMol (Adv. Sci. 2024) → Ouroboros (Adv. Sci. 2026) · First Author · Open Code &amp; Weights</p>
+              <h2 id="monograph-title" data-i18n="home.monograph.title">Conformational-Space Foundation &amp; Ouroboros Orthogonal Architecture</h2>
+              <p class="monograph-deck" data-i18n="home.monograph.deck">Across GeminiMol and Ouroboros, we advance two distinct pillars for medicinal chemistry: (1) a conformational-space representation foundation encoding 3D ensembles and pharmacophore geometry to recognize cross-scaffold functional equivalence; and (2) architectural orthogonality in Ouroboros, where representation pretraining, downstream property predictors, and SMILES reconstruction train independently and compose freely at inference time for screening and directed lead optimization.</p>
+              <div class="inline-resource-links">
+                <a href="https://doi.org/10.1002/advs.202513556" target="_blank" rel="noreferrer" data-i18n="home.monograph.linkOuroborosPaper">Ouroboros (Adv. Sci. 2026) ↗</a>
+                <a href="https://doi.org/10.1002/advs.202403998" target="_blank" rel="noreferrer" data-i18n="home.monograph.linkGeminiPaper">GeminiMol (Adv. Sci. 2024) ↗</a>
+                <a href="https://github.com/Wang-Lin-boop/Ouroboros" target="_blank" rel="noreferrer" data-i18n="home.monograph.linkOuroborosCode">Ouroboros Code ↗</a>
+                <a href="https://huggingface.co/spaces/LinWang/Ouroboros" target="_blank" rel="noreferrer" data-i18n="home.monograph.linkModels">Hugging Face Models ↗</a>
+                <a href="https://github.com/Wang-Lin-boop/GeminiMol" target="_blank" rel="noreferrer" data-i18n="home.monograph.linkGeminiCode">GeminiMol Code ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="monograph-controls">
+            <div class="segmented-bar" role="tablist" aria-label="GeminiMol and Ouroboros research views">
+              <button class="segmented-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-lineage" id="tab-lineage" data-monograph-tab="lineage" data-i18n="home.monograph.tabLineage">01 · Conformational-Space Foundation</button>
+              <button class="segmented-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-orthogonal" id="tab-orthogonal" data-monograph-tab="orthogonal" data-i18n="home.monograph.tabOrthogonal">02 · Ouroboros Orthogonal Architecture</button>
+              <button class="segmented-tab" type="button" role="tab" aria-selected="false" aria-controls="panel-navigation" id="tab-navigation" data-monograph-tab="navigation" data-i18n="home.monograph.tabNavigation">03 · End-to-End Discovery Paradigm</button>
+            </div>
+            <p class="monograph-zoom-hint" data-i18n="home.monograph.zoomHint">Click any figure to inspect high-resolution plate</p>
+          </div>
+
+          <!-- Panel 1: Innovation 1 — Conformational-Space Foundation (GeminiMol -> Ouroboros Lineage & Validations) -->
+          <div class="monograph-panel" id="panel-lineage" role="tabpanel" aria-labelledby="tab-lineage" data-monograph-panel="lineage">
+            <figure class="figure-frame">
+              <a class="figure-trigger" href="./images/research/geminimol-ouroboros-lineage-white.png" data-lightbox-trigger data-lightbox-caption="Figure 1. Conformational-space representation lineage from GeminiMol (pairwise CSS/MCS contrastive pretraining; GluN1/GluN3A NAM GM-10, 0.98 μM, 1st/142 teams) to Ouroboros (matrix-based similarity learning; Pictilisib + AT-9283 multi-conformational screening of 48.2M Enamine compounds yielding AURKA/PI3K Compound #13)." data-i18n-caption="home.monograph.fig1Caption">
+                <picture>
+                  <source srcset="./images/research/geminimol-ouroboros-lineage-1400.webp" type="image/webp">
+                  <img src="./images/research/geminimol-ouroboros-lineage-white.png" width="1400" height="662" alt="GeminiMol and Ouroboros conformational-space representation lineage and experimental validations" data-i18n-alt="home.monograph.fig1Alt">
+                </picture>
+              </a>
+              <figcaption class="figure-caption" data-i18n="home.monograph.fig1Caption">Figure 1. Conformational-space representation lineage from GeminiMol (pairwise CSS/MCS contrastive pretraining; GluN1/GluN3A NAM GM-10, 0.98 μM, 1st/142 teams) to Ouroboros (matrix-based similarity learning; Pictilisib + AT-9283 multi-conformational screening of 48.2M Enamine compounds yielding AURKA/PI3K Compound #13).</figcaption>
+            </figure>
+
+            <div class="monograph-notes">
+              <article class="monograph-note-item">
+                <p class="monograph-note-kicker" data-i18n="home.monograph.p1n1Kicker">01 · Chemical Prior</p>
+                <h3 data-i18n="home.monograph.p1n1Title">Conformational space &amp; polypharmacology</h3>
+                <p data-i18n="home.monograph.p1n1Text">Flexible drugs such as Imatinib adopt distinct 3D conformations to engage multiple targets (NMOR2, ABL, DDR1, PPARG). Encoding conformational ensembles and pharmacophores overcomes 2D fingerprint blindness.</p>
+              </article>
+              <article class="monograph-note-item">
+                <p class="monograph-note-kicker" data-i18n="home.monograph.p1n2Kicker">02 · GeminiMol → Ouroboros</p>
+                <h3 data-i18n="home.monograph.p1n2Title">From pairwise CSS to similarity-matrix alignment</h3>
+                <p data-i18n="home.monograph.p1n2Text">GeminiMol pioneered pairwise contrastive pretraining on conformational-space (CSS) and MCS similarity; Ouroboros scales this to full batch similarity-matrix MSE alignment across conformations, pharmacophores, and fingerprints.</p>
+              </article>
+              <article class="monograph-note-item">
+                <p class="monograph-note-kicker" data-i18n="home.monograph.p1n3Kicker">03 · Prospective Discovery</p>
+                <h3 data-i18n="home.monograph.p1n3Title">Validated across 18M &amp; 48.2M libraries</h3>
+                <p data-i18n="home.monograph.p1n3Text">GeminiMol discovered scaffold-distinct GluN1/GluN3A NAM GM-10 (0.98 μM; 1st/142 teams). Ouroboros navigated 48.2M Enamine compounds via Pictilisib + AT-9283 profiles to uncover multi-target Compound #13.</p>
+                <p class="evidence-line" data-i18n="home.monograph.p1n3Evidence">Compound #13: AURKA 0.42 μM · PI3Kγ 1.74 μM · PI3Kα 8.05 μM</p>
+              </article>
+            </div>
+          </div>
+
+          <!-- Panel 2: Innovation 2 — Ouroboros Orthogonal Architecture (3 User-Supplied Plates) -->
+          <div class="monograph-panel" id="panel-orthogonal" role="tabpanel" aria-labelledby="tab-orthogonal" data-monograph-panel="orthogonal" hidden>
+            <div class="arch-plate-grid">
+              <figure class="arch-plate-card">
+                <p class="arch-plate-label" data-i18n="home.monograph.archALabel">A · Frozen Representation &amp; Orthogonal Projection</p>
+                <a class="arch-plate-trigger" href="./images/research/ouroboros-projection-orthogonality.png" data-lightbox-trigger data-lightbox-caption="Panel A. Traditional per-task fine-tuning retrains separate encoders per predictor, whereas Ouroboros freezes one shared Representation Module and pairs it orthogonally with independent task predictors and a frozen Reconstruction Module." data-i18n-caption="home.monograph.archACaption">
+                  <img src="./images/research/ouroboros-projection-orthogonality.png" width="960" height="359" alt="Comparison of per-task fine-tuning versus Ouroboros frozen representation projection" data-i18n-alt="home.monograph.archAAlt">
+                </a>
+                <figcaption class="arch-plate-caption" data-i18n="home.monograph.archACaption">One frozen representation module projects cleanly to arbitrarily many independent predictors, avoiding per-task encoder fine-tuning.</figcaption>
+              </figure>
+
+              <figure class="arch-plate-card">
+                <p class="arch-plate-label" data-i18n="home.monograph.archBLabel">B · Independent Transformer SMILES Reconstruction</p>
+                <a class="arch-plate-trigger" href="./images/research/ouroboros-smiles-reconstruction.png" data-lightbox-trigger data-lightbox-caption="Panel B. Decoupled Reconstruction Module trained independently via cross-entropy loss to decode frozen (1, H) molecular embeddings into valid SMILES through an autoregressive Transformer Decoder and Token Projector." data-i18n-caption="home.monograph.archBCaption">
+                  <img src="./images/research/ouroboros-smiles-reconstruction.png" width="1333" height="584" alt="Ouroboros independent Transformer decoder and token projector for SMILES reconstruction" data-i18n-alt="home.monograph.archBAlt">
+                </a>
+                <figcaption class="arch-plate-caption" data-i18n="home.monograph.archBCaption">Trained completely independently of downstream predictors, decoding frozen (1, H) embeddings into molecular SMILES via a Transformer decoder.</figcaption>
+              </figure>
+
+              <figure class="arch-plate-card arch-plate-card-wide">
+                <p class="arch-plate-label" data-i18n="home.monograph.archCLabel">C · Free Composition for Closed-Loop Iterative Vector Optimization</p>
+                <a class="arch-plate-trigger" href="./images/research/ouroboros-iterative-optimization.png" data-lightbox-trigger data-lightbox-caption="Panel C. Composable inference workflow: any independently trained predictors (QSAR, ADME/Tox, Similarity, Synthetic Accessibility) guide forward/backward iterative optimization of a hit's latent vector before decoding leads through the frozen Reconstruction Module." data-i18n-caption="home.monograph.archCCaption">
+                  <img src="./images/research/ouroboros-iterative-optimization.png" width="976" height="308" alt="Ouroboros composable closed-loop iterative vector optimization diagram" data-i18n-alt="home.monograph.archCAlt">
+                </a>
+                <figcaption class="arch-plate-caption" data-i18n="home.monograph.archCCaption">At inference time, freely combine any trained property predictors (QSAR, ADME/Tox, Similarity, SA) to iteratively steer a molecule's latent vector and decode optimized candidates without retraining.</figcaption>
+              </figure>
+            </div>
+
+            <div class="monograph-notes">
+              <article class="monograph-note-item">
+                <p class="monograph-note-kicker" data-i18n="home.monograph.p2n1Kicker">01 · Representation Orthogonality</p>
+                <h3 data-i18n="home.monograph.p2n1Title">Train once, project across all tasks</h3>
+                <p data-i18n="home.monograph.p2n1Text">Unlike end-to-end fine-tuning that forks encoder weights for every assay, Ouroboros keeps one frozen chemical representation while lightweight predictors train independently on each property.</p>
+              </article>
+              <article class="monograph-note-item">
+                <p class="monograph-note-kicker" data-i18n="home.monograph.p2n2Kicker">02 · Decoupled Generation</p>
+                <h3 data-i18n="home.monograph.p2n2Title">Independent SMILES reconstruction</h3>
+                <p data-i18n="home.monograph.p2n2Text">The Transformer Decoder and Token Projector train solely to invert the frozen embedding back to SMILES, cleanly separating molecular generation capacity from assay-specific data scarcity.</p>
+              </article>
+              <article class="monograph-note-item">
+                <p class="monograph-note-kicker" data-i18n="home.monograph.p2n3Kicker">03 · Plug-and-Play Composition</p>
+                <h3 data-i18n="home.monograph.p2n3Title">Multi-objective optimization on demand</h3>
+                <p data-i18n="home.monograph.p2n3Text">Because predictors and reconstructor share the exact same frozen coordinates, any subset of QSAR, ADME/Tox, similarity, or SA models can be plugged in on the fly to steer hit vectors into new leads.</p>
+              </article>
+            </div>
+          </div>
+
+          <!-- Panel 3: End-to-End 3-Stage Discovery Paradigm (Corrected Caption for ouroboros-pharmacology-navigation.png) -->
+          <div class="monograph-panel" id="panel-navigation" role="tabpanel" aria-labelledby="tab-navigation" data-monograph-panel="navigation" hidden>
+            <figure class="figure-frame">
+              <a class="figure-trigger" href="./images/research/ouroboros-pharmacology-navigation.png" data-lightbox-trigger data-lightbox-caption="Figure 3. End-to-end Ouroboros drug discovery paradigm spanning (1) Pharmacological Hypothesis formulation across property and polypharmacology spaces, (2) Hit Discovery via multimodal representation and navigation modules over commercial chemical libraries, and (3) closed-loop Hit-to-Lead Optimization via iterative representation vector updates and decoupled Transformer SMILES reconstruction." data-i18n-caption="home.monograph.fig3Caption">
+                <picture>
+                  <source srcset="./images/research/ouroboros-pharmacology-navigation-1400.webp" type="image/webp">
+                  <img src="./images/research/ouroboros-pharmacology-navigation.png" width="1760" height="799" alt="Three-stage Ouroboros drug discovery workflow from pharmacological hypothesis to hit discovery and hit-to-lead optimization" data-i18n-alt="home.monograph.fig3Alt">
+                </picture>
+              </a>
+              <figcaption class="figure-caption" data-i18n="home.monograph.fig3Caption">Figure 3. End-to-end Ouroboros drug discovery paradigm spanning (1) Pharmacological Hypothesis formulation across property and polypharmacology spaces, (2) Hit Discovery via multimodal representation and navigation modules over commercial chemical libraries, and (3) closed-loop Hit-to-Lead Optimization via iterative representation vector updates and decoupled Transformer SMILES reconstruction.</figcaption>
+            </figure>
+
+            <div class="monograph-notes">
+              <article class="monograph-note-item">
+                <p class="monograph-note-kicker" data-i18n="home.monograph.p3n1Kicker">Stage 1 · Pharmacological Hypothesis</p>
+                <h3 data-i18n="home.monograph.p3n1Title">Property &amp; polypharmacology spaces</h3>
+                <p data-i18n="home.monograph.p3n1Text">Translates intra-family, inter-family, and biased-signaling hypotheses—grounded in reference molecules, omics regulation, cell response, and ADMET—into intersecting target and property subspaces.</p>
+              </article>
+              <article class="monograph-note-item">
+                <p class="monograph-note-kicker" data-i18n="home.monograph.p3n2Kicker">Stage 2 · Hit Discovery</p>
+                <h3 data-i18n="home.monograph.p3n2Title">Multimodal representation &amp; navigation</h3>
+                <p data-i18n="home.monograph.p3n2Text">Fuses conformational space, phenotype, knowledge priors, and chemical language to drive navigation modules (QSAR, ADME/Tox, similarity, SA, safety/kinome, DTI) across commercial chemical space.</p>
+              </article>
+              <article class="monograph-note-item">
+                <p class="monograph-note-kicker" data-i18n="home.monograph.p3n3Kicker">Stage 3 · Hit-to-Lead Optimization</p>
+                <h3 data-i18n="home.monograph.p3n3Title">Latent iteration &amp; broader chemical decoding</h3>
+                <p data-i18n="home.monograph.p3n3Text">Iteratively updates a hit's 1D representation vector toward multi-objective profiles and decodes novel leads via a Transformer + Token Projector trained over a wider reconstruction chemical space.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Flagship Research & Methods Portfolio (Collins Lab Thumbnail + Editorial Copy Rows) -->
+      <section id="work" class="section section-alt" aria-labelledby="portfolio-title">
+        <div class="page-shell">
+          <div class="section-header">
+            <div>
+              <p class="section-eyebrow" data-i18n="home.portfolio.eyebrow">Selected Works &amp; Methods</p>
+              <h2 id="portfolio-title" data-i18n="home.portfolio.title">Algorithms, Benchmarks &amp; Validated Discoveries</h2>
+            </div>
+            <p class="section-header-copy" data-i18n="home.portfolio.subtitle">Representative frameworks and applied discoveries spanning molecular representation, biomolecular interactions, phenotypic modeling, and computational biology &amp; drug discovery.</p>
+          </div>
+
+          <div class="portfolio-toolbar">
+            <div class="segmented-bar" role="group" aria-label="Filter projects by research theme">
+              <button class="segmented-tab is-active" type="button" aria-pressed="true" data-portfolio-filter="all" data-i18n="home.portfolio.filterAll">All (16)</button>
+              <button class="segmented-tab" type="button" aria-pressed="false" data-portfolio-filter="representation" data-i18n="home.portfolio.filterRepresentation">Representation</button>
+              <button class="segmented-tab" type="button" aria-pressed="false" data-portfolio-filter="interactions" data-i18n="home.portfolio.filterInteractions">Interactions</button>
+              <button class="segmented-tab" type="button" aria-pressed="false" data-portfolio-filter="phenotype" data-i18n="home.portfolio.filterPhenotype">Phenotype</button>
+              <button class="segmented-tab" type="button" aria-pressed="false" data-portfolio-filter="compbio" data-i18n="home.portfolio.filterCompBio">Comp. Bio. &amp; Drug Discovery</button>
+            </div>
+            <p class="portfolio-count" data-portfolio-count>Showing 16 of 16 works</p>
+          </div>
+
+          <!-- 6 Illustrated Flagship Entries (Trimmed High-Density Plates + Balanced Right Copy) -->
+          <div class="flagship-list" data-portfolio-group="flagship">
+            <article id="project-ouroboros" class="flagship-row" data-portfolio-category="representation">
+              <a class="flagship-media" href="./images/research/thumb-ouroboros.png" data-lightbox-trigger data-lightbox-caption="Ouroboros: orthogonal conformational-space representation and SMILES reconstruction engine enabling multi-target AURKA/PI3K discovery (Compound #13)." data-i18n-caption="home.portfolio.ouroborosFigCaption">
+                <img src="./images/research/thumb-ouroboros.png" width="574" height="422" alt="Ouroboros conformational-space representation and reconstruction figure" data-i18n-alt="home.portfolio.ouroborosFigAlt">
+              </a>
+              <div class="flagship-body">
+                <div class="flagship-head">
+                  <h3>Ouroboros</h3>
+                  <p class="flagship-meta"><strong>2026</strong> · <em>Advanced Science</em> · <span data-i18n="home.role.first">First Author</span></p>
+                </div>
+                <p class="flagship-summary" data-i18n="home.portfolio.ouroborosDesc">Orthogonal molecular foundation framework decoupling similarity-matrix representation pretraining, independent property predictors, and Transformer SMILES reconstruction so modules compose freely for screening and directed lead optimization.</p>
+                <ul class="flagship-highlights">
+                  <li data-i18n="home.portfolio.ouroborosH1">Multi-conformational screening of 48.2M Enamine compounds from Pictilisib + AT-9283 profiles.</li>
+                  <li data-i18n="home.portfolio.ouroborosH2">Compound #13 validated with AURKA IC₅₀ = 0.42 μM, PI3Kγ = 1.74 μM, and PI3Kα = 8.05 μM.</li>
+                </ul>
+                <div class="flagship-links">
+                  <a href="https://doi.org/10.1002/advs.202513556" target="_blank" rel="noreferrer" data-i18n="common.paper">Paper ↗</a>
+                  <a href="https://github.com/Wang-Lin-boop/Ouroboros" target="_blank" rel="noreferrer" data-i18n="common.code">Code ↗</a>
+                  <a href="https://huggingface.co/spaces/LinWang/Ouroboros" target="_blank" rel="noreferrer" data-i18n="common.models">Models ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article id="project-cocobind" class="flagship-row" data-portfolio-category="interactions">
+              <a class="flagship-media" href="./images/research/thumb-cocobind.png" data-lightbox-trigger data-lightbox-caption="CoCoBind: consistency-contrastive multitask framework coupling RNA sequence and small-molecule SMILES representations to predict both global interaction probability P(interaction) and nucleotide-level binding sites P(site_i)." data-i18n-caption="home.portfolio.cocobindFigCaption">
+                <img src="./images/research/thumb-cocobind.png" width="695" height="313" alt="CoCoBind RNA-ligand interaction and nucleotide binding-site prediction workflow" data-i18n-alt="home.portfolio.cocobindFigAlt">
+              </a>
+              <div class="flagship-body">
+                <div class="flagship-head">
+                  <h3>CoCoBind</h3>
+                  <p class="flagship-meta"><strong>2026</strong> · <em>J. Med. Chem.</em> · <span data-i18n="home.role.cofirstCorresponding">Co-First &amp; Co-Corr. (#*)</span></p>
+                </div>
+                <p class="flagship-summary" data-i18n="home.portfolio.cocobindDesc">Consistency-contrastive multitask learning combining molecular conformation and RNA language representations for joint RNA–ligand interaction scoring and nucleotide-level binding-site identification.</p>
+                <ul class="flagship-highlights">
+                  <li data-i18n="home.portfolio.cocobindH1">Jointly predicts RNA–small-molecule binding probability P(interaction) and residue-level pocket probabilities P(siteᵢ) from RNA sequence and Drug SMILES.</li>
+                  <li data-i18n="home.portfolio.cocobindH2">Aligns conformational chemical priors with RNA language representations for interpretable RNA-targeted drug discovery.</li>
+                </ul>
+                <div class="flagship-links">
+                  <a href="https://doi.org/10.1021/acs.jmedchem.6c00902" target="_blank" rel="noreferrer" data-i18n="common.paper">Paper ↗</a>
+                  <a href="https://github.com/Wang-Lin-boop/CoCoBind" target="_blank" rel="noreferrer" data-i18n="common.code">Code ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article id="project-geminimol" class="flagship-row" data-portfolio-category="representation phenotype">
+              <a class="flagship-media" href="./images/research/thumb-geminimol-arch.png" data-lightbox-trigger data-lightbox-caption="GeminiMol: pairwise contrastive WLN graph encoder pretrained on conformational-space similarity (CSS) and maximum common substructure (MCS)." data-i18n-caption="home.portfolio.geminimolFigCaption">
+                <img src="./images/research/thumb-geminimol-arch.png" width="652" height="360" alt="GeminiMol WLN graph encoder and contrastive pretraining diagram" data-i18n-alt="home.portfolio.geminimolFigAlt">
+              </a>
+              <div class="flagship-body">
+                <div class="flagship-head">
+                  <h3>GeminiMol</h3>
+                  <p class="flagship-meta"><strong>2024</strong> · <em>Advanced Science</em> · <span data-i18n="home.role.first">First Author</span></p>
+                </div>
+                <p class="flagship-summary" data-i18n="home.portfolio.geminimolDesc">Contrastive WLN graph encoder pretrained on conformational-space similarity (CSS) and maximum common substructure (MCS), capturing 3D functional equivalence across scaffolds for zero-shot ligand-based and phenotypic virtual screening.</p>
+                <ul class="flagship-highlights">
+                  <li data-i18n="home.portfolio.geminimolH1">Outperforms classical 2D fingerprints on scaffold-hopping benchmarks, target identification, and ADMET/phenotypic property prediction.</li>
+                  <li data-i18n="home.portfolio.geminimolH2">Led GeminiMol team to 1st Place / 142 teams in the inaugural Shanghai International Computational Biology Competition.</li>
+                </ul>
+                <div class="flagship-links">
+                  <a href="https://doi.org/10.1002/advs.202403998" target="_blank" rel="noreferrer" data-i18n="common.paper">Paper ↗</a>
+                  <a href="https://github.com/Wang-Lin-boop/GeminiMol" target="_blank" rel="noreferrer" data-i18n="common.code">Code ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article id="project-gm10" class="flagship-row" data-portfolio-category="phenotype compbio">
+              <a class="flagship-media" href="./images/research/thumb-geminimol-screening.png" data-lightbox-trigger data-lightbox-caption="Ligand-similarity virtual screening of 18M compounds using GeminiMol from WZB117 (IC50 = 1.17 μM), yielding scaffold-distinct GluN1/GluN3A NAM GM-10 (IC50 = 0.98 ± 0.13 μM)." data-i18n-caption="home.portfolio.gm10FigCaption">
+                <img src="./images/research/thumb-geminimol-screening.png" width="356" height="316" alt="GeminiMol ligand-similarity discovery of GluN1/GluN3A inhibitor GM-10" data-i18n-alt="home.portfolio.gm10FigAlt">
+              </a>
+              <div class="flagship-body">
+                <div class="flagship-head">
+                  <h3 data-i18n="home.portfolio.gm10Title">GluN1/GluN3A NAM Discovery (GM-10)</h3>
+                  <p class="flagship-meta"><strong>2025</strong> · <em>Acta Pharmacol. Sin.</em> · <span data-i18n="home.role.cofirst">Co-First (#)</span></p>
+                </div>
+                <p class="flagship-summary" data-i18n="home.portfolio.gm10Desc">Prospective ligand-similarity drug screening campaign applying GeminiMol to an 18M-compound commercial library from reference modulator WZB117 to discover a structurally novel GluN1/GluN3A NMDA receptor negative allosteric modulator.</p>
+                <ul class="flagship-highlights">
+                  <li data-i18n="home.portfolio.gm10H1">Whole-cell patch-clamp electrophysiology validated hit GM-10 with IC₅₀ = 0.98 ± 0.13 μM against GluN1/GluN3A.</li>
+                  <li data-i18n="home.portfolio.gm10H2">Achieved true scaffold hopping: 2D fingerprint similarities all &lt; 0.21 vs. GeminiMol similarity 0.678.</li>
+                </ul>
+                <div class="flagship-links">
+                  <a href="https://doi.org/10.1038/s41401-025-01571-1" target="_blank" rel="noreferrer" data-i18n="common.paper">Paper ↗</a>
+                  <a href="https://github.com/Wang-Lin-boop/GeminiMol" target="_blank" rel="noreferrer" data-i18n="common.code">Code ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article id="project-mcr1" class="flagship-row" data-portfolio-category="compbio">
+              <a class="flagship-media" href="./images/research/thumb-mcr1.png" data-lightbox-trigger data-lightbox-caption="MCR-1 full-length structural modeling and MD free-energy landscape analysis mapping transmembrane, linker, and catalytic domains alongside Lipid A substrate recognition residues." data-i18n-caption="home.portfolio.mcr1FigCaption">
+                <img src="./images/research/thumb-mcr1.png" width="414" height="329" alt="MCR-1 transmembrane, linker, and catalytic domain Lipid A interaction and free-energy landscape" data-i18n-alt="home.portfolio.mcr1FigAlt">
+              </a>
+              <div class="flagship-body">
+                <div class="flagship-head">
+                  <h3 data-i18n="home.portfolio.mcr1Title">MCR-1 Variant &amp; Antimicrobial Peptide</h3>
+                  <p class="flagship-meta"><strong>2023</strong> · <em>PLoS Biology</em> · <span data-i18n="home.role.cofirst">Co-First (#)</span></p>
+                </div>
+                <p class="flagship-summary" data-i18n="home.portfolio.mcr1Desc">Full-length membrane structural modeling and molecular dynamics simulations elucidated how a novel MCR-1 variant mediates Lipid A recognition and colistin/β-lactam co-resistance while revealing a candidate antimicrobial peptide.</p>
+                <ul class="flagship-highlights">
+                  <li data-i18n="home.portfolio.mcr1H1">Mapped Lipid A binding across MCR-1 transmembrane, linker, and catalytic domains (K204, K211, R190, Y200) and conformational free-energy landscapes.</li>
+                  <li data-i18n="home.portfolio.mcr1H2">Explained cross-resistance phenotypes and identified a derivative peptide with potent antimicrobial activity.</li>
+                </ul>
+                <div class="flagship-links">
+                  <a href="https://doi.org/10.1371/journal.pbio.3002433" target="_blank" rel="noreferrer" data-i18n="common.paper">Paper ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article id="project-ppiminer" class="flagship-row" data-portfolio-category="interactions">
+              <a class="flagship-media" href="./images/research/thumb-ppiminer.png" data-lightbox-trigger data-lightbox-caption="PPI-Miner proteome-wide CRBN G-loop degron mining (1,739 candidates; ≥12 prospective hits independently validated in Science, 2025)." data-i18n-caption="home.portfolio.ppiminerFigCaption">
+                <img src="./images/research/thumb-ppiminer.png" width="437" height="339" alt="PPI-Miner CRBN molecular glue degron mining figure" data-i18n-alt="home.portfolio.ppiminerFigAlt">
+              </a>
+              <div class="flagship-body">
+                <div class="flagship-head">
+                  <h3>PPI-Miner</h3>
+                  <p class="flagship-meta"><strong>2022</strong> · <em>J. Chem. Inf. Model.</em> · <span data-i18n="home.role.first">First Author</span></p>
+                </div>
+                <p class="flagship-summary" data-i18n="home.portfolio.ppiminerDesc">Structure- and sequence-motif co-driven mining engine that identifies receptor-compatible binding interfaces across sequence-divergent proteins, with dedicated workflows for CRBN β-hairpin G-loop molecular-glue neosubstrates.</p>
+                <ul class="flagship-highlights">
+                  <li data-i18n="home.portfolio.ppiminerH1">Proteome-wide CRBN scan identified 1,739 G30 candidates and recovered 16 previously reported substrates.</li>
+                  <li data-i18n="home.portfolio.ppiminerH2">Retrospective cross-check with Petzold et al. (Science, 2025) confirmed ≥12 additional released-library hits (WEE1, SCYL1, CSNK1D, etc.).</li>
+                </ul>
+                <div class="flagship-links">
+                  <a href="https://doi.org/10.1021/acs.jcim.2c01033" target="_blank" rel="noreferrer" data-i18n="common.paper">Paper ↗</a>
+                  <a href="https://doi.org/10.1126/science.adt6736" target="_blank" rel="noreferrer" data-i18n="home.portfolio.ppiminerValidation">Science 2025 Cross-check ↗</a>
+                  <a href="https://github.com/Wang-Lin-boop/PPI-Miner" target="_blank" rel="noreferrer" data-i18n="common.code">Code ↗</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- 10 Compact Method, Benchmark & Drug Discovery Ledger Rows -->
+          <p class="ledger-heading" data-portfolio-ledger-heading data-i18n="home.portfolio.ledgerHeading">Additional Core Methods, Benchmarks &amp; Drug Discovery Studies</p>
+          <div class="method-ledger" data-portfolio-group="ledger">
+            <article id="method-sbdd" class="method-row" data-portfolio-category="interactions representation">
+              <div class="method-row-meta">
+                <span class="method-row-year">2026</span>
+                <span class="method-row-role" data-i18n="home.role.corresponding">Co-Corresponding (*)</span>
+              </div>
+              <div class="method-row-title">
+                <h3 data-i18n="home.portfolio.sbddTitle">Chemical Priors in SBDD</h3>
+                <p class="method-row-venue">Commun. Chem.</p>
+              </div>
+              <p class="method-row-desc" data-i18n="home.portfolio.sbddDesc">Incorporating explicit medicinal-chemistry priors and physical laws into 3D structure-based drug design models to curb geometric hallucinations and improve synthetic realism.</p>
+              <div class="method-row-links">
+                <a href="https://doi.org/10.1038/s42004-026-02115-2" target="_blank" rel="noreferrer" data-i18n="common.paper">Paper ↗</a>
+              </div>
+            </article>
+
+            <article id="method-proteinconformers" class="method-row" data-portfolio-category="interactions">
+              <div class="method-row-meta">
+                <span class="method-row-year">2026</span>
+                <span class="method-row-role" data-i18n="home.role.corresponding">Co-Corresponding (*)</span>
+              </div>
+              <div class="method-row-title">
+                <h3>ProteinConformers</h3>
+                <p class="method-row-venue">NeurIPS 2025</p>
+              </div>
+              <p class="method-row-desc" data-i18n="home.portfolio.conformersDesc">Comprehensive benchmark systematically evaluating deep generative models on capturing multi-state protein conformational landscape diversity and physical plausibility.</p>
+              <div class="method-row-links">
+                <a href="https://doi.org/10.52202/085713-2746" target="_blank" rel="noreferrer" data-i18n="common.paper">Paper ↗</a>
+              </div>
+            </article>
+
+            <article id="method-hur" class="method-row" data-portfolio-category="compbio interactions">
+              <div class="method-row-meta">
+                <span class="method-row-year">2026</span>
+                <span class="method-row-role" data-i18n="home.role.coauthor">Co-Author</span>
+              </div>
+              <div class="method-row-title">
+                <h3 data-i18n="home.portfolio.hurTitle">HuR Molecular Glue Degraders</h3>
+                <p class="method-row-venue">Nature</p>
+              </div>
+              <p class="method-row-desc" data-i18n="home.portfolio.hurDesc">Discovery and structural-mechanistic characterization of small-molecule molecular glue degraders targeting the RNA-binding protein HuR to suppress BRAF-mutant colorectal cancer.</p>
+              <div class="method-row-links">
+                <a href="https://doi.org/10.1038/s41586-026-10613-5" target="_blank" rel="noreferrer" data-i18n="common.paper">Paper ↗</a>
+              </div>
+            </article>
+
+            <article id="method-phenomodel" class="method-row" data-portfolio-category="phenotype">
+              <div class="method-row-meta">
+                <span class="method-row-year">2025</span>
+                <span class="method-row-role" data-i18n="home.role.cofirst">Co-First (#)</span>
+              </div>
+              <div class="method-row-title">
+                <h3>PhenoModel</h3>
+                <p class="method-row-venue">Acta Pharm. Sin. B</p>
+              </div>
+              <p class="method-row-desc" data-i18n="home.portfolio.phenomodelDesc">Multimodal phenotypic drug design foundation model aligning molecular structure with cell-painting morphology and transcriptomic signatures to discover novel cancer-cell inhibitors.</p>
+              <div class="method-row-links">
+                <a href="https://doi.org/10.1016/j.apsb.2025.09.036" target="_blank" rel="noreferrer" data-i18n="common.paper">Paper ↗</a>
+              </div>
+            </article>
+
+            <article id="method-ho1" class="method-row" data-portfolio-category="compbio">
+              <div class="method-row-meta">
+                <span class="method-row-year">2025</span>
+                <span class="method-row-role" data-i18n="home.role.corresponding">Co-Corresponding (*)</span>
+              </div>
+              <div class="method-row-title">
+                <h3 data-i18n="home.portfolio.ho1Title">HO-1 Live-Cell Fluorescent Probe</h3>
+                <p class="method-row-venue">ACS Sensors</p>
+              </div>
+              <p class="method-row-desc" data-i18n="home.portfolio.ho1Desc">Structure-guided design and computational modeling of an NADPH-independent fluorescent chemical probe enabling selective live-cell imaging of heme oxygenase-1 (HO-1).</p>
+              <div class="method-row-links">
+                <a href="https://doi.org/10.1021/acssensors.4c02978" target="_blank" rel="noreferrer" data-i18n="common.paper">Paper ↗</a>
+              </div>
+            </article>
+
+            <article id="method-mcr3" class="method-row" data-portfolio-category="compbio">
+              <div class="method-row-meta">
+                <span class="method-row-year">2025</span>
+                <span class="method-row-role" data-i18n="home.role.cofirst">Co-First (#)</span>
+              </div>
+              <div class="method-row-title">
+                <h3 data-i18n="home.portfolio.mcr3Title">MCR-3 Colistin Resistance Fitness Costs</h3>
+                <p class="method-row-venue">EBioMedicine</p>
+              </div>
+              <p class="method-row-desc" data-i18n="home.portfolio.mcr3Desc">Integrated structural modeling, epidemiological surveillance, and functional analysis clarifying the molecular determinants and evolutionary fitness costs of mobilised colistin resistance gene mcr-3.</p>
+              <div class="method-row-links">
+                <a href="https://doi.org/10.1016/j.ebiom.2025.105923" target="_blank" rel="noreferrer" data-i18n="common.paper">Paper ↗</a>
+              </div>
+            </article>
+
+            <article id="method-deepsa" class="method-row" data-portfolio-category="representation">
+              <div class="method-row-meta">
+                <span class="method-row-year">2023 / 2025</span>
+                <span class="method-row-role" data-i18n="home.role.cofirst">Co-First (#)</span>
+              </div>
+              <div class="method-row-title">
+                <h3>DeepSA &amp; DeepPSA</h3>
+                <p class="method-row-venue">J. Cheminform. · JCIM</p>
+              </div>
+              <p class="method-row-desc" data-i18n="home.portfolio.deepsaDesc">Deep learning frameworks evaluating synthetic accessibility across drug-like small molecules (DeepSA) and heterobifunctional PROTAC degraders (DeepPSA).</p>
+              <div class="method-row-links">
+                <a href="https://doi.org/10.1186/s13321-023-00771-3" target="_blank" rel="noreferrer">DeepSA ↗</a>
+                <a href="https://doi.org/10.1021/acs.jcim.5c00366" target="_blank" rel="noreferrer">DeepPSA ↗</a>
+              </div>
+            </article>
+
+            <article id="method-propofol" class="method-row" data-portfolio-category="compbio">
+              <div class="method-row-meta">
+                <span class="method-row-year">2023</span>
+                <span class="method-row-role" data-i18n="home.role.coauthor">Co-Author</span>
+              </div>
+              <div class="method-row-title">
+                <h3 data-i18n="home.portfolio.propofolTitle">Propofol Anti-Anhedonia via DAT</h3>
+                <p class="method-row-venue">Neuron</p>
+              </div>
+              <p class="method-row-desc" data-i18n="home.portfolio.propofolDesc">Computational target engagement modeling and mechanistic investigation revealing that propofol exerts rapid anti-anhedonia effects by inhibiting the dopamine transporter (DAT).</p>
+              <div class="method-row-links">
+                <a href="https://doi.org/10.1016/j.neuron.2023.02.017" target="_blank" rel="noreferrer" data-i18n="common.paper">Paper ↗</a>
+              </div>
+            </article>
+
+            <article id="method-spike" class="method-row" data-portfolio-category="compbio">
+              <div class="method-row-meta">
+                <span class="method-row-year">2021 / 2022</span>
+                <span class="method-row-role" data-i18n="home.role.cofirst">Co-First (#)</span>
+              </div>
+              <div class="method-row-title">
+                <h3 data-i18n="home.portfolio.spikeTitle">SARS-CoV-2 Spike Allosteric &amp; Entry Blockers</h3>
+                <p class="method-row-venue">J. Med. Chem. · Acta Pharmacol. Sin.</p>
+              </div>
+              <p class="method-row-desc" data-i18n="home.portfolio.spikeDesc">Molecular dynamics simulations and structure-based virtual screening uncovered allosteric inhibition mechanisms and small-molecule entry blockers targeting the SARS-CoV-2 spike glycoprotein.</p>
+              <div class="method-row-links">
+                <a href="https://doi.org/10.1021/acs.jmedchem.1c00320" target="_blank" rel="noreferrer">J. Med. Chem. ↗</a>
+                <a href="https://doi.org/10.1038/s41401-021-00735-z" target="_blank" rel="noreferrer">Acta Pharmacol. Sin. ↗</a>
+              </div>
+            </article>
+
+            <article id="method-mpro" class="method-row" data-portfolio-category="compbio">
+              <div class="method-row-meta">
+                <span class="method-row-year">2020</span>
+                <span class="method-row-role" data-i18n="home.role.coauthor">Co-Author</span>
+              </div>
+              <div class="method-row-title">
+                <h3 data-i18n="home.portfolio.mproTitle">SARS-CoV-2 Mpro Structure &amp; Inhibitors</h3>
+                <p class="method-row-venue">Nature</p>
+              </div>
+              <p class="method-row-desc" data-i18n="home.portfolio.mproDesc">Structure-assisted virtual screening and biochemical validation identifying covalent and repurposed inhibitors (including Ebselen and N3) against the SARS-CoV-2 main protease Mpro.</p>
+              <div class="method-row-links">
+                <a href="https://doi.org/10.1038/s41586-020-2223-y" target="_blank" rel="noreferrer" data-i18n="common.paper">Paper ↗</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Curated Publications (Tabbed + One-Click BibTeX) -->
+      <section id="publications" class="section" aria-labelledby="publications-title">
+        <div class="page-shell">
+          <div class="section-header">
+            <div>
+              <p class="section-eyebrow" data-i18n="home.pubs.eyebrow">Selected Record</p>
+              <h2 id="publications-title" data-i18n="home.pubs.title">Publications</h2>
+            </div>
+            <p class="section-header-copy" data-i18n="home.pubs.subtitle">35 peer-reviewed papers and book chapters (2020–2026), including 15 as first, co-first, or co-corresponding author.</p>
+          </div>
+
+          <div class="pub-toolbar">
+            <div class="segmented-bar" role="tablist" aria-label="Publication collections">
+              <button class="segmented-tab is-active" type="button" role="tab" aria-selected="true" data-pub-collection="selected" data-i18n="home.pubs.tabSelected">Selected (8)</button>
+              <button class="segmented-tab" type="button" role="tab" aria-selected="false" data-pub-collection="algorithms" data-i18n="home.pubs.tabAlgorithms">Algorithms &amp; Models (9)</button>
+              <button class="segmented-tab" type="button" role="tab" aria-selected="false" data-pub-collection="applications" data-i18n="home.pubs.tabApplications">Drug Discovery &amp; Biology (8)</button>
+            </div>
+            <a class="quiet-link" href="./publications.html" data-i18n="home.pubs.viewAll">Browse full archive (35) →</a>
+          </div>
+
+          <p class="publication-legend" data-i18n-html="publications.legend"><strong>Lin Wang</strong> is bolded on first-author, co-first (<b>#</b>), and co-corresponding (<b>*</b>) works.</p>
+
+          <div class="publication-list" data-home-publications>
+            <p class="loading-note" data-i18n="publications.loading">Loading publications…</p>
+          </div>
+
+          <div class="section-footer-action">
+            <a class="primary-cta" href="./publications.html">
+              <span data-i18n="home.pubs.ctaFull">Search all 35 publications</span>
+              <span class="arrow" aria-hidden="true">→</span>
             </a>
-            <figcaption>Research progression and representative discovery settings. Open the full-resolution figure ↗</figcaption>
-          </figure>
-        </section>
-
-        <div class="dossier-architecture" role="group" aria-label="Ouroboros scientific capabilities">
-          <article>
-            <p class="research-question">01 · Similarity</p>
-            <h3>Recognize similarity beyond 2D scaffolds</h3>
-            <p>Conformational-space and pharmacophore relationships preserve functionally relevant neighborhoods across structurally distinct molecules.</p>
-          </article>
-          <article>
-            <p class="research-question">02 · Prediction</p>
-            <h3>Transfer chemical knowledge across tasks</h3>
-            <p>A shared representation supports property prediction, similarity-based screening, and target-oriented prioritization across discovery settings.</p>
-          </article>
-          <article>
-            <p class="research-question">03 · Design</p>
-            <h3>Connect prediction with molecular design</h3>
-            <p>Property objectives guide the proposal of candidates for directed optimization and targeted polypharmacology.</p>
-          </article>
+          </div>
         </div>
-
-        <figure class="research-figure application-figure">
-          <a href="./images/research/ouroboros-pharmacology-navigation.png" target="_blank" rel="noreferrer" data-lightbox>
-            <picture>
-              <source srcset="./images/research/ouroboros-pharmacology-navigation-1400.webp" type="image/webp">
-              <img
-                src="./images/research/ouroboros-pharmacology-navigation.png"
-                width="1760"
-                height="799"
-                loading="lazy"
-                decoding="async"
-                alt="Ouroboros research figure connecting chemically informed molecular representations with cross-scaffold screening, hit discovery, and hit-to-lead optimization."
-                data-i18n-alt="home.engine.applicationAlt"
-              >
-            </picture>
-          </a>
-          <figcaption>Applications evaluated in the study: chemical-space exploration and optimization from a known hit. Open the full-resolution figure ↗</figcaption>
-        </figure>
       </section>
 
-      <section id="work" class="section section-tinted" aria-labelledby="work-title">
+      <!-- 6. Open-Source Community Tools & Infrastructure (Non-Publication Utilities) -->
+      <section id="community" class="section section-alt" aria-labelledby="tools-title">
         <div class="page-shell">
-          <div class="section-intro">
-            <p class="section-tag">Research projects</p>
+          <div class="section-header">
             <div>
-              <h2 id="work-title">Selected projects</h2>
-              <p>Methods I led or co-led and collaborative studies I contributed to, grouped by research line. Each label states my authorship role on the primary paper.</p>
+              <p class="section-eyebrow" data-i18n="home.tools.eyebrow">Community Infrastructure</p>
+              <h2 id="tools-title" data-i18n="home.tools.title">Open-Source Tools &amp; Scripts</h2>
             </div>
+            <p class="section-header-copy" data-i18n="home.tools.subtitle">Standalone software utilities, simulation automation pipelines, and biomedical database navigators built for day-to-day CADD and structural biology workflows beyond formal publications.</p>
           </div>
 
-          <div class="project-list">
-            <p class="project-group" data-i18n="home.program.moleculesGroup">01 · Molecules — representation &amp; design</p>
-
-            <article class="project-row project-row-featured" id="project-ouroboros">
-              <div class="project-key">
-                <p class="project-year">2026</p>
-                <p class="project-kind" data-i18n="home.projects.ouroboros.kind">Representation &amp; generation</p>
-                <p class="project-role" data-i18n="home.role.first">First author</p>
-              </div>
-              <div class="project-main">
-                <h3>Ouroboros</h3>
-                <p data-i18n="home.projects.ouroboros.tagline">Connecting molecular prediction with property-guided design.</p>
-              </div>
-              <p class="project-detail" data-i18n="home.projects.ouroboros.detail">Ouroboros addresses the divide between predicting molecular properties and designing new candidates. A shared, chemically organized representation preserves conformational-space and pharmacophore relationships while supporting similarity-based screening, directed molecular optimization, and polypharmacology design.</p>
-              <div class="project-links">
-                <a href="https://doi.org/10.1002/advs.202513556" target="_blank" rel="noreferrer" data-i18n-html="common.paper">Paper ↗</a>
-                <a href="https://github.com/Wang-Lin-boop/Ouroboros" target="_blank" rel="noreferrer" data-i18n-html="common.code">Code ↗</a>
-              </div>
-            </article>
-
-            <article class="project-row" id="project-geminimol">
-              <div class="project-key">
-                <p class="project-year">2024</p>
-                <p class="project-kind" data-i18n="home.projects.geminimol.kind">Molecular representation</p>
-                <p class="project-role" data-i18n="home.role.first">First author</p>
-              </div>
-              <div class="project-main">
-                <h3>GeminiMol</h3>
-                <p data-i18n="home.projects.geminimol.tagline">Finding functional similarity beyond shared 2D scaffolds.</p>
-              </div>
-              <p class="project-detail" data-i18n="home.projects.geminimol.detail">GeminiMol addresses the problem that functionally similar molecules can appear unrelated in two-dimensional structure. It supports cross-scaffold property prediction, virtual screening, target identification, and scaffold hopping; screening 18 million compounds led to GM-10, an experimentally validated GluN1/GluN3A inhibitor.</p>
-              <div class="project-links">
-                <a href="https://doi.org/10.1002/advs.202403998" target="_blank" rel="noreferrer" data-i18n-html="common.paper">Paper ↗</a>
-                <a href="https://github.com/Wang-Lin-boop/GeminiMol" target="_blank" rel="noreferrer" data-i18n-html="common.code">Code ↗</a>
-              </div>
-            </article>
-
-            <article class="project-row" id="project-deepsa">
-              <div class="project-key">
-                <p class="project-year">2023</p>
-                <p class="project-kind" data-i18n="home.projects.deepsa.kind">Synthetic accessibility</p>
-                <p class="project-role" data-i18n="home.role.cofirst">Co-first author</p>
-              </div>
-              <div class="project-main">
-                <h3>DeepSA</h3>
-                <p data-i18n="home.projects.deepsa.tagline">Predicting synthetic accessibility for molecular design.</p>
-              </div>
-              <p class="project-detail" data-i18n="home.projects.deepsa.detail">DeepSA is a co-developed deep-learning model that estimates how difficult a small molecule is to synthesize. Its scores help filter computationally proposed candidates before experimental follow-up and complement other assessments during molecular design.</p>
-              <div class="project-links">
-                <a href="https://doi.org/10.1186/s13321-023-00771-3" target="_blank" rel="noreferrer" data-i18n-html="common.paper">Paper ↗</a>
-                <a href="https://github.com/Wang-Lin-boop/DeepSA" target="_blank" rel="noreferrer" data-i18n-html="common.code">Code ↗</a>
-                <a href="https://bailab.siais.shanghaitech.edu.cn/deepsa" target="_blank" rel="noreferrer" data-i18n-html="common.webServer">Web server ↗</a>
-              </div>
-            </article>
-
-            <p class="project-group" data-i18n="home.program.interactionsGroup">02 · Interactions — structure &amp; recognition</p>
-
-            <article class="project-row" id="project-ppiminer">
-              <div class="project-key">
-                <p class="project-year">2022</p>
-                <p class="project-kind" data-i18n="home.projects.ppiminer.kind">PPI and molecule glue</p>
-                <p class="project-role" data-i18n="home.role.first">First author</p>
-              </div>
-              <div class="project-main">
-                <h3>PPI-Miner</h3>
-                <p data-i18n="home.projects.ppiminer.tagline">Finding receptor-compatible backbone motifs beyond sequence similarity.</p>
-              </div>
-              <p class="project-detail" data-i18n="home.projects.ppiminer.detail">PPI-Miner reveals interaction partners that sequence-motif searches can miss because unrelated proteins may preserve the local backbone geometry required for receptor recognition. In the CRBN case, it produced 1,739 candidates and recovered 16 previously reported cases; at least 12 additional candidates in the released library later received compound-dependent recruitment support.</p>
-              <div class="project-links">
-                <a href="https://doi.org/10.1021/acs.jcim.2c01033" target="_blank" rel="noreferrer" data-i18n-html="common.paper">Paper ↗</a>
-                <a href="https://github.com/Wang-Lin-boop/PPI-Miner" target="_blank" rel="noreferrer" data-i18n-html="common.code">Code ↗</a>
-                <a href="https://doi.org/10.1126/science.adt6736" target="_blank" rel="noreferrer">Science ↗</a>
-              </div>
-            </article>
-
-            <article class="project-row" id="project-cocobind">
-              <div class="project-key">
-                <p class="project-year">2026</p>
-                <p class="project-kind" data-i18n="home.projects.cocobind.kind">RNA–ligand recognition</p>
-                <p class="project-role" data-i18n="home.role.cofirstCorresponding">Co-first &amp; co-corresponding author</p>
-              </div>
-              <div class="project-main">
-                <h3>CoCoBind</h3>
-                <p data-i18n="home.projects.cocobind.tagline">Predicting whether and where small molecules bind RNA.</p>
-              </div>
-              <p class="project-detail" data-i18n="home.projects.cocobind.detail">CoCoBind treats RNA–compound interaction prediction and nucleotide-level binding-site localization as one multitask problem. Consistency-contrastive learning links the two tasks, supporting site-aware RNA–ligand recognition under distribution shift.</p>
-              <div class="project-links">
-                <a href="https://doi.org/10.1021/acs.jmedchem.6c00902" target="_blank" rel="noreferrer" data-i18n-html="common.paper">Paper ↗</a>
-                <a href="https://github.com/Shihang-Wang-58/CoCoBind" target="_blank" rel="noreferrer" data-i18n-html="common.code">Code ↗</a>
-              </div>
-            </article>
-
-          </div>
-        </div>
-      </section>
-
-      <section id="publications" class="section page-shell" aria-labelledby="recent-title">
-        <div class="section-intro">
-          <p class="section-tag">Publication record</p>
-          <div>
-            <h2 id="recent-title">Selected publications</h2>
-            <p>Papers on which I am first, co-first, or co-corresponding author. The full record contains <span data-publication-count>35</span> works from 2020–2026 across molecular representation, structural biology, protein interactions, and drug discovery.</p>
-          </div>
-        </div>
-
-        <p class="publication-legend" data-i18n-html="publications.legend"><strong>Lin Wang</strong> is highlighted on first-author papers; <b>#</b> co-first author; <b>*</b> co-corresponding author.</p>
-        <div class="publication-list publication-list-compact" data-publication-list data-publication-limit="6" data-publication-mode="selected">
-          <p class="loading-note">Loading publication record…</p>
-        </div>
-        <p class="section-action"><a class="text-button" href="./publications.html">View all publications <span aria-hidden="true">→</span></a></p>
-      </section>
-
-      <section id="community" class="section section-tinted community-section" aria-labelledby="community-title">
-        <div class="page-shell">
-          <div class="section-intro">
-            <p class="section-tag" data-i18n="home.community.tag">Open tools</p>
-            <div>
-              <h2 id="community-title" data-i18n="home.community.title">Open tools for everyday research.</h2>
-              <p data-i18n="home.community.intro">I also maintain or contribute to practical tools for database searching, molecular simulation, and reproducible computer-aided drug-design workflows.</p>
-            </div>
-          </div>
-
-          <div class="community-grid community-grid-wrap">
-            <article>
-              <p class="community-index" data-i18n="home.community.biodb.type">01 · Database navigation</p>
-              <h3>Biodb-Search</h3>
-              <p data-i18n="home.community.biodb.description">A browser-based navigator that sends one query to multiple biomedical databases, designed to make routine literature and data lookup more direct.</p>
-              <nav aria-label="Biodb-Search resources" data-i18n-aria="home.community.biodb.aria">
-                <a href="https://wang-lin-boop.github.io/Biodb-Search/" target="_blank" rel="noreferrer" data-i18n-html="common.openSite">Open site <span aria-hidden="true">↗</span></a>
-                <a href="https://github.com/Wang-Lin-boop/Biodb-Search" target="_blank" rel="noreferrer" data-i18n-html="common.repository">Repository <span aria-hidden="true">↗</span></a>
-              </nav>
-            </article>
-            <article>
-              <p class="community-index" data-i18n="home.community.automd.type">02 · Molecular dynamics</p>
-              <h3>AutoMD / AutoTRJ</h3>
-              <p data-i18n="home.community.automd.description">Automation for Desmond system setup and molecular-dynamics simulation, paired with a configurable pipeline for trajectory processing and analysis.</p>
-              <nav aria-label="AutoMD resources" data-i18n-aria="home.community.automd.aria">
-                <a href="https://github.com/Wang-Lin-boop/AutoMD" target="_blank" rel="noreferrer" data-i18n-html="common.repository">Repository <span aria-hidden="true">↗</span></a>
-              </nav>
-            </article>
-            <article>
-              <p class="community-index" data-i18n="home.community.cadd.type">03 · CADD workflows</p>
+          <div class="tools-ledger">
+            <article class="tool-row">
+              <p class="tool-index" data-i18n="home.tools.caddTag">01 · CADD Workflows</p>
               <h3>CADD-Scripts</h3>
-              <p data-i18n="home.community.cadd.description">Shell utilities for virtual screening, cross-docking, and protein modeling with Schrödinger and Rosetta, shared to support reproducible computational workflows.</p>
-              <nav aria-label="CADD-Scripts resources" data-i18n-aria="home.community.cadd.aria">
-                <a href="https://github.com/Wang-Lin-boop/CADD-Scripts" target="_blank" rel="noreferrer" data-i18n-html="common.repository">Repository <span aria-hidden="true">↗</span></a>
-              </nav>
+              <p class="tool-desc" data-i18n="home.tools.cadd">Curated shell and Python automation scripts for large-scale virtual screening, cross-docking, ligand preparation, and protein modeling with Schrödinger and Rosetta.</p>
+              <div class="tool-links">
+                <a href="https://github.com/Wang-Lin-boop/CADD-Scripts" target="_blank" rel="noreferrer">GitHub ↗</a>
+              </div>
             </article>
-            <article>
-              <p class="community-index" data-i18n="home.community.deepsa.type">04 · Web server</p>
-              <h3>DeepSA Server</h3>
-              <p data-i18n="home.community.deepsa.description">A browser-based version of the DeepSA model for quick predictions without local installation.</p>
-              <nav aria-label="DeepSA server resources" data-i18n-aria="home.community.deepsa.aria">
-                <a href="https://bailab.siais.shanghaitech.edu.cn/deepsa" target="_blank" rel="noreferrer" data-i18n-html="common.openSite">Open site <span aria-hidden="true">↗</span></a>
-              </nav>
+
+            <article class="tool-row">
+              <p class="tool-index" data-i18n="home.tools.automdTag">02 · Molecular Dynamics</p>
+              <h3>AutoMD / AutoTRJ</h3>
+              <p class="tool-desc" data-i18n="home.tools.automd">Automated Desmond molecular dynamics system setup and simulation pipeline (AutoMD) coupled with configurable trajectory clustering, interface contact mapping, and free-energy landscape analysis (AutoTRJ).</p>
+              <div class="tool-links">
+                <a href="https://github.com/Wang-Lin-boop/AutoMD" target="_blank" rel="noreferrer">GitHub ↗</a>
+              </div>
             </article>
-            <article>
-              <p class="community-index" data-i18n="home.community.crbn.type">05 · Candidate database</p>
-              <h3>CRBN-SubsLib</h3>
-              <p data-i18n="home.community.crbn.description">The CRBN candidate-substrate library released with the PPI-Miner study, for browsing computationally predicted motif-matched candidates.</p>
-              <nav aria-label="CRBN-SubsLib resources" data-i18n-aria="home.community.crbn.aria">
-                <a href="https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib" target="_blank" rel="noreferrer" data-i18n-html="common.openSite">Open site <span aria-hidden="true">↗</span></a>
-              </nav>
+
+            <article class="tool-row">
+              <p class="tool-index" data-i18n="home.tools.biodbTag">03 · Database Navigator</p>
+              <h3>Biodb-Search</h3>
+              <p class="tool-desc" data-i18n="home.tools.biodb">Lightweight browser-based navigator dispatching one query seamlessly across multiple biomedical, chemical, sequence, and structural biology databases from a single interface.</p>
+              <div class="tool-links">
+                <a href="https://github.com/Wang-Lin-boop/Biodb-Search" target="_blank" rel="noreferrer">GitHub ↗</a>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="news" class="section news-section" aria-labelledby="news-title">
+      <!-- 7. Academic Lineage & Grants -->
+      <section id="background" class="section" aria-labelledby="bio-title">
         <div class="page-shell">
-          <div class="section-intro">
-            <p class="section-tag" data-i18n="home.news.tag">Research log</p>
+          <div class="section-header">
             <div>
-              <h2 id="news-title" data-i18n="home.news.title">News</h2>
-              <p data-i18n="home.news.intro">Selected milestones from collaborative research, software releases, competitions, and publications, including the archive from the earlier site.</p>
+              <p class="section-eyebrow" data-i18n="home.bio.eyebrow">Curriculum &amp; Support</p>
+              <h2 id="bio-title" data-i18n="home.bio.title">Academic Lineage &amp; Funding</h2>
+            </div>
+            <p class="section-header-copy" data-i18n="home.bio.subtitle">Training across biology, computer-aided drug design, and systems medicine, supported by national and institutional grants.</p>
+          </div>
+
+          <div class="bio-grid">
+            <div>
+              <p class="bio-subheading" data-i18n="home.bio.trajectoryHeading">Appointments &amp; Education</p>
+              <ol class="trajectory-list">
+                <li>
+                  <p class="trajectory-date">2024 – Present</p>
+                  <div class="trajectory-entry">
+                    <h3 data-i18n="home.bio.postdocRole">Postdoctoral Researcher</h3>
+                    <p class="trajectory-org" data-i18n="home.bio.postdocOrg">Institute of Systems Medicine, Chinese Academy of Medical Sciences (Suzhou)</p>
+                    <p class="trajectory-advisor" data-i18n="home.bio.postdocAdvisor">Supervised by Prof. Yang Zhang (National University of Singapore)</p>
+                    <p class="trajectory-desc" data-i18n="home.bio.postdocDesc">Foundation models for molecular representation, cyclic-peptide conformational search, RNA–ligand recognition, and multi-target drug design.</p>
+                  </div>
+                </li>
+                <li>
+                  <p class="trajectory-date">2019 – 2024</p>
+                  <div class="trajectory-entry">
+                    <h3 data-i18n="home.bio.phdRole">Ph.D. in Computer-Aided Drug Design</h3>
+                    <p class="trajectory-org" data-i18n="home.bio.phdOrg">School of Life Science and Technology, ShanghaiTech University (SIAIS)</p>
+                    <p class="trajectory-advisor" data-i18n="home.bio.phdAdvisor">Advised by Prof. Fang Bai</p>
+                    <p class="trajectory-desc" data-i18n="home.bio.phdDesc">Developed GeminiMol, PPI-Miner, DeepSA, and structure-based virtual screening workflows with experimental validation.</p>
+                  </div>
+                </li>
+                <li>
+                  <p class="trajectory-date">2015 – 2019</p>
+                  <div class="trajectory-entry">
+                    <h3 data-i18n="home.bio.bsRole">B.S. in Biology</h3>
+                    <p class="trajectory-org" data-i18n="home.bio.bsOrg">Northeast Agricultural University</p>
+                    <p class="trajectory-desc" data-i18n="home.bio.bsDesc">Undergraduate training in molecular biology, biochemistry, and computational life sciences.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <div>
+              <p class="bio-subheading" data-i18n="home.bio.honorsHeading">Grants &amp; Honors</p>
+              <ul class="honors-list">
+                <li>
+                  <div class="honors-meta">
+                    <p class="honors-kind" data-i18n="home.bio.grant1Kind">National Grant</p>
+                    <p class="honors-id">2026 · NSFC T2600798</p>
+                  </div>
+                  <p class="honors-title" data-i18n="home.bio.grant1Title">National Natural Science Foundation of China, Young Scientists Fund (Category C)</p>
+                </li>
+                <li>
+                  <div class="honors-meta">
+                    <p class="honors-kind" data-i18n="home.bio.grant2Kind">Institutional Grant</p>
+                    <p class="honors-id">2025 · PUMC 3332025054</p>
+                  </div>
+                  <p class="honors-title" data-i18n="home.bio.grant2Title">Fundamental Research Funds for the Central Universities, Peking Union Medical College</p>
+                </li>
+                <li>
+                  <div class="honors-meta">
+                    <p class="honors-kind" data-i18n="home.bio.awardKind">Competition Award</p>
+                    <p class="honors-id">2024 · 1 / 142</p>
+                  </div>
+                  <p class="honors-title" data-i18n="home.bio.awardTitle">First Prize, Inaugural Shanghai International Computational Biology Innovation Competition (GeminiMol team)</p>
+                </li>
+              </ul>
             </div>
           </div>
-
-          <ol class="news-list">
-            <li>
-              <time datetime="2026-08-17">08 / 2026</time>
-              <p data-i18n-html="home.news.2026_cocobind">The CoCoBind study connects RNA–compound interaction prediction with nucleotide-level binding-site localization, supporting site-aware RNA–ligand recognition under distribution shift. It was published in <a href="https://doi.org/10.1021/acs.jmedchem.6c00902" target="_blank" rel="noreferrer"><em>Journal of Medicinal Chemistry</em></a>.</p>
-            </li>
-            <li>
-              <time datetime="2026-07-18">07 / 2026</time>
-              <p data-i18n-html="home.news.2026_commchem">A collaborative study that integrates chemical priors and physical laws to reduce hallucinations in structure-based drug design was published in <a href="https://doi.org/10.1038/s42004-026-02115-2" target="_blank" rel="noreferrer"><em>Communications Chemistry</em></a>.</p>
-            </li>
-            <li>
-              <time datetime="2026-06-10">06 / 2026</time>
-              <p data-i18n-html="home.news.2026_nature">A collaborative study on HuR-targeting molecular glue degraders for BRAF-mutant colorectal tumors was published in <a href="https://doi.org/10.1038/s41586-026-10613-5" target="_blank" rel="noreferrer"><em>Nature</em></a>.</p>
-            </li>
-            <li>
-              <time datetime="2026-01">01 / 2026</time>
-              <p data-i18n-html="home.news.2026_ouroboros">The Ouroboros study, <em>Learned Conformational Space and Pharmacophore Into Molecular Foundational Model</em>, was published in <a href="https://doi.org/10.1002/advs.202513556" target="_blank" rel="noreferrer"><em>Advanced Science</em></a>.</p>
-            </li>
-            <li>
-              <time datetime="2025-07-03">07 / 2025</time>
-              <p data-i18n-html="home.news.2025_crbn">A retrospective cross-reference of the released <a href="https://bailab.siais.shanghaitech.edu.cn/services/crbn-subslib" target="_blank" rel="noreferrer">CRBN candidate database</a> found at least 12 candidates beyond the paper's original set of 16 that were later supported by compound-dependent CRBN-recruitment assays; mutating the predicted G-loop glycine abolished the recruitment signal (<a href="https://doi.org/10.1126/science.adt6736" target="_blank" rel="noreferrer"><em>Science</em>, 2025</a>).</p>
-            </li>
-          </ol>
-          <details class="news-archive">
-            <summary><span data-i18n="home.news.more">Show earlier news</span> <span class="news-count">(13)</span></summary>
-            <ol class="news-list">
-            <li>
-              <time datetime="2024-11">11 / 2024</time>
-              <p data-i18n-html="home.news.2024_11">The <a href="https://github.com/Shihang-Wang-58/PhenoScreen" target="_blank" rel="noreferrer">PhenoScreen</a> project introduced a dual-space contrastive learning framework combining conformational-space and molecular-image similarities for virtual screening.</p>
-            </li>
-            <li>
-              <time datetime="2024-09">09 / 2024</time>
-              <p data-i18n-html="home.news.2024_09">A collaborative study using GeminiMol reported a GluN1/GluN3A inhibitor (IC<sub>50</sub> = 0.98 μM); the project received first prize in the <a href="https://competition.huaweicloud.com/information/1000042002/html13" target="_blank" rel="noreferrer">2023 Shanghai International Computational Biology Innovation Competition</a>.</p>
-            </li>
-            <li>
-              <time datetime="2024-08">08 / 2024</time>
-              <p data-i18n-html="home.news.2024_08">The GeminiMol paper was published in <a href="https://onlinelibrary.wiley.com/doi/10.1002/advs.202403998" target="_blank" rel="noreferrer"><em>Advanced Science</em></a>.</p>
-            </li>
-            <li>
-              <time datetime="2023-12">12 / 2023</time>
-              <p data-i18n-html="home.news.2023_12">The GeminiMol project introduced molecular representation learning informed by conformational-space similarity; see the <a href="https://github.com/Wang-Lin-boop/GeminiMol" target="_blank" rel="noreferrer">code</a> and <a href="https://doi.org/10.1101/2023.12.14.571629" target="_blank" rel="noreferrer">bioRxiv preprint</a>.</p>
-            </li>
-            <li>
-              <time datetime="2023-10">10 / 2023</time>
-              <p data-i18n-html="home.news.2023_10">DeepSA was published in the <a href="https://jcheminf.biomedcentral.com/articles/10.1186/s13321-023-00771-3" target="_blank" rel="noreferrer"><em>Journal of Cheminformatics</em></a>; the <a href="https://bailab.siais.shanghaitech.edu.cn/deepsa" target="_blank" rel="noreferrer">DeepSA web server</a> is also available.</p>
-            </li>
-            <li>
-              <time datetime="2023-01">01 / 2023</time>
-              <p data-i18n-html="home.news.2023_01"><a href="https://github.com/Wang-Lin-boop/DeepSA/tree/main" target="_blank" rel="noreferrer">DeepSA</a>, co-developed with <a href="https://shihang-wang-58.github.io/Shihang-Wang/" target="_blank" rel="noreferrer">Shihang Wang</a>, was released as a model for estimating the synthetic accessibility of small molecules.</p>
-            </li>
-            <li>
-              <time datetime="2022-12">12 / 2022</time>
-              <p data-i18n-html="home.news.2022_12">The original plmd scripts were expanded and renamed <a href="https://github.com/Wang-Lin-boop/AutoMD" target="_blank" rel="noreferrer">AutoMD</a>, adding support for additional force fields and configurable trajectory-analysis pipelines.</p>
-            </li>
-            <li>
-              <time datetime="2022-11">11 / 2022</time>
-              <p data-i18n-html="home.news.2022_11">The PPI-Miner study showed how conserved backbone motifs can reveal protein-interaction candidates even when their sequences diverge. The paper appeared in the <a href="https://pubs.acs.org/doi/full/10.1021/acs.jcim.2c01033" target="_blank" rel="noreferrer"><em>Journal of Chemical Information and Modeling</em></a>, with <a href="https://github.com/Wang-Lin-boop/PPI-Miner" target="_blank" rel="noreferrer">source code on GitHub</a>.</p>
-            </li>
-            <li>
-              <time datetime="2021-08">08 / 2021</time>
-              <p data-i18n-html="home.news.2021_08a">A collaborative study reported an allosteric pocket on the SARS-CoV-2 spike protein and inhibitor candidates designed to restrict its conformational change; the paper appeared in the <a href="https://pubs.acs.org/doi/full/10.1021/acs.jmedchem.1c00320" target="_blank" rel="noreferrer"><em>Journal of Medicinal Chemistry</em></a>.</p>
-            </li>
-            <li>
-              <time datetime="2021-08">08 / 2021</time>
-              <p data-i18n-html="home.news.2021_08b">A collaborative study reported five candidate small-molecule blockers targeting the SARS-CoV-2 spike protein in <a href="https://www.nature.com/articles/s41401-021-00735-z" target="_blank" rel="noreferrer"><em>Acta Pharmacologica Sinica</em></a>.</p>
-            </li>
-            <li>
-              <time datetime="2021-05">05 / 2021</time>
-              <p data-i18n-html="home.news.2021_05">Automated Schrödinger workflows for cross-docking (XDock), virtual screening (GVSrun), and molecular-dynamics simulation (plmd) were released, with <a href="https://github.com/Wang-Lin-boop/Schrodinger-Script" target="_blank" rel="noreferrer">source code on GitHub</a>.</p>
-            </li>
-            <li>
-              <time datetime="2020-05">05 / 2020</time>
-              <p data-i18n-html="home.news.2020_05"><a href="https://wang-lin-boop.github.io/Biodb-Search/" target="_blank" rel="noreferrer">Biodb-Search</a> was released as a browser-based navigator that submits one query to multiple biomedical databases.</p>
-            </li>
-            <li>
-              <time datetime="2019-12">12 / 2019</time>
-              <p data-i18n-html="home.news.2019_12"><a href="https://github.com/Wang-Lin-boop/GetPDB" target="_blank" rel="noreferrer">GetPDB</a> was released as a script for downloading single-chain protein structures by UniProt ID.</p>
-            </li>
-            </ol>
-          </details>
         </div>
       </section>
 
-      <section id="trajectory" class="section section-tinted" aria-labelledby="trajectory-title">
+      <!-- 8. Standalone Contact & Collaboration Section -->
+      <section id="contact" class="section section-alt" aria-labelledby="contact-title">
         <div class="page-shell">
-          <div class="section-intro">
-            <p class="section-tag">Background</p>
-            <div>
-              <h2 id="trajectory-title">Training and current research.</h2>
-              <p>My training has progressed from life science and structure-based modeling to machine learning for molecules, proteins, and cellular phenotypes.</p>
+          <div class="contact-grid">
+            <div class="contact-copy">
+              <p class="section-eyebrow" data-i18n="home.contact.eyebrow">Collaboration &amp; Correspondence</p>
+              <h2 id="contact-title" data-i18n="home.contact.title">Get in Touch</h2>
+              <p data-i18n="home.contact.text">Open to interdisciplinary collaborations across medicinal chemistry, structural biology, RNA targeting, and AI-driven drug discovery.</p>
+              <div class="contact-email-row">
+                <a class="contact-email" href="mailto:Wanglin1102@outlook.com">Wanglin1102@outlook.com</a>
+                <button class="copy-button" type="button" data-copy-email="Wanglin1102@outlook.com" data-i18n="common.copyEmail">Copy email</button>
+              </div>
+              <p class="contact-location" data-i18n="home.contact.location">Institute of Systems Medicine, Chinese Academy of Medical Sciences · Suzhou, Jiangsu, China</p>
+            </div>
+
+            <div class="contact-profiles">
+              <p class="contact-profiles-label" data-i18n="home.contact.profilesLabel">Academic Profiles</p>
+              <div class="contact-links">
+                <a href="https://scholar.google.com/citations?user=lFYS_EQAAAAJ" target="_blank" rel="noreferrer"><span>Google Scholar</span><span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/Wang-Lin-boop" target="_blank" rel="noreferrer"><span>GitHub · @Wang-Lin-boop</span><span aria-hidden="true">↗</span></a>
+                <a href="https://orcid.org/0000-0003-2482-7638" target="_blank" rel="noreferrer"><span>ORCID · 0000-0003-2482-7638</span><span aria-hidden="true">↗</span></a>
+              </div>
             </div>
           </div>
-
-          <ol class="trajectory-list">
-            <li>
-              <p class="trajectory-date">2019</p>
-              <div>
-                <h3>B.S. in Biology</h3>
-                <p data-i18n="home.trajectory.bsOrg">Northeast Agricultural University</p>
-              </div>
-              <p>Training in life science, followed by early work with computational drug-discovery workflows.</p>
-            </li>
-            <li>
-              <p class="trajectory-date">2019–2024</p>
-              <div>
-                <h3>Ph.D. in Computer-Aided Drug Design</h3>
-                <p data-i18n="home.trajectory.phdOrg">School of Life Science and Technology, ShanghaiTech University</p>
-                <p class="trajectory-advisor" data-i18n="home.trajectory.phdAdvisor">Advisor: Prof. Fang Bai, Shanghai Institute for Advanced Immunochemical Studies</p>
-              </div>
-              <p>Research in structural biology, molecular dynamics, protein interactions, and chemically informed molecular representation.</p>
-            </li>
-            <li>
-              <p class="trajectory-date" data-i18n="home.trajectory.current">Current</p>
-              <div>
-                <h3>Postdoctoral Researcher</h3>
-                <p data-i18n="home.trajectory.postdocOrg">Institute of Systems Medicine, Chinese Academy of Medical Sciences, Suzhou</p>
-                <p class="trajectory-advisor" data-i18n="home.trajectory.postdocAdvisor">Supervisor: Prof. Yang Zhang, National University of Singapore</p>
-              </div>
-              <p>Research on molecular and protein machine-learning models, phenotype-aware representation learning, and computational drug-discovery applications.</p>
-            </li>
-          </ol>
-
-          <div class="honors-block" aria-labelledby="honors-title">
-            <h3 id="honors-title" class="metadata-label" data-i18n="home.honors.title">Funding &amp; honors</h3>
-            <ul class="honors-list">
-              <li>
-                <p class="honors-kind" data-i18n="home.honors.grant">Grant</p>
-                <p data-i18n="home.honors.nsfc">National Natural Science Foundation of China, Young Scientists Fund (Category C)</p>
-                <p class="honors-id">T2600798</p>
-              </li>
-              <li>
-                <p class="honors-kind" data-i18n="home.honors.grant">Grant</p>
-                <p data-i18n="home.honors.frf">Fundamental Research Funds for the Central Universities, Peking Union Medical College</p>
-                <p class="honors-id">3332025054</p>
-              </li>
-              <li>
-                <p class="honors-kind" data-i18n="home.honors.award">Award</p>
-                <p data-i18n="home.honors.competition">First prize, inaugural Shanghai International Computational Biology Innovation Competition (2023 edition, GeminiMol team)</p>
-                <p class="honors-id">2024</p>
-              </li>
-            </ul>
-          </div>
         </div>
-      </section>
-
-      <section id="contact" class="contact-section page-shell" aria-labelledby="contact-title">
-        <p class="section-tag">Contact</p>
-        <div>
-          <h2 id="contact-title">Open to collaboration.</h2>
-          <p>I welcome discussions and collaborations that connect molecular modeling and machine learning with experimentally testable drug-discovery questions.</p>
-          <a class="contact-email" href="mailto:Wanglin1102@outlook.com">Wanglin1102@outlook.com <span aria-hidden="true">→</span></a>
-        </div>
-        <nav class="contact-links" aria-label="Profile links">
-          <a href="https://github.com/Wang-Lin-boop" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a href="https://scholar.google.com/citations?user=lFYS_EQAAAAJ" target="_blank" rel="noreferrer">Google Scholar ↗</a>
-          <a href="https://orcid.org/0000-0003-2482-7638" target="_blank" rel="noreferrer">ORCID ↗</a>
-        </nav>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="page-shell">
-        <p>© <span data-current-year>2026</span> Lin Wang</p>
-        <p>Computational methods for molecular design and drug discovery.</p>
-        <a href="#main-content">Back to top ↑</a>
+        <p data-i18n="footer.copyright">© 2026 Lin Wang (王林) · Institute of Systems Medicine, CAMS</p>
+        <p><a href="./publications.html" data-i18n="footer.publications">Full Publications Archive</a> · <a href="https://github.com/Wang-Lin-boop" target="_blank" rel="noreferrer">GitHub</a> · <a href="mailto:Wanglin1102@outlook.com">Wanglin1102@outlook.com</a></p>
       </div>
     </footer>
 
-    <script src="./assets/i18n.js?v=20261118-3" defer></script>
-    <script src="./assets/site.js?v=20261118-3" defer></script>
+    <!-- Accessible Native Dialog Lightbox -->
+    <dialog class="figure-lightbox" data-figure-lightbox aria-label="Enlarged research figure">
+      <div class="figure-lightbox-bar">
+        <p class="figure-lightbox-caption" data-lightbox-caption-text></p>
+        <div class="figure-lightbox-actions">
+          <a class="figure-lightbox-full" href="#" target="_blank" rel="noreferrer" data-lightbox-full data-i18n="common.openFullImage">Open full resolution ↗</a>
+          <button class="figure-lightbox-close" type="button" data-lightbox-close aria-label="Close figure" data-i18n-aria="common.close">×</button>
+        </div>
+      </div>
+      <div class="figure-lightbox-body">
+        <img alt="" data-lightbox-img>
+      </div>
+    </dialog>
+
+    <script src="./assets/catalog-core.js?v=20261122-3"></script>
+    <script src="./assets/i18n.js?v=20261122-3"></script>
+    <script src="./assets/site.js?v=20261122-3"></script>
   </body>
 </html>

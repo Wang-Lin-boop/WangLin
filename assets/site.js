@@ -1,381 +1,526 @@
 (() => {
   "use strict";
 
-  const i18n = window.SiteI18n;
-  const t = (key, variables = {}) => i18n?.t(key, variables) ?? key;
+  const ASSET_VERSION = "20261122-3";
+  const EMAIL_ADDRESS = "Wanglin1102@outlook.com";
+  const core = window.CatalogCore;
 
-  const TOPIC_KEYS = {
-    structural_bioinformatics: "topics.structuralBioinformatics",
-    ppi_modeling: "topics.ppiModeling",
-    protein_ligand_modeling: "topics.proteinLigandModeling",
-    drug_discovery: "topics.drugDiscovery"
-  };
-  const PUBLICATION_DATA_URL = "./data/publications.json?v=20261118-3";
-  const FEATURED_PUBLICATION_IDS = [
-    "wang2026learned",
-    "wang2026cocobind",
-    "liu2026integrating",
-    "wang2024conformational",
-    "wang2023deepsa",
-    "wang2022ppi",
-  ];
-
-  const SELF_CONTRIBUTION_MARKS = {
-    zhou2026proteinconformers: "*",
-    wang2026cocobind: "#*",
-    liu2026integrating: "*",
-    wang2025discovery: "#",
-    liang2025mcr3: "#",
-    li2025nadph: "*",
-    wang2025phenomodel: "#",
-    liang2023new: "#",
-    wang2023deepsa: "#",
-    wang2022discovery: "#",
-    wang2021probing: "#"
-  };
-
-  const publicationLists = [...document.querySelectorAll("[data-publication-list]")];
-  const publicationCountNodes = () => [...document.querySelectorAll("[data-publication-count]")];
-  const filterButtons = [...document.querySelectorAll("[data-publication-filter]")];
-  const searchInput = document.querySelector("[data-publication-search]");
-  const roleToggle = document.querySelector("[data-publication-role]");
-  const statusNode = document.querySelector("[data-publication-status]");
-  const yearNavigation = document.querySelector("[data-year-navigation]");
-  let publications = [];
-  let activeFilter = "all";
-  let yearObserver;
-
-  const escapeHtml = (value) =>
-    String(value ?? "")
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
-
-  const normalizeText = (value) =>
-    String(value ?? "")
-      .normalize("NFKD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase();
-
-  const topicLabel = (topics = []) => {
-    const labels = topics.map((topic) => TOPIC_KEYS[topic]).filter(Boolean).map((key) => t(key));
-    return labels.length ? labels.join(" · ") : t("topics.article");
-  };
-
-  const isSelf = (author) => normalizeText(author) === "lin wang";
-
-  // Key papers: first author, co-first author (#), or co-corresponding author (*).
-  const isKeyPublication = (publication) => {
-    const mark = SELF_CONTRIBUTION_MARKS[publication.id] || "";
-    return isSelf((publication.authors || [])[0]) || mark.includes("#") || mark.includes("*");
-  };
-
-  const formatAuthors = (publication, compact = false) => {
-    const authors = publication.authors || [];
-    const contributionMark = SELF_CONTRIBUTION_MARKS[publication.id] || "";
-    const selfIndex = authors.findIndex(isSelf);
-    let visibleIndexes = authors.map((_, index) => index);
-    let hasOmittedAuthors = false;
-
-    if (compact && authors.length > 7) {
-      hasOmittedAuthors = true;
-      // Always keep Lin Wang visible, even when the name falls beyond the truncation point.
-      visibleIndexes = selfIndex >= 6 ? [0, 1, 2, 3, 4, "gap", selfIndex] : [0, 1, 2, 3, 4, 5];
+  const t = (key, vars = {}) => {
+    if (window.SiteI18n && typeof window.SiteI18n.t === "function") {
+      return window.SiteI18n.t(key, vars);
     }
+    return core ? core.interpolateMessage(key, vars) : key;
+  };
 
-    const names = visibleIndexes.map((index) => {
-      if (index === "gap") return "…";
-      const author = authors[index];
-      if (normalizeText(author) === "others") return `<em>${escapeHtml(t("publications.etAl"))}</em>`;
+  const copyTextToClipboard = async (text) => {
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+      try {
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch (_) {
+        // Fallback below
+      }
+    }
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.select();
+    let ok = false;
+    try {
+      ok = document.execCommand("copy");
+    } catch (_) {
+      ok = false;
+    }
+    textarea.remove();
+    return ok;
+  };
 
-      const safeName = escapeHtml(author);
-      if (!isSelf(author)) return safeName;
-      const marks = contributionMark ? `<sup class="author-mark">${escapeHtml(contributionMark)}</sup>` : "";
-      return index === 0 || contributionMark
-        ? `<strong class="self-author">${safeName}</strong>${marks}`
-        : safeName;
+  const flashButtonFeedback = (button, copiedText, originalText) => {
+    if (!button) return;
+    clearTimeout(button._copyTimer);
+    button.classList.add("is-copied");
+    button.textContent = copiedText;
+    button._copyTimer = setTimeout(() => {
+      button.classList.remove("is-copied");
+      button.textContent = originalText;
+    }, 1800);
+  };
+
+  /* ------------------------------------------------------------------------
+     1. Mobile Navigation Drawer
+     ------------------------------------------------------------------------ */
+  const setupNavigation = () => {
+    const toggle = document.querySelector("[data-nav-toggle]");
+    const nav = document.querySelector("[data-primary-nav]");
+    if (!toggle || !nav) return;
+
+    const closeNav = () => {
+      toggle.setAttribute("aria-expanded", "false");
+      nav.classList.remove("is-open");
+      document.body.classList.remove("nav-open");
+    };
+
+    toggle.addEventListener("click", () => {
+      const expanded = toggle.getAttribute("aria-expanded") === "true";
+      if (expanded) {
+        closeNav();
+      } else {
+        toggle.setAttribute("aria-expanded", "true");
+        nav.classList.add("is-open");
+        document.body.classList.add("nav-open");
+      }
     });
 
-    if (hasOmittedAuthors && visibleIndexes[visibleIndexes.length - 1] !== authors.length - 1) {
-      names.push(escapeHtml(t("publications.etAl")));
-    }
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeNav);
+    });
 
-    return names.join(", ");
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeNav();
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 780) closeNav();
+    });
   };
 
-  const publicationMarkup = (publication, compact = false) => {
-    const title = escapeHtml(publication.title);
-    const url = escapeHtml(publication.url || "#");
-    const year = escapeHtml(publication.year);
-    const venue = escapeHtml(publication.venue || "Publication");
-    const volume = publication.volume ? ` ${escapeHtml(publication.volume)}` : "";
-    const issue = publication.issue ? `(${escapeHtml(publication.issue)})` : "";
-    const pages = publication.pages ? `, ${escapeHtml(publication.pages)}` : "";
+  /* ------------------------------------------------------------------------
+     2. Copy Email Controls
+     ------------------------------------------------------------------------ */
+  const setupEmailCopy = () => {
+    document.querySelectorAll("[data-copy-email]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const email = button.getAttribute("data-copy-email") || EMAIL_ADDRESS;
+        const ok = await copyTextToClipboard(email);
+        if (ok) {
+          const defaultLabel = t("common.copyEmail");
+          const copiedLabel = t("common.copied");
+          flashButtonFeedback(button, copiedLabel, defaultLabel);
+        }
+      });
+    });
+  };
+
+  /* ------------------------------------------------------------------------
+     3. Ouroboros Monograph Segmented Switcher
+     ------------------------------------------------------------------------ */
+  const setupMonographTabs = () => {
+    const tabs = [...document.querySelectorAll("[data-monograph-tab]")];
+    const panels = [...document.querySelectorAll("[data-monograph-panel]")];
+    if (!tabs.length || !panels.length) return;
+
+    const activate = (targetId) => {
+      tabs.forEach((tab) => {
+        const active = tab.getAttribute("data-monograph-tab") === targetId;
+        tab.setAttribute("aria-selected", String(active));
+        tab.classList.toggle("is-active", active);
+      });
+      panels.forEach((panel) => {
+        const match = panel.getAttribute("data-monograph-panel") === targetId;
+        panel.hidden = !match;
+      });
+    };
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        activate(tab.getAttribute("data-monograph-tab"));
+      });
+    });
+  };
+
+  /* ------------------------------------------------------------------------
+     4. Research Portfolio Category Filter
+     ------------------------------------------------------------------------ */
+  const setupPortfolioFilter = () => {
+    const buttons = [...document.querySelectorAll("[data-portfolio-filter]")];
+    const items = [...document.querySelectorAll("[data-portfolio-category]")];
+    const countEl = document.querySelector("[data-portfolio-count]");
+    const flagshipGroup = document.querySelector('[data-portfolio-group="flagship"]');
+    const ledgerGroup = document.querySelector('[data-portfolio-group="ledger"]');
+    const ledgerHeading = document.querySelector("[data-portfolio-ledger-heading]");
+    if (!buttons.length || !items.length) return;
+
+    const updateCount = () => {
+      if (!countEl) return;
+      const visible = items.filter((item) => !item.hidden).length;
+      countEl.textContent = t("home.portfolio.count", {
+        shown: visible,
+        total: items.length
+      });
+    };
+
+    const applyFilter = (category) => {
+      buttons.forEach((btn) => {
+        const active = btn.getAttribute("data-portfolio-filter") === category;
+        btn.classList.toggle("is-active", active);
+        btn.setAttribute("aria-pressed", String(active));
+      });
+
+      items.forEach((item) => {
+        const cats = (item.getAttribute("data-portfolio-category") || "").split(/\s+/);
+        item.hidden = category !== "all" && !cats.includes(category);
+      });
+
+      const visibleFlagship = flagshipGroup
+        ? [...flagshipGroup.querySelectorAll("[data-portfolio-category]")].some((el) => !el.hidden)
+        : false;
+      const visibleLedger = ledgerGroup
+        ? [...ledgerGroup.querySelectorAll("[data-portfolio-category]")].some((el) => !el.hidden)
+        : false;
+
+      if (flagshipGroup) flagshipGroup.hidden = !visibleFlagship;
+      if (ledgerGroup) ledgerGroup.hidden = !visibleLedger;
+      if (ledgerHeading) ledgerHeading.hidden = !visibleLedger || !visibleFlagship;
+
+      updateCount();
+    };
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        applyFilter(btn.getAttribute("data-portfolio-filter"));
+      });
+    });
+
+    window.addEventListener("site:languagechange", updateCount);
+    updateCount();
+  };
+
+  /* ------------------------------------------------------------------------
+     5. Accessible Figure Lightbox (<dialog>)
+     ------------------------------------------------------------------------ */
+  const setupLightbox = () => {
+    const dialog = document.querySelector("[data-figure-lightbox]");
+    if (!dialog) return;
+
+    const imgEl = dialog.querySelector("[data-lightbox-img]");
+    const captionEl = dialog.querySelector("[data-lightbox-caption-text]");
+    const fullLink = dialog.querySelector("[data-lightbox-full]");
+    const closeBtn = dialog.querySelector("[data-lightbox-close]");
+
+    const openDialog = (trigger) => {
+      const src = trigger.getAttribute("href") || trigger.getAttribute("data-lightbox-src");
+      const caption = trigger.getAttribute("data-lightbox-caption") || "";
+      const imgInTrigger = trigger.querySelector("img");
+      const alt = imgInTrigger ? imgInTrigger.alt : caption;
+      if (!src || !imgEl) return;
+
+      imgEl.src = src;
+      imgEl.alt = alt;
+      if (captionEl) captionEl.textContent = caption;
+      if (fullLink) fullLink.href = src;
+
+      if (typeof dialog.showModal === "function") {
+        dialog.showModal();
+      } else {
+        dialog.setAttribute("open", "");
+      }
+    };
+
+    const closeDialog = () => {
+      if (typeof dialog.close === "function" && dialog.open) {
+        dialog.close();
+      } else {
+        dialog.removeAttribute("open");
+      }
+    };
+
+    document.querySelectorAll("[data-lightbox-trigger]").forEach((trigger) => {
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        openDialog(trigger);
+      });
+    });
+
+    if (closeBtn) closeBtn.addEventListener("click", closeDialog);
+
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) closeDialog();
+    });
+  };
+
+  /* ------------------------------------------------------------------------
+     6. Publication Rendering + BibTeX Copy
+     ------------------------------------------------------------------------ */
+  let cachedPublications = null;
+  let publicationMap = new Map();
+
+  const loadPublications = async () => {
+    if (cachedPublications) return cachedPublications;
+    const response = await fetch(`./data/publications.json?v=${ASSET_VERSION}`);
+    if (!response.ok) {
+      throw new Error("Could not load publications.json");
+    }
+    const raw = await response.json();
+    cachedPublications = core ? core.sortPublications(raw) : raw;
+    publicationMap = new Map(cachedPublications.map((item) => [item.id, item]));
+    return cachedPublications;
+  };
+
+  const renderPublicationItem = (pub, { compact = false } = {}) => {
+    const roleKey = core.getRoleKey(pub);
+    const roleLabel = roleKey ? t(roleKey) : "";
+    const topicLabels = (pub.topics || [])
+      .map((topic) => (core.TOPIC_KEYS[topic] ? t(core.TOPIC_KEYS[topic]) : ""))
+      .filter(Boolean);
+    const asideLabel = roleLabel
+      ? [roleLabel, topicLabels[0]].filter(Boolean).join(" · ")
+      : topicLabels[0] || "";
+
+    const authorsHtml = core.formatAuthorsHtml(pub, {
+      compact,
+      etAlLabel: t("common.etAl")
+    });
+
+    const titleInner = pub.url
+      ? `<a href="${core.escapeHtml(pub.url)}" target="_blank" rel="noreferrer">${core.escapeHtml(pub.title)}</a>`
+      : core.escapeHtml(pub.title);
+
+    const doiLink = pub.url
+      ? `<a class="quiet-link" href="${core.escapeHtml(pub.url)}" target="_blank" rel="noreferrer">${core.escapeHtml(t("common.doi"))} <span aria-hidden="true">↗</span></a>`
+      : "";
+
+    const citeLabel = t("common.bibtex");
+    const citeAria = t("common.copyBibtexFor", { title: pub.title });
 
     return `
-      <article class="publication-item">
-        <p class="publication-item-year">${year}</p>
-        <div>
-          <h3><a href="${url}" target="_blank" rel="noreferrer">${title}</a></h3>
-          <p class="publication-authors">${formatAuthors(publication, compact)}</p>
-          <p class="publication-venue">${venue}${volume}${issue}${pages}</p>
+      <article class="publication-item" data-pub-id="${core.escapeHtml(pub.id)}">
+        <p class="publication-item-year">${core.escapeHtml(pub.year)}</p>
+        <div class="publication-main">
+          <h3>${titleInner}</h3>
+          <p class="publication-authors">${authorsHtml}</p>
+          <p class="publication-venue">${core.escapeHtml(pub.venue)}</p>
         </div>
-        <p class="publication-topic">${escapeHtml(topicLabel(publication.topics))}</p>
+        <div class="publication-aside">
+          ${asideLabel ? `<p class="publication-topic">${core.escapeHtml(asideLabel)}</p>` : ""}
+          <div class="publication-item-actions">
+            ${doiLink}
+            <button type="button" class="cite-button" data-copy-bibtex="${core.escapeHtml(pub.id)}" aria-label="${core.escapeHtml(citeAria)}">${core.escapeHtml(citeLabel)}</button>
+          </div>
+        </div>
       </article>
     `;
   };
 
-  const buildYearNavigation = (groups) => {
-    if (!yearNavigation) return;
-
-    yearNavigation.innerHTML = groups
-      .map(
-        ([year, items], index) =>
-          `<a href="#year-${escapeHtml(year)}"${index === 0 ? ' aria-current="true"' : ""}>${escapeHtml(year)} <span aria-label="${escapeHtml(t("publications.countAria", { count: items.length }))}">(${items.length})</span></a>`
-      )
-      .join("");
-
-    yearObserver?.disconnect();
-    if (!("IntersectionObserver" in window)) return;
-
-    const links = [...yearNavigation.querySelectorAll("a")];
-    const setCurrentYear = (year) => {
-      links.forEach((link) => {
-        if (link.getAttribute("href") === `#year-${year}`) {
-          link.setAttribute("aria-current", "true");
-        } else {
-          link.removeAttribute("aria-current");
+  const bindBibtexCopyButtons = (container) => {
+    if (!container) return;
+    container.querySelectorAll("[data-copy-bibtex]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const pubId = button.getAttribute("data-copy-bibtex");
+        const pub = publicationMap.get(pubId);
+        if (!pub) return;
+        const bibtex = core.formatBibTeX(pub);
+        const ok = await copyTextToClipboard(bibtex);
+        if (ok) {
+          flashButtonFeedback(button, t("common.copied"), t("common.bibtex"));
         }
       });
-    };
-
-    yearObserver = new IntersectionObserver(
-      (entries) => {
-        const visibleEntry = entries.find((entry) => entry.isIntersecting);
-        if (visibleEntry) {
-          setCurrentYear(visibleEntry.target.dataset.publicationYear);
-        }
-      },
-      { rootMargin: "-24% 0px -66% 0px", threshold: 0 }
-    );
-
-    document.querySelectorAll("[data-publication-year]").forEach((section) => {
-      yearObserver.observe(section);
     });
   };
 
-  const renderFullList = (container, items) => {
-    if (!items.length) {
-      container.innerHTML = `<p class="empty-state">${escapeHtml(t("publications.empty"))}</p>`;
-      buildYearNavigation([]);
+  /* ------------------------------------------------------------------------
+     7. Home Curated Publications Tabs
+     ------------------------------------------------------------------------ */
+  const setupHomePublications = async () => {
+    const listEl = document.querySelector("[data-home-publications]");
+    if (!listEl || !core) return;
+
+    const tabButtons = [...document.querySelectorAll("[data-pub-collection]")];
+    let activeCollection = "selected";
+
+    let allPublications = [];
+    try {
+      allPublications = await loadPublications();
+    } catch (_) {
+      listEl.innerHTML = `<p class="empty-state">${core.escapeHtml(t("publications.error"))}</p>`;
       return;
     }
 
-    const grouped = new Map();
-    items.forEach((publication) => {
-      const year = String(publication.year);
-      if (!grouped.has(year)) grouped.set(year, []);
-      grouped.get(year).push(publication);
+    const render = () => {
+      const items = core.selectCollection(allPublications, activeCollection);
+      listEl.innerHTML = items.map((pub) => renderPublicationItem(pub, { compact: true })).join("");
+      bindBibtexCopyButtons(listEl);
+
+      tabButtons.forEach((btn) => {
+        const isActive = btn.getAttribute("data-pub-collection") === activeCollection;
+        btn.setAttribute("aria-selected", String(isActive));
+        btn.classList.toggle("is-active", isActive);
+      });
+    };
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activeCollection = btn.getAttribute("data-pub-collection") || "selected";
+        render();
+      });
     });
 
-    const groups = [...grouped.entries()];
-    container.innerHTML = groups
-      .map(
-        ([year, yearItems]) => `
-          <section class="publication-year" id="year-${escapeHtml(year)}" data-publication-year="${escapeHtml(year)}" aria-labelledby="year-${escapeHtml(year)}-heading">
-            <header class="publication-year-heading">
-              <h2 id="year-${escapeHtml(year)}-heading">${escapeHtml(year)}</h2>
-              <p>${escapeHtml(t(yearItems.length === 1 ? "publications.workCountOne" : "publications.workCount", { count: yearItems.length }))}</p>
-            </header>
-            ${yearItems.map((item) => publicationMarkup(item)).join("")}
-          </section>
-        `
-      )
-      .join("");
-
-    buildYearNavigation(groups);
+    window.addEventListener("site:languagechange", render);
+    render();
   };
 
-  const renderCompactList = (container, items) => {
-    const limit = Number.parseInt(container.dataset.publicationLimit || "6", 10);
-    // The homepage shows a curated set of featured papers; the full record lives on publications.html.
-    const byId = new Map(items.map((item) => [item.id, item]));
-    const source =
-      container.dataset.publicationMode === "selected"
-        ? FEATURED_PUBLICATION_IDS.map((id) => byId.get(id)).filter(Boolean)
-        : items;
-    container.innerHTML = source
-      .slice(0, Number.isFinite(limit) ? limit : 6)
-      .map((item) => publicationMarkup(item, true))
-      .join("");
-  };
+  /* ------------------------------------------------------------------------
+     8. Full Publications Archive Page
+     ------------------------------------------------------------------------ */
+  const setupPublicationsArchive = async () => {
+    const listEl = document.querySelector("[data-full-publications]");
+    if (!listEl || !core) return;
 
-  const filteredPublications = () => {
-    const query = normalizeText(searchInput?.value || "");
+    const filterButtons = [...document.querySelectorAll("[data-topic-filter]")];
+    const searchInput = document.querySelector("[data-publication-search]");
+    const keyOnlyCheckbox = document.querySelector("[data-key-only-toggle]");
+    const statusEl = document.querySelector("[data-publication-status]");
+    const yearRailNav = document.querySelector("[data-year-rail]");
 
-    return publications.filter((publication) => {
-      const matchesTopic =
-        activeFilter === "all" || (publication.topics || []).includes(activeFilter);
-      const haystack = normalizeText(
-        [
-          publication.title,
-          publication.venue,
-          publication.year,
-          publication.type,
-          ...(publication.authors || [])
-        ].join(" ")
-      );
-      const matchesSearch = !query || haystack.includes(query);
-      const matchesRole = !roleToggle?.checked || isKeyPublication(publication);
-      return matchesTopic && matchesSearch && matchesRole;
-    });
-  };
+    const state = {
+      topic: "all",
+      query: "",
+      keyOnly: false
+    };
 
-  const renderPublications = () => {
-    const filtered = filteredPublications();
-
-    publicationLists.forEach((container) => {
-      if (container.dataset.publicationLimit) {
-        renderCompactList(container, publications);
-      } else {
-        renderFullList(container, filtered);
-      }
-    });
-
-    if (statusNode) {
-      statusNode.textContent = t(filtered.length === 1 ? "publications.statusOne" : "publications.status", { shown: filtered.length, total: publications.length });
-    }
-  };
-
-  const showPublicationError = () => {
-    publicationLists.forEach((container) => {
-      container.innerHTML = `<p class="empty-state">${t("publications.error")}</p>`;
-    });
-    if (statusNode) statusNode.textContent = t("publications.unavailable");
-  };
-
-  const initializePublications = async () => {
-    if (!publicationLists.length && !publicationCountNodes().length) return;
+    let allPublications = [];
+    let yearObserver = null;
 
     try {
-      const response = await fetch(PUBLICATION_DATA_URL, { cache: "no-store" });
-      if (!response.ok) throw new Error(`Publication request failed: ${response.status}`);
-      const data = await response.json();
-      if (!Array.isArray(data)) throw new TypeError("Publication data is not an array");
-      if (data.some((publication) => !(publication.topics || []).some((topic) => TOPIC_KEYS[topic]))) {
-        throw new TypeError("Publication categories do not match this site version");
+      allPublications = await loadPublications();
+    } catch (_) {
+      listEl.innerHTML = `<p class="empty-state">${core.escapeHtml(t("publications.error"))}</p>`;
+      return;
+    }
+
+    const setupYearObserver = () => {
+      if (yearObserver) yearObserver.disconnect();
+      if (!yearRailNav || typeof IntersectionObserver === "undefined") return;
+
+      const sections = [...listEl.querySelectorAll(".publication-year")];
+      const links = new Map(
+        [...yearRailNav.querySelectorAll("a")].map((a) => [a.getAttribute("href"), a])
+      );
+
+      const markYear = (id) => {
+        links.forEach((link, href) => {
+          link.setAttribute("aria-current", href === `#${id}` ? "true" : "false");
+        });
+      };
+
+      if (sections[0]) markYear(sections[0].id);
+
+      yearObserver = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+          if (visible[0]) markYear(visible[0].target.id);
+        },
+        { rootMargin: "-15% 0px -65% 0px", threshold: 0 }
+      );
+
+      sections.forEach((section) => yearObserver.observe(section));
+    };
+
+    const render = () => {
+      const filtered = core.filterPublications(allPublications, state);
+      const total = allPublications.length;
+
+      filterButtons.forEach((btn) => {
+        const active = btn.getAttribute("data-topic-filter") === state.topic;
+        btn.classList.toggle("is-active", active);
+        btn.setAttribute("aria-pressed", String(active));
+      });
+
+      if (statusEl) {
+        statusEl.textContent = t("publications.status", {
+          shown: filtered.length,
+          total
+        });
       }
 
-      publications = [...data].sort((a, b) => {
-        const yearDifference = Number(b.year) - Number(a.year);
-        return yearDifference || String(a.title).localeCompare(String(b.title));
-      });
+      if (!filtered.length) {
+        listEl.innerHTML = `<p class="empty-state">${core.escapeHtml(t("publications.empty"))}</p>`;
+        if (yearRailNav) yearRailNav.innerHTML = "";
+        return;
+      }
 
-      publicationCountNodes().forEach((node) => {
-        node.textContent = String(publications.length);
+      const grouped = core.groupByYear(filtered);
+
+      if (yearRailNav) {
+        yearRailNav.innerHTML = grouped
+          .map(
+            ([year, items]) =>
+              `<a href="#year-${core.escapeHtml(year)}">${core.escapeHtml(year)} <span>(${items.length})</span></a>`
+          )
+          .join("");
+      }
+
+      listEl.innerHTML = grouped
+        .map(([year, items]) => {
+          const countLabel = t(
+            items.length === 1 ? "publications.yearCountOne" : "publications.yearCountMany",
+            { count: items.length }
+          );
+          return `
+            <section class="publication-year" id="year-${core.escapeHtml(year)}" aria-labelledby="heading-year-${core.escapeHtml(year)}">
+              <div class="publication-year-heading">
+                <h2 id="heading-year-${core.escapeHtml(year)}">${core.escapeHtml(year)}</h2>
+                <p>${core.escapeHtml(countLabel)}</p>
+              </div>
+              <div class="publication-year-items">
+                ${items.map((pub) => renderPublicationItem(pub, { compact: false })).join("")}
+              </div>
+            </section>
+          `;
+        })
+        .join("");
+
+      bindBibtexCopyButtons(listEl);
+      setupYearObserver();
+    };
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        state.topic = btn.getAttribute("data-topic-filter") || "all";
+        render();
       });
-      renderPublications();
-    } catch (error) {
-      console.error(error);
-      showPublicationError();
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener("input", (event) => {
+        state.query = event.target.value || "";
+        render();
+      });
     }
+
+    if (keyOnlyCheckbox) {
+      keyOnlyCheckbox.addEventListener("change", (event) => {
+        state.keyOnly = Boolean(event.target.checked);
+        render();
+      });
+    }
+
+    window.addEventListener("site:languagechange", render);
+    render();
   };
 
-  filterButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      activeFilter = button.dataset.publicationFilter || "all";
-      filterButtons.forEach((candidate) => {
-        const isActive = candidate === button;
-        candidate.classList.toggle("is-active", isActive);
-        candidate.setAttribute("aria-pressed", String(isActive));
-      });
-      renderPublications();
-    });
-  });
-
-  searchInput?.addEventListener("input", renderPublications);
-  roleToggle?.addEventListener("change", renderPublications);
-
-  const navToggle = document.querySelector("[data-nav-toggle]");
-  const primaryNav = document.querySelector("[data-primary-nav]");
-
-  const closeNavigation = () => {
-    navToggle?.setAttribute("aria-expanded", "false");
-    primaryNav?.classList.remove("is-open");
-    document.body.classList.remove("nav-open");
+  /* ------------------------------------------------------------------------
+     Bootstrap
+     ------------------------------------------------------------------------ */
+  const init = async () => {
+    if (window.SiteI18n && window.SiteI18n.ready) {
+      await window.SiteI18n.ready;
+    }
+    setupNavigation();
+    setupEmailCopy();
+    setupMonographTabs();
+    setupPortfolioFilter();
+    setupLightbox();
+    await Promise.all([setupHomePublications(), setupPublicationsArchive()]);
   };
 
-  navToggle?.addEventListener("click", () => {
-    const isOpen = navToggle.getAttribute("aria-expanded") === "true";
-    navToggle.setAttribute("aria-expanded", String(!isOpen));
-    primaryNav?.classList.toggle("is-open", !isOpen);
-    document.body.classList.toggle("nav-open", !isOpen);
-  });
-
-  primaryNav?.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", closeNavigation);
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeNavigation();
-  });
-
-  window.matchMedia("(min-width: 821px)").addEventListener("change", (event) => {
-    if (event.matches) closeNavigation();
-  });
-
-  document.querySelectorAll("[data-current-year]").forEach((node) => {
-    node.textContent = String(new Date().getFullYear());
-  });
-
-  document.addEventListener("site:languagechange", () => {
-    if (publications.length) {
-      publicationCountNodes().forEach((node) => {
-        node.textContent = String(publications.length);
-      });
-      renderPublications();
-    }
-  });
-
-  // Research figures open in a native <dialog>; the original PNG link remains the no-JS fallback.
-  const lightboxLinks = [...document.querySelectorAll("[data-lightbox]")];
-  if (lightboxLinks.length && typeof HTMLDialogElement === "function") {
-    const dialog = document.createElement("dialog");
-    dialog.className = "figure-lightbox";
-    dialog.innerHTML = `
-      <div class="figure-lightbox-bar">
-        <a class="figure-lightbox-full" target="_blank" rel="noreferrer"></a>
-        <button class="figure-lightbox-close" type="button"></button>
-      </div>
-      <img alt="">
-    `;
-    document.body.appendChild(dialog);
-    const image = dialog.querySelector("img");
-    const fullLink = dialog.querySelector(".figure-lightbox-full");
-    const closeButton = dialog.querySelector(".figure-lightbox-close");
-
-    closeButton.addEventListener("click", () => dialog.close());
-    dialog.addEventListener("click", (event) => {
-      if (event.target === dialog) dialog.close();
-    });
-
-    lightboxLinks.forEach((link) => {
-      link.addEventListener("click", (event) => {
-        if (event.metaKey || event.ctrlKey || event.shiftKey) return;
-        event.preventDefault();
-        const source = link.querySelector("img");
-        image.src = link.href;
-        image.alt = source?.alt || "";
-        fullLink.href = link.href;
-        fullLink.textContent = t("common.openFull");
-        closeButton.textContent = "×";
-        closeButton.setAttribute("aria-label", t("common.closeFigure"));
-        dialog.showModal();
-      });
-    });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
   }
-
-  initializePublications();
 })();

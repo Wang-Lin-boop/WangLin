@@ -1,296 +1,198 @@
 (() => {
   "use strict";
 
-  const SUPPORTED_LANGUAGES = ["en", "zh", "ar", "fr", "ru", "es"];
-  const ASSET_VERSION = "20261118-3";
-  const RTL_LANGUAGES = new Set(["ar"]);
+  const ASSET_VERSION = "20261122-3";
   const STORAGE_KEY = "lin-wang-site-language";
-
-  const DYNAMIC_FALLBACKS = {
-    "topics.structuralBioinformatics": "Structural bioinformatics & cheminformatics",
-    "topics.ppiModeling": "Protein-protein interaction modeling",
-    "topics.proteinLigandModeling": "Protein-ligand modeling",
-    "topics.drugDiscovery": "Drug discovery",
-    "topics.article": "Research article",
-    "publications.loading": "Loading publication record…",
-    "publications.empty": "No publications match this search. Try a broader term or another research area.",
-    "publications.error": "The publication list could not be loaded. View the <a href=\"./data/publications.bib\">BibTeX record</a> instead.",
-    "publications.unavailable": "Publication data unavailable",
-    "publications.status": "Showing {shown} of {total} works",
-    "publications.statusOne": "Showing {shown} of {total} work",
-    "publications.workCount": "{count} works",
-    "publications.workCountOne": "{count} work",
-    "publications.countAria": "{count} publications",
-    "publications.etAl": "et al.",
-    "common.closeFigure": "Close figure",
-    "common.openFull": "Open full resolution ↗"
-  };
-
-  const COMMON_BINDINGS = [
-    [".skip-link", "common.skip"],
-    [".wordmark", "common.homeAria", "aria-label"],
-    [".nav-toggle span", "common.menu"],
-    [".primary-nav", "common.primaryNav", "aria-label"],
-    [".primary-nav a[href$='#research']", "nav.research"],
-    [".primary-nav a[href$='#work']", "nav.projects"],
-    [".primary-nav a[href$='#community']", "nav.community"],
-    [".primary-nav a[href$='#news']", "nav.news"],
-    [".primary-nav a[href$='publications.html']", "nav.publications"],
-    [".primary-nav a[href$='#contact']", "nav.contact"],
-    [".language-control .sr-only", "common.language"],
-    ["[data-language-select]", "common.language", "aria-label"],
-    [".site-footer p:nth-child(2)", "common.footerTag"],
-    [".site-footer a", "common.backTop"]
-  ];
-
-  const HOME_BINDINGS = [
-    [".hero .section-tag", "home.hero.tag"],
-    ["#hero-title", "home.hero.title", "html"],
-    [".hero-statement", "home.hero.statement"],
-    [".hero-actions", "home.hero.actionsAria", "aria-label"],
-    [".hero-actions a:nth-child(1)", "home.hero.pubs", "html"],
-    [".hero-actions a:nth-child(2)", "common.scholar", "html"],
-    [".hero-actions a:nth-child(3)", "common.github", "html"],
-    [".hero-actions a:nth-child(4)", "common.orcid", "html"],
-    [".current-role .metadata-label", "home.hero.position"],
-    [".current-role p:last-child", "home.hero.role", "html"],
-    [".profile-panel", "home.profile.aria", "aria-label"],
-    [".profile-panel img", "home.profile.alt", "alt"],
-    [".profile-details div:nth-child(1) dt", "home.profile.basedLabel"],
-    [".profile-details div:nth-child(1) dd", "home.profile.basedValue"],
-    [".profile-details div:nth-child(2) dt", "home.profile.researchLabel"],
-    [".profile-details div:nth-child(2) dd", "home.profile.researchValue"],
-    [".profile-details div:nth-child(3) dt", "home.profile.contactLabel"],
-    [".dossier-kicker .section-tag", "home.dossier.tag"],
-    [".dossier-deck", "home.dossier.deck"],
-    [".dossier-links", "home.dossier.linksAria", "aria-label"],
-    [".dossier-links a:nth-child(1)", "home.dossier.peerPaper", "html"],
-    [".dossier-links a:nth-child(2)", "home.dossier.preprint", "html"],
-    [".dossier-links a:nth-child(3)", "home.dossier.codeModels", "html"],
-    [".dossier-architecture", "home.dossier.architectureAria", "aria-label"],
-    [".dossier-architecture article:nth-child(1) .research-question", "home.scale.encodeIndex"],
-    [".dossier-architecture article:nth-child(1) h3", "home.dossier.encodeTitle"],
-    [".dossier-architecture article:nth-child(1) p:last-child", "home.dossier.encodeText"],
-    [".dossier-architecture article:nth-child(2) .research-question", "home.scale.navigateIndex"],
-    [".dossier-architecture article:nth-child(2) h3", "home.dossier.navigateTitle"],
-    [".dossier-architecture article:nth-child(2) p:last-child", "home.dossier.navigateText"],
-    [".dossier-architecture article:nth-child(3) .research-question", "home.scale.decodeIndex"],
-    [".dossier-architecture article:nth-child(3) h3", "home.dossier.decodeTitle"],
-    [".dossier-architecture article:nth-child(3) p:last-child", "home.dossier.decodeText"],
-    [".lineage-copy > .metadata-label", "home.lineage.tag"],
-    ["#lineage-title", "home.lineage.title"],
-    [".lineage-intro", "home.lineage.intro"],
-    [".lineage-comparison article:nth-child(1) h4", "home.lineage.geminiTitle"],
-    [".lineage-comparison article:nth-child(1) > p:nth-of-type(2)", "home.lineage.geminiText"],
-    [".lineage-comparison article:nth-child(1) .lineage-validation", "home.lineage.geminiValidation", "html"],
-    [".lineage-comparison article:nth-child(2) h4", "home.lineage.ouroborosTitle"],
-    [".lineage-comparison article:nth-child(2) > p:nth-of-type(2)", "home.lineage.ouroborosText"],
-    [".lineage-comparison article:nth-child(2) .lineage-validation", "home.lineage.ouroborosValidation", "html"],
-    [".lineage-figure figcaption", "home.lineage.caption"],
-    [".application-figure figcaption", "home.engine.applicationCaption"],
-    ["#work .section-tag", "home.projects.tag"],
-    ["#work-title", "home.projects.title"],
-    ["#work .section-intro > div > p", "home.projects.intro"],
-    ["#publications .section-tag", "home.recent.tag"],
-    ["#recent-title", "home.recent.title"],
-    ["#publications .section-intro > div > p", "home.recent.intro", "html"],
-    ["#publications .loading-note", "publications.loading"],
-    ["#publications .section-action a", "home.recent.all", "html"],
-    ["#trajectory .section-tag", "home.trajectory.tag"],
-    ["#trajectory-title", "home.trajectory.title"],
-    ["#trajectory .section-intro > div > p", "home.trajectory.intro"],
-    [".trajectory-list li:nth-child(1) h3", "home.trajectory.bs"],
-    [".trajectory-list li:nth-child(1) > p:last-child", "home.trajectory.bsText"],
-    [".trajectory-list li:nth-child(2) h3", "home.trajectory.phd"],
-    [".trajectory-list li:nth-child(2) > p:last-child", "home.trajectory.phdText"],
-    [".trajectory-list li:nth-child(3) h3", "home.trajectory.postdoc"],
-    [".trajectory-list li:nth-child(3) > p:last-child", "home.trajectory.postdocText"],
-    ["#contact .section-tag", "home.contact.tag"],
-    ["#contact-title", "home.contact.title"],
-    ["#contact div > p", "home.contact.text"],
-    [".contact-links", "home.contact.linksAria", "aria-label"]
-  ];
-
-
-  const PUBLICATION_BINDINGS = [
-    [".page-heading .section-tag", "record.tag"],
-    [".page-heading h1", "record.title"],
-    [".page-heading-copy p", "record.intro", "html"],
-    [".page-heading-copy a", "record.download", "html"],
-    ["#publication-browser-title", "record.browserTitle"],
-    [".publication-controls", "record.filtersAria", "aria-label"],
-    ["[data-publication-filter='all']", "record.all"],
-    ["[data-publication-filter='structural_bioinformatics']", "record.structuralBioinformatics"],
-    ["[data-publication-filter='ppi_modeling']", "record.ppiModeling"],
-    ["[data-publication-filter='protein_ligand_modeling']", "record.proteinLigandModeling"],
-    ["[data-publication-filter='drug_discovery']", "record.drugDiscovery"],
-    [".publication-search .sr-only", "record.search"],
-    ["[data-publication-search]", "record.searchPlaceholder", "placeholder"],
-    ["[data-publication-status]", "publications.loading"],
-    [".publication-list .loading-note", "publications.loading"],
-    [".year-rail", "record.yearsAria", "aria-label"],
-    [".year-rail .metadata-label", "record.jump"],
-    ["[data-year-navigation]", "record.jumpAria", "aria-label"]
-  ];
-
-  const ARABIC_FONT_URL =
+  const SUPPORTED_LANGUAGES = ["en", "zh", "ar", "fr", "ru", "es"];
+  const RTL_LANGUAGES = new Set(["ar"]);
+  const ARABIC_FONTS_HREF =
     "https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;600&display=swap";
 
-  // Arabic faces are only requested when Arabic is selected, so other languages skip two font families.
-  const loadArabicFonts = () => {
-    if (document.querySelector("link[data-arabic-fonts]")) return;
+  const catalogCache = new Map();
+  let currentLanguage = "en";
+  let currentCatalog = null;
+  let englishCatalog = null;
+
+  const normalizeLanguage = (value) => {
+    const clean = String(value || "").trim().toLowerCase().split("-")[0];
+    return SUPPORTED_LANGUAGES.includes(clean) ? clean : null;
+  };
+
+  const getPathValue = (obj, dottedPath) => {
+    if (!obj || !dottedPath) return undefined;
+    return dottedPath.split(".").reduce((acc, part) => (acc != null ? acc[part] : undefined), obj);
+  };
+
+  const interpolate = (template, variables = {}) =>
+    String(template).replace(/\{([a-zA-Z0-9_]+)\}/g, (_, key) =>
+      Object.prototype.hasOwnProperty.call(variables, key) ? String(variables[key]) : `{${key}}`
+    );
+
+  const ensureArabicFonts = (lang) => {
+    if (!RTL_LANGUAGES.has(lang)) return;
+    if (document.querySelector('link[data-arabic-fonts="true"]')) return;
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = ARABIC_FONT_URL;
-    link.dataset.arabicFonts = "";
+    link.href = ARABIC_FONTS_HREF;
+    link.dataset.arabicFonts = "true";
     document.head.appendChild(link);
   };
 
-  let currentLanguage = "en";
-  let messages = { ...DYNAMIC_FALLBACKS };
-  const messageCache = new Map();
-
-  const normalizeLanguage = (value) => {
-    const candidate = String(value || "").trim().toLowerCase().split(/[-_]/)[0];
-    return SUPPORTED_LANGUAGES.includes(candidate) ? candidate : null;
-  };
-
-  const interpolate = (value, variables = {}) =>
-    String(value).replace(/\{([a-zA-Z0-9_]+)\}/g, (_, name) =>
-      Object.prototype.hasOwnProperty.call(variables, name) ? String(variables[name]) : `{${name}}`
-    );
-
-  const t = (key, variables = {}) =>
-    interpolate(messages[key] ?? DYNAMIC_FALLBACKS[key] ?? key, variables);
-
-  const setNodeValue = (node, key, mode) => {
-    const value = t(key);
-    if (mode === "html") {
-      node.innerHTML = value;
-    } else if (mode) {
-      node.setAttribute(mode, value);
-    } else {
-      node.textContent = value;
+  const loadCatalog = async (lang) => {
+    if (catalogCache.has(lang)) return catalogCache.get(lang);
+    const response = await fetch(`./data/i18n/${lang}.json?v=${ASSET_VERSION}`);
+    if (!response.ok) {
+      throw new Error(`Failed to load translation catalog for ${lang}`);
     }
-  };
-
-  const applyBindingSet = (bindings) => {
-    bindings.forEach(([selector, key, mode]) => {
-      document.querySelectorAll(selector).forEach((node) => setNodeValue(node, key, mode));
-    });
-  };
-
-  const applyDataBindings = () => {
-    document.querySelectorAll("[data-i18n]").forEach((node) => setNodeValue(node, node.dataset.i18n));
-    document.querySelectorAll("[data-i18n-html]").forEach((node) => setNodeValue(node, node.dataset.i18nHtml, "html"));
-    document.querySelectorAll("[data-i18n-aria]").forEach((node) => setNodeValue(node, node.dataset.i18nAria, "aria-label"));
-    document.querySelectorAll("[data-i18n-alt]").forEach((node) => setNodeValue(node, node.dataset.i18nAlt, "alt"));
-  };
-
-  const applyMetadata = (page) => {
-    const title = t(`${page}.meta.title`);
-    const description = t(`${page}.meta.description`);
-    if (!title.endsWith(".title")) document.title = title;
-    document.querySelector('meta[name="description"]')?.setAttribute("content", description);
-    document.querySelector('meta[property="og:title"]')?.setAttribute("content", title);
-    document.querySelector('meta[property="og:description"]')?.setAttribute("content", description);
-  };
-
-  const applyTranslations = () => {
-    const page = document.body.dataset.page || "home";
-    applyBindingSet(COMMON_BINDINGS);
-    applyBindingSet(page === "publications" ? PUBLICATION_BINDINGS : HOME_BINDINGS);
-    applyDataBindings();
-    applyMetadata(page);
-    document.querySelectorAll("[data-language-select]").forEach((select) => {
-      select.value = currentLanguage;
-    });
-  };
-
-  const loadMessages = async (language) => {
-    if (messageCache.has(language)) return messageCache.get(language);
-    const response = await fetch(`./data/i18n/${language}.json?v=${ASSET_VERSION}`, {
-      cache: "no-store"
-    });
-    if (!response.ok) throw new Error(`Translation request failed: ${response.status}`);
     const data = await response.json();
-    messageCache.set(language, data);
+    catalogCache.set(lang, data);
+    if (lang === "en") englishCatalog = data;
     return data;
   };
 
-  const updateUrl = (language) => {
-    const url = new URL(window.location.href);
-    if (language === "en") {
-      url.searchParams.delete("lang");
-    } else {
-      url.searchParams.set("lang", language);
-    }
-    window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+  const t = (key, variables = {}) => {
+    const raw =
+      getPathValue(currentCatalog, key) ??
+      getPathValue(englishCatalog, key) ??
+      key;
+    if (typeof raw !== "string") return String(raw);
+    return interpolate(raw, variables);
   };
 
-  const setLanguage = async (language, options = {}) => {
-    const normalized = normalizeLanguage(language) || "en";
-    currentLanguage = normalized;
-    document.documentElement.lang = normalized === "zh" ? "zh-CN" : normalized;
-    document.documentElement.dir = RTL_LANGUAGES.has(normalized) ? "rtl" : "ltr";
-    document.documentElement.dataset.language = normalized;
-    if (RTL_LANGUAGES.has(normalized)) loadArabicFonts();
+  const applyTranslationsToDom = (lang) => {
+    const page = document.body?.dataset?.page || "home";
+    document.documentElement.lang = lang;
+    document.documentElement.dir = RTL_LANGUAGES.has(lang) ? "rtl" : "ltr";
+    document.documentElement.dataset.language = lang;
+    ensureArabicFonts(lang);
 
-    if (options.persist !== false) {
-      try {
-        window.localStorage.setItem(STORAGE_KEY, normalized);
-      } catch (_) {
-        // Language selection still works when storage is unavailable.
-      }
+    const metaTitle = getPathValue(currentCatalog, `meta.${page}.title`);
+    if (metaTitle) document.title = metaTitle;
+
+    const metaDesc = getPathValue(currentCatalog, `meta.${page}.description`);
+    if (metaDesc) {
+      const descEl = document.querySelector('meta[name="description"]');
+      if (descEl) descEl.setAttribute("content", metaDesc);
     }
-    if (options.updateUrl) updateUrl(normalized);
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      const val = getPathValue(currentCatalog, key);
+      if (typeof val === "string") el.textContent = val;
+    });
+
+    document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-html");
+      const val = getPathValue(currentCatalog, key);
+      if (typeof val === "string") el.innerHTML = val;
+    });
+
+    document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-aria");
+      const val = getPathValue(currentCatalog, key);
+      if (typeof val === "string") el.setAttribute("aria-label", val);
+    });
+
+    document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-alt");
+      const val = getPathValue(currentCatalog, key);
+      if (typeof val === "string") el.setAttribute("alt", val);
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-placeholder");
+      const val = getPathValue(currentCatalog, key);
+      if (typeof val === "string") el.setAttribute("placeholder", val);
+    });
+
+    document.querySelectorAll("[data-i18n-caption]").forEach((el) => {
+      const key = el.getAttribute("data-i18n-caption");
+      const val = getPathValue(currentCatalog, key);
+      if (typeof val === "string") el.setAttribute("data-lightbox-caption", val);
+    });
+
+    document.querySelectorAll("[data-language-select]").forEach((select) => {
+      select.value = lang;
+    });
+  };
+
+  const resolveInitialLanguage = () => {
+    const params = new URLSearchParams(window.location.search);
+    const fromQuery = normalizeLanguage(params.get("lang"));
+    if (fromQuery) return fromQuery;
 
     try {
-      messages = { ...DYNAMIC_FALLBACKS, ...(await loadMessages(normalized)) };
-    } catch (error) {
-      console.error(error);
-      if (normalized !== "en") {
-        try {
-          messages = { ...DYNAMIC_FALLBACKS, ...(await loadMessages("en")) };
-        } catch (fallbackError) {
-          console.error(fallbackError);
-          messages = { ...DYNAMIC_FALLBACKS };
-        }
+      const fromStorage = normalizeLanguage(window.localStorage.getItem(STORAGE_KEY));
+      if (fromStorage) return fromStorage;
+    } catch (_) {
+      // Ignore storage access errors in private contexts
+    }
+
+    return "en";
+  };
+
+  const setLanguage = async (lang, { persist = true, updateUrl = false } = {}) => {
+    const normalized = normalizeLanguage(lang) || "en";
+    if (!englishCatalog) {
+      try {
+        await loadCatalog("en");
+      } catch (_) {
+        // Fallback to inline DOM content if fetch unavailable
       }
     }
 
-    applyTranslations();
-    document.dispatchEvent(new CustomEvent("site:languagechange", { detail: { language: normalized } }));
-    return normalized;
-  };
-
-  const requestedLanguage = normalizeLanguage(new URLSearchParams(window.location.search).get("lang"));
-  let storedLanguage = null;
-  try {
-    storedLanguage = normalizeLanguage(window.localStorage.getItem(STORAGE_KEY));
-  } catch (_) {
-    storedLanguage = null;
-  }
-  const browserLanguage = (navigator.languages || [navigator.language]).map(normalizeLanguage).find(Boolean);
-  const initialLanguage = requestedLanguage || storedLanguage || browserLanguage || "en";
-
-  const api = {
-    t,
-    setLanguage,
-    get language() {
-      return currentLanguage;
-    },
-    get supportedLanguages() {
-      return [...SUPPORTED_LANGUAGES];
+    try {
+      currentCatalog = await loadCatalog(normalized);
+      currentLanguage = normalized;
+    } catch (_) {
+      currentCatalog = englishCatalog;
+      currentLanguage = "en";
     }
+
+    if (persist) {
+      try {
+        window.localStorage.setItem(STORAGE_KEY, currentLanguage);
+      } catch (_) {
+        // Ignore storage write failure
+      }
+    }
+
+    if (updateUrl && window.history?.replaceState) {
+      const url = new URL(window.location.href);
+      if (currentLanguage === "en") {
+        url.searchParams.delete("lang");
+      } else {
+        url.searchParams.set("lang", currentLanguage);
+      }
+      window.history.replaceState({}, "", url.toString());
+    }
+
+    applyTranslationsToDom(currentLanguage);
+    window.dispatchEvent(
+      new CustomEvent("site:languagechange", { detail: { language: currentLanguage } })
+    );
+    return currentLanguage;
   };
-  window.SiteI18n = api;
 
-  document.querySelectorAll("[data-language-select]").forEach((select) => {
-    select.addEventListener("change", (event) => {
-      setLanguage(event.target.value, { persist: true, updateUrl: true });
+  const initPromise = (async () => {
+    const initial = resolveInitialLanguage();
+    await setLanguage(initial, { persist: false, updateUrl: false });
+
+    document.querySelectorAll("[data-language-select]").forEach((select) => {
+      select.addEventListener("change", (event) => {
+        setLanguage(event.target.value, { persist: true, updateUrl: true });
+      });
     });
-  });
 
-  api.ready = setLanguage(initialLanguage, { persist: true, updateUrl: Boolean(requestedLanguage) });
+    return currentLanguage;
+  })();
+
+  window.SiteI18n = {
+    ASSET_VERSION,
+    SUPPORTED_LANGUAGES,
+    ready: initPromise,
+    t,
+    getLanguage: () => currentLanguage,
+    setLanguage
+  };
 })();

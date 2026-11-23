@@ -1,0 +1,14 @@
+{
+  "name": "wanglin-academic-homepage",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Lin Wang — Academic Homepage for Chemically Grounded AI & Molecular Discovery",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "build": "node --test scripts/site.test.mjs",
+    "lint": "node --check server.mjs assets/catalog-core.js assets/i18n.js assets/site.js scripts/site.test.mjs",
+    "test": "node --test scripts/site.test.mjs"
+  }
+}

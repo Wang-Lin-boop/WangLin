@@ -1,53 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" data-language="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="description" content="Lin Wang's publication record in structural bioinformatics and cheminformatics, protein-protein interaction modeling, protein-ligand modeling, and drug discovery.">
+    <meta name="theme-color" content="#fdfefe">
+    <meta name="description" content="Complete publication record of Lin Wang (王林), spanning molecular representation learning, protein–protein and RNA–ligand modeling, and computational drug discovery (2020–2026).">
     <meta name="author" content="Lin Wang">
     <link rel="canonical" href="https://wang-lin-boop.github.io/WangLin/publications.html">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Publications — Lin Wang">
-    <meta property="og:description" content="Research in structural bioinformatics and cheminformatics, protein-protein interaction modeling, protein-ligand modeling, and drug discovery.">
+    <meta property="og:title" content="Publications — Lin Wang (王林)">
+    <meta property="og:description" content="Complete peer-reviewed publication archive of Lin Wang (35 works, 2020–2026) with topic filters, search, and one-click BibTeX citations.">
     <meta property="og:url" content="https://wang-lin-boop.github.io/WangLin/publications.html">
-    <meta property="og:image" content="https://wang-lin-boop.github.io/WangLin/images/profile.png">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://wang-lin-boop.github.io/WangLin/images/og-card.png">
+    <meta name="twitter:card" content="summary_large_image">
 
     <title>Publications — Lin Wang</title>
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
     <link rel="manifest" href="./site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=STIX+Two+Text:opsz,wght@10..72,400;10..72,500;10..72,600&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/site.css?v=20261118-3">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Noto+Serif+SC:wght@500;600&amp;family=STIX+Two+Text:ital,opsz,wght@0,10..72,400..600;1,10..72,400..500&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/site.css?v=20261122-3">
   </head>
   <body data-page="publications">
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content" data-i18n="nav.skip">Skip to content</a>
 
     <header class="site-header" data-site-header>
       <div class="nav-shell">
         <a class="wordmark" href="./index.html" aria-label="Lin Wang, home">
-          <span>Lin Wang</span>
-          <span lang="zh">王林</span>
+          <span class="wordmark-en">Lin Wang</span>
+          <span class="wordmark-zh" lang="zh">王林</span>
         </a>
 
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>
-          <span>Menu</span>
-          <i aria-hidden="true"></i>
-        </button>
+        <nav id="primary-navigation" class="primary-nav" aria-label="Primary navigation" data-i18n-aria="nav.aria" data-primary-nav>
+          <a href="./index.html#research" data-i18n="nav.research">Research</a>
+          <a href="./index.html#work" data-i18n="nav.projects">Projects</a>
+          <a href="./publications.html" aria-current="page" data-i18n="nav.publications">Publications</a>
+          <a href="./index.html#community" data-i18n="nav.tools">Tools</a>
+          <a href="./index.html#background" data-i18n="nav.background">Background</a>
+          <a href="./index.html#contact" data-i18n="nav.contact">Contact</a>
+        </nav>
 
-        <nav id="primary-navigation" class="primary-nav" aria-label="Primary navigation" data-primary-nav>
-          <a href="./index.html#research">Research</a>
-          <a href="./index.html#work">Projects</a>
-          <a href="./publications.html" aria-current="page">Publications</a>
-          <a href="./index.html#community">Tools</a>
-          <a href="./index.html#news">News</a>
-          <a href="./index.html#contact">Contact</a>
+        <div class="header-actions">
           <label class="language-control">
-            <span class="sr-only">Language</span>
-            <select data-language-select aria-label="Language">
+            <span class="sr-only" data-i18n="nav.language">Language</span>
+            <select data-language-select aria-label="Language" data-i18n-aria="nav.language">
               <option value="en">English</option>
               <option value="zh">中文</option>
               <option value="ar">العربية</option>
@@ -56,74 +54,82 @@
               <option value="es">Español</option>
             </select>
           </label>
-        </nav>
+
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>
+            <span data-i18n="nav.menu">Menu</span>
+            <span class="nav-toggle-bars" aria-hidden="true"></span>
+          </button>
+        </div>
       </div>
     </header>
 
     <main id="main-content">
-      <header class="page-heading page-shell">
-        <p class="section-tag">Full record · 2020–2026</p>
-        <h1>Publications</h1>
-        <div class="page-heading-copy">
-          <p><span data-publication-count>35</span> journal articles and book chapters spanning structural bioinformatics and cheminformatics, protein-protein interaction modeling, protein-ligand modeling, and drug discovery.</p>
-          <a class="quiet-link" href="./data/publications.bib" download>Download BibTeX ↓</a>
-        </div>
-      </header>
-
-      <section class="publication-browser page-shell" aria-labelledby="publication-browser-title">
-        <h2 class="sr-only" id="publication-browser-title">Browse publications</h2>
-
-        <div class="publication-controls" role="group" aria-label="Publication filters">
-          <div class="filter-group" data-publication-filters>
-            <button class="filter-button is-active" type="button" data-publication-filter="all" aria-pressed="true">All</button>
-            <button class="filter-button" type="button" data-publication-filter="structural_bioinformatics" aria-pressed="false">Structural bioinformatics &amp; cheminformatics</button>
-            <button class="filter-button" type="button" data-publication-filter="ppi_modeling" aria-pressed="false">Protein-protein interaction modeling</button>
-            <button class="filter-button" type="button" data-publication-filter="protein_ligand_modeling" aria-pressed="false">Protein-ligand modeling</button>
-            <button class="filter-button" type="button" data-publication-filter="drug_discovery" aria-pressed="false">Drug discovery</button>
-          </div>
-
-          <label class="publication-search">
-            <span class="sr-only">Search publications</span>
-            <span aria-hidden="true">⌕</span>
-            <input type="search" placeholder="Search title, author, or journal" autocomplete="off" data-publication-search>
-          </label>
-        </div>
-
-        <div class="publication-meta-row">
-          <p class="publication-status" data-publication-status aria-live="polite">Loading publication record…</p>
-          <label class="role-toggle">
-            <input type="checkbox" data-publication-role>
-            <span data-i18n="record.roleToggle">First, co-first &amp; co-corresponding only</span>
-          </label>
-        </div>
-        <p class="publication-legend" data-i18n-html="publications.legend"><strong>Lin Wang</strong> is highlighted on first-author papers; <b>#</b> co-first author; <b>*</b> co-corresponding author.</p>
-
-        <div class="publication-layout">
-          <aside class="year-rail" aria-label="Publication years">
-            <p class="metadata-label">Jump to year</p>
-            <nav aria-label="Jump to publication year" data-year-navigation></nav>
-          </aside>
-
-          <div class="publication-list publication-list-full" data-publication-list>
-            <p class="loading-note">Loading publication record…</p>
+      <section class="page-heading" aria-labelledby="archive-title">
+        <div class="page-shell">
+          <p class="section-eyebrow" data-i18n="publications.eyebrow">Complete Record · 2020–2026</p>
+          <h1 id="archive-title" data-i18n="publications.title">Publications</h1>
+          <div class="page-heading-copy">
+            <p data-i18n="publications.subtitle">Peer-reviewed articles, preprints, and book chapters across chemically informed molecular representation, structural interaction modeling, and drug discovery.</p>
+            <div class="inline-resource-links">
+              <a href="https://scholar.google.com/citations?user=lFYS_EQAAAAJ" target="_blank" rel="noreferrer">Google Scholar ↗</a>
+              <a href="https://orcid.org/0000-0003-2482-7638" target="_blank" rel="noreferrer">ORCID ↗</a>
+              <a href="./data/publications.bib" target="_blank" rel="noreferrer" data-i18n="publications.downloadBib">BibTeX (.bib) ↗</a>
+            </div>
           </div>
         </div>
+      </section>
 
-        <noscript>
-          <p class="noscript-note">JavaScript is required for the searchable list. The complete record remains available as <a href="./data/publications.bib">BibTeX</a> or on <a href="https://scholar.google.com/citations?user=lFYS_EQAAAAJ">Google Scholar</a>.</p>
-        </noscript>
+      <section class="publication-browser" aria-label="Publication archive browser">
+        <div class="page-shell">
+          <div class="publication-controls">
+            <div class="filter-group" role="group" aria-label="Filter by topic">
+              <button class="filter-button is-active" type="button" aria-pressed="true" data-topic-filter="all" data-i18n="topics.all">All topics</button>
+              <button class="filter-button" type="button" aria-pressed="false" data-topic-filter="protein_ligand_modeling" data-i18n="topics.proteinLigandModeling">Molecular &amp; Ligand Modeling</button>
+              <button class="filter-button" type="button" aria-pressed="false" data-topic-filter="ppi_modeling" data-i18n="topics.ppiModeling">PPI &amp; Molecular Glues</button>
+              <button class="filter-button" type="button" aria-pressed="false" data-topic-filter="structural_bioinformatics" data-i18n="topics.structuralBioinformatics">Structural Bioinformatics</button>
+              <button class="filter-button" type="button" aria-pressed="false" data-topic-filter="drug_discovery" data-i18n="topics.drugDiscovery">Drug Discovery</button>
+            </div>
+
+            <label class="publication-search">
+              <span class="sr-only" data-i18n="publications.searchLabel">Search publications</span>
+              <span aria-hidden="true">⌕</span>
+              <input type="search" placeholder="Search title, author, journal, DOI…" data-i18n-placeholder="publications.searchPlaceholder" data-publication-search>
+            </label>
+          </div>
+
+          <div class="publication-meta-row">
+            <p class="publication-status" data-publication-status aria-live="polite">Showing 35 of 35 publications</p>
+            <label class="role-toggle">
+              <input type="checkbox" data-key-only-toggle>
+              <span data-i18n="publications.keyOnly">First, co-first (#), or co-corresponding (*) only (15)</span>
+            </label>
+          </div>
+
+          <p class="publication-legend" data-i18n-html="publications.legend"><strong>Lin Wang</strong> is bolded on first-author, co-first (<b>#</b>), and co-corresponding (<b>*</b>) works.</p>
+
+          <div class="publication-layout">
+            <aside class="year-rail" aria-label="Jump to year">
+              <p class="year-rail-label" data-i18n="publications.yearsLabel">Years</p>
+              <nav data-year-rail></nav>
+            </aside>
+
+            <div class="publication-list publication-list-full" data-full-publications>
+              <p class="loading-note" data-i18n="publications.loading">Loading publications…</p>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="page-shell">
-        <p>© <span data-current-year>2026</span> Lin Wang</p>
-        <p>Computational methods for molecular and drug discovery.</p>
-        <a href="#main-content">Back to top ↑</a>
+        <p data-i18n="footer.copyright">© 2026 Lin Wang (王林) · Institute of Systems Medicine, CAMS</p>
+        <p><a href="./index.html" data-i18n="footer.home">Back to Home</a> · <a href="https://github.com/Wang-Lin-boop" target="_blank" rel="noreferrer">GitHub</a> · <a href="mailto:Wanglin1102@outlook.com">Wanglin1102@outlook.com</a></p>
       </div>
     </footer>
 
-    <script src="./assets/i18n.js?v=20261118-3" defer></script>
-    <script src="./assets/site.js?v=20261118-3" defer></script>
+    <script src="./assets/catalog-core.js?v=20261122-3"></script>
+    <script src="./assets/i18n.js?v=20261122-3"></script>
+    <script src="./assets/site.js?v=20261122-3"></script>
   </body>
 </html>
