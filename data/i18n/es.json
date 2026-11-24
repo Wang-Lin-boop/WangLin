@@ -215,7 +215,7 @@
       "conformersDesc": "Benchmark integral que evalúa modelos generativos profundos para capturar la diversidad y plausibilidad física de conformaciones proteicas.",
       "hurTitle": "Degradadores de pegamento molecular para HuR",
       "hurDesc": "Descubrimiento y caracterización estructural-mecanística de degradadores de pegamento molecular dirigidos a HuR para suprimir el cáncer colorrectal con mutación BRAF.",
-      "phenomodelDesc": "Modelo fundacional fenotípico multimodal que alinea estructura molecular con morfología celular y transcriptómica para descubrir nuevos inhibidores anticancerígenos.",
+      "phenomodelDesc": "Modelo multimodal que alinea las estructuras moleculares con imágenes de Cell Painting para apoyar el cribado fenotípico de compuestos activos frente a líneas celulares cancerosas.",
       "ho1Title": "Sonda fluorescente en células vivas para HO-1",
       "ho1Desc": "Diseño guiado por estructura y modelado computacional de una sonda fluorescente independiente de NADPH para imagen selectiva de HO-1 en células vivas.",
       "mcr3Title": "Costos de aptitud de la resistencia MCR-3",

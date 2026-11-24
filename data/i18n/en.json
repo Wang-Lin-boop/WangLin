@@ -215,7 +215,7 @@
       "conformersDesc": "Comprehensive benchmark systematically evaluating deep generative models on capturing multi-state protein conformational landscape diversity and physical plausibility.",
       "hurTitle": "HuR Molecular Glue Degraders",
       "hurDesc": "Discovery and structural-mechanistic characterization of small-molecule molecular glue degraders targeting the RNA-binding protein HuR to suppress BRAF-mutant colorectal cancer.",
-      "phenomodelDesc": "Multimodal phenotypic drug design foundation model aligning molecular structure with cell-painting morphology and transcriptomic signatures to discover novel cancer-cell inhibitors.",
+      "phenomodelDesc": "A multimodal model that aligns molecular structures with Cell Painting images to support phenotypic screening for compounds active against cancer cell lines.",
       "ho1Title": "HO-1 Live-Cell Fluorescent Probe",
       "ho1Desc": "Structure-guided design and computational modeling of an NADPH-independent fluorescent chemical probe enabling selective live-cell imaging of heme oxygenase-1 (HO-1).",
       "mcr3Title": "MCR-3 Colistin Resistance Fitness Costs",

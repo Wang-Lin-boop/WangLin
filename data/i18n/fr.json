@@ -215,7 +215,7 @@
       "conformersDesc": "Benchmark évaluant les modèles génératifs profonds sur la diversité et la plausibilité physique des paysages conformationnels protéiques multi-états.",
       "hurTitle": "Dégradeurs colle moléculaire ciblant HuR",
       "hurDesc": "Découverte et caractérisation mécanistique de dégradeurs par colle moléculaire ciblant la protéine de liaison à l'ARN HuR pour supprimer le cancer colorectal muté BRAF.",
-      "phenomodelDesc": "Modèle de fondation phénotypique multimodal alignant structure moléculaire, morphologie cellulaire et transcriptomique pour découvrir de nouveaux inhibiteurs anticancéreux.",
+      "phenomodelDesc": "Modèle multimodal qui aligne les structures moléculaires sur des images de Cell Painting pour faciliter le criblage phénotypique de composés actifs sur des lignées cellulaires cancéreuses.",
       "ho1Title": "Sonde fluorescente cellulaire HO-1",
       "ho1Desc": "Conception guidée par la structure et modélisation d'une sonde fluorescente indépendante du NADPH pour l'imagerie sélective de l'hème oxygénase-1 (HO-1) en cellules vivantes.",
       "mcr3Title": "Coûts de fitness de la résistance MCR-3",
